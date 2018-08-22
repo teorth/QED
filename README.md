@@ -2,9 +2,9 @@
 Repository for the QED interactive text and possible extensions
 
 
-This project was initially created by Terence Tao and released on July 28, 2018 at http://www.math.ucla.edu/~tao/QED/QED.html .  On Aug 21, 2018, the project was uploaded to github in order to open up the project to other coders.   
+This project was initially created by Terence Tao and released on July 28, 2018 at http://www.math.ucla.edu/~tao/QED/QED.html .  On Aug 21, 2018, the project was uploaded to github in order to open up the project to other coders.
 
-The original code is stored in the folder "Original interactive text".  It consists of three main files:
+The original code is stored in the folder "docs".  It consists of three main files:
 
 QED.html - the web page for the text.  Consists mainly of CSS styling, loading of the javascript elements from the other two files, and listing the exercises, notes, and solutions of the text.
 
