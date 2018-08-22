@@ -1,8 +1,24 @@
+// polyfill the Array includes method (which is not supported in IE)
+
+if (!Array.prototype.includes) {
+  Object.defineProperty(Array.prototype, "includes", {
+    enumerable: false,
+    value: function(obj) {
+        var newArr = this.filter(function(el) {
+          return el == obj;
+        });
+        return newArr.length > 0;
+      }
+  });
+}
+
+
+
 /// Global variables
 
-sentences = [];  // sentences[name] is a sentence/term attached to a name string; easier to populate this dynamically than to create a general string to sentence/term parser.
-unlockedLaws = [];
-numLaws = 0;  // used to give each law a numerical index with which to detect circularity
+var sentences = [];  // sentences[name] is a sentence/term attached to a name string; easier to populate this dynamically than to create a general string to sentence/term parser.
+var unlockedLaws = [];
+var allLaws = [];  // list of all Laws
 
 // convert a list of sentences, boxes, or contexts to a string
 function listToString(list) {
@@ -218,6 +234,63 @@ function Predicate( name, arity, relationStyle )
 // we have one special predicate: the equality relation
 var equality = new Predicate("=", 2, true);
 
+// some other predicates, terms, sentences
+
+ var x = new FreeVariable("x");
+ var y = new FreeVariable("y");
+ var z = new FreeVariable("z");
+
+ var P = new Predicate("P", 1, false);
+ var Q = new Predicate("Q", 1, false);
+ var R = new Predicate("R", 1, false);
+ var P2 = new Predicate("P", 2, false);
+ var Q2 = new Predicate("Q", 2, false);
+ var R2 = new Predicate("R", 2, false);
+ var P3 = new Predicate("P", 3, false);
+ var Q3 = new Predicate("Q", 3, false);
+ var R3 = new Predicate("R", 3, false);
+ var gt = new Predicate(">", 2, true);
+ var lt = new Predicate("<", 2, true);
+
+
+ var f = new Operator("f", 1, false);
+ var plus = new Operator("+", 2, true);
+ var times = new Operator("*", 2, true);
+
+ var X = new BoundVariable("X");
+ var Y = new BoundVariable("Y");
+ var Z = new BoundVariable("Z");
+
+var alpha = primitiveTerm("&alpha;");
+var beta = primitiveTerm("&beta;");
+var gamma = primitiveTerm("&gamma;");
+
+var Px = predicateSentence(P,[x]);
+var Qx = predicateSentence(Q,[x]);
+var Rx = predicateSentence(R,[x]);
+var Qy = predicateSentence(Q,[y]);
+var PX = predicateSentence(P,[X]);
+var PY = predicateSentence(P,[Y]);
+var QX = predicateSentence(Q,[X]);
+var QY = predicateSentence(Q,[Y]);
+var RX = predicateSentence(R,[X]);
+var Pa = predicateSentence(P,[alpha]);
+var Pb = predicateSentence(P,[alpha]);
+var Qa = predicateSentence(Q,[alpha]);
+var Qxy = predicateSentence(Q2,[x,y]);
+var QXY = predicateSentence(Q2,[X,Y]);
+var Qaa = predicateSentence(Q2,[alpha,alpha]);
+var QXa = predicateSentence(Q2,[X,alpha]);
+var QaX = predicateSentence(Q2,[alpha,X]);
+var gtXY = predicateSentence(gt, [X,Y]);
+var PXplusY = predicateSentence(P, [operatorTerm(plus, [X,Y])]);
+
+var fa = operatorTerm(f, [alpha]);
+var fb = operatorTerm(f, [beta]);
+
+
+
+
 // the sentence x=y
 
 function equals(x,y) {
@@ -396,10 +469,16 @@ function toSentence(obj) {
 }
 
 
+//some atomic sentences
+
+ var A = atomicSentence("A");
+ var B = atomicSentence("B");
+ var C = atomicSentence("C");
+ var D = atomicSentence("D");
+
 // Law object
 
 function Law(name, givens, conclusion) {
-    numLaws++;
     this.name = name;   // name of law, e.g. "EXERCISE 1"
 
 // givens is an array of given hypotheses (can be empty).  I allow sentences as givens, so these need to be converted to contexts.
@@ -413,12 +492,10 @@ function Law(name, givens, conclusion) {
     this.unlocked = false;         // by default the law is not unlocked
     this.string = deductionString("Given", givens, this.conclusion);
     this.desc = "<I>"+name+"</I>: " + this.string;
-    this.index = numLaws;  // the order in which the law was unlocked (used to determine circularity)
+    this.index = allLaws.length;  // the order of the law in the text (used to determine circularity) - the allLaws.length is a placeholder, will be overwritten
     this.clone = "";  // points to the clone of the law with additional root environment, if needed
 
-    if (localStorage)
-        if (localStorage.getItem("law " + this.name) != null)
-            unlock(this, localStorage.getItem("law " + this.name));
+	allLaws.push(this);
 
     if (allFormulas(this.givens)) {
         if (this.conclusion.type == 'sentence in environment' || this.conclusion.type == 'environment') {
@@ -428,6 +505,24 @@ function Law(name, givens, conclusion) {
         }
     }    
 }
+
+
+
+// all the laws that require special treatment in the matching algorithm
+
+var universalIntroduction = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x),toTerm(X)], forAll(PX,X));
+var universalIntroduction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X));
+
+var universalSpecification = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</A>', [forAll(PX,X), alpha], Pa);
+var universalSpecification2 = new Law('REVERSE <A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [forAll(PX,X), toTerm(x)], assuming(Px,x))
+
+var existentialInstantiation = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X), toTerm(x)], assuming(Px, settingAssumption(Px,x)));
+var existentialInstantiation2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X)], assuming(Px, settingAssumption(Px,x)));
+
+var existentialIntroduction = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha], thereExists(PX,X));
+var existentialIntroduction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha, X], thereExists(PX,X));
+
+var indiscernability = new Law('<A HREF="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">INDISCERNABILITY OF IDENTICALS</A>', [Pa, equals(alpha,beta)], Pb);
 
 // add  (name of) expr to list if not already there
 

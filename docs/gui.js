@@ -4,6 +4,7 @@ var exerciseButtons = [];
 var lastClickedButton = "";   // this will be updated to the last deduction button one clicked; prevents double clicking from doing anything
 var revealTrueFalse = false;  // do we populate the formula window with true and false?
 var sectionTitle = "";  // name of last section to be created
+var numIndexedLaws = 0;  // number of laws that have been properly assigned an index
 
 /////// CREATING AND UPDATING HTML ELEMENTS /////////////
 
@@ -697,7 +698,7 @@ function createOperatorsWindow() {
 
 
 
-// if previous session unlocked formula window, true/false, and/or term window, reveal it
+// if previous session unlocked formula window, true/false, and/or term window, reveal it; also unlock all laws already unlocked
 function checkForUnlocks() {
     if (localStorage) {
         if (localStorage.getItem("formula window") == "unlocked") reveal("formula window");
@@ -710,6 +711,12 @@ function checkForUnlocks() {
         if (localStorage.getItem("term window") == "unlocked") reveal("term window");
         if (localStorage.getItem("operators window") == "unlocked") reveal("operators window");
         if (localStorage.getItem("bound variable button") == "unlocked") reveal("bound variable button");
+
+		allLaws.forEach( function( law ) {
+	        if (localStorage.getItem("law " + law.name) != null)
+		        unlock(law, localStorage.getItem("law " + law.name));
+		});
+
   }
 }
 
@@ -981,9 +988,8 @@ function deduce(conclusion, justification, law) {
 function createExerciseButtonBox() {
     var box = getElement("exercise button box");
 
-    var subnode = document.createElement("DIV");
-    subnode.id = "exercise button subbox";
-
+    var subnode = getElement("exercise button subbox");
+	
     var button = newCollapseButton(subnode, false);
 
     box.appendChild(button);
@@ -1133,6 +1139,28 @@ function appendToDeductions(output, justification, law) {
     }
 }
 
+
+
+
+// unlock a law, make it available for use in future deductions
+
+function unlock(law, text) {
+    if (law.unlocked) return;  // prevent duplicate unlocking
+    law.unlocked = true;
+    unlockedLaws.push(law);
+    achieve("<B>" + text + "</B> " + law.desc);
+    if (localStorage)
+        localStorage.setItem("law " + law.name, text);
+
+    // If the law has no environment but produces a conclusion in the root environment, add a version of the law in which the environment is relative.
+
+    if (law.clone != "")
+    {
+        unlock(law.clone, text);
+    }
+}
+
+
 // append a single conclusion to the deductions list with justification "justification" and law name "name".  If "illegal", silver out the deduction
 
 function appendConclusion(conclusion, justification, illegal, name, law) {
@@ -1171,34 +1199,24 @@ function appendConclusion(conclusion, justification, illegal, name, law) {
 
 
 
-// unlock a law, make it available for use in future deductions
-
-function unlock(law, text) {
-    if (law.unlocked) return;  // prevent duplicate unlocking
-    law.unlocked = true;
-    unlockedLaws.push(law);
-    achieve("<B>" + text + "</B> " + law.desc);
-    if (localStorage)
-        localStorage.setItem("law " + law.name, text);
-
-    // If the law has no environment but produces a conclusion in the root environment, add a version of the law in which the environment is relative.
-
-    if (law.clone != "")
-    {
-        unlock(law.clone, text);
-    }
-}
-
 // Exercise object
 
 function Exercise(shortName, lawName, givens, conclusion, bestLength) {
     this.shortName = shortName;
     this.name = "EXERCISE " + this.shortName;
 
-    if (lawName == "")
-        lawName = this.name;
+	if (lawName instanceof Law)  {  // allow for an exercise to prove a law that was already constructed (this is needed for Exercise 18.2(b))
+		this.law = lawName;
+	}
+	else {
+	    if (lawName == "")
+		    lawName = this.name;
+	    this.law = new Law(lawName,givens,conclusion);	
+	}
 
-    this.law = new Law(lawName,givens,conclusion);
+	this.law.index = numIndexedLaws;
+	numIndexedLaws++;
+
 
     this.newLaws = []; // an array of laws unlocked when exercise is attempted(can be empty)
     this.newExercises = [];  // an array of exercises unlocked when exercise is completed (empty by default)
@@ -1218,6 +1236,9 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
 
     this.unlocks = function( law ) {
         this.newLaws.push(law);
+		law.index = this.law.index;
+		this.law.index++;    // in order for this code to work, the unlocks() command should be used before introducing any additional exercise.
+		numIndexedLaws++;
     };
 
     this.button = createExerciseButton(this);

@@ -100,7 +100,7 @@ tr:nth-child(even) {
 </header>
 
 
-<div class="clearfix" id="exercise button box"><b>Sections and exercises</b></div>
+<div class="clearfix" id="exercise button box"><b>Sections and exercises</b><div id="exercise button subbox"></div></div>
 <br>
 <div class="clearfix" id="exercise"><UL>
     <LI> Welcome to QED, a short interactive text in <A HREF="https://en.wikipedia.org/wiki/Propositional_calculus" target="_blank">propositional logic</A> arranged in the format of a computer game.  </LI>
@@ -131,8 +131,9 @@ tr:nth-child(even) {
 <button id="reset button">RESET QED</button>
 
 <p></p>
-    <H4 id="version header"> The current version is 2.0.2.</H4>
+    <H4 id="version header"> The current version is 2.0.3.</H4>
     <UL id="version notes">
+		<LI> Version 2.0.3 (released Aug 22, 2018)  Minified CSS.  Some code moved from QED.html file to logic.js file (and some moved from logic.js to gui.js) to make the latter stand-alone.
         <LI> Version 2.0.2 (released Aug 21, 2018)  Code moved to Github, now under an MIT license. </LI>
         <LI> Version 2.0.1 (released Aug 20, 2018)  Meta-key now has same functionality as CTRL-key (for Mac users).  (Thanks to Jacob H. for the suggestion.)</LI>
         <LI> Version 2.0 (released Aug 18, 2018)  Cleaned up version of Version 1.17, hopefully stable release.</LI>
@@ -178,11 +179,6 @@ tr:nth-child(even) {
         <LI> Version 1.0 (released July 28, 2018).  Beta release.</LI>
 </UL>
 
-
-<script>
-    var button = newCollapseButton(getElement("version notes"), false);
-    getElement("version header").appendChild(button);
-</script>
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
 <P>
 </P>
@@ -208,28 +204,9 @@ Further discussion this text may be found at <A HREF="https://terrytao.wordpress
  createUndoButton();
  createRestartButton();
  createResetButton();
-
- checkForUnlocks();
+ getElement("version header").appendChild(newCollapseButton(getElement("version notes"), false));
  document.body.setAttribute("onkeydown", "keydown(event)");
 
-
- var A = atomicSentence("A");
- var B = atomicSentence("B");
- var C = atomicSentence("C");
- var D = atomicSentence("D");
-
-// polyfill the Array includes method (which is not supported in IE)
-if (!Array.prototype.includes) {
-  Object.defineProperty(Array.prototype, "includes", {
-    enumerable: false,
-    value: function(obj) {
-        var newArr = this.filter(function(el) {
-          return el == obj;
-        });
-        return newArr.length > 0;
-      }
-  });
-}
 
  newSection("1", "Conjunction introduction");
 
@@ -678,58 +655,6 @@ Exercise133d.proof = '<li><span>Deduce <em>A</em> IMPLIES FALSE [assuming <em>A<
 
 newSection("14", "Free variables");
 
- var x = new FreeVariable("x");
- var y = new FreeVariable("y");
- var z = new FreeVariable("z");
-
- var P = new Predicate("P", 1, false);
- var Q = new Predicate("Q", 1, false);
- var R = new Predicate("R", 1, false);
- var P2 = new Predicate("P", 2, false);
- var Q2 = new Predicate("Q", 2, false);
- var R2 = new Predicate("R", 2, false);
- var P3 = new Predicate("P", 3, false);
- var Q3 = new Predicate("Q", 3, false);
- var R3 = new Predicate("R", 3, false);
- var gt = new Predicate(">", 2, true);
- var lt = new Predicate("<", 2, true);
-
-
- var f = new Operator("f", 1, false);
- var plus = new Operator("+", 2, true);
- var times = new Operator("*", 2, true);
-
- var X = new BoundVariable("X");
- var Y = new BoundVariable("Y");
- var Z = new BoundVariable("Z");
-
-var alpha = primitiveTerm("&alpha;");
-var beta = primitiveTerm("&beta;");
-var gamma = primitiveTerm("&gamma;");
-
-var Px = predicateSentence(P,[x]);
-var Qx = predicateSentence(Q,[x]);
-var Rx = predicateSentence(R,[x]);
-var Qy = predicateSentence(Q,[y]);
-var PX = predicateSentence(P,[X]);
-var PY = predicateSentence(P,[Y]);
-var QX = predicateSentence(Q,[X]);
-var QY = predicateSentence(Q,[Y]);
-var RX = predicateSentence(R,[X]);
-var Pa = predicateSentence(P,[alpha]);
-var Pb = predicateSentence(P,[alpha]);
-var Qa = predicateSentence(Q,[alpha]);
-var Qxy = predicateSentence(Q2,[x,y]);
-var QXY = predicateSentence(Q2,[X,Y]);
-var Qaa = predicateSentence(Q2,[alpha,alpha]);
-var QXa = predicateSentence(Q2,[X,alpha]);
-var QaX = predicateSentence(Q2,[alpha,X]);
-var gtXY = predicateSentence(gt, [X,Y]);
-var PXplusY = predicateSentence(P, [operatorTerm(plus, [X,Y])]);
-
-var fa = operatorTerm(f, [alpha]);
-var fb = operatorTerm(f, [beta]);
-
 
 var Exercise141 = new Exercise("14.1", "", [assuming(Px,x)], assuming(IMPLIES(Qx,AND(Px,Qx)),x), 6);
 Exercise141.unlockedBy(Exercise131);
@@ -769,8 +694,6 @@ Exercise161.proof = '<li><span>Form environment [letting <i>x</i> be arbitrary].
 
 newSection("17", "Universal quantification");
 
-var universalIntroduction = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x),toTerm(X)], forAll(PX,X));
-var universalIntroduction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X));
 var forAllLaw = new Law("FOR ALL", [formulaContext(A), toTerm(X)], formulaContext(forAll(A,X)));
 var Exercise171 = new Exercise("17.1", "", [formulaContext(Px)], forAll(IMPLIES(PX,PX),X), 4);
 Exercise171.unlockedBy(Exercise161);
@@ -788,23 +711,21 @@ Exercise172.proof = '<li><span>Deduce (FOR ALL <i>X</i>: (FOR ALL <i>Y</i>: <i>Q
 
 newSection("18", "Universal specification");
 
-var universalSpecification = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</A>', [forAll(PX,X), alpha], Pa);
 
 var Exercise181 = new Exercise("18.1", "RENAMING BOUND VARIABLE (universal)", [forAll(PX,X)], forAll(PY,Y), 6);
 Exercise181.unlocks(universalSpecification);
 Exercise181.unlockedBy(Exercise171);
-Exercise181.notes = '<UL><LI>There is a reverse to the law of universal introduction, known as the law of <A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">universal specification</A>.  It asserts that if FOR ALL <I>X</I>: <I>P(X)</I> is true, and <I>&alpha;</I> is a term which is <I>well-defined</I> in the sense that it does not involve bound variables or free variables not present in the environment, then <I>P(&alpha;)</I> is also true.</LI> <LI> Here, <I>X</I> is a bound variable, <I>P(X)</I> is any statement that can involve the variable <I>X</I>.</LI> <LI> At present, the only terms you have seen are free variables and bound variables, so the law can only be currently applied to free variables <I>&alpha;</I>.  However, some further examples of terms will be introduced later.</LI> <LI> As with all other laws, this law is only applicable if the conclusion <I>P(&alpha;)</I> is <A HREF="https://en.wikipedia.org/wiki/Well-formed_formula" target="_blank">well-formed</A>: in particular, the statement <I>P(&alpha;)</I> cannot use free variables that are not present in the environment, nor can it have nested quantifiers involving the same bound variable.</LI> <LI> The law of universal specification can fail if one permits <I>&alpha;</I> to contain bound variables.  For instance, using the natural numbers as the domain of discourse, the sentence "FOR ALL <I>X</I>: THERE EXISTS <I>Y</I>: <I>Y</I>=<I>X</I>+1" is true (every natural number has a successor), but one cannot specify <I>X</I> to equal <I>Y</I> to conclude the (incorrect) statement THERE EXISTS <I>Y</I>: <I>Y</I>=<I>Y</I>+1.  However, if <I>y</I> is an ambient free variable in the current environment, one may specify <I>X</I> to equal <I>y</I> and conclude THERE EXISTS <I>Y</I>: <I>Y</I>=<I>y</I>+1.  <LI> To use the law of universal instantiation, drag a sentence of the form FOR ALL <I>X</I>: <I>P(X)</I> to a term <I>&alpha;</I> or vice versa.</LI><LI> Note that currently the law does not work in the <B>Root environment</B>, because the unquantified bound variables <I>X,Y</I> cannot be used in this environment; similarly for any further free and bound variables one creates.  How would one get around this problem?</UL>';
+Exercise181.notes = '<UL><LI>There is a reverse to the law of universal introduction, known as the law of <A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">universal specification</A>.  It asserts that if FOR ALL <I>X</I>: <I>P(X)</I> is true, and <I>&alpha;</I> is a term which is <I>well-defined</I> in the sense that it does not involve bound variables or free variables not present in the environment, then <I>P(&alpha;)</I> is also true.</LI> <LI> Here, <I>X</I> is a bound variable, <I>P(X)</I> is any statement that can involve the variable <I>X</I>.</LI> <LI> At present, the only terms you have seen are free variables and bound variables, so the law can only be currently applied to free variables <I>&alpha;</I>.  However, some further examples of terms will be introduced later.</LI> <LI> As with all other laws, this law is only applicable if the conclusion <I>P(&alpha;)</I> is <A HREF="https://en.wikipedia.org/wiki/Well-formed_formula" target="_blank">well-formed</A>: in particular, the statement <I>P(&alpha;)</I> cannot use free variables that are not present in the environment, nor can it have nested quantifiers involving the same bound variable.</LI> <LI> The law of universal specification can fail if one permits <I>&alpha;</I> to contain bound variables.  For instance, using the natural numbers as the domain of discourse, the sentence "FOR ALL <I>X</I>: THERE EXISTS <I>Y</I>: <I>Y</I>=<I>X</I>+1" is true (every natural number has a successor), but one cannot specify <I>X</I> to equal <I>Y</I> to conclude the (incorrect) statement THERE EXISTS <I>Y</I>: <I>Y</I>=<I>Y</I>+1.  However, if <I>y</I> is an ambient free variable in the current environment, one may specify <I>X</I> to equal <I>y</I> and conclude THERE EXISTS <I>Y</I>: <I>Y</I>=<I>y</I>+1.  <LI> To use the law of universal specification, drag a sentence of the form FOR ALL <I>X</I>: <I>P(X)</I> to a term <I>&alpha;</I> or vice versa.</LI><LI> Note that currently the law does not work in the <B>Root environment</B>, because the unquantified bound variables <I>X,Y</I> cannot be used in this environment; similarly for any further free and bound variables one creates.  How would one get around this problem?</UL>';
 Exercise181.proof = '<li><span>FOR ALL <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li><li><span>Form environment [letting <i>x</i> be arbitrary]. <i>[FREE VARIABLE INTRODUCTION]</i></span></li><li><span>From FOR ALL <i>X</i>: <i>P</i>(<i>X</i>): deduce FOR ALL <i>X</i>: <i>P</i>(<i>X</i>) [letting <i>x</i> be arbitrary]. <i>[PUSH (for free variables)]</i></span></li><li><span>From FOR ALL <i>X</i>: <i>P</i>(<i>X</i>) [letting <i>x</i> be arbitrary]: deduce <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]. <i>[<a href="" target="_blank">UNIVERSAL SPECIFICATION</a>]</i></span></li><li><span>From <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>Y</i>: <i>P</i>(<i>Y</i>). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li><li><span>QED!</span></li>';
 
 var Exercise182 = new Exercise("18.2(a)", "", [A, toTerm(X)], forAll(A,X), 5);
 Exercise182.unlockedBy(Exercise181);
 Exercise182.proof = '<li><span><em>A</em>. <i>[given]</i></span></li><li><span>Form environment [letting <i>x</i> be arbitrary]. <i>[FREE VARIABLE INTRODUCTION]</i></span></li><li><span>From <em>A</em>: deduce <em>A</em> [letting <i>x</i> be arbitrary]. <i>[PUSH (for free variables)]</i></span></li><li><span>From <em>A</em> [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li><li><span>QED!</span></li>';
 
-var Exercise182b = new Exercise("18.2(b)", 'REVERSE <A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [forAll(PX,X), toTerm(x)], assuming(Px,x), 5);
+var Exercise182b = new Exercise("18.2(b)", universalSpecification2, null, null, 5);
 Exercise182b.unlockedBy(Exercise181);
 Exercise182b.notes = '<UL><LI> This exercise, which reverses the universal introduction law from Section 17, will be helpful in some later exercises. (As such, it has been added to the matching code by hand, even though matching for general rules involving predicates have not yet been implemented.)</LI><LI> To use it, drag a statement of the form FOR ALL <I>X</I>: <I>P(X)</I> onto a free variable term such as <I>x</I> (or vice versa).</LI></UL>';
 Exercise182b.proof = '<li><span>FOR ALL <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li><li><span>Form environment [letting <i>x</i> be arbitrary]. <i>[FREE VARIABLE INTRODUCTION]</i></span></li><li><span>From FOR ALL <i>X</i>: <i>P</i>(<i>X</i>): deduce FOR ALL <i>X</i>: <i>P</i>(<i>X</i>) [letting <i>x</i> be arbitrary]. <i>[PUSH (for free variables)]</i></span></li><li><span>From FOR ALL <i>X</i>: <i>P</i>(<i>X</i>) [letting <i>x</i> be arbitrary]: deduce <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</a>]</i></span></li><li><span>QED! (again)</span></li>';
-var universalSpecification2 = Exercise182b.law;
 
 var Exercise183 = new Exercise("18.3(a)", "BARBARA SYLLOGISM (singular form)", [forAll(IMPLIES(PX,QX),X), Pa], Qa, 5);
 Exercise183.unlockedBy(Exercise181);
@@ -834,8 +755,6 @@ Exercise186.proof = '<li><span>Deduce <em>A</em> IMPLIES (FOR ALL <i>X</i>: <i>P
 
 newSection("19", "Existential quantification");
 
-var existentialInstantiation = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X), toTerm(x)], assuming(Px, settingAssumption(Px,x)));
-var existentialInstantiation2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X)], assuming(Px, settingAssumption(Px,x)));
 var thereExistsLaw = new Law("THERE EXISTS", [formulaContext(A), toTerm(X)], formulaContext(thereExists(A,X)));
 var PushSet = new Law("PUSH (for set variables)", [A, settingAssumption(B,x)], assuming(A, settingAssumption(B,x)));
 
@@ -885,8 +804,6 @@ Exercise211.proof = '<li><span><em>A</em> [letting <i>x</i> be arbitrary]. <i>[g
 
 newSection("22", "Existential introduction");
 
-var existentialIntroduction = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha], thereExists(PX,X));
-var existentialIntroduction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha, X], thereExists(PX,X));
 var Exercise221 = new Exercise("22.1", "", [Qaa], thereExists(AND(QaX,QXa),X), 4);
 Exercise221.unlocks(existentialIntroduction);
 Exercise221.unlocks(existentialIntroduction2);
@@ -996,7 +913,6 @@ Exercise231c.proof = '<li><span>Form environment [letting <i>x</i> be arbitrary]
 newSection("24", "Equality");
 
 var reflexivity = new Law('EQUALITY IS <A HREF="https://en.wikipedia.org/wiki/Reflexive_relation" target="_blank">REFLEXIVE</A>', [alpha], equals(alpha,alpha));
-var indiscernability = new Law('<A HREF="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">INDISCERNABILITY OF IDENTICALS</A>', [Pa, equals(alpha,beta)], Pb);
 var Exercise241 = new Exercise("24.1(a)", 'EQUALITY IS <A HREF="https://en.wikipedia.org/wiki/Symmetric_relation"> target="_blank">SYMMETRIC</A>', [equals(alpha,beta)], equals(beta,alpha), 4);
 Exercise241.unlocks(reflexivity);
 Exercise241.unlocks(indiscernability);
@@ -1019,8 +935,11 @@ Exercise243.unlockedBy(Exercise241);
 Exercise243.proof = '<li><span>FOR ALL <i>X</i>: ((α <i>*</i> <i>X</i>) <i>=</i> <i>X</i>). <i>[given]</i></span></li><li><span>FOR ALL <i>X</i>: ((<i>X</i> <i>*</i> β) <i>=</i> <i>X</i>). <i>[given]</i></span></li><li><span>From FOR ALL <i>X</i>: ((α <i>*</i> <i>X</i>) <i>=</i> <i>X</i>): deduce (α <i>*</i> β) <i>=</i> β. <i>[<a href="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</a>]</i></span></li><li><span>From FOR ALL <i>X</i>: ((<i>X</i> <i>*</i> β) <i>=</i> <i>X</i>): deduce (α <i>*</i> β) <i>=</i> α. <i>[<a href="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</a>]</i></span></li><li><span>From (α <i>*</i> β) <i>=</i> β, (α <i>*</i> β) <i>=</i> α: deduce α <i>=</i> β. <i>[<a href="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">INDISCERNABILITY OF IDENTICALS</a>]</i></span></li><li><span>QED!</span></li>';
 
 
+// this command has to be executed after all laws defined and all GUI elements are in place
+
+ checkForUnlocks();
+
 
 </script>
-
 </body>
 </html>
