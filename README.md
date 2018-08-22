@@ -6,10 +6,12 @@ This project was initially created by Terence Tao and released on July 28, 2018 
 
 The original code is stored in the folder "docs".  It consists of three main files:
 
-QED.html - the web page for the text.  Consists mainly of CSS styling, loading of the javascript elements from the other two files, and listing the exercises, notes, and solutions of the text.
+QED.html - the web page for the text.  Consists mainly of CSS styling, loading of the javascript elements from the other two files, and listing the exercises, notes, and solutions of the text.  Available at https://teorth.github.io/QED/QED.html
 
-logic.js - the code for the logical elements of the text (terms, operators, sentences, contexts, etc..).  The most complex portion of the code is probably the matching algorithms that look for all the possible deductions that can be made from selected sentences given the laws available.
+logic.js - the code for the logical elements of the text (terms, operators, sentences, contexts, etc..).  The most complex portion of the code is probably the matching algorithms that look for all the possible deductions that can be made from selected sentences given the laws available.  Available at https://teorth.github.io/QED/logic.js
 
-gui.js - code for buttons, boxes, and other GUI elements.
+gui.js - code for buttons, boxes, and other GUI elements.  Available at https://teorth.github.io/QED/gui.js
 
 The three files are not as decoupled from each other as one would like, so a first step may be to move the code to another format in which the GUI is not entangled with the code or the text.
+
+In addition there is a text file at https://teorth.github.io/QED/classes.txt that gives a "cheat sheet" summary of the main data structures used in the javascript code.  
