@@ -1,0 +1,105 @@
+FreeVariable {
+	string type;     // "free variable"
+	string subtype;  // name of variable
+	string name;     // name of variable
+	string Name; // name of variable in italics
+}
+
+BoundVariable {
+	string type;     // "bound variable"
+	string subtype;  // name of variable
+	string name;     // name of variable (in italics)
+	string longName; // name of variable
+}
+
+Operator {
+	string type;     // "operator"
+	string subtype;  // name of operator
+	string text;	 // name of operator in italics
+	int arity;       // number of arguments
+	bool additionStyle;  // is it an op like +?
+}
+
+Term {
+	string type;	   // "term"
+	string subtype;    // "free variable", "bound variable", "primitive", or "operator"
+	string shortText;  // how term is displayed standalone
+	strong longText;   // how term is displayed inside more complex expressions
+	Operator operator; // the operator used (for "operator" subtype)
+	Term argList[];    // arguments or variables used
+}
+
+Predicate {
+	string type;	// "predicate"
+	string subtype;	// name of predicate
+	string text;	// name of predicate in italics
+	string arity;	// number of arguments
+	bool relationStyle; // is it a relation like =?
+}
+
+Connective {
+	string name;  // name of connective
+	int arity;
+}
+
+Sentence {
+	string type;	//  "primitive", "connective", "quantifier"
+	string subtype;	//  "AND", "OR", "NOT", "IMPLIES", "IFF", "TRUE", "FALSE" for connectives; "atomic" or "predicate" for primitives; "for all" or "there exists" for quantifiers
+	string name // name of sentence when used standalone
+	string longName; // name of sentence when combined with other sentences
+	Sentence argList[];   // the list of arguments in this sentence (usually of length 0, 1, or 2)
+	Predicate predicate; // predicate used ("predicate" subtype only)
+	Connective connective; // connective used ("connective" subtype only)
+}
+
+
+Law {
+	string name; // short name of law
+	Context givens[]; // hypotheses
+	Context conclusion; // conclusion
+	bool unlocked;  // is it available for use?
+	string string; // name of law when invoked
+	string desc; // full name and description of law
+	int index; // index in the list of laws
+	Law clone; // in case one can add a root environment hypothesis
+}
+
+Assumption {
+	string type // "assuming", "letting", "setting"
+        Sentence sentence;   // the sentence being assumed (for "assuming" and "setting" types)
+        FreeVariable variable;    // the free variable used (for "letting" and "setting types")
+    	string name;   // name of assumption
+}
+
+Context {
+    string type; // "sentence in environment", "environment", "formula", "term context"
+    Sentence sentence; // sentence used (for sentence, sentence-in-envrionment, and formula types)
+    Assumption environment [];  // environment used (for sentence-in-environment and environment types)
+    Term term;  // term used (For term context types)
+
+    string name;  // name of context
+}
+
+
+Exercise {
+	string shortName; // short name of exercise (without "EXERCISE ")
+	string name;  // name of exercise
+	Law law;      // the law the exercise seeks to prove
+	Law newLaws[]; // the laws unlocked when starting exercise
+	Exercise newExercises[]; // the exercises unlocked when completing exercise
+	bool hasButton; // whether there is a button for this exercise already
+	string completionMsg; // the message shown when exercise is completed
+	string notes; // the notes for the exercise, displayed on opening
+	bool revealFormulaWindow;  // do we unlock the formula window?
+	bool revealTermWindow;  // do we unlock the term window?
+	bool revealTrueFalse;      // do we unlock TRUE and FALSE?
+	bool revealBoundButton;  // do we unlock the new bound var button?
+	bool bestLength;  // the shortest known length of proof
+	bool proof;  // the shortest known proof of this exercise
+	bool personalBest; // personal best length of proof
+	bool activated; // has this exercise been unlocked?
+	Button button;  // the button created by this exercise
+
+	function unlocks(law); // add law to the laws unlocked by this exercise
+	function unlockedBy(exercise2);  // add this exercise to the exercises unlocked by exercise2
+}
