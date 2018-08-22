@@ -1,9 +1,19 @@
+// a pseudo-C++ description of the main classes appearing in the code
+
+
+/////////////////// logical components of the code - mostly in logic.js
+
+
+// a FreeVariable is a variable such as x, y, z that are not bound by quantifiers.
+
 FreeVariable {
 	string type;     // "free variable"
 	string subtype;  // name of variable
 	string name;     // name of variable
-	string Name; // name of variable in italics
+	string Name;     // name of variable in italics
 }
+
+// BoundVariable is a variable such as X, Y, Z that can be bound by quantifiers.
 
 BoundVariable {
 	string type;     // "bound variable"
@@ -12,6 +22,8 @@ BoundVariable {
 	string longName; // name of variable
 }
 
+// Operators are functions such as f(), g(,) or binary operations such as +, -, *, which take terms as input and return a term as output.
+
 Operator {
 	string type;     // "operator"
 	string subtype;  // name of operator
@@ -19,6 +31,8 @@ Operator {
 	int arity;       // number of arguments
 	bool additionStyle;  // is it an op like +?
 }
+
+// A Term is an expression such as g(x,Y), alpha or X+z that can be constructed from free and bound variables, primitive terms, and operators.
 
 Term {
 	string type;	   // "term"
@@ -29,6 +43,11 @@ Term {
 	Term argList[];    // arguments or variables used
 }
 
+// note: right now, a distinction is made between a term that consists of a free or bound variable, and the free or bound variable itself.  For instance, the term "x" is not the same as the free variable "x", the latter being the argList[0] of the former.  On reflection, though, there is not much point to this distinction, and one could reduce the number of data structures slightly by treating free and bound variables more like primitive terms (so that a term "x" now is the same as the free variable "x" and argList is now empty).  On the other hand there isn't much advantage to changing things either (a few lines of code might get a little simpler, but also a bunch of bugs might be introduced).
+
+
+// A Predicate is a symbol such as P(), Q(,), or a relation such as =, >, which takes terms as input and return sentences as output.  The equality relation = requires special treatment.
+
 Predicate {
 	string type;	// "predicate"
 	string subtype;	// name of predicate
@@ -37,10 +56,18 @@ Predicate {
 	bool relationStyle; // is it a relation like =?
 }
 
+Predicate equality;  // the equality relation
+
+// A logical connective such as AND, OR, NOT, etc. takes statements as input and returns a statement as output.
+
 Connective {
 	string name;  // name of connective
 	int arity;
 }
+
+Connective ANDConnective, ORConnective, NOTConnective, IMPLIESConnective, IFFConnective, TRUEConnective, FALSEConnective;
+
+// A sentence is an assertion which can be true or false in any given environment (for given choices of free variables).  For instance P(x) AND (NOT Q(x+y)) would be a sentence that would be well-formed in any environment containing x and y as free variables.
 
 Sentence {
 	string type;	//  "primitive", "connective", "quantifier"
@@ -52,6 +79,10 @@ Sentence {
 	Connective connective; // connective used ("connective" subtype only)
 }
 
+// Sentences and terms have very similar structure, and some of the code treats them in a unified fashion.  If one were to redo the data structures one could consider unifying the two (this would also unify the concepts of a connective, operator, and predicate).
+
+
+// A law is a rule of deduction that has sentence templates as input, and another sentence template as output.  (For instance, Modus ponens "Given A, A IMPLIES B: deduce B" is a law.) Some laws are too complex to be fully captured by these templates due to side conditions, and need to be handled separately.
 
 Law {
 	string name; // short name of law
@@ -64,12 +95,21 @@ Law {
 	Law clone; // in case one can add a root environment hypothesis
 }
 
+// The following are the list of special laws that are coded separately.  Right now they are defined in the QED.html file, which is probably not optimal.  (There is also an annoying issue thaat universalSpecification2 is currently defined circuitiously as the law associated to an exercise, so it is tied up with a GUI element which is not helpful insofar as decoupling the GUI from the logic is concerned.
+
+Law universalIntroduction, universalIntroduction2, universalSpecification, universalSpecification2, existentialInstantiation, existentialInstantiation2, existentialIntroduction, existentialIntroduction2, indiscernability;
+
+
+// an Assumption is what separates an environment from a subenvironment.  Examples include "Assume A", "Let x be arbitrary", and "Set x s.t. P(x)".
+
 Assumption {
 	string type // "assuming", "letting", "setting"
         Sentence sentence;   // the sentence being assumed (for "assuming" and "setting" types)
         FreeVariable variable;    // the free variable used (for "letting" and "setting types")
     	string name;   // name of assumption
 }
+
+// A Context is a sentence inside an environment (an ordered list of assumptions), a formula in the Formulas window, or a Term in the Terms window.  The main operation of the text is dragging one context onto another (or clicking on a context) to reveal potential deductions.
 
 Context {
     string type; // "sentence in environment", "environment", "formula", "term context"
@@ -80,6 +120,21 @@ Context {
     string name;  // name of context
 }
 
+
+
+
+///////////////////////////////////// GUI elements
+
+// Global variables
+
+var exerciseButtons = [];   // ordered list of exercise buttons (including those not yet unlocked)
+var lastClickedButton = "";   // this will be updated to the last deduction button one clicked; prevents double clicking from doing anything
+var revealTrueFalse = false;  // do we populate the formula window with true and false?
+var sectionTitle = "";  // name of last section to be created
+
+
+
+// An Exercise, such as Exercise 4.1, asks the reader to establish some conclusion from given hypothesis.  It also may come with some supplementary text, unlock some laws or windows when beginning the exercise, and unlock some further exercises when completed.
 
 Exercise {
 	string shortName; // short name of exercise (without "EXERCISE ")
@@ -103,3 +158,65 @@ Exercise {
 	function unlocks(law); // add law to the laws unlocked by this exercise
 	function unlockedBy(exercise2);  // add this exercise to the exercises unlocked by exercise2
 }
+
+
+// the undo button is constructed by createUndoButton().
+
+UndoButton extends button {
+	bool canUndo;  //  whether undo is available
+    	element deletionList[]; // list  of elements to be deleted on undo
+        int numlines;  // what to rewind numlines back to
+	bool hasCircularity; // what to rewind hasCircularity back to
+}
+
+
+// inside the proof box there is an ordered list containing the proof.
+
+proof extends orderedList {
+	int numlines;  // number of lines in the proof
+	bool hasCircularity;  // does the proof use something at or after the exercise?
+}
+
+// the exercise Box lists the exercise
+
+ExerciseBox extends box {
+	Exercise exercise;  // the current exercise
+	ExerciseButton exerciseButton;  // the current exercise button
+}
+
+// a droppable text field for receiving arguments for operators and predicates
+
+ArgDroppable extends span {
+	OperatorItem li;  the list element the field belongs to
+	int i;  the index of the field (1 or 2)
+}
+
+// a line item containing an operator or predicate in the Operators and Predicates window
+
+OperatorItem extends li {
+	Operator operator; // the operator in question (can also be Predicate)
+	Term args[];  // the argument list (default "").
+	ArgDroppable fields[];  // the list of text fields
+}
+
+// the box for an environment
+environmentBox extends box {
+	Assumption assumption;  // the assumption for this box
+	string type;  // "environment"
+}
+
+// the box for a sentence
+
+sentenceBox extends box {
+	Sentence sentence;  // the ambient sentence;
+	string type;  // "sentenceBox"
+}
+
+
+
+exerciseButton extends button {
+	Exercise exercise;  // the exercise associated to button
+	bool solved;  // has the exercise been solved yet?
+	bool enabled;  // is the button eabled yet?
+	String sectionTitle; // what is the title of the section the button is in?
+
