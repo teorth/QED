@@ -21,7 +21,7 @@ function newBox() {
     box.style.padding = "0px 10px";
     box.style.backgroundColor = "white";
     box.style.cursor = "pointer";
-    return(box);   
+    return(box);
 }
 
 // a standard heading
@@ -47,7 +47,7 @@ function createResetButton() {
         if (confirm("Are you sure?  This will erase all your progress!")) {
             if (localStorage)
                 localStorage.clear();
-            location.reload();    
+            location.reload();
         }
     };
     return button;
@@ -60,7 +60,7 @@ function createRestartButton() {
         if (exButton == undefined)
             notify("There is currently no exercise to reset.");
         else
-            exButton.onclick();   
+            exButton.onclick();
     };
     return button;
 }
@@ -156,7 +156,7 @@ function createNotificationsBox() {
         box.appendChild(list);
         return box;
     }
-    
+
 
 function notify(msg) {
     var log = getElement("notifications");
@@ -192,7 +192,7 @@ function createProofBox() {
 
 // add a line to the proof
 
-function appendToProof(line) { 
+function appendToProof(line) {
     var proof = getElement("proof");
     var node = document.createElement("LI");
     var span = document.createElement("SPAN");
@@ -205,7 +205,7 @@ function appendToProof(line) {
     proof.numlines++;
    }
 
-    
+
 
 // create exercise window
 
@@ -226,7 +226,7 @@ function createExerciseBox() {
 // add a given hypothesis to main environment
 function given(context) {
     addContext(context);
-    
+
     if (context.type == "sentence in environment")
         appendToProof(context.name + ". <I>[given]</I>");
     else if (context.type == "environment") {
@@ -235,13 +235,13 @@ function given(context) {
 
         for (i=0; i < context.environment.length; i++)
             if (context.environment[i].type == 'letting' || context.environment[i].type == 'setting')
-                needsMention = true; 
-        
+                needsMention = true;
+
         if (needsMention)
             appendToProof("Form environment " + context.name + ". <I>[given]</I>");
     }
 }
-  
+
 // clear out an element
 
 function clearElement(id) {
@@ -249,11 +249,11 @@ function clearElement(id) {
 }
 
 
-// reveal named element 
+// reveal named element
 function reveal(name) {
     if (getElement(name).style.display == 'none') {
         achieve("<B>UNLOCKED</B> " + name + ".");
-        getElement(name).style.display = 'block';    
+        getElement(name).style.display = 'block';
         if (localStorage)
             localStorage.setItem(name, "unlocked");
     }
@@ -269,12 +269,12 @@ function makeArgDroppable(arg, li, i) {
 
 function argDrop(ev) {
     ev.preventDefault();
-    
+
 // arg is the object that is being dragged.
-    var arg = getElement(ev.dataTransfer.getData("text")); 
+    var arg = getElement(ev.dataTransfer.getData("text"));
 
     if (arg == null) return;           // this can happen for instance if one drags a selection
-    if (ar  g.type == undefined) return;  // this can happen for instance if one drags a selection
+    if (arg.type == undefined) return;  // this can happen for instance if one drags a selection
     if (arg.type != "termBox") return;
 
     var term = arg.term;
@@ -314,7 +314,7 @@ function addPredicate(name)
     var obj = sentences[name];
 
     if (obj.arity == 0) return;  // don't bother puting 0-ary predicates or operators on the list (actually these are redundant anyway since atomic predicates and terms are functionally equivalent)
-    
+
     var li = document.createElement("LI");
     getElement("operators list").appendChild(li);
     li.operator = obj;
@@ -328,7 +328,7 @@ function addPredicate(name)
         span.innerHTML = obj.name + "(";
         li.appendChild(span);
         var arg = document.createElement("SPAN");
-        arg.innerHTML = "&mdash;"; 
+        arg.innerHTML = "&mdash;";
         li.appendChild(arg);
         makeArgDroppable(arg, li, 0);
         var span2 = document.createElement("SPAN");
@@ -356,20 +356,20 @@ function addPredicate(name)
         span.innerHTML = obj.name + "(";
         li.appendChild(span);
         var arg1 = document.createElement("SPAN");
-        arg1.innerHTML = "&mdash;"; 
+        arg1.innerHTML = "&mdash;";
         li.appendChild(arg1);
         makeArgDroppable(arg1, li, 0);
         var span2 = document.createElement("SPAN");
         span2.innerHTML = ", ";
         li.appendChild(span2);
         var arg2 = document.createElement("SPAN");
-        arg2.innerHTML = "&mdash;"; 
+        arg2.innerHTML = "&mdash;";
         li.appendChild(arg2);
         makeArgDroppable(arg2, li, 1);
         var span3 = document.createElement("SPAN");
         span3.innerHTML = ")";
         li.appendChild(span3);
-    }    
+    }
 }
 // New exercise in the exercise window
 
@@ -401,16 +401,16 @@ function setExercise(exerciseButton) {
 
     var exerciseDesc = document.createElement("DIV");
     exerciseDesc.id = "exercise desc";
-    
+
     var exercise = exerciseButton.exercise;
 
-// Display exercise text    
+// Display exercise text
     exerciseDesc.innerHTML = "<H4>Section " + exerciseButton.sectionTitle + "</H4>";
     if (exercise.name == exercise.law.name)
         exerciseDesc.innerHTML += "<B>" + exercise.name + "</B>: " + exercise.law.string;
     else
         exerciseDesc.innerHTML += "<B>" + exercise.name + "</B> <I>(" + exercise.law.name + ")</I>: " + exercise.law.string;
-    
+
         exerciseText.innerHTML = "";
 
     exerciseText.appendChild(exerciseDesc);
@@ -430,7 +430,7 @@ function setExercise(exerciseButton) {
 
                 span.appendChild(button);
                 span.appendChild(subnode);
-            
+
             }
         }
     }
@@ -447,13 +447,13 @@ function setExercise(exerciseButton) {
         if (item.type == "sentence in environment" || item.type == "environment")
             given(item);
     });
-    
+
     exerciseText.exercise = exercise;
     exerciseText.exerciseButton = exerciseButton;
 
-// reveal the formula window, if this option is active   
+// reveal the formula window, if this option is active
     if (exercise.revealFormulaWindow) reveal("formula window");
-// reveal the term window, if this option is active   
+// reveal the term window, if this option is active
     if (exercise.revealTermWindow) reveal("term window");
 // reveal the bound button, if this option is active
     if (exercise.revealBoundButton) reveal("bound variable button");
@@ -462,7 +462,7 @@ function setExercise(exerciseButton) {
 
 // Unlock any laws that were unlocked by the exercise
     exercise.newLaws.forEach( function(item) {
-        unlock(item, "UNLOCKED");   
+        unlock(item, "UNLOCKED");
     });
 
 // add true and false to formula windows, if revealed
@@ -475,7 +475,7 @@ function setExercise(exerciseButton) {
             localStorage.setItem( "true false", "unlocked");
         }
     }
-    
+
     if (revealTrueFalse) {
         addContext(formulaContext(TRUE()));
         addContext(formulaContext(FALSE()));
@@ -644,7 +644,7 @@ function freeButtonClick() {
                     if (child.term.argList[0].subtype == str) {
                         match = true;
                     }
-                }   
+                }
             }
         }
         num++;
@@ -659,11 +659,11 @@ function boundButtonClick() {
     var i;
     var num=0;
     var box = getElement("term window");
-    
+
     do {
         var str = BoundVariableName(num);
         var match = false;
-    
+
         for (i=0; i < box.children.length; i++)    {
             var child = box.children[i];
             if (child.type == "termBox") {
@@ -672,11 +672,11 @@ function boundButtonClick() {
                         match = true;
                     }
                 }
-            }   
+            }
         }
         num++;
     } while (match);
-    
+
     addContext(termContext(new BoundVariable(str)));
 }
 
@@ -709,7 +709,7 @@ function checkForUnlocks() {
 
         if (localStorage.getItem("term window") == "unlocked") reveal("term window");
         if (localStorage.getItem("operators window") == "unlocked") reveal("operators window");
-        if (localStorage.getItem("bound variable button") == "unlocked") reveal("bound variable button");  
+        if (localStorage.getItem("bound variable button") == "unlocked") reveal("bound variable button");
   }
 }
 
@@ -718,7 +718,7 @@ function checkForUnlocks() {
 function uniqueId() {
     return 'id-' + Math.random().toString(36).substr(2, 16);
   };
-  
+
 // create a new box with a sentence in it
 
 function newSentenceBox(sentence) {
@@ -790,7 +790,7 @@ function addContext(context) {
     }
 
     // add box to the list of things that can be deleted by undo button
-    getElement("undo button").deletionList.push(box); 
+    getElement("undo button").deletionList.push(box);
 
     return box;
 }
@@ -829,9 +829,9 @@ function colorExerciseButton(exerciseButton, windows)
             exerciseButton.style.cursor = 'pointer';
             if (windows) {
                 getElement("exercise desc").style.backgroundColor = 'aqua';
-                getElement("proof box").style.backgroundColor = 'aqua';    
+                getElement("proof box").style.backgroundColor = 'aqua';
             }
-            return;    
+            return;
         }
         if (len == exercise.bestLength) {
             exerciseButton.style.backgroundColor = 'hsl(150,50%,50%)';
@@ -839,9 +839,9 @@ function colorExerciseButton(exerciseButton, windows)
             exerciseButton.style.cursor = 'pointer';
             if (windows) {
                 getElement("exercise desc").style.backgroundColor = 'lightgreen';
-                getElement("proof box").style.backgroundColor = 'lightgreen';    
+                getElement("proof box").style.backgroundColor = 'lightgreen';
             }
-            return;    
+            return;
         }
         if (len < exercise.bestLength) {
             exerciseButton.style.backgroundColor = 'lime';
@@ -851,7 +851,7 @@ function colorExerciseButton(exerciseButton, windows)
                 getElement("exercise desc").style.backgroundColor = 'greenyellow';
                 getElement("proof box").style.backgroundColor = 'greenyellow';
             }
-            return;    
+            return;
         }
     }
 
@@ -863,7 +863,7 @@ function colorExerciseButton(exerciseButton, windows)
             getElement("exercise desc").style.backgroundColor = 'yellow';
             getElement("proof box").style.backgroundColor = 'yellow';
         }
-        return;        
+        return;
     }
 
     exerciseButton.style.backgroundColor = 'hsl(0,10%,75%)';
@@ -891,21 +891,21 @@ function deduce(conclusion, justification, law) {
     var justificationSentences = justification.filter( function(context) { return (context.type == "sentence in environment"); });
 
     var name = law.name;
-    
+
     if (getElement("exercise").exercise != "")
         if (law.index >= getElement("exercise").exercise.law.index) {
             name += "<sp>*</sp>";
             getElement("proof").hasCircularity = true;
         }
 
-    appendToProof( deductionString("From", justificationSentences, conclusion) + " <I>[" + name + "]</I>"); 
+    appendToProof( deductionString("From", justificationSentences, conclusion) + " <I>[" + name + "]</I>");
 
 
 
 
     var exercise = getElement("exercise").exercise;
     var exerciseButton = getElement("exercise").exerciseButton;
-    
+
     if (exercise != "")
     if (conclusion.name == exercise.law.conclusion.name)
      {
@@ -913,7 +913,7 @@ function deduce(conclusion, justification, law) {
          getElement("undo button").canUndo = false;
 
         if (!exerciseButton.solved) {
-            appendToProof('QED!'); 
+            appendToProof('QED!');
             unlock(exercise.law, "PROVED");
             exerciseButton.solved = true;
 
@@ -924,14 +924,14 @@ function deduce(conclusion, justification, law) {
              });
             if (exercise.completionMsg != "")
                 alert(exercise.completionMsg);
-            
+
             if (completedAllExercises()) {
                 alert("Congratulations, you completed all the exercises! You are now a master of propositional and first-order slogic!  The next time one clicks on an exercise, one should now see a button next to the shortest length proof message which, when clicked, will reveal the shortest known proof for that exercise.");
                 achieve("<B>COMPLETED</B> all the exercises!");
             }
         } else {
             appendToProof('QED! (again)');
-            unlock(exercise.law, "PROVED");  // this is to give legacy games from older versions a chance to re-unlock the exercise 
+            unlock(exercise.law, "PROVED");  // this is to give legacy games from older versions a chance to re-unlock the exercise
         }
 
         var len = getElement("proof").numlines;
@@ -955,7 +955,7 @@ function deduce(conclusion, justification, law) {
                     localStorage.setItem("proof " + exercise.name, proof);
                 } else {
                     node = notify(exercise.name + " was reproved in " + len + " lines.");
-                }    
+                }
             }
             else
                 node = notify(exercise.name + " was proved in " + len + " lines.");
@@ -963,19 +963,19 @@ function deduce(conclusion, justification, law) {
             listProof( node, proof );
 
             if (len < exercise.personalBest) exercise.personalBest = len;
- 
+
             if (len == exercise.bestLength)
             {
                 notify("You matched the record for the shortest known proof of " + exercise.name + "!");
             }
             if (len < exercise.bestLength)
-                alert("You beat the record for the shortest known proof of " + exercise.name + "!  Please send it to me at tao@math.ucla.edu and I will update the record (with an acknowledgment) in the next version of the text.");    
-        } 
+                alert("You beat the record for the shortest known proof of " + exercise.name + "!  Please send it to me at tao@math.ucla.edu and I will update the record (with an acknowledgment) in the next version of the text.");
+        }
 
         colorExerciseButton(exerciseButton, true);
      }
   }
-  
+
 //// ExerciseButton ////
 
 function createExerciseButtonBox() {
@@ -1047,7 +1047,7 @@ function activateExerciseButton(exercise) {
         if (localStorage.getItem(exercise.name) == undefined) {
             localStorage.setItem(exercise.name, "unlocked");
         }
-    
+
         var len = localStorage.getItem("lines " + exercise.name);
         if (len != undefined) {
             var node = notify(exercise.name + " was proven in " + len + " lines.");
@@ -1055,7 +1055,7 @@ function activateExerciseButton(exercise) {
             listProof(node, proof);
             exercise.personalBest = len;
             button.solved = true;
-        }    
+        }
     }
 
     colorExerciseButton(button, false);
@@ -1082,7 +1082,7 @@ function createDeductionsBox() {
 
     var footnote = document.createElement("DIV");
     footnote.id = "deductionFootnote";
-    box.appendChild(footnote);  
+    box.appendChild(footnote);
 }
 
 // list the assumptions used when searching for deductions
@@ -1120,7 +1120,7 @@ function appendToDeductions(output, justification, law) {
             // we have circularity!
             name += "<sup>*</sup>";
             proof.hasCircularity = true;
-        } 
+        }
 
     if (output.multivalued) {
         var i;
@@ -1179,7 +1179,7 @@ function unlock(law, text) {
     unlockedLaws.push(law);
     achieve("<B>" + text + "</B> " + law.desc);
     if (localStorage)
-        localStorage.setItem("law " + law.name, text); 
+        localStorage.setItem("law " + law.name, text);
 
     // If the law has no environment but produces a conclusion in the root environment, add a version of the law in which the environment is relative.
 
@@ -1197,9 +1197,9 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
 
     if (lawName == "")
         lawName = this.name;
-    
+
     this.law = new Law(lawName,givens,conclusion);
-   
+
     this.newLaws = []; // an array of laws unlocked when exercise is attempted(can be empty)
     this.newExercises = [];  // an array of exercises unlocked when exercise is completed (empty by default)
     this.hasButton = false;  // whether a button for this exercise exists yet
@@ -1226,14 +1226,14 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
         var str = localStorage.getItem(this.name);
 
         if (str == "unlocked" || str == "solved") {
-           activateExerciseButton(this); 
+           activateExerciseButton(this);
            if (str == "solved")
            {
             this.solved = true;
             this.button.solved = true;
             this.personalBest = localStorage.getItem("lines " + this.name);
         }
-        }    
+        }
     }
 
     colorExerciseButton(this.button, false);
@@ -1264,7 +1264,7 @@ function correctTarget(ev) {
 
     while (targ.type != "environment" && targ.type != "sentenceBox" && targ.type != "formulaBox" && targ.type != "formula window" && targ.type != "termBox")
       targ = targ.parentElement;
-    
+
     return targ;
 }
 
@@ -1284,7 +1284,7 @@ function clickBox(box,event) {
         makeMatches(assumptions);
     }
     else
-        makeMatches([toContext(box)]);   
+        makeMatches([toContext(box)]);
 }
 
 
@@ -1357,30 +1357,30 @@ function drag(ev) {
 
 function allowDrop(ev) {
     ev.preventDefault();
-}   
+}
 
 function drop(ev) {
     ev.preventDefault();
-    
+
 // arg1 is the object that is being dragged.
-    var arg1 = getElement(ev.dataTransfer.getData("text")); 
+    var arg1 = getElement(ev.dataTransfer.getData("text"));
     var arg2 = correctTarget(ev);
 
     if (arg1 == null) return;           // this can happen for instance if one drags a selection
     if (arg1.type == undefined) return;  // this can happen for instance if one drags a selection
-     
+
     if (arg2.type == "formula window")
      {
          // dragging a sentence box to the formula window creates a new formula
          if (arg1.type == "sentenceBox") {
             addContext(formulaContext(arg1.sentence));
-            return;   
+            return;
          }
-        return; 
+        return;
      }
 
 
-     makeMatches([toContext(arg1), toContext(arg2)]); 
+     makeMatches([toContext(arg1), toContext(arg2)]);
 }
 
 
@@ -1415,9 +1415,9 @@ function keydown(event) {
             }
         }
     }
-        
+
     var num = parseInt(event.key);
-    
+
     if (num >= 1 && num <= 9) {
         var items = getElement("deductions").getElementsByTagName("LI");
         if (num <= items.length)
