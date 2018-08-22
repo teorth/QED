@@ -1,4 +1,4 @@
-// polyfill the Array includes method (which is not supported in IE)
+// polyfill the Array includes method (which is not supported in IE).  This code moved from QED.html
 
 if (!Array.prototype.includes) {
   Object.defineProperty(Array.prototype, "includes", {
@@ -234,7 +234,7 @@ function Predicate( name, arity, relationStyle )
 // we have one special predicate: the equality relation
 var equality = new Predicate("=", 2, true);
 
-// some other predicates, terms, sentences
+// some other predicates, terms, sentences.  Moves from QED.html (mainly because some of these will be needed for the hard-coded laws)
 
  var x = new FreeVariable("x");
  var y = new FreeVariable("y");
@@ -469,7 +469,7 @@ function toSentence(obj) {
 }
 
 
-//some atomic sentences
+//some atomic sentences.  Moved from QED.html
 
  var A = atomicSentence("A");
  var B = atomicSentence("B");
@@ -508,7 +508,7 @@ function Law(name, givens, conclusion) {
 
 
 
-// all the laws that require special treatment in the matching algorithm
+// all the laws that require special treatment in the matching algorithm.  Moved from QED.html
 
 var universalIntroduction = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x),toTerm(X)], forAll(PX,X));
 var universalIntroduction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X));

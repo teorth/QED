@@ -3,6 +3,13 @@
 
 /////////////////// logical components of the code - mostly in logic.js
 
+/// Global variables
+
+Sentence sentences[];  // sentences[name] is a sentence/term attached to a name string; easier to populate this dynamically than to create a general string to sentence/term parser.
+Law unlockedLaws[];  // all the unlocked laws
+Law allLaws[];  // list of all Laws
+
+
 
 // a FreeVariable is a variable such as x, y, z that are not bound by quantifiers.
 
@@ -95,7 +102,7 @@ Law {
 	Law clone; // in case one can add a root environment hypothesis
 }
 
-// The following are the list of special laws that are coded separately.  Right now they are defined in the QED.html file, which is probably not optimal.  (There is also an annoying issue thaat universalSpecification2 is currently defined circuitiously as the law associated to an exercise, so it is tied up with a GUI element which is not helpful insofar as decoupling the GUI from the logic is concerned.
+// The following are the list of special laws that are coded separately.  Originally they were placed in the QED file; now they are defined in logic.js.
 
 Law universalIntroduction, universalIntroduction2, universalSpecification, universalSpecification2, existentialInstantiation, existentialInstantiation2, existentialIntroduction, existentialIntroduction2, indiscernability;
 
@@ -127,10 +134,11 @@ Context {
 
 // Global variables
 
-var exerciseButtons = [];   // ordered list of exercise buttons (including those not yet unlocked)
-var lastClickedButton = "";   // this will be updated to the last deduction button one clicked; prevents double clicking from doing anything
-var revealTrueFalse = false;  // do we populate the formula window with true and false?
-var sectionTitle = "";  // name of last section to be created
+Button exerciseButtons[];   // ordered list of exercise buttons (including those not yet unlocked)
+Button lastClickedButton;   // this will be updated to the last deduction button one clicked; prevents double clicking from doing anything
+bool revealTrueFalse;  // do we populate the formula window with true and false?
+String sectionTitle;  // name of last section to be created
+int numIndexedLaws;  // number of laws that have been properly assigned an index
 
 
 
