@@ -1,15 +1,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>QED</title> 
+    <title>QED</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <style>
         * {
             box-sizing: border-box;
         }
-    
+
     .wrapper {
     display: grid;
     grid-auto-columns: 32%;
@@ -78,7 +84,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-                
+
 
 <script src="logic.js"></script>
 <script src="gui.js"></script>
@@ -86,6 +92,8 @@ tr:nth-child(even) {
 
 </head>
 <body>
+
+<div class="container">
 
 <header>
         <h2>QED - an interactive textbook</h2>
@@ -96,7 +104,7 @@ tr:nth-child(even) {
 <br>
 <div class="clearfix" id="exercise"><UL>
     <LI> Welcome to QED, a short interactive text in <A HREF="https://en.wikipedia.org/wiki/Propositional_calculus" target="_blank">propositional logic</A> arranged in the format of a computer game.  </LI>
-    <LI> Propositional logic is the logic of <A HREF="https://en.wikipedia.org/wiki/Atomic_sentence" target="_blank">atomic propositions</A> (which in this text are given names such as <I>A</I>, <I>B</I>, or <I>C</I>) and the statements one can form from these propositions using logical connectives such as AND, OR, and IMPLIES.  It is a subset of <A HREF="https://en.wikipedia.org/wiki/First-order_logic" target="_blank">first-order logic</A>, which is the main form of logic used in mathematics. </LI> 
+    <LI> Propositional logic is the logic of <A HREF="https://en.wikipedia.org/wiki/Atomic_sentence" target="_blank">atomic propositions</A> (which in this text are given names such as <I>A</I>, <I>B</I>, or <I>C</I>) and the statements one can form from these propositions using logical connectives such as AND, OR, and IMPLIES.  It is a subset of <A HREF="https://en.wikipedia.org/wiki/First-order_logic" target="_blank">first-order logic</A>, which is the main form of logic used in mathematics. </LI>
     <LI> The objective of this "game" is to prove statements in propositional logic from the given hypotheses by clicking and dragging on statements that one has already deduced.  By solving exercises in this game, you should develop a greater understanding of propositional logic.</LI>
     <LI> Expand the "Sections and exercises" section above and then click on the "Exercise 1.1" button to begin the text and start the sequence of exercises!</LI>
 </UL>
@@ -109,7 +117,7 @@ tr:nth-child(even) {
     <div class="box deductions" id="deductions box"></div>
     <div class="box operators" id="operators window"></div>
 </div>
-      
+
 <div class="clearfix" id="proof box" style="background-color:#ddd"></div>
 <div class="clearfix">
     <div class="halfbox" id="achievement box" style="background-color:#bbb">
@@ -122,16 +130,16 @@ tr:nth-child(even) {
 <button id="restart button">RESTART EXERCISE</button>
 <button id="reset button">RESET QED</button>
 
-<p></p> 
+<p></p>
     <H4 id="version header"> The current version is 2.0.2.</H4>
     <UL id="version notes">
         <LI> Version 2.0.2 (released Aug 21, 2018)  Code moved to Github, now under an MIT license. </LI>
-        <LI> Version 2.0.1 (released Aug 20, 2018)  Meta-key now has same functionality as CTRL-key (for Mac users).  (Thanks to Jacob H. for the suggestion.)</LI> 
+        <LI> Version 2.0.1 (released Aug 20, 2018)  Meta-key now has same functionality as CTRL-key (for Mac users).  (Thanks to Jacob H. for the suggestion.)</LI>
         <LI> Version 2.0 (released Aug 18, 2018)  Cleaned up version of Version 1.17, hopefully stable release.</LI>
-        <LI> Version 1.17 (released Aug 16, 2018)  Alpha version of Section 24, introducing the equality relation.</LI> 
+        <LI> Version 1.17 (released Aug 16, 2018)  Alpha version of Section 24, introducing the equality relation.</LI>
         <LI> Version 1.16.1 (released Aug 15, 2018)  New records for 22.4(ae), using some additional formulas that were not previously available until the predicates and operators window was unlocked. (These formulas have since been added to the problem.)</LI>
         <LI> Version 1.16 (released Aug 13, 2018)  Alpha version of Section 23, introducing the predicates and operators window.</LI>
-        <LI> Version 1.15.5 (released Aug 13, 2018) New record for 22.6(b).  Spelling corrections.</LI> 
+        <LI> Version 1.15.5 (released Aug 13, 2018) New record for 22.6(b).  Spelling corrections.</LI>
         <LI> Version 1.15.4 (released Aug 13, 2018)  Text for Exercise 22.4(ce) and 22.5(a) fixed (thanks to Anders Kaseorg for pointing out the issue).  Three new exercises added to Section 22.</LI>
         <LI> Version 1.15.3 (released Aug 12, 2018)  New records for Exercises 22.4(acd), 22.5(c).  Text for Exercise 22.4(c) fixed.</LI>
 	<LI> Version 1.15.2 (released Aug 12, 2018)  New records for Exercises 18.4, 22.2.  Further bug in universal specification legality checking patched (thanks to Andre Maute for reporting the error), as well as a technical bug in the search-and-replace code.  UI for pull (arbitrary variables) changed.
@@ -142,8 +150,8 @@ tr:nth-child(even) {
         <LI> Version 1.14.1 (released Aug 9, 2018)  More accurate discussion of boolean duality in Exercise 12.5(d). New record for Exercise 18.6.  Enforced a further requirement in the law of universal specification, namely that the term one specifies also cannot use free variables that are not recognised by the current environment (thanks to Pranjal Vachaspati for discovering this issue).</I>
         <LI> Version 1.14 (released Aug 9, 2018)  Alpha versions of Sections 20, 21 added, introducing a "pull" law and also an existence law to rule out empty domains of discourse. Section 13 rearranged and expanded, with a new helper exercise (13.2(b)) that shortens some subsequent proofs.  Enforced an important requirement in the law of universal specification, namely that the term one specifies to cannot involve bound variables.</LI>
         <LI> Version 1.13.1 (released Aug 8, 2018) Text of Exercise 19.1 fixed.  Double push exercise added in Exercise 15.2.  Deductions resulting in ill-formed statements will now be displayed but grayed out, rather than hidden completely (thanks to Keith Winstein for this suggestion).  Layout of main windows rearranged.</LI>
-        <LI> Version 1.13 (released Aug 7, 2018) Alpha version of Section 19 added, introducing the existential quantifier and the ability to instantiate an existential statement using a "setting" environment.  Section 10 reorganised with a new exercise intended to shorten the proofs of subsequent exercises proving IFF statements (in particular, several exercises in Section 10 onwards (particularly those whose conclusion involves IFF) now have shorter proofs). New hotkeys: 'n' for first available unsolved exercise, 'N' for last available unsolved exercise.  New record for 9.5(a).  Bug with new free and bound variables in Exercise 18.2(a) fixed, as well as incorrect text for Exercise 18.4 (thanks to Keith Winstein for reporting these bugs).</LI>  
-        <LI> Version 1.12 (released Aug 7, 2018)  Alpha version of Section 18 added, introducing the ability to specialise a universal statement to a term.  Primitive terms also introduced.</LI> 
+        <LI> Version 1.13 (released Aug 7, 2018) Alpha version of Section 19 added, introducing the existential quantifier and the ability to instantiate an existential statement using a "setting" environment.  Section 10 reorganised with a new exercise intended to shorten the proofs of subsequent exercises proving IFF statements (in particular, several exercises in Section 10 onwards (particularly those whose conclusion involves IFF) now have shorter proofs). New hotkeys: 'n' for first available unsolved exercise, 'N' for last available unsolved exercise.  New record for 9.5(a).  Bug with new free and bound variables in Exercise 18.2(a) fixed, as well as incorrect text for Exercise 18.4 (thanks to Keith Winstein for reporting these bugs).</LI>
+        <LI> Version 1.12 (released Aug 7, 2018)  Alpha version of Section 18 added, introducing the ability to specialise a universal statement to a term.  Primitive terms also introduced.</LI>
         <LI> Version 1.11 (released Aug 7, 2018)  Alpha version of Section 17 added, introducing the ability to introduce a universal quantifier over a bound variables (which is now equipped with a button to generate such variables).  Some bugs with finding available deductions fixed.  Alternate push law functionality added in which one can push to an environment not yet created by dragging to a formula rather than to the environment. (As a consequence, Exercises 7.1 and 7.2 now have shorter proofs.) Bad hyperlink (to idempotence) fixed.</LI>
         <LI> Version 1.10.1 (released Aug 6, 2018) An exploit involving enabling a deduction, undoing the previous deduction, then selecting a (now unjustified) deduction has been patched (thanks to Keith Winstein for finding the exploit).  Some rewording for the Exercise 1.1 text (following suggestions by arch1).</LI>
         <LI> Version 1.10 (released Aug 5, 2018)  Alpha version of Section 16 added, introducing the ability to introduce free variables from a new Term window (which is also equipped with a button to generate new variables).  Code separated into logic.js, which contains the GUI-independent components of the code, and gui.js, which contains the GUI-dependent components (for future modularity).</LI>
@@ -151,8 +159,8 @@ tr:nth-child(even) {
         <LI> Version 1.8.1 (released Aug 4, 2018)  Error in PUSH law (and other laws involving a non-root environment) fixed.  (Thanks to Andre Maute for reporting the bug.) </LI>
         <LI> Version 1.8 (released Aug 3, 2018)  Restart exercise button added.  Further "under the hood" changes.  Laws with root environment default now come with a "clone" with one additional hypothesis that allows one to select the root environment.</LI>
         <LI> Version 1.7.1 (released Aug 2, 2018)  Can now use ctrl-click to select items, in particular allowing for more than two items to be selected.  The numbers 1-9 are now keyboard shortcuts for the first 9 deductions in the Available deductions window.</LI>
-        <LI> Version 1.7 (released Aug 2, 2018).  Dragging X to Y now also checks for laws available from dragging Y to X.  Exercise 1.1 changed (so legacy players may artificially have beaten the shortest length now for this exercise).  Various "under the hood" code changes in preparation for extension to first order logic.  Various sections of game now collapsed by default.</LI> 
-        <LI> Version 1.6.2 (released Aug 1, 2018).  New records for Exercises 9.5(b), 10.1(b), 13.2(a), 13.3(a), 13.3(d). Duplicate unlocking of laws prevented.  Table of boolean duality added to Exercise 12.5(d). Typo corrections.</LI>    
+        <LI> Version 1.7 (released Aug 2, 2018).  Dragging X to Y now also checks for laws available from dragging Y to X.  Exercise 1.1 changed (so legacy players may artificially have beaten the shortest length now for this exercise).  Various "under the hood" code changes in preparation for extension to first order logic.  Various sections of game now collapsed by default.</LI>
+        <LI> Version 1.6.2 (released Aug 1, 2018).  New records for Exercises 9.5(b), 10.1(b), 13.2(a), 13.3(a), 13.3(d). Duplicate unlocking of laws prevented.  Table of boolean duality added to Exercise 12.5(d). Typo corrections.</LI>
         <LI> Version 1.6.1 (released July 31, 2018).  New records for Exercises 9.5(a), 13.3(a), 13.3(d).</LI>
         <LI> Version 1.6 (released July 31, 2018).  New 0-ary operators TRUE and FALSE; new exercises (and a new section) added.           </LI>
         <LI> Version 1.5.3 (released July 31, 2018).  Rules appearing in text at or after an exercise can still be used, but have an asterisk attached to them and no longer trigger records.</LI>
@@ -163,7 +171,7 @@ tr:nth-child(even) {
         <LI> Version 1.3.2 (released July 30, 2018).  New records for Exercises 2.2(b), 12.5(c). Clarifications and typo fixes to text.</LI>
         <LI> Version 1.3.1 (released July 30, 2018).  Implemented the styling suggestions of redblobgames.</LI>
         <LI> Version 1.3 (released July 30, 2018).  Newer record for Exercise 12.6(a).  Bad hyperlink (pointed out by Andrew Lei) fixed.  Successful proofs can now be expanded and collapsed in the notifications window.</LI>
-        <LI> Version 1.2.2 (released July 29, 2018).  New record for Exercise 12.6(a).  A typo causing exercises to not load beyond 12.2(b) has been repaired. (Thanks to William Chargin for pointing out the issue and providing a fix.)</LI>  
+        <LI> Version 1.2.2 (released July 29, 2018).  New record for Exercise 12.6(a).  A typo causing exercises to not load beyond 12.2(b) has been repaired. (Thanks to William Chargin for pointing out the issue and providing a fix.)</LI>
         <LI> Version 1.2.1 (released July 29, 2018).  New records for Exercises 7.2, 9.2(a), 12.2(b), 12.2(c), 12.4(b), 12.6(c).  Some incorrect proof lengths fixed.</LI>
         <LI> Version 1.2 (released July 29, 2018).  Achievements and notifications windows now side-by side.  Achievements now list from newest to oldest rather than vice versa.  "No available deductions" response added. Clicking on deductions twice no longer creates duplicates (thanks to ahartel for this suggestion).  Some clarifications added to text.  Best known proof lengths added. Exercises 5.1 and 12.1(c) corrected; other minor corrections.  Some new exercises added.</LI>
         <LI> Version 1.1 (released July 29, 2018).  Tests if local storage is supported. Exercise 7.2 repaired (and all subsequent exercises now accessible).  All exercise buttons now visible (not just unlocked ones).  Spelling corrections.</LI>
@@ -176,22 +184,24 @@ tr:nth-child(even) {
     getElement("version header").appendChild(button);
 </script>
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
-<P>  
+<P>
 </P>
 Further discussion this text may be found at <A HREF="https://terrytao.wordpress.com/2018/07/28/gamifying-propositional-logic-qed-an-interactive-textbook/" target="_blank">this blog post</A>.
 <footer>
     Originally written by Terence Tao.  Now <A HREF="https://github.com/teorth/QED">on github</A> under a MIT license.
 </footer>
-    
+
+</div>
+
 <script>
 
  createExerciseButtonBox();
  createExerciseBox();
- createRootEnvironment(); 
- createFormulaWindow();    
+ createRootEnvironment();
+ createFormulaWindow();
  createDeductionsBox();
  createProofBox();
- createTermWindow();    
+ createTermWindow();
  createAchievementsBox();
  createNotificationsBox();
  createOperatorsWindow();
@@ -230,7 +240,7 @@ if (!Array.prototype.includes) {
  Exercise11.completionMsg = 'Congratulations, you solved your first exercise!  Now two more exercises will be unlocked, as well as the next section of the text.  (For subsequent exercises, we will notify you of an exercise being solved by changing the color of the exercise and its proof to either green or blue, depending on whether you found the shortest known proof or not.  We also add a QED symbol (standing for "quod erat demonstrandum", or "what was to be demonstrated") to the end of the proof.)';
  Exercise11.proof = '<li><span><em>A</em>. <i>[given]</i></span></li><li><span><em>B</em>. <i>[given]</i></span></li><li><span>From <em>B</em>, <em>A</em>: deduce <em>B</em> AND <em>A</em>. <i>[<a<li><span><em>A</em>. <i>[given]</i></span></li><li><span><em>B</em>. <i>[given]</i></span></li><li><span>From <em>B</em>, <em>A</em>: deduce <em>B</em> AND <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>From <em>B</em> AND <em>A</em>, <em>B</em>: deduce (<em>B</em> AND <em>A</em>) AND <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>QED!</span></li>';
  activateExerciseButton(Exercise11);
- 
+
  var Exercise12 = new Exercise("1.2", 'AND IS <A HREF="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</A>', [A], AND(A,A),3);
  Exercise12.unlockedBy(Exercise11);
  Exercise12.notes = '<UL> <LI> It is permissible to drag a statement onto itself.</LI> <LI> <Q>Each problem that I solved became a rule, which served afterwards to solve other problems</Q> - <A HREF="https://en.wikiquote.org/wiki/Ren%C3%A9_Descartes" target="_blank">René Descartes</A>.  Each exercise solved in this text becomes a new deduction rule that you may use in subsequent exercises.  The <B>Achievements</B> window lists all the rules of inference one has available, either through being unlocked by opening the appropriate exercise, or by proving that rule as one of the exercises.</LI><LI> One can also use the numbers \'1\' through \'9\' as hotkeys for the available eductions (or the first 9 of them, at any rate).</LI></UL>';
@@ -251,7 +261,7 @@ Exercise21.proof = '<li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></
  Exercise22.unlockedBy(Exercise21);
  Exercise22.notes = '<UL> <LI> One can think of a deduction rule as a template in which the <A HREF="https://en.wikipedia.org/wiki/Atomic_formula" target="_blank">atomic formulas</A> of the deduction rule (such as <I>A</I> or <I>B</I>) can be replaced by compound formulas (e.g. "<I>A</I> AND <I>B</I>").  This can greatly increase the power of such laws. <LI> There are no "wrong" moves in the QED game - every move you make is a valid deduction!  However, you may end up making "useless" moves - moves that are logically valid, but do not bring one closer to the desired conclusion.  If you are finding the deduction environment to be getting too cluttered, you can click on the exercise button (in this case, Exercise 2.2(a)) to start from the beginning; one can also press the "RESTART QUESTION" (or presses "r") at the bottom of the page.<LI> One can also "UNDO" a deduction if one presses the "IMMEDIATE UNDO" button at the bottom of this page (or presses "u") immediately after making a deduction.  This feature is not available if the deduction solves the exercise, or if one has performed any action between the deduction and the undo.</UL>';
 Exercise22.proof = '<li><span>(<em>A</em> AND <em>B</em>) AND <em>C</em>. <i>[given]</i></span></li><li><span>From (<em>A</em> AND <em>B</em>) AND <em>C</em>: deduce <em>A</em> AND <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li><li><span>From (<em>A</em> AND <em>B</em>) AND <em>C</em>: deduce <em>C</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li><li><span>From <em>A</em> AND <em>B</em>: deduce <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li><li><span>From <em>A</em> AND <em>B</em>: deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li><li><span>From <em>B</em>, <em>C</em>: deduce <em>B</em> AND <em>C</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>From <em>A</em>, <em>B</em> AND <em>C</em>: deduce <em>A</em> AND (<em>B</em> AND <em>C</em>). <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>QED!</span></li>';
- 
+
 
  var Exercise22b = new Exercise("2.2(b)", 'AND IS <A HREF="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</A> (right)', [AND(A,AND(B,C))], AND(AND(A,B),C),7);
  Exercise22b.unlockedBy(Exercise21);
@@ -260,9 +270,9 @@ Exercise22b.proof = '<li><span><em>A</em> AND (<em>B</em> AND <em>C</em>). <i>[g
 
 
 newSection("3", "Disjunction introduction");
- 
+
  var LawDisjunction1 = new Law('<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (left)', [formulaContext(B), A], OR(A,B));
- var LawDisjunction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (right)', [formulaContext(B), A], OR(B,A));  
+ var LawDisjunction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (right)', [formulaContext(B), A], OR(B,A));
  var Exercise31 = new Exercise("3.1(a)", "", [A, formulaContext(B), formulaContext(C)], OR(C,OR(A,B)),4);
  Exercise31.unlocks(LawDisjunction1);
  Exercise31.unlocks(LawDisjunction2);
@@ -275,10 +285,10 @@ Exercise31.proof = '<li><span><em>A</em>. <i>[given]</i></span></li><li><span>Fr
  Exercise31b.unlockedBy(Exercise31);
  Exercise31b.notes = 'The reverse implication (deducing <I>A</I> from <I>A</I> OR <I>A</I>) is true, but will be deferred to Exercise 9.1(b), as we first need to introduce the important concept of an assumption and then introduce some further laws of disjunction.';
 Exercise31b.proof = '<li><span><em>A</em>. <i>[given]</i></span></li><li><span>From <em>A</em>: deduce <em>A</em> OR <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (left)]</i></span></li><li><span>QED!</span></li>';
- 
- 
+
+
  newSection("4", "Assumption");
- 
+
  var LawAssumption = new Law('IMPLICATION INTRODUCTION', [formulaContext(A)], assuming(A,A));
  var Exercise41 = new Exercise("4.1", "", [formulaContext(A)], assuming(AND(A,A),A),3);
  Exercise41.unlocks(LawAssumption);
@@ -288,7 +298,7 @@ Exercise41.proof = '<li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPLI
 
 
 newSection("5", "Logical connectives");
- 
+
  var formAnd = new Law('AND', [formulaContext(A), formulaContext(B)], formulaContext(AND(A,B)));
  var formOr = new Law('OR', [formulaContext(A), formulaContext(B)], formulaContext(OR(A,B)));
  var Exercise51 = new Exercise("5.1", "", [formulaContext(A), formulaContext(B), formulaContext(C)], assuming(OR(AND(A,B),C), OR(AND(A,B),C)),2);
@@ -297,7 +307,7 @@ newSection("5", "Logical connectives");
  Exercise51.unlockedBy(Exercise41);
  Exercise51.notes = '<UL> <LI> One can combine formulas together to create compound formulas.  <LI> For binary logical connectives such as AND and OR, this is done here by dragging formulas together in the <B>Formulas</B> window.  <LI> See what happens if one drags the formula <I>A</I> onto the formula <I>B</I> or vice versa!<LI> For the purposes of recording proof length, the creation of new formulas is considered to be a "free move" in this text, in that it does not use up any lines of the proof.</LI> </UL>';
 Exercise51.proof = '<li><span>Deduce (<em>A</em> AND <em>B</em>) OR <em>C</em> [assuming (<em>A</em> AND <em>B</em>) OR <em>C</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>QED!</span></li>';
- 
+
 
  var Exercise52 = new Exercise("5.2", "", [formulaContext(A), formulaContext(B)], assuming(assuming(A,A),B),3);
  Exercise52.unlockedBy(Exercise51);
@@ -305,7 +315,7 @@ Exercise51.proof = '<li><span>Deduce (<em>A</em> AND <em>B</em>) OR <em>C</em> [
 Exercise52.proof = '<li><span>Deduce <em>B</em> [assuming <em>B</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>Deduce <em>A</em> [assuming <em>B</em>, <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>QED!</span></li>';
 
 newSection("6", "Deduction theorem");
- 
+
  var formImplies = new Law('IMPLIES', [formulaContext(A), formulaContext(B)], formulaContext(IMPLIES(A,B)));
  var LawImplication = new Law('<A HREF="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</A>', [assuming(B,A), rootEnvironmentContext()], IMPLIES(A,B));
  var Exercise61 = new Exercise("6.1(a)", 'IMPLIES IS <A HREF=https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</A>', [formulaContext(A)], IMPLIES(A,A),3);
@@ -327,7 +337,7 @@ Exercise61b.proof = '<li><span>Deduce <em>A</em> AND (<em>A</em> OR <em>B</em>) 
 Exercise62.proof = '<li><span><em>C</em> [assuming <em>A</em>, <em>B</em>]. <i>[given]</i></span></li><li><span>From <em>C</em> [assuming <em>A</em>, <em>B</em>]: deduce <em>B</em> IMPLIES <em>C</em> [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li><li><span>From <em>B</em> IMPLIES <em>C</em> [assuming <em>A</em>]: deduce <em>A</em> IMPLIES (<em>B</em> IMPLIES <em>C</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li><li><span>QED!</span></li>';
 
 newSection("7", "Push");
- 
+
 
  var Push = new Law('PUSH', [A, environmentContext([B])], assuming(A,B));
  var PushAlt = new Law('PUSH (alternate form)', [A, formulaContext(B)], assuming(A,B));
@@ -345,7 +355,7 @@ Exercise72.notes = '<UL><LI> This exercise easily follows from two applications 
 Exercise72.proof = '<li><span><em>A</em>. <i>[given]</i></span></li><li><span>From <em>A</em>: deduce <em>A</em> [assuming <em>B</em>]. <i>[PUSH (alternate form)]</i></span></li><li><span>From <em>A</em> [assuming <em>B</em>]: deduce <em>A</em> [assuming <em>B</em>, <em>C</em>]. <i>[PUSH (alternate form)]</i></span></li><li><span>QED!</span></li>';
 
 newSection("8", "Modus ponens");
- 
+
  var ModusPonens = new Law('<A HREF="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</A>', [A, IMPLIES(A,B)], B);
  var Exercise81 = new Exercise("8.1(a)", '<A HREF="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</A> (ASSUMPTION FORM)', [A, assuming(B,A)], B,5);
  Exercise81.unlocks(ModusPonens);
@@ -387,7 +397,7 @@ Exercise84b.proof = '<li><span>(<em>A</em> AND <em>B</em>) IMPLIES <em>C</em>. <
 Exercise84.proof = '<li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>B</em> [assuming <em>A</em>]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li><li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>A</em> [assuming <em>A</em>], <em>B</em> [assuming <em>A</em>]: deduce <em>A</em> AND <em>B</em> [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>From <em>A</em> AND <em>B</em> [assuming <em>A</em>]: deduce <em>A</em> IMPLIES (<em>A</em> AND <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li><li><span>QED!</span></li>';
 
 newSection("9", "Case analysis");
- 
+
  var caseAnalysis = new Law('<A HREF="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">CASE ANALYSIS</A>', [assuming(C,A), assuming(C,B)], assuming(C,OR(A,B)),8);
  var Exercise91 = new Exercise("9.1(a)", "OR IS COMMUTATIVE", [OR(A,B)], OR(B,A),8);
  Exercise91.unlocks(caseAnalysis);
@@ -404,12 +414,12 @@ Exercise91b.proof = '<li><span><em>A</em> OR <em>A</em>. <i>[given]</i></span></
  Exercise92.unlockedBy(Exercise91);
  Exercise92.notes = "<UL><LI> From this point onwards, the solutions will begin to be somewhat lengthy.</LI> <LI> Thanks to Steve Trout, William Chargin, Daniel Spivak, and Keith Winstein for contributing a (relatively) short proof.</LI></UL>";
 Exercise92.proof = '<li><span>(<em>A</em> OR <em>B</em>) OR <em>C</em>. <i>[given]</i></span></li><li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>Deduce <em>B</em> [assuming <em>B</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>Deduce <em>C</em> [assuming <em>C</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>A</em> [assuming <em>A</em>]: deduce <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (left)]</i></span></li><li><span>From <em>B</em> [assuming <em>B</em>]: deduce <em>B</em> OR <em>C</em> [assuming <em>B</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (left)]</i></span></li><li><span>From <em>B</em> OR <em>C</em> [assuming <em>B</em>]: deduce <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming <em>B</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (right)]</i></span></li><li><span>From <em>C</em> [assuming <em>C</em>]: deduce <em>B</em> OR <em>C</em> [assuming <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (right)]</i></span></li><li><span>From <em>B</em> OR <em>C</em> [assuming <em>C</em>]: deduce <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (right)]</i></span></li><li><span>From <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming <em>A</em>], <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming <em>B</em>]: deduce <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming <em>A</em> OR <em>B</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">CASE ANALYSIS</a>]</i></span></li><li><span>From <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming <em>A</em> OR <em>B</em>], <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming <em>C</em>]: deduce <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming (<em>A</em> OR <em>B</em>) OR <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">CASE ANALYSIS</a>]</i></span></li><li><span>From (<em>A</em> OR <em>B</em>) OR <em>C</em>, <em>A</em> OR (<em>B</em> OR <em>C</em>) [assuming (<em>A</em> OR <em>B</em>) OR <em>C</em>]: deduce <em>A</em> OR (<em>B</em> OR <em>C</em>). <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a> (ASSUMPTION FORM)]</i></span></li><li><span>QED!</span></li>';
- 
+
  var Exercise92b = new Exercise("9.2(b)", 'OR IS <A HREF="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</A> (right)', [OR(A,OR(B,C))], OR(OR(A,B),C),7);
  Exercise92b.unlockedBy(Exercise91);
  Exercise92b.notes = "Thanks to William Chargin for a short proof.";
 Exercise92b.proof = '<li><span><em>A</em> OR (<em>B</em> OR <em>C</em>). <i>[given]</i></span></li><li><span>From <em>A</em> OR (<em>B</em> OR <em>C</em>): deduce (<em>B</em> OR <em>C</em>) OR <em>A</em>. <i>[OR IS COMMUTATIVE]</i></span></li><li><span>From (<em>B</em> OR <em>C</em>) OR <em>A</em>: deduce <em>B</em> OR (<em>C</em> OR <em>A</em>). <i>[OR IS <a href="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</a> (left)]</i></span></li><li><span>From <em>B</em> OR (<em>C</em> OR <em>A</em>): deduce (<em>C</em> OR <em>A</em>) OR <em>B</em>. <i>[OR IS COMMUTATIVE]</i></span></li><li><span>From (<em>C</em> OR <em>A</em>) OR <em>B</em>: deduce <em>C</em> OR (<em>A</em> OR <em>B</em>). <i>[OR IS <a href="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</a> (left)]</i></span></li><li><span>From <em>C</em> OR (<em>A</em> OR <em>B</em>): deduce (<em>A</em> OR <em>B</em>) OR <em>C</em>. <i>[OR IS COMMUTATIVE]</i></span></li><li><span>QED!</span></li>';
- 
+
  var Exercise93 = new Exercise("9.3(a)", 'OR <A HREF="https://en.wikipedia.org/wiki/Distributive_property" target="_blank">DISTRIBUTES</A> OVER AND (left)', [OR(A, AND(B,C))], AND(OR(A,B), OR(A,C)),14);
  Exercise93.unlockedBy(Exercise91);
 Exercise93.proof = '<li><span><em>A</em> OR (<em>B</em> AND <em>C</em>). <i>[given]</i></span></li><li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>A</em> [assuming <em>A</em>]: deduce <em>A</em> OR <em>B</em> [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (left)]</i></span></li><li><span>From <em>A</em> [assuming <em>A</em>]: deduce <em>A</em> OR <em>C</em> [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (left)]</i></span></li><li><span>From <em>A</em> OR <em>B</em> [assuming <em>A</em>], <em>A</em> OR <em>C</em> [assuming <em>A</em>]: deduce (<em>A</em> OR <em>B</em>) AND (<em>A</em> OR <em>C</em>) [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>Deduce <em>B</em> AND <em>C</em> [assuming <em>B</em> AND <em>C</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>B</em> AND <em>C</em> [assuming <em>B</em> AND <em>C</em>]: deduce <em>B</em> [assuming <em>B</em> AND <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li><li><span>From <em>B</em> AND <em>C</em> [assuming <em>B</em> AND <em>C</em>]: deduce <em>C</em> [assuming <em>B</em> AND <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li><li><span>From <em>B</em> [assuming <em>B</em> AND <em>C</em>]: deduce <em>A</em> OR <em>B</em> [assuming <em>B</em> AND <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (right)]</i></span></li><li><span>From <em>C</em> [assuming <em>B</em> AND <em>C</em>]: deduce <em>A</em> OR <em>C</em> [assuming <em>B</em> AND <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (right)]</i></span></li><li><span>From <em>A</em> OR <em>B</em> [assuming <em>B</em> AND <em>C</em>], <em>A</em> OR <em>C</em> [assuming <em>B</em> AND <em>C</em>]: deduce (<em>A</em> OR <em>B</em>) AND (<em>A</em> OR <em>C</em>) [assuming <em>B</em> AND <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>From (<em>A</em> OR <em>B</em>) AND (<em>A</em> OR <em>C</em>) [assuming <em>A</em>], (<em>A</em> OR <em>B</em>) AND (<em>A</em> OR <em>C</em>) [assuming <em>B</em> AND <em>C</em>]: deduce (<em>A</em> OR <em>B</em>) AND (<em>A</em> OR <em>C</em>) [assuming <em>A</em> OR (<em>B</em> AND <em>C</em>)]. <i>[<a href="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">CASE ANALYSIS</a>]</i></span></li><li><span>From <em>A</em> OR (<em>B</em> AND <em>C</em>), (<em>A</em> OR <em>B</em>) AND (<em>A</em> OR <em>C</em>) [assuming <em>A</em> OR (<em>B</em> AND <em>C</em>)]: deduce (<em>A</em> OR <em>B</em>) AND (<em>A</em> OR <em>C</em>). <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a> (ASSUMPTION FORM)]</i></span></li><li><span>QED!</span></li>';
@@ -452,7 +462,7 @@ Exercise95b.notes = 'Thanks to Pace Nielsen, Andrew Liftin, Alan Lu, and Ephim K
 Exercise95b.proof = '<li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li><li><span>Deduce <em>A</em> OR <em>C</em> [assuming <em>A</em> OR <em>C</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming <em>A</em> OR <em>C</em>]. <i>[PUSH]</i></span></li><li><span>From <em>A</em> OR <em>C</em> [assuming <em>A</em> OR <em>C</em>], <em>A</em> IMPLIES <em>B</em> [assuming <em>A</em> OR <em>C</em>]: deduce <em>B</em> OR <em>C</em> [assuming <em>A</em> OR <em>C</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Constructive_dilemma" target="_blank">CONSTRUCTIVE DILEMMA</a> (left)]</i></span></li><li><span>From <em>B</em> OR <em>C</em> [assuming <em>A</em> OR <em>C</em>]: deduce (<em>A</em> OR <em>C</em>) IMPLIES (<em>B</em> OR <em>C</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li><li><span>QED!</span></li>';
 
 newSection("10", "The biconditional");
- 
+
  var formIFF = new Law('IFF', [formulaContext(A), formulaContext(B)], formulaContext(IFF(A,B)));
  var BiconditionalIntroduction = new Law('BICONDITIONAL INTRODUCTION', [IMPLIES(A,B), IMPLIES(B,A)], IFF(A,B));
  var BiconditionalElimination1 = new Law('BICONDITIONAL ELIMINATION (left)', [IFF(A,B)], IMPLIES(A,B));
@@ -496,7 +506,7 @@ Exercise101g.proof = '<li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></s
  var Exercise102 = new Exercise("10.2(a)", 'IFF IS <A HREF="https://en.wikipedia.org/wiki/Symmetric_relation" target="_blank">SYMMETRIC</A>', [IFF(A,B)], IFF(B,A),5);
  Exercise102.unlockedBy(Exercise101);
 Exercise102.proof = '<li><span><em>A</em> IFF <em>B</em>. <i>[given]</i></span></li><li><span>From <em>A</em> IFF <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em>. <i>[BICONDITIONAL ELIMINATION (left)]</i></span></li><li><span>From <em>A</em> IFF <em>B</em>: deduce <em>B</em> IMPLIES <em>A</em>. <i>[BICONDITIONAL ELIMINATION (right)]</i></span></li><li><span>From <em>B</em> IMPLIES <em>A</em>, <em>A</em> IMPLIES <em>B</em>: deduce <em>B</em> IFF <em>A</em>. <i>[BICONDITIONAL INTRODUCTION]</i></span></li><li><span>QED!</span></li>';
- 
+
  var Exercise102b = new Exercise("10.2(b)", 'IFF IS <A HREF="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</A>', [IFF(A,B), IFF(B,C)], IFF(A,C),8);
  Exercise102b.unlockedBy(Exercise101);
 Exercise102b.proof = '<li><span><em>A</em> IFF <em>B</em>. <i>[given]</i></span></li><li><span><em>B</em> IFF <em>C</em>. <i>[given]</i></span></li><li><span>From <em>A</em> IFF <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em>. <i>[BICONDITIONAL ELIMINATION (left)]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em>, <em>B</em> IFF <em>C</em>: deduce <em>A</em> IMPLIES <em>C</em>. <i>[SUBSTITUTION FOR IMPLIES (right)]</i></span></li><li><span>From <em>A</em> IFF <em>B</em>: deduce <em>B</em> IMPLIES <em>A</em>. <i>[BICONDITIONAL ELIMINATION (right)]</i></span></li><li><span>From <em>B</em> IMPLIES <em>A</em>, <em>B</em> IFF <em>C</em>: deduce <em>C</em> IMPLIES <em>A</em>. <i>[SUBSTITUTION FOR IMPLIES (left)]</i></span></li><li><span>From <em>A</em> IMPLIES <em>C</em>, <em>C</em> IMPLIES <em>A</em>: deduce <em>A</em> IFF <em>C</em>. <i>[BICONDITIONAL INTRODUCTION]</i></span></li><li><span>QED!</span></li>';
@@ -516,7 +526,7 @@ Exercise104.proof = '<li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPL
 Exercise105.proof = '<li><span>Deduce (<em>A</em> AND <em>B</em>) AND <em>C</em> [assuming (<em>A</em> AND <em>B</em>) AND <em>C</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From (<em>A</em> AND <em>B</em>) AND <em>C</em> [assuming (<em>A</em> AND <em>B</em>) AND <em>C</em>]: deduce <em>A</em> AND (<em>B</em> AND <em>C</em>) [assuming (<em>A</em> AND <em>B</em>) AND <em>C</em>]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</a> (left)]</i></span></li><li><span>Deduce <em>A</em> AND (<em>B</em> AND <em>C</em>) [assuming <em>A</em> AND (<em>B</em> AND <em>C</em>)]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>A</em> AND (<em>B</em> AND <em>C</em>) [assuming <em>A</em> AND (<em>B</em> AND <em>C</em>)]: deduce (<em>A</em> AND <em>B</em>) AND <em>C</em> [assuming <em>A</em> AND (<em>B</em> AND <em>C</em>)]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</a> (right)]</i></span></li><li><span>From (<em>A</em> AND <em>B</em>) AND <em>C</em> [assuming <em>A</em> AND (<em>B</em> AND <em>C</em>)], <em>A</em> AND (<em>B</em> AND <em>C</em>) [assuming (<em>A</em> AND <em>B</em>) AND <em>C</em>]: deduce ((<em>A</em> AND <em>B</em>) AND <em>C</em>) IFF (<em>A</em> AND (<em>B</em> AND <em>C</em>)). <i>[BICONDITIONAL INTRODUCTION (ASSUMPTION FORM)]</i></span></li><li><span>QED!</span></li>';
 
 newSection("11", "Disjunctive elimination");
- 
+
  var formNot = new Law('NOT', [formulaContext(A)], formulaContext(NOT(A)));
  var caseElimination1 = new Law('<A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</A> (left)', [OR(A,B), NOT(A)], B);
  var caseElimination2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</A> (right)', [OR(A,B), NOT(B)], A);
@@ -527,9 +537,9 @@ newSection("11", "Disjunctive elimination");
  Exercise111.unlockedBy(Exercise101);
  Exercise111.notes = '<UL><LI> The logical connective NOT (also known as <A HREF="https://en.wikipedia.org/wiki/Negation" target="_blank">negation</A>) is a unary connective; click on a formula to find the option to build the negated formula.  A statement NOT <I>A</I> is true when <I>A</I> is false, and false when <I>A</I> is true. <LI> We have unlocked the <A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">laws of disjunctive elimination</A>.  These laws assert that if a disjunction <I>A</I> OR <I>B</I> is true, and (say) NOT <I>A</I> is known to be true (so <I>A</I> is known to be false), then <I>B</I> must be true.  <LI> To use this law, drag a disjunction such as <I>A</I> OR <I>B</I> to the negation of either <I>A</I> or <I>B</I>; one can also drag in the reversed direction.<LI> This exercise, <A HREF="https://en.wikipedia.org/wiki/Principle_of_explosion" target="_blank"><I>ex falso quodlibet</I></A>, is also known as the "principle of explosion".  Informally, it asserts that once one has arrived at a contradiction, one can obtain any conclusion one wishes.  <LI> To apply <I>ex falso quodlibet</I> in subsequent exercises, drag a sentence of the form <I>A</I> AND (NOT <I>A</I>) to a formula in the <B>Formulas</B> window (or vice versa).  </UL>';
 Exercise111.proof = '<li><span><em>A</em> AND (NOT <em>A</em>). <i>[given]</i></span></li><li><span>From <em>A</em> AND (NOT <em>A</em>): deduce <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li><li><span>From <em>A</em> AND (NOT <em>A</em>): deduce NOT <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li><li><span>From <em>A</em>: deduce <em>A</em> OR <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (left)]</i></span></li><li><span>From <em>A</em> OR <em>B</em>, NOT <em>A</em>: deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</a> (left)]</i></span></li><li><span>QED!</span></li>';
-    
+
     newSection("12", "Law of excluded middle");
- 
+
  var excludedMiddle = new Law('<A HREF="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">EXCLUDED MIDDLE</A>', [formulaContext(A)], OR(A,NOT(A)));
  var Exercise121 = new Exercise("12.1(a)", '<A HREF="https://en.wikipedia.org/wiki/Reductio_ad_absurdum" target="_blank">REDUCTIO AD ABSURDUM</A>', [assuming(AND(B,NOT(B)),A)], NOT(A),7);
  Exercise121.unlocks(excludedMiddle);
@@ -605,7 +615,7 @@ Exercise125d.proof = '<li><span>(NOT <em>A</em>) AND (NOT <em>B</em>). <i>[given
  Exercise126.unlockedBy(Exercise121);
  Exercise126.notes = '<UL><LI>Contraposition is also known as <A HREF="" target="_blank">transposition</A>, and the statement (NOT <I>B</I>) IMPLIES (NOT <I>A</I>) is known as the <I>contrapositive</I> of <I>A</I> IMPLIES <I>B</I>.</LI><LI>Thanks to Steve Trout for a short proof, and Andrew Litfin and Andrew Lei for a shorter proof.</LI></UL>';
 Exercise126.proof = '<li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li><li><span>Deduce NOT <em>B</em> [assuming NOT <em>B</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming NOT <em>B</em>]. <i>[PUSH]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em> [assuming NOT <em>B</em>]: deduce (NOT <em>A</em>) OR <em>B</em> [assuming NOT <em>B</em>]. <i>[EXERCISE 12.4(a)]</i></span></li><li><span>From (NOT <em>A</em>) OR <em>B</em> [assuming NOT <em>B</em>], NOT <em>B</em> [assuming NOT <em>B</em>]: deduce NOT <em>A</em> [assuming NOT <em>B</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</a> (right)]</i></span></li><li><span>From NOT <em>A</em> [assuming NOT <em>B</em>]: deduce (NOT <em>B</em>) IMPLIES (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li><li><span>QED!</span></li>';
- 
+
  var Exercise126b = new Exercise("12.6(b)", '<A HREF="https://en.wikipedia.org/wiki/Modus_tollens" target="_blank">MODUS TOLLENS</A>', [IMPLIES(A,B), NOT(B)], NOT(A),5);
  Exercise126b.unlockedBy(Exercise121);
 Exercise126b.proof = '<li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li><li><span>NOT <em>B</em>. <i>[given]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em>: deduce (NOT <em>B</em>) IMPLIES (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Contraposition" target="_blank">CONTRAPOSITION</a>]</i></span></li><li><span>From NOT <em>B</em>, (NOT <em>B</em>) IMPLIES (NOT <em>A</em>): deduce NOT <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a>]</i></span></li><li><span>QED!</span></li>';
@@ -913,7 +923,7 @@ var Exercise224c = new Exercise("22.4(c)", "FERIOQUE SYLLOGISM", [NOT(thereExist
 Exercise224c.notes = '<UL><LI> An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Ferioque  syllogism</A> is "No homework is fun. Some reading is homework.  Hence, some reading is not fun.".</LI> <LI> Thanks to Anders Kaseorg for a short proof. </LI></UL>';
 Exercise224c.unlockedBy(Exercise221);
 Exercise224c.proof = '<li><span>NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li><li><span>THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[given]</i></span></li><li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li><li><span>Deduce <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li><li><span>From <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)]. <i>[PUSH]</i></span></li><li><span>From <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)], <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)]: deduce <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>From <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li><li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))): deduce NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)]. <i>[DOUBLE PUSH (mixed IV)]</i></span></li><li><span>From THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)], NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>Q</i>(<i>x</i>)]: deduce NOT <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Reductio_ad_absurdum" target="_blank">REDUCTIO AD ABSURDUM</a> (separated form)]</i></span></li><li><span>From <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li><li><span>From <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)], NOT <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>From <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li><li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[PULL]</i></span></li><li><span>QED!</span></li>';
- 
+
 
 var Exercise224d = new Exercise("22.4(d)", "BAROCO SYLLOGISM", [forAll(IMPLIES(PX,QX), X), thereExists(AND(RX,NOT(QX)),X)], thereExists(AND(RX,NOT(PX)),X), 12);
 Exercise224d.notes = '<UL><LI> An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Baroco  syllogism</A> is "All informative things are useful. Some websites are not useful.  Hence, some websites are not informative.".</LI> <LI> Thanks to Anders Kaseorg for a shorter proof.</LI> </UL>';
