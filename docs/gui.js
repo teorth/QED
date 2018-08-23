@@ -1215,7 +1215,12 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
 	}
 
 	this.law.index = numIndexedLaws;
-	numIndexedLaws++;
+    numIndexedLaws++;
+    
+    if (this.law.clone != "") {
+        this.law.clone.index = numIndexedLaws;
+        numIndexedLaws++;
+    }
 
 
     this.newLaws = []; // an array of laws unlocked when exercise is attempted(can be empty)
@@ -1237,12 +1242,14 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
     this.unlocks = function( law ) {
         this.newLaws.push(law);
 		law.index = this.law.index;
-		this.law.index++;    // in order for this code to work, the unlocks() command should be used before introducing any additional exercise.
+        this.law.index++;    // in order for this code to work, the unlocks() command should be used before introducing any additional exercise.  Probably would be better to store all loaded laws in a list rather than manually index them all (note that allLaws[] doesn't suffice for this purpose because the hardcoded laws come first there).
+        if (this.law.clone != "") this.law.clone.index++;
         numIndexedLaws++;
         
         if (law.clone != "") {
             law.clone.index = this.law.index;
             this.law.index++;
+            if (this.law.clone != "") this.law.clone.index++;
             numIndexedLaws++;
         }
     };
