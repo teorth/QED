@@ -1421,6 +1421,13 @@ function keydown(event) {
     if (event.key == 'r' || event.key == 'R')
         getElement("restart button").onclick();
 
+        if (event.key == 'l') {
+
+            unlockedLaws.forEach( function(law) { 
+                debug("law " + law.name + " has index " + law.index);
+            });
+        }
+
 // click the first unsolved exercise, if such exists
     if (event.key == 'n') {
         var i;
