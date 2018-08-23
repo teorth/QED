@@ -251,6 +251,7 @@ var equality = new Predicate("=", 2, true);
  var R3 = new Predicate("R", 3, false);
  var gt = new Predicate(">", 2, true);
  var lt = new Predicate("<", 2, true);
+ var elementOf = new Predicate("&isin;", 2, true);
 
 
  var f = new Operator("f", 1, false);
@@ -284,6 +285,9 @@ var QXa = predicateSentence(Q2,[X,alpha]);
 var QaX = predicateSentence(Q2,[alpha,X]);
 var gtXY = predicateSentence(gt, [X,Y]);
 var PXplusY = predicateSentence(P, [operatorTerm(plus, [X,Y])]);
+var XinX = predicateSentence(elementOf, [X,X]);
+var YinX = predicateSentence(elementOf, [Y,X]);
+var YinY = predicateSentence(elementOf, [Y,Y]);
 
 var fa = operatorTerm(f, [alpha]);
 var fb = operatorTerm(f, [beta]);
