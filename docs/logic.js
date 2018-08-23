@@ -251,6 +251,7 @@ var equality = new Predicate("=", 2, true);
  var R3 = new Predicate("R", 3, false);
  var gt = new Predicate(">", 2, true);
  var lt = new Predicate("<", 2, true);
+ var gte = new Predicate("&ge;", 2, true);
  var elementOf = new Predicate("&isin;", 2, true);
 
 
@@ -262,9 +263,15 @@ var equality = new Predicate("=", 2, true);
  var Y = new BoundVariable("Y");
  var Z = new BoundVariable("Z");
 
+var one = primitiveTerm("1");
 var alpha = primitiveTerm("&alpha;");
 var beta = primitiveTerm("&beta;");
 var gamma = primitiveTerm("&gamma;");
+
+
+var fa = operatorTerm(f, [alpha]);
+var fb = operatorTerm(f, [beta]);
+var X1 = operatorTerm(plus, [X,one]);
 
 var Px = predicateSentence(P,[x]);
 var Qx = predicateSentence(Q,[x]);
@@ -288,10 +295,8 @@ var PXplusY = predicateSentence(P, [operatorTerm(plus, [X,Y])]);
 var XinX = predicateSentence(elementOf, [X,X]);
 var YinX = predicateSentence(elementOf, [Y,X]);
 var YinY = predicateSentence(elementOf, [Y,Y]);
-
-var fa = operatorTerm(f, [alpha]);
-var fb = operatorTerm(f, [beta]);
-
+var XgteY = predicateSentence(gte, [X,Y]);
+var XgteX1 = predicateSentence(gte, [X,X1]);
 
 
 
@@ -541,79 +546,88 @@ function record(list, expr) {
 
 function listPrimitives(law, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic) {
     var list = [];
-
+    var options = [];
+    options.getPrimitives = getPrimitives;
+    options.getFreeVars = getFreeVars;
+    options.getBoundVars = getBoundVars;
+    options.getPrimTerms = getPrimTerms;
+    options.getPredicates = getPredicates;
+    options.getOperators = getOperators;
+    options.getAtomic = getAtomic;
 
     law.givens.forEach( function(item) {
-        pushPrimitivesFromContext(list, toContext(item), getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic);
+        pushPrimitivesFromContext(list, toContext(item), options);
     });
 
 // usually the line below is redundant, as any primitives in conclusion should have already appeared in one of the givens, but there are some exceptions, e.g. universal introduction without specifying the bound variable
-    pushPrimitivesFromContext(list, law.conclusion, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic);
+    pushPrimitivesFromContext(list, law.conclusion, options);
 
      return list;
 }
 
 // push all the primitives from context onto list (removing duplicates)
-function pushPrimitivesFromContext(list, context, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic) {
+function pushPrimitivesFromContext(list, context, options) {
+
     if (context.type == "formula" || context.type == "sentence in environment") {
-        pushPrimitivesFromSentence(list, context.sentence, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic);
+        pushPrimitivesFromSentence(list, context.sentence, options);
     }
     if (context.type == "environment" || context.type == "sentence in environment") 
     {
         context.environment.forEach( function(item) {
             if (item.type == "assuming" || item.type == "setting") {
-                pushPrimitivesFromSentence(list, item.sentence, getPrimitives, getFreeVars, getBoundVars,getPrimTerms, getPredicates, getOperators, getAtomic);
+                pushPrimitivesFromSentence(list, item.sentence, options);
             }
             if (item.type == "setting" || item.type == "letting") {
-                if (getFreeVars) {
+                if (options.getFreeVars) {
                     record(list, item.variable);
                 }
             }
         });
     }
     if (context.type == "term context") {
-        pushPrimitivesFromSentence(list, context.term, getPrimitives, getFreeVars, getBoundVars,getPrimTerms,getPredicates, getOperators, getAtomic);
+        pushPrimitivesFromSentence(list, context.term, options);
     }
 }
 
 // push all the primitives from sentence/term onto list (removing duplicates)
-function pushPrimitivesFromSentence(list, sentence, getPrimitives, getFreeVars, getBoundVars,getPrimTerms,getPredicates, getOperators, getAtomic)
+function pushPrimitivesFromSentence(list, sentence, options)
 {
+
     switch(sentence.type) {
         case "primitive":
-            if (getPrimitives) record(list, sentence);
+            if (options.getPrimitives) record(list, sentence);
 
             switch(sentence.subtype) {
                 case "atomic":
-                    if (getAtomic) record(list, sentence); 
+                    if (options.getAtomic) record(list, sentence); 
                     break;
                 case "predicate":
-                    if (getPredicates) record(list, sentence.predicate);
-                    sentence.argList.forEach( function(arg) { pushPrimitivesFromSentence(list,arg, getPrimitives, getFreeVars,  getBoundVars,getPrimTerms,getPredicates, getOperators, getAtomic);} );
+                    if (options.getPredicates) record(list, sentence.predicate);
+                    sentence.argList.forEach( function(arg) { pushPrimitivesFromSentence(list,arg, options);} );
                     break;
             }
             break;
         case "quantifier":
-            if (getBoundVars) record(list, sentence.argList[1]);
-            pushPrimitivesFromSentence(list, sentence.argList[0], getPrimitives, getFreeVars, getBoundVars,getPrimTerms,getPredicates, getOperators, getAtomic);
+            if (options.getBoundVars) record(list, sentence.argList[1]);
+            pushPrimitivesFromSentence(list, sentence.argList[0], options);
             break;
         case "connective":
-            sentence.argList.forEach( function(arg) { pushPrimitivesFromSentence(list,arg, getPrimitives, getFreeVars, getBoundVars,getPrimTerms,getPredicates, getOperators, getAtomic);} );
+            sentence.argList.forEach( function(arg) { pushPrimitivesFromSentence(list,arg, options);} );
             break;
         case "term":
             switch(sentence.subtype) {
                 case "primitive":
-                    if (getPrimTerms) record(list,sentence);
+                    if (options.getPrimTerms) record(list,sentence);
                     return;
                 case "operator evaluation":
-                    if (getOperators)  record(list, sentence.operator);
-                    sentence.argList.forEach( function(arg) { pushPrimitivesFromSentence(list,arg, getPrimitives, getFreeVars,  getPrimTerms,getPredicates, getOperators, getAtomic);} );
+                    if (options.getOperators)  record(list, sentence.operator);
+                    sentence.argList.forEach( function(arg) { pushPrimitivesFromSentence(list,arg, options);} );
                     return;
                 case "free variable":
-                    if (getFreeVars) record(list, sentence.argList[0]);
+                    if (options.getFreeVars) record(list, sentence.argList[0]);
                     return;
                 case "bound variable":
-                    if (getBoundVars) record(list, sentence.argList[0]);
+                    if (options.getBoundVars) record(list, sentence.argList[0]);
                     return;
             }
     }
