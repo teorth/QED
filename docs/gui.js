@@ -1238,7 +1238,13 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
         this.newLaws.push(law);
 		law.index = this.law.index;
 		this.law.index++;    // in order for this code to work, the unlocks() command should be used before introducing any additional exercise.
-		numIndexedLaws++;
+        numIndexedLaws++;
+        
+        if (law.clone != "") {
+            law.clone.index = this.law.index;
+            this.law.index++;
+            numIndexedLaws++;
+        }
     };
 
     this.button = createExerciseButton(this);
