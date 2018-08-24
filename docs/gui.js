@@ -170,8 +170,11 @@ function notify(msg) {
     return node;
 }
 
+var debugOn = true;
+
 function debug(msg) {
-    console.log(msg);
+    if (debugOn)
+        console.log(msg);
 }
 
 function error(msg) {

@@ -547,10 +547,7 @@ function record(list, expr) {
     }    
 }
 
-// list the (names of) atomic primitives, free variables, bound variables, primitive terms, predicates, operators occurring in a law 
-
-function listPrimitives(law, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic) {
-    var list = [];
+function makeOptions(getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic) {
     var options = [];
     options.getPrimitives = getPrimitives;
     options.getFreeVars = getFreeVars;
@@ -559,6 +556,14 @@ function listPrimitives(law, getPrimitives, getFreeVars, getBoundVars, getPrimTe
     options.getPredicates = getPredicates;
     options.getOperators = getOperators;
     options.getAtomic = getAtomic;
+    return options;
+}
+
+// list the (names of) atomic primitives, free variables, bound variables, primitive terms, predicates, operators occurring in a law 
+
+function listPrimitives(law, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic) {
+    var list = [];
+    var options = makeOptions(getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic);
 
     law.givens.forEach( function(item) {
         pushPrimitivesFromContext(list, toContext(item), options);
@@ -809,7 +814,7 @@ function nextAvailableBoundVariable(statement) {
     var boundVars = [];
     
 
-    pushPrimitivesFromSentence(boundVars, statement, false, false, true,false, false, false, false);
+    pushPrimitivesFromSentence(boundVars, statement, makeOptions(false, false, true,false, false, false, false));
 
 
     var num=0;
@@ -949,7 +954,7 @@ function matchExistentialInstantiation(arglist, output, law) {
     var boundVar = toTerm(arglist[0].sentence.argList[1]).argList[0];
 
     var freeVariable;
-
+    
     if (law == existentialInstantiation) {
         if (arglist[1].type != "term context") {
             output.matches = false;
@@ -963,8 +968,8 @@ function matchExistentialInstantiation(arglist, output, law) {
     } else  if (law == existentialInstantiation2) {
         // choose the next available free Variable
         var freeVars = [];
-        
-        pushPrimitivesFromContext(freeVars, sentenceContext(sentence,output.env), false, true, false, false, false, false, false);
+
+        pushPrimitivesFromContext(freeVars, sentenceContext(sentence,output.env), makeOptions(false, true, false, false, false, false, false));
 
         var num=0;
         var match;
