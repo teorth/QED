@@ -260,6 +260,8 @@ var equality = new Predicate("=", 2, true);
  var plus = new Operator("+", 2, true);
  var times = new Operator("*", 2, true);
 
+ function multiply(x,y) { return operatorTerm(times, [x,y]); }
+
  var X = new BoundVariable("X");
  var Y = new BoundVariable("Y");
  var Z = new BoundVariable("Z");
