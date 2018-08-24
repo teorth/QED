@@ -527,7 +527,7 @@ function createRootEnvironment() {
     box.setAttribute('ondrop', "drop(event)");
     box.setAttribute('onclick', "clickBox(this,event)");
     box.type = "environment";
-    box.appendChild(newHeading("Root enviroment"));
+    box.appendChild(newHeading("Root environment"));
     return box;
 }
 
