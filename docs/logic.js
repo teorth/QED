@@ -277,6 +277,7 @@ var X1 = operatorTerm(plus, [X,one]);
 var Px = predicateSentence(P,[x]);
 var Qx = predicateSentence(Q,[x]);
 var Rx = predicateSentence(R,[x]);
+var Sx = predicateSentence(S,[x]);
 var Qy = predicateSentence(Q,[y]);
 var PX = predicateSentence(P,[X]);
 var PY = predicateSentence(P,[Y]);
