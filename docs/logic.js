@@ -257,16 +257,20 @@ var equality = new Predicate("=", 2, true);
 
 
  var f = new Operator("f", 1, false);
+ var sqrt = new Operator("&radic;", 1, false);
  var plus = new Operator("+", 2, true);
  var times = new Operator("*", 2, true);
+ var exp = new Operator("^", 2, true);
 
  function multiply(x,y) { return operatorTerm(times, [x,y]); }
+ function power(x,y) { return operatorTerm(exp, [x,y]); }
 
  var X = new BoundVariable("X");
  var Y = new BoundVariable("Y");
  var Z = new BoundVariable("Z");
 
 var one = primitiveTerm("1");
+var two = primitiveTerm("2");
 var alpha = primitiveTerm("&alpha;");
 var beta = primitiveTerm("&beta;");
 var gamma = primitiveTerm("&gamma;");
@@ -274,6 +278,10 @@ var gamma = primitiveTerm("&gamma;");
 
 var fa = operatorTerm(f, [alpha]);
 var fb = operatorTerm(f, [beta]);
+var fX = operatorTerm(f, [X]);
+var ffX = operatorTerm(f, [fX]);
+var sqrt2 = operatorTerm(sqrt, [two]);
+var sqrtX = operatorTerm(sqrt, [X]);
 var X1 = operatorTerm(plus, [X,one]);
 
 var Px = predicateSentence(P,[x]);
@@ -286,6 +294,7 @@ var PY = predicateSentence(P,[Y]);
 var QX = predicateSentence(Q,[X]);
 var QY = predicateSentence(Q,[Y]);
 var RX = predicateSentence(R,[X]);
+var RY = predicateSentence(R,[Y]);
 var SX = predicateSentence(S,[X]);
 var Pa = predicateSentence(P,[alpha]);
 var Pb = predicateSentence(P,[alpha]);
