@@ -2,11 +2,12 @@
 
 Repository for the QED interactive text and possible extensions
 
+Try the latest version at: https://teorth.github.io/QED/QED.html
 
 This project was initially created by Terence Tao and released on July 28,
-2018 at http://www.math.ucla.edu/~tao/QED/QED.html . On Aug 21, 2018, the
-project was uploaded to GitHub in order to open up the project to other
-coders.
+2018 at http://www.math.ucla.edu/~tao/QED/QED.html (old version). On Aug 21,
+2018, the project was uploaded to GitHub in order to open up the project to
+other coders.
 
 
 ## File Structure
