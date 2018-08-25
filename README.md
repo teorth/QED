@@ -32,6 +32,9 @@ In addition there is a text file at [`classes.txt`](docs/classes.txt) that
 gives a "cheat sheet" summary of the main data structures used in the
 javascript code.
 
+## History
+
+The version history can be found here: [`HISTORY.md`](HISTORY.md).
 
 ## License
 
