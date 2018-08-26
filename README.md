@@ -16,20 +16,23 @@ The source code is stored in the [`docs`](docs) folder (to permit
 [auto-deploying the code using GitHub Pages][github-publishing]). It consists
 of these main files:
 
-1. [`index.html`](docs/index.html) - the web page for the text. Consists
-mainly of loading of the javascript elements from the JS files, and listing
-the exercises, notes, and solutions of the text.
+1. [`index.html`](docs/index.html) - the web page for the text.
 
-2. [`logic.js`](docs/logic.js) - the code for the logical elements of the
-text (terms, operators, sentences, contexts, etc.). The most complex portion
-of the code is probably the matching algorithms that look for all the
-possible deductions that can be made from selected sentences given the laws
-available.
+2. [`main.css`](docs/main.css) - CSS stylesheet.
 
-3. [`gui.js`](docs/gui.js) - code for buttons, boxes, and other GUI elements.
+3. JavaScript
 
-4. [`main.css`](docs/main.css) - CSS stylesheet.
+   * [`logic.js`](docs/logic.js) - the code for the logical elements of the
+     text (terms, operators, sentences, contexts, etc.). The most complex
+     portion of the code is probably the matching algorithms that look for
+     all the possible deductions that can be made from selected sentences
+     given the laws available.
 
+   * [`gui.js`](docs/gui.js) - code for buttons, boxes, and other GUI
+     elements.
+
+   * [`js/main.js`](docs/js/main.js) - mainly loads the content (exercises, notes,
+     solutions, etc) into the HTML document.
 
 In addition there is a text file at [`classes.txt`](docs/classes.txt) that
 gives a "cheat sheet" summary of the main data structures used in the
