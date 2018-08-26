@@ -992,7 +992,7 @@ function createExerciseButtonBox() {
     var box = getElement("exercise button box");
 
     var subnode = getElement("exercise button subbox");
-	
+
     var button = newCollapseButton(subnode, false);
 
     box.appendChild(button);
@@ -1214,12 +1214,12 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
 	else {
 	    if (lawName == "")
 		    lawName = this.name;
-	    this.law = new Law(lawName,givens,conclusion);	
+	    this.law = new Law(lawName,givens,conclusion);
 	}
 
 	this.law.index = numIndexedLaws;
     numIndexedLaws++;
-    
+
     if (this.law.clone != "") {
         this.law.clone.index = numIndexedLaws;
         numIndexedLaws++;
@@ -1248,7 +1248,7 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
         this.law.index++;    // in order for this code to work, the unlocks() command should be used before introducing any additional exercise.  Probably would be better to store all loaded laws in a list rather than manually index them all (note that allLaws[] doesn't suffice for this purpose because the hardcoded laws come first there).
         if (this.law.clone != "") this.law.clone.index++;
         numIndexedLaws++;
-        
+
         if (law.clone != "") {
             law.clone.index = this.law.index;
             this.law.index++;
@@ -1433,7 +1433,7 @@ function keydown(event) {
 
         if (event.key == 'l') {
 
-            unlockedLaws.forEach( function(law) { 
+            unlockedLaws.forEach( function(law) {
                 debug("law " + law.name + " has index " + law.index);
             });
         }
