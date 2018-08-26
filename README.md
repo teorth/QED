@@ -20,18 +20,18 @@ of these main files:
 
 2. [`main.css`](docs/main.css) - CSS stylesheet.
 
-3. JavaScript
+3. JavaScript ([`docs/js`](docs/js) folder)
 
-   * [`logic.js`](docs/logic.js) - the code for the logical elements of the
+   * [`logic.js`](docs/js/logic.js) - the code for the logical elements of the
      text (terms, operators, sentences, contexts, etc.). The most complex
      portion of the code is probably the matching algorithms that look for
      all the possible deductions that can be made from selected sentences
      given the laws available.
 
-   * [`gui.js`](docs/gui.js) - code for buttons, boxes, and other GUI
+   * [`gui.js`](docs/js/gui.js) - code for buttons, boxes, and other GUI
      elements.
 
-   * [`js/main.js`](docs/js/main.js) - mainly loads the content (exercises, notes,
+   * [`main.js`](docs/js/main.js) - mainly loads the content (exercises, notes,
      solutions, etc) into the HTML document.
 
 In addition there is a text file at [`classes.txt`](docs/classes.txt) that
