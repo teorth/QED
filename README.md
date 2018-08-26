@@ -2,7 +2,7 @@
 
 Repository for the QED interactive text and possible extensions
 
-Try the latest version at: https://teorth.github.io/QED/QED.html
+Try the latest version at: <https://teorth.github.io/QED/>
 
 This project was initially created by Terence Tao and released on July 28,
 2018 at http://www.math.ucla.edu/~tao/QED/QED.html (old version). On Aug 21,
@@ -14,11 +14,11 @@ other coders.
 
 The source code is stored in the [`docs`](docs) folder (to permit
 [auto-deploying the code using GitHub Pages][github-publishing]). It consists
-of three main files:
+of these main files:
 
-1. [`QED.html`](docs/QED.html) - the web page for the text. Consists mainly
-of loading of the javascript elements from the other two files,
-and listing the exercises, notes, and solutions of the text.
+1. [`index.html`](docs/index.html) - the web page for the text. Consists
+mainly of loading of the javascript elements from the JS files, and listing
+the exercises, notes, and solutions of the text.
 
 2. [`logic.js`](docs/logic.js) - the code for the logical elements of the
 text (terms, operators, sentences, contexts, etc.). The most complex portion

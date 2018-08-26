@@ -1,4 +1,4 @@
-// polyfill the Array includes method (which is not supported in IE).  This code moved from QED.html
+// polyfill the Array includes method (which is not supported in IE).  This code moved from index.html
 
 if (!Array.prototype.includes) {
   Object.defineProperty(Array.prototype, "includes", {
@@ -44,9 +44,9 @@ function deductionString(prefix, list, conclusion)
  }
  else {
     if (conclusion.type == "environment")
-        return prefix + " " + listToString(list) + ": form environment " + conclusion.name + ".";    
+        return prefix + " " + listToString(list) + ": form environment " + conclusion.name + ".";
     else
-        return prefix + " " + listToString(list) + ": deduce " + conclusion.name + ".";    
+        return prefix + " " + listToString(list) + ": deduce " + conclusion.name + ".";
  }
 }
 
@@ -121,7 +121,7 @@ function Operator( name, arity, relationStyle )
         case 1: this.longName = "Unary operator " + this.name + "()"; break;
         case 2:
             if (this.relationStyle) this.longName = "Binary operator " + this.name;
-            else this.longName = "Binary operator " + this.name + "(,)"; 
+            else this.longName = "Binary operator " + this.name + "(,)";
     }
 
 }
@@ -183,7 +183,7 @@ function operatorTerm(operator, argList)
             str += term.argList[i].name + ", ";
         str = str.substring(0, str.length - 2);
         term.name = str + ")";
-        term.longName = term.name; 
+        term.longName = term.name;
     }
     return term;
 }
@@ -194,7 +194,7 @@ function primitiveTerm(name)
     term.subtype = "primitive";
     term.name = name;
     term.longName = name;
-    return term;  
+    return term;
 }
 
 // turn an object into a term if possible
@@ -227,14 +227,14 @@ function Predicate( name, arity, relationStyle )
         case 1: this.longName = "Predicate " + this.name + "()"; break;
         case 2:
             if (this.relationStyle) this.longName = "Relation " + this.name;
-            else this.longName = "Predicate " + this.name + "(,)"; 
+            else this.longName = "Predicate " + this.name + "(,)";
     }
 }
 
 // we have one special predicate: the equality relation
 var equality = new Predicate("=", 2, true);
 
-// some other predicates, terms, sentences.  Moves from QED.html (mainly because some of these will be needed for the hard-coded laws)
+// some other predicates, terms, sentences.  Moves from index.html (mainly because some of these will be needed for the hard-coded laws)
 
  var x = new FreeVariable("x");
  var y = new FreeVariable("y");
@@ -372,12 +372,12 @@ function predicateSentence(predicate, argList) {
 
     for (i=0; i < argList.length; i++)
         sentence.argList[i] = toTerm(argList[i]);
-    
+
     if (sentence.predicate.relationStyle) {
         sentence.name = argList[0].longName + " " + sentence.predicate.name + " " + argList[1].longName;
-        sentence.longName = "(" + sentence.name + ")"; 
+        sentence.longName = "(" + sentence.name + ")";
     } else if (sentence.predicate.arity == 0) {
-        sentence.name = sentence.predicate.name; 
+        sentence.name = sentence.predicate.name;
         sentence.longName = sentence.name;
     } else {
         var str = sentence.predicate.name + "(";
@@ -385,7 +385,7 @@ function predicateSentence(predicate, argList) {
             str += toTerm(argList[i]).name + ", ";
         str = str.substring(0, str.length - 2);
         sentence.name = str + ")";
-        sentence.longName = sentence.name; 
+        sentence.longName = sentence.name;
     }
 
     sentence.name = sentence.name;
@@ -492,7 +492,7 @@ function toSentence(obj) {
 }
 
 
-//some atomic sentences.  Moved from QED.html
+//some atomic sentences.  Moved from index.html
 
  var A = atomicSentence("A");
  var B = atomicSentence("B");
@@ -510,7 +510,7 @@ function Law(name, givens, conclusion) {
        givenslist.push(toContext(given));
     });
     this.givens = givenslist;
-    
+
     this.conclusion = toContext(conclusion);  // given conclusion
     this.unlocked = false;         // by default the law is not unlocked
     this.string = deductionString("Given", givens, this.conclusion);
@@ -526,12 +526,12 @@ function Law(name, givens, conclusion) {
             givensClone.push(rootEnvironmentContext());
             this.clone = new Law(this.name, givensClone, this.conclusion);
         }
-    }    
+    }
 }
 
 
 
-// all the laws that require special treatment in the matching algorithm.  Moved from QED.html
+// all the laws that require special treatment in the matching algorithm.  Moved from index.html
 
 var universalIntroduction = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x),toTerm(X)], forAll(PX,X));
 var universalIntroduction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X));
@@ -553,7 +553,7 @@ function record(list, expr) {
     if (!list.includes(expr.name)) {
         list.push(expr.name);
         sentences[expr.name] = expr;  // remember the variable object associated to name
-    }    
+    }
 }
 
 function makeOptions(getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic) {
@@ -568,7 +568,7 @@ function makeOptions(getPrimitives, getFreeVars, getBoundVars, getPrimTerms, get
     return options;
 }
 
-// list the (names of) atomic primitives, free variables, bound variables, primitive terms, predicates, operators occurring in a law 
+// list the (names of) atomic primitives, free variables, bound variables, primitive terms, predicates, operators occurring in a law
 
 function listPrimitives(law, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic) {
     var list = [];
@@ -590,7 +590,7 @@ function pushPrimitivesFromContext(list, context, options) {
     if (context.type == "formula" || context.type == "sentence in environment") {
         pushPrimitivesFromSentence(list, context.sentence, options);
     }
-    if (context.type == "environment" || context.type == "sentence in environment") 
+    if (context.type == "environment" || context.type == "sentence in environment")
     {
         context.environment.forEach( function(item) {
             if (item.type == "assuming" || item.type == "setting") {
@@ -618,7 +618,7 @@ function pushPrimitivesFromSentence(list, sentence, options)
 
             switch(sentence.subtype) {
                 case "atomic":
-                    if (options.getAtomic) record(list, sentence); 
+                    if (options.getAtomic) record(list, sentence);
                     break;
                 case "predicate":
                     if (options.getPredicates) record(list, sentence.predicate);
@@ -660,7 +660,7 @@ function allFormulas(givens) {
     var i;
     for (i = 0; i < givens.length; i++) {
         if (givens[i].type != "formula" && givens[i].type != "term context") return false;
-       }    
+       }
     return true;
 }
 
@@ -674,7 +674,7 @@ function matchWithGivens( arglist, law, primitives ) {
     var output = new Object();
     output.matches = true;  // so far, no reason to doubt a match.
     output.illegal = false; // sometimes there is technically a match but something is ill-formed
-    output.multivalued = false;  // do we need multiple conclusions, or just one? 
+    output.multivalued = false;  // do we need multiple conclusions, or just one?
     output.env = [];        // by default, the output environment will be the root one.
 
     primitives.forEach( function(primitive) {
@@ -716,17 +716,17 @@ function matchWithGivens( arglist, law, primitives ) {
             if (proposedYet == false) {
                 proposedYet = true;
                 proposedEnv = candidateEnv;
-            }  
+            }
             else if (assumptionListToString(proposedEnv) != assumptionListToString(candidateEnv)) {  // need to convert to string here as a proxy for passing by value rather than by reference
                 output.matches = false;
                 return output;
-            }    
+            }
         }
     }
     output.env = proposedEnv;
    }
 
- 
+
     switch(law) { // a number of laws are too complex to be matched by the standard algorithm and have to be treated separately
         case universalIntroduction:
         case universalIntroduction2:
@@ -821,7 +821,7 @@ function matchUniversalIntroduction(arglist, output, law) {
 
 function nextAvailableBoundVariable(statement) {
     var boundVars = [];
-    
+
 
     pushPrimitivesFromSentence(boundVars, statement, makeOptions(false, false, true,false, false, false, false));
 
@@ -876,7 +876,7 @@ function matchUniversalSpecification(arglist, output, law) {
     } else if (law == universalSpecification2) {
         if (term.subtype != "free variable") {
             output.matches = false;
-            return;    
+            return;
         }
         var env = output.env.slice(0);
         env.push(toAssumption(term.argList[0]));
@@ -913,7 +913,7 @@ function hasBoundOrUnknownFree(term,env) {
 function searchReplace(statement, search, replace) {
     var newArgList = [];
     var i;
-    
+
 
     if (statement.type == "free variable" || statement.type == "bound variable") return statement;
 
@@ -963,7 +963,7 @@ function matchExistentialInstantiation(arglist, output, law) {
     var boundVar = toTerm(arglist[0].sentence.argList[1]).argList[0];
 
     var freeVariable;
-    
+
     if (law == existentialInstantiation) {
         if (arglist[1].type != "term context") {
             output.matches = false;
@@ -990,7 +990,7 @@ function matchExistentialInstantiation(arglist, output, law) {
             match = freeVars.includes(longStr);
             num++;
         } while (match);
-     
+
         freeVariable = new FreeVariable(str);
     }
 
@@ -1012,9 +1012,9 @@ function matchExistentialIntroduction(arglist, output, law) {
     }
 
     var sentence = arglist[0].sentence;
-    
+
     // arglist[1] needs to be a term context
-    
+
     if (arglist[1].type != "term context") {
         output.matches = false;
         return;
@@ -1069,13 +1069,13 @@ function matchIndiscernability(arglist, output, law) {
 
     var sentence = arglist[0].sentence;
     var sentence2 = arglist[1].sentence;
-    
+
     // sentence2 needs to be of the form alpha=beta
-    
+
     if (sentence2.subtype != "predicate" || sentence2.predicate != equality) {
         output.matches = false;
         return;
-    }  
+    }
 
     var alpha = sentence2.argList[0];
     var beta = sentence2.argList[1];
@@ -1094,7 +1094,7 @@ function matchIndiscernability(arglist, output, law) {
 // return a list of all possible ways in which appearances of "search" in sentence can be replaced with "replace"
 
 function allSearchReplace(statement, search, replace)
-{    
+{
     if (statement.type == "free variable" || statement.type == "bound variable") return [statement];
 
     var list = [];
@@ -1204,16 +1204,16 @@ function matchWithGiven( context, template, output) {
   if (template.type == "environment" || template.type == "sentence in environment") {
       var i;
       for (i = 0; i < template.environment.length; i++) {
-        matchWithGivenAssumption( context.environment[i + output.env.length], template.environment[i], output);      
+        matchWithGivenAssumption( context.environment[i + output.env.length], template.environment[i], output);
         if (!output.matches) return;
-      } 
+      }
   }
 
   if (template.type == "formula" || template.type == "sentence in environment")
     matchWithGivenSentence( context.sentence, template.sentence, output);
 
   if (template.type == "term context")
-    matchWithGivenSentence( context.term, template.term, output);  
+    matchWithGivenSentence( context.term, template.term, output);
 }
 
 // match item to template object in output if this has not already been done
@@ -1267,11 +1267,11 @@ function matchWithGivenSentence( sentence, template, output) {
                     if (template.predicate == equality) {
                         if (sentence.predicate != equality) {
                             output.matches = false;
-                            return;            
+                            return;
                         }
                         var i;
-            
-                        for (i=0; i<template.argList.length; i++) 
+
+                        for (i=0; i<template.argList.length; i++)
                             matchWithGivenSentence( sentence.argList[i], template.argList[i], output);
                         return;
                     }
@@ -1285,14 +1285,14 @@ function matchWithGivenSentence( sentence, template, output) {
                 output.matches = false;
                 return;
             }
-            
+
             if (template.subtype != sentence.subtype) {
                 output.matches = false;
                 return;
             }
-                    
+
             var i;
-            
+
             for (i=0; i<template.argList.length; i++) {
                 matchWithGivenSentence( sentence.argList[i], template.argList[i], output);
             }
@@ -1317,7 +1317,7 @@ function matchWithGivenSentence( sentence, template, output) {
                 case "operator evaluation":
                     // need some code for matching with a predicate sentence.  Right now, we simply refuse to match:
                     output.matches=false;
-                    return;                
+                    return;
             }
     }
 }
@@ -1349,7 +1349,7 @@ function subsSentence(template, output)
             }
             if (template.subtype == "predicate") {
                 if (template.predicate == equality) { // this is the one operator for which we do implement matching
-                    return equals( subsSentence(template.argList[0] , output), subsSentence(template.argList[1] , output)) 
+                    return equals( subsSentence(template.argList[0] , output), subsSentence(template.argList[1] , output))
                 }
                 else {
                     // need (rather complicated) code here.  For now, just fail to match.
@@ -1377,7 +1377,7 @@ function subsSentence(template, output)
     }
 }
 
-// insert the values of the output object (previously obtained by matchWithGivens) to an environment; starts with the object ambient environment  
+// insert the values of the output object (previously obtained by matchWithGivens) to an environment; starts with the object ambient environment
 
 function subsEnvironment(env, output) {
     var list = output.env;
@@ -1388,7 +1388,7 @@ function subsEnvironment(env, output) {
         }
         if (item.type == "letting") {
             list.push(toAssumption( output[item.variable.name]));
-        } 
+        }
         if (item.type == "setting") {
             list.push(settingAssumption( subsSentence(item.sentence,output), output[item.variable.name]));
         }
@@ -1403,7 +1403,7 @@ function subs(template, output)
     // TODO: in some laws there will be bound variables that are not currently set in output.  If so, they need to be set to first available bound variable
     // for now such laws will be coded in by hand.
 
- 
+
     if (template.type == "formula") {
         return formulaContext(subsSentence(template.sentence, output));
     }
@@ -1583,7 +1583,7 @@ function termContext(obj) {
     context.name = ContextToString(context);
     return context;
   }
-  
+
 function sentenceContext(sentence, env) {
     context = new Context();
     context.type = "sentence in environment";
@@ -1649,7 +1649,7 @@ function isLegalSentence(obj, freeVariables, boundVariables, allowUnbound) {
         if (freeVariables == "ALL") return true;
         else return freeVariables.includes(obj.name);
     }
-    if (obj instanceof BoundVariable) {        
+    if (obj instanceof BoundVariable) {
         if (allowUnbound) return true;
         return boundVariables.includes(obj.name);
     }
@@ -1659,7 +1659,7 @@ function isLegalSentence(obj, freeVariables, boundVariables, allowUnbound) {
 // checks if a context is actually legal.  This means:
 // * no repeated free variables
 // * no unquantified bound variables
-// * no repeated bound variables  
+// * no repeated bound variables
 // * Sentence only depends on ambient free variables
 
 function isLegal(context) {
@@ -1667,9 +1667,9 @@ function isLegal(context) {
     if (context.type == 'term context') return true;
 
 // for formulae, bound variables not bounded by quantifiers are OK
-    if (context.type == 'formula') 
+    if (context.type == 'formula')
         return isLegalSentence(context.sentence, "ALL", [], true);
-        
+
     var freeVariables = [];  // list of available free variables
     var i;
 
@@ -1689,14 +1689,14 @@ function isLegal(context) {
             }
         }
       }
-    
+
     if (context.type == "sentence in environment")
         if (!isLegalSentence(context.sentence, freeVariables, [], false))
             return false;
-    
+
     return true;
 }
-    
+
 
 // return the list of assumptions associated to an environment box
 function listAssumptions(env) {
@@ -1743,7 +1743,7 @@ function toContext(obj) {
     }
 
     if (obj.type == "sentenceBox") {
-        var context = sentenceContext(obj.sentence, listAssumptions(obj.parentElement));        
+        var context = sentenceContext(obj.sentence, listAssumptions(obj.parentElement));
         return context;
     }
 
