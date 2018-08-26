@@ -7,89 +7,12 @@
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<style>
-        * {
-            box-sizing: border-box;
-        }
-
-    .wrapper {
-    display: grid;
-    grid-auto-columns: 32%;
-    grid-gap: 10px;
-    }
-
-    .box {
-        padding: 10px;
-    }
-
-    .root {
-        grid-column: 1;
-        grid-row: 1;
-    }
-    .term {
-        grid-column: 1;
-        grid-row: 2;
-    }
-    .formula {
-        grid-column: 2;
-        grid-row: 1;
-    }
-    .deductions {
-        grid-column: 3;
-        grid-row: 1/4;
-    }
-
-    .operators {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-        .halfbox {
-            float: left;
-            width: 50%;
-            padding: 1px;
-        }
-
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        .clickable {
-            box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
-            border-radius: 2px;
-        }
-        .clickable:hover {
-            box-shadow: 0 1px 2px 1px rgba(0,0,0,0.5);
-        }
-
-        table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
-
+<link rel="stylesheet" href="main.css">
 
 <script src="logic.js"></script>
 <script src="gui.js"></script>
-
-
 </head>
 <body>
 
@@ -131,7 +54,7 @@ tr:nth-child(even) {
 <button id="reset button">RESET QED</button>
 
 <p></p>
-    <H4 id="version header"> This is <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.3.2</a>.</H4>
+<H4 id="version header"> This is <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.3.3</a>.</H4>
 
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
 <P>

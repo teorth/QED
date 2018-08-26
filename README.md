@@ -17,7 +17,7 @@ The source code is stored in the [`docs`](docs) folder (to permit
 of three main files:
 
 1. [`QED.html`](docs/QED.html) - the web page for the text. Consists mainly
-of CSS styling, loading of the javascript elements from the other two files,
+of loading of the javascript elements from the other two files,
 and listing the exercises, notes, and solutions of the text.
 
 2. [`logic.js`](docs/logic.js) - the code for the logical elements of the
@@ -27,6 +27,9 @@ possible deductions that can be made from selected sentences given the laws
 available.
 
 3. [`gui.js`](docs/gui.js) - code for buttons, boxes, and other GUI elements.
+
+4. [`main.css`](docs/main.css) - CSS stylesheet.
+
 
 In addition there is a text file at [`classes.txt`](docs/classes.txt) that
 gives a "cheat sheet" summary of the main data structures used in the
