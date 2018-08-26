@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: grid;
+    grid-auto-columns: 32%;
+    grid-gap: 10px;
+}
+
+.box {
+    padding: 10px;
+}
+
+.root {
+    grid-column: 1;
+    grid-row: 1;
+}
+.term {
+    grid-column: 1;
+    grid-row: 2;
+}
+.formula {
+    grid-column: 2;
+    grid-row: 1;
+}
+.deductions {
+    grid-column: 3;
+    grid-row: 1/4;
+}
+
+.operators {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.halfbox {
+    float: left;
+    width: 50%;
+    padding: 1px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.clickable {
+    box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
+    border-radius: 2px;
+}
+.clickable:hover {
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.5);
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

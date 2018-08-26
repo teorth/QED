@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>QED</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="main.css">
+
+<script defer src="logic.js"></script>
+<script defer src="gui.js"></script>
+<script defer src="js/main.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+        <h2>QED - an interactive textbook</h2>
+</header>
+
+
+<div class="clearfix" id="exercise button box"><b>Sections and exercises</b><div id="exercise button subbox"></div></div>
+<br>
+<div class="clearfix" id="exercise"><UL>
+    <LI> Welcome to QED, a short interactive text in <A HREF="https://en.wikipedia.org/wiki/Propositional_calculus" target="_blank">propositional logic</A> arranged in the format of a computer game.  </LI>
+    <LI> Propositional logic is the logic of <A HREF="https://en.wikipedia.org/wiki/Atomic_sentence" target="_blank">atomic propositions</A> (which in this text are given names such as <I>A</I>, <I>B</I>, or <I>C</I>) and the statements one can form from these propositions using logical connectives such as AND, OR, and IMPLIES.  It is a subset of <A HREF="https://en.wikipedia.org/wiki/First-order_logic" target="_blank">first-order logic</A>, which is the main form of logic used in mathematics. </LI>
+    <LI> The objective of this "game" is to prove statements in propositional logic from the given hypotheses by clicking and dragging on statements that one has already deduced.  By solving exercises in this game, you should develop a greater understanding of propositional logic.</LI>
+    <LI> Expand the "Sections and exercises" section above and then click on the "Exercise 1.1" button to begin the text and start the sequence of exercises!</LI>
+</UL>
+</div>
+<br>
+<div class="wrapper">
+    <div class="box root" id="root environment"></div>
+    <div class="box term" id="term window"></div>
+    <div class="box formula" id="formula window"></div>
+    <div class="box deductions" id="deductions box"></div>
+    <div class="box operators" id="operators window"></div>
+</div>
+
+<div class="clearfix" id="proof box" style="background-color:#ddd"></div>
+<div class="clearfix">
+    <div class="halfbox" id="achievement box" style="background-color:#bbb">
+    </div>
+    <div class="halfbox" id="notification box" style="background-color:#ccc">
+    </div>
+</div>
+
+<button id="undo button">IMMEDIATE UNDO</button>
+<button id="restart button">RESTART EXERCISE</button>
+<button id="reset button">RESET QED</button>
+
+<p></p>
+<H4 id="version header"> This is <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.4.1</a>.</H4>
+
+If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
+<P>
+</P>
+Further discussion of this text may be found at <A HREF="https://terrytao.wordpress.com/2018/08/18/qed-version-2-0-an-interactive-text-in-first-order-logic/" target="_blank">this blog post</A>.
+<footer>
+    Originally written by Terence Tao.  Now <A HREF="https://github.com/teorth/QED">on github</A> under a MIT license.
+</footer>
+
+<noscript>This text requires JavaScript to run.  It appears that Javascript is not supported by your browser.</noscript>
+
+</div>
+</body>
+</html>

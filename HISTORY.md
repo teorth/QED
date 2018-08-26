@@ -1,6 +1,16 @@
 # QED - Release History
 
-* **Version 2.3.3** (released Aug 25, 2018).  Noscript added to HTML file.
+* **Version 2.4.2** (released Aug 25, 2018).  Noscript added to HTML file.
+
+* **Version 2.4.1** (released Aug 26, 2018). Move the remaining JS inside
+  `index.html` into a separate file `js/main.js`.
+
+* **Version 2.4** (released Aug 25, 2018). Change the main page from
+  `QED.html` to `index.html` so the URL can be the simpler
+  [https://teorth.github.io/QED/](https://teorth.github.io/QED/)
+  ([issue #4](https://github.com/teorth/QED/issues/4)).
+
+* **Version 2.3.3** (released Aug 25, 2018). Move CSS to `main.css`.
 
 * **Version 2.3.2** (released Aug 25, 2018).  New record for Exercise 24.7.
 
