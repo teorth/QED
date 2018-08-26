@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.4.5** (released Aug 26, 2018).  Fixed typo in Exercise 24.1 notes.
+
 * **Version 2.4.4** (released Aug 26, 2018).  Moved remaining JS files
   `logic.js` and `gui.js` to `js` folder.
 
