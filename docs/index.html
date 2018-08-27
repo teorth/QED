@@ -88,6 +88,309 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
     </ol>
 </div>
 
+<div class="exercise" id="1.2">
+        <div class="notes">
+            <UL> 
+                <LI> It is permissible to drag a statement onto itself.</LI> 
+                <LI> <Q>Each problem that I solved became a rule, which served afterwards to solve other problems</Q> - <A HREF="https://en.wikiquote.org/wiki/Ren%C3%A9_Descartes" target="_blank">René Descartes</A>.  Each exercise solved in this text becomes a new deduction rule that you may use in subsequent exercises.  The <B>Achievements</B> window lists all the rules of inference one has available, either through being unlocked by opening the appropriate exercise, or by proving that rule as one of the exercises.</LI>
+                <LI> One can also use the numbers \'1\' through \'9\' as hotkeys for the available eductions (or the first 9 of them, at any rate).</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li>
+            <li><span>From <em>A</em> AND <em>B</em>: deduce <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li>
+            <li><span>From <em>A</em> AND <em>B</em>: deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li>
+            <li><span>From <em>B</em>, <em>A</em>: deduce <em>B</em> AND <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
 </div>
+
+<div class="exercise" id="2.1">
+        <div class="notes">
+            <UL>
+                <LI> The rules of <A HREF="https://en.wikipedia.org/wiki/Conjunction_elimination">conjunction elimination</A> have been unlocked.  These rules assert that if a conjunction statement such as <I>A</I> AND <I>B</I> is known, then one can deduce either of the two individual statements <I>A</I> or <I>B</I> of that statement separately.</LI>
+                <LI> To activate this rule, click on a compound statement of the form <I>A</I> AND <I>B</I>.</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li>
+            <li><span>From <em>A</em> AND <em>B</em>: deduce <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li>
+            <li><span>From <em>A</em> AND <em>B</em>: deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li>
+            <li><span>From <em>B</em>, <em>A</em>: deduce <em>B</em> AND <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="2.2(a)">
+        <div class="notes">
+            <UL> 
+                <LI> One can think of a deduction rule as a template in which the <A HREF="https://en.wikipedia.org/wiki/Atomic_formula" target="_blank">atomic formulas</A> of the deduction rule (such as <I>A</I> or <I>B</I>) can be replaced by compound formulas (e.g. "<I>A</I> AND <I>B</I>").  This can greatly increase the power of such laws.</LI>
+                <LI> There are no "wrong" moves in the QED game - every move you make is a valid deduction!  However, you may end up making "useless" moves - moves that are logically valid, but do not bring one closer to the desired conclusion.  If you are finding the deduction environment to be getting too cluttered, you can click on the exercise button (in this case, Exercise 2.2(a)) to start from the beginning; one can also press the "RESTART QUESTION" (or presses "r") at the bottom of the page.</LI>
+                <LI> One can also "UNDO" a deduction if one presses the "IMMEDIATE UNDO" button at the bottom of this page (or presses "u") immediately after making a deduction.  This feature is not available if the deduction solves the exercise, or if one has performed any action between the deduction and the undo.</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span>(<em>A</em> AND <em>B</em>) AND <em>C</em>. <i>[given]</i></span></li>
+            <li><span>From (<em>A</em> AND <em>B</em>) AND <em>C</em>: deduce <em>A</em> AND <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li>
+            <li><span>From (<em>A</em> AND <em>B</em>) AND <em>C</em>: deduce <em>C</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li>
+            <li><span>From <em>A</em> AND <em>B</em>: deduce <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li>
+            <li><span>From <em>A</em> AND <em>B</em>: deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li>
+            <li><span>From <em>B</em>, <em>C</em>: deduce <em>B</em> AND <em>C</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+            <li><span>From <em>A</em>, <em>B</em> AND <em>C</em>: deduce <em>A</em> AND (<em>B</em> AND <em>C</em>). <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+
+<div class="exercise" id="2.2(b)">
+        <div class="notes">
+            Thanks to Stijn Vanhee and Siddhartha Srivastava for supplying a short proof.
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em> AND (<em>B</em> AND <em>C</em>). <i>[given]</i></span></li>
+            <li><span>From <em>A</em> AND (<em>B</em> AND <em>C</em>): deduce (<em>B</em> AND <em>C</em>) AND <em>A</em>. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li>
+            <li><span>From (<em>B</em> AND <em>C</em>) AND <em>A</em>: deduce <em>B</em> AND (<em>C</em> AND <em>A</em>). <i>[AND IS <a href="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</a> (left)]</i></span></li>
+            <li><span>From <em>B</em> AND (<em>C</em> AND <em>A</em>): deduce (<em>C</em> AND <em>A</em>) AND <em>B</em>. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li>
+            <li><span>From (<em>C</em> AND <em>A</em>) AND <em>B</em>: deduce <em>C</em> AND (<em>A</em> AND <em>B</em>). <i>[AND IS <a href="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</a> (left)]</i></span></li>
+            <li><span>From <em>C</em> AND (<em>A</em> AND <em>B</em>): deduce (<em>A</em> AND <em>B</em>) AND <em>C</em>. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="3.1(a)">
+        <div class="notes">
+            <UL>
+                <LI>Some deductive rules use formulas (also known as <A HREF="https://en.wikipedia.org/wiki/Well-formed_formula" target="_blank">well-formed formulas</A>) as input.</LI>
+                <LI>  Formulas look the same as statements, but whereas statements in the root environment are known to be true, a formula could be either true or false.  As such, we place them in a separate <B>Formulas</B> window, which is now unlocked for use.  For instance, in this exercise, the formulas <I>B</I> and <I>C</I> are <i>not</i> known to be true, but are still available for use in some rules of inference.  The formula <I>A</I> is known to be true, so it can belong to both the <B>Root environment</B> and <B>Formulas</B> windows.</LI>
+                <LI> In mathematical logic, the logical connective OR (also known as <A HREF="https://en.wikipedia.org/wiki/Logical_disjunction" target="_blank">disjunction</A>) is interpreted as an <I>inclusive</I> or; the statement "<I>A</I> OR <I>B</I>" asserts that <I>at least one</I> of <I>A</I> and <I>B</I> are true, and in particular will remain true if <I>both</I> of <I>A</I> and <I>B</I> are true. This feature of OR is captured in part by the laws of <A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">disjunction introduction</A> that have just been unlocked.</LI>
+                <LI> To use one of these laws, drag a formula from the <B>Formulas</B> window to a sentence in the <B>Root environment</B> window (or drag a sentence in the <B>Root environment</B> window to a formula in the <B>Formulas</B> window).</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em>. <i>[given]</i></span></li>
+            <li><span>From <em>A</em>: deduce <em>A</em> OR <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (left)]</i></span></li>
+            <li><span>From <em>A</em> OR <em>B</em>: deduce <em>C</em> OR (<em>A</em> OR <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (right)]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="3.1(b)">
+        <div class="notes">
+            The reverse implication (deducing <I>A</I> from <I>A</I> OR <I>A</I>) is true, but will be deferred to Exercise 9.1(b), as we first need to introduce the important concept of an assumption and then introduce some further laws of disjunction.
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em>. <i>[given]</i></span></li>
+            <li><span>From <em>A</em>: deduce <em>A</em> OR <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</a> (left)]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="4.1">
+        <div class="notes">
+            <UL>
+                <LI> The <B>Root environment</B> window holds all the statements that are known to be true under the given hypothesis.  But sometimes in an argument, we also need to consider statements that are only <I>conditionally</I> known to be true, under one or more assumptions.  For instance, we might not know that a statement <I>A</I> is true unconditionally, but instead know that <I>A</I> is conditionally true under the assumption of a second statement <I>B</I>. </LI>
+                <LI> In this interactive text, assumptions are depicted as subwindows of the <B>Root environment</B> window.  For instance, to depict the knowledge of <I>A</I> conditionally under the assumption of <I>B</I>, one would form a subwindow of <B>Root environment</B> titled "<B>Assume <I>B</I></B>", and place <I>A</I> inside that window. </LI>
+                <LI> The <A HREF="https://en.wikipedia.org/wiki/Conditional_proof" target="_blank">law of assumption</A> (or <I>implication introduction</I>) asserts that if <I>A</I> is a formula, then it will be true if we first make an assumption that <I>A</I> holds.  <LI>  Try dragging the formula <I>A</I> to the <B>Root environment</B> window (or clicking on the formula) to make such an assumption! </LI>
+                <LI> Every deductive rule that one can apply in the root environment, one can also apply in a sub-environment.  This is the key to solving the current exercise (and to many subsequent exercises).
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+            <li><span>From <em>A</em> [assuming <em>A</em>], <em>A</em> [assuming <em>A</em>]: deduce <em>A</em> AND <em>A</em> [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target=" _blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="5.1">
+        <div class="notes">
+            <UL> 
+                <LI> One can combine formulas together to create compound formulas.</LI>  
+                <LI> For binary logical connectives such as AND and OR, this is done here by dragging formulas together in the <B>Formulas</B> window.  </LI>
+                <LI> See what happens if one drags the formula <I>A</I> onto the formula <I>B</I> or vice versa!</LI>
+                <LI> For the purposes of recording proof length, the creation of new formulas is considered to be a "free move" in this text, in that it does not use up any lines of the proof.</LI> 
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span>Deduce (<em>A</em> AND <em>B</em>) OR <em>C</em> [assuming (<em>A</em> AND <em>B</em>) OR <em>C</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div> 
+
+<div class="exercise" id="5.2">
+        <div class="notes">
+            <UL>
+                <LI>Assumptions can be nested.</LI>  
+                <LI>The statement "<I>A</I>, assuming <I>B</I>, <I>A</I>" asserts that if one assumes <I>B</I>, and then subsequently assumes <I>A</I>, then the statement <I>A</I> will be true under these two assumptions.</LI> 
+                <LI>As with Exercise 4.1, the key to solving this exercise is in using the fact that any deductive rule that is applicable in the root environment, can also be applied in any sub-environment.</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span>Deduce <em>B</em> [assuming <em>B</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+            <li><span>Deduce <em>A</em> [assuming <em>B</em>, <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="6.1(a)">
+        <div class="notes">
+            <UL>
+                <LI>The logical connective IMPLIES is also known as <A HREF="https://en.wikipedia.org/wiki/Material_conditional" target="_blank">material implication</A> (or the <I>conditional</I>); informally, one can think of the assertion IMPLIES(<I>A</I>, <I>B</I>) as the assertion that <I>B</I> is "at least as true as" <I>A</I>.  (But they do not need to be <I>equally</I> true: in particular, if <I>A</I> is false and <I>B</I> is true, then it turns out that <I>A</I> IMPLIES <I>B</I> is true.<LI> The statement <I>A</I> IMPLIES <I>B</I> can also be written as IF <I>A</I>, THEN <I>B</I>.</LI>
+                <LI>  The <A HREF="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">deduction theorem</A> asserts that if you can prove a statement <I>B</I> under the assumption of another statement <I>A</I>, then you can deduce the compound statement <I>A</I> IMPLIES <I>B</I>. It is very commonly used in mathematics to prove implication statements.<LI> To use the deduction theorem, take a statement that is known under some hypothesis, and drag it out of the window corresponding to that hypothesis. </LI>
+                <LI> In some proof systems for propositional calculus, the deduction theorem is not one of the given laws of inference, but actually has to be proven as a theorem, which explains the name.  However, in this text, we will take the deduction theorem as a primitive inference rule.</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+            <li><span>From <em>A</em> [assuming <em>A</em>]: deduce <em>A</em> IMPLIES <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="6.1(b)">
+        <div class="notes">
+            To prove an implication of the form <I>X</I> IMPLIES <I>Y</I>, first create <I>X</I> as a formula in the <B>Formulas</B> window, drag it to the <B>Root environment</B> window to use it as an assumption, and then try to establish <I>Y</I> inside the window corresponding to that assumption.  Then use the deduction theorem.
+        </div>
+        <ol class="proof">
+            <li><span>Deduce <em>A</em> AND (<em>A</em> OR <em>B</em>) [assuming <em>A</em> AND (<em>A</em> OR <em>B</em>)]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+            <li><span>From <em>A</em> AND (<em>A</em> OR <em>B</em>) [assuming <em>A</em> AND (<em>A</em> OR <em>B</em>)]: deduce <em>A</em> [assuming <em>A</em> AND (<em>A</em> OR <em>B</em>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li>
+            <li><span>From <em>A</em> [assuming <em>A</em> AND (<em>A</em> OR <em>B</em>)]: deduce (<em>A</em> AND (<em>A</em> OR <em>B</em>)) IMPLIES <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="6.2">
+        <div class="notes">
+            <UL>
+                <LI> This exercise easily follows from two applications of the deduction theorem, but is convenient for use in later exercises.</LI> 
+                <LI>The appearance of [root environment] in the list of assumptions is not needed to <i>solve</i> the exercise; but it affects the user interface for <I>applying</I> the exercise.  Namely, to invoke this theorem in the future, one should drag a statement "up" two levels, undoing two levels of assumption.  (Without [root environment], one would instead click on the statement rather than drag it up two levels.)</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span><em>C</em> [assuming <em>A</em>, <em>B</em>]. <i>[given]</i></span></li>
+            <li><span>From <em>C</em> [assuming <em>A</em>, <em>B</em>]: deduce <em>B</em> IMPLIES <em>C</em> [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+            <li><span>From <em>B</em> IMPLIES <em>C</em> [assuming <em>A</em>]: deduce <em>A</em> IMPLIES (<em>B</em> IMPLIES <em>C</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>  
+
+<div class="exercise" id="7.1">
+        <div class="notes">
+            <UL>
+                <LI> If a statement is known without an assumption, then it can be "pushed" into an enviroment with that assumption.  For instance, if <I>A</I> is known to be true unconditionally, then it is also known to be true assuming <I>B</I>. </LI> 
+                <LI> The push law is also known as "weakening" or <A HREF="https://en.wikipedia.org/wiki/Monotonicity_of_entailment" target = "_blank">monotonicity of entailment</A>.</LI>
+                <LI> To apply a push, drag a statement into an assumption environment that shares the same parent environment as the original statement.  (Alternatively, if this environment has not yet been created, drag the statement onto a formula containing the assumption, or vice versa.)</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+            <li><span>From <em>A</em> [assuming <em>A</em>]: deduce <em>A</em> [assuming <em>A</em>, <em>B</em>]. <i>[PUSH (alternate form)]</i></span></li>
+            <li><span>From <em>A</em> [assuming <em>A</em>, <em>B</em>]: deduce <em>A</em> IMPLIES (<em>B</em> IMPLIES <em>A</em>). <i>[DOUBLE <a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="7.2">
+        <div class="notes">
+            <UL>
+                <LI> This exercise easily follows from two applications of the push law, but turns out to be convenient in some subsequent exercises. </LI> 
+                <LI> The presence of the assumption environment [assuming <I>B</I>, <I>C</I>] is needed for two technical reasons.  Firstly, it populates the formula window with the atomic formulas <I>B</I>, <I>C</I>, which otherwise would not be present.  Secondly, it affects the user interface for applying the double push rule.  Namely, to invoke this law, one should push a statement "down" two levels, into an assumption window that is two levels nested below the one that the statement lies in.</LI>
+                <LI>Thanks to Steve Trout for contributing a short proof.</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em>. <i>[given]</i></span></li>
+            <li><span>From <em>A</em>: deduce <em>A</em> [assuming <em>B</em>]. <i>[PUSH (alternate form)]</i></span></li>
+            <li><span>From <em>A</em> [assuming <em>B</em>]: deduce <em>A</em> [assuming <em>B</em>, <em>C</em>]. <i>[PUSH (alternate form)]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="8.1(a)">
+        <div class="notes">
+            <UL>
+                <LI><A HREF="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">Modus ponens</A> is one of the most famous deductive rules.  It asserts that if a statement <I>A</I> is known to be true, and it is also known that <I>A</I> IMPLIES <I>B</I>, then one can conclude that <I>B</I> is also true.</LI>
+                <LI> To apply this rule, drag the hypothesis <I>A</I> of an implication onto the implication <I>A</I> IMPLIES <I>B</I>.  The two statements must lie in the same assumption window for the law to be applied.</LI>
+                <LI> Incidentally, this exercise (the "assumption" form of Modus ponens) is a useful tool for several subsequent exercises in this text, so keep it in mind.  To apply this exercise, drag a hypothesis <I>A</I> to a conclusion <I>B</I> that has already been obtained under the assumption of <I>A</I>.</LI>
+            </UL>
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em>. <i>[given]</i></span></li>
+            <li><span><em>B</em> [assuming <em>A</em>]. <i>[given]</i></span></li>
+            <li><span>From <em>B</em> [assuming <em>A</em>]: deduce <em>A</em> IMPLIES <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+            <li><span>From <em>A</em>, <em>A</em> IMPLIES <em>B</em>: deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="8.1(b)">
+        <div class="notes">
+            This exercise will be useful in some later exercises.  To apply it, click on an implication statement such as <I>A</I> IMPLIES <I>B</I>.
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
+            <li><span>Deduce <em>A</em> [assuming <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+            <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming <em>A</em>]. <i>[PUSH]</i></span></li>
+            <li><span>From <em>A</em> [assuming <em>A</em>], <em>A</em> IMPLIES <em>B</em> [assuming <em>A</em>]: deduce <em>B</em> [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="8.2">
+        <div class="notes">
+        </div>
+        <ol class="proof">
+            <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
+            <li><span><em>B</em> IMPLIES <em>C</em>. <i>[given]</i></span></li>
+            <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>B</em> [assuming <em>A</em>]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+            <li><span>From <em>B</em> IMPLIES <em>C</em>: deduce <em>B</em> IMPLIES <em>C</em> [assuming <em>A</em>]. <i>[PUSH]</i></span></li><li><span>From <em>B</em> [assuming <em>A</em>], <em>B</em> IMPLIES <em>C</em> [assuming <em>A</em>]: deduce <em>C</em> [assuming <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a>]</i></span></li>
+            <li><span>From <em>C</em> [assuming <em>A</em>]: deduce <em>A</em> IMPLIES <em>C</em>. <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+            <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="0.0">
+        <div class="notes">
+        </div>
+        <ol class="proof">
+        </ol>
+</div>
+
+<div class="exercise" id="0.0">
+        <div class="notes">
+        </div>
+        <ol class="proof">
+        </ol>
+</div>
+
+<div class="exercise" id="0.0">
+        <div class="notes">
+        </div>
+        <ol class="proof">
+        </ol>
+</div>
+
+<div class="exercise" id="0.0">
+        <div class="notes">
+        </div>
+        <ol class="proof">
+        </ol>
+</div>
+
+<div class="exercise" id="0.0">
+        <div class="notes">
+        </div>
+        <ol class="proof">
+        </ol>
+</div>
+
+<div class="exercise" id="0.0">
+        <div class="notes">
+        </div>
+        <ol class="proof">
+        </ol>
+</div>
+
+
+
 </body>
 </html>

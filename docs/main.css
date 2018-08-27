@@ -70,14 +70,14 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-exercise {
+div.exercise {
     visibility: hidden;
 }
 
-notes {
+div.notes {
     visibility: hidden;
 }
 
-proof {
+ol.proof {
     visibility: hidden;
 }
