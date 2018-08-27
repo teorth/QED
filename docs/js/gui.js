@@ -56,6 +56,30 @@ function createResetButton() {
     return button;
 }
 
+function createEditStateButton() {
+    var button = getElement("edit state button");
+     button.onclick =  function() {
+         if (!localStorage) {
+             alert("Local storage is not supported in this browser.");
+             return;
+         }
+
+        var input = window.prompt('Enter new state here', JSON.stringify(window.localStorage)); 
+        
+        if (input !== null) {
+            localStorage.clear();
+            var new_data = JSON.parse(input);
+            var i;
+            for (i in new_data) { // for in loop should'nt be a problem in this case
+              window.localStorage.setItem(i, new_data[i]);
+            }
+            location.reload();
+        }
+    };
+    return button;
+}
+
+
 function createRestartButton() {
     var button = getElement("restart button");
      button.onclick =  function() {

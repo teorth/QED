@@ -11,6 +11,7 @@ createOperatorsWindow();
 createUndoButton();
 createRestartButton();
 createResetButton();
+createEditStateButton();
 document.body.setAttribute("onkeydown", "keydown(event)");
 
 
