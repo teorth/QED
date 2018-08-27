@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.5.3** (released Aug 27, 2018).  Laws now have a short name which is used in local storage (and in future, for lookup in HTML).
+
 * **Version 2.5.2** (released Aug 27, 2018).  Typos in text for Exercises 24.1(a) and 24.6 corrected (thanks to Antoine Deleforge for pointing them out).
 
 * **Version 2.5.1** (released Aug 27, 2018).  Computed best known proof lengths automatically from stored proof, rather than manual entry.

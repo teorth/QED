@@ -19,6 +19,7 @@ if (!Array.prototype.includes) {
 var sentences = [];  // sentences[name] is a sentence/term attached to a name string; easier to populate this dynamically than to create a general string to sentence/term parser.
 var unlockedLaws = [];
 var allLaws = [];  // list of all Laws
+var lawsByShortName = {}; // laws indexed by shortname
 
 // convert a list of sentences, boxes, or contexts to a string
 function listToString(list) {
@@ -501,8 +502,10 @@ function toSentence(obj) {
 
 // Law object
 
-function Law(name, givens, conclusion) {
-    this.name = name;   // name of law, e.g. "EXERCISE 1"
+function Law(shortName, name, givens, conclusion) {
+    this.shortName = shortName;
+    this.name = name;   // name of law, e.g. "EXERCISE 1.1"
+
 
 // givens is an array of given hypotheses (can be empty).  I allow sentences as givens, so these need to be converted to contexts.
     var givenslist = [];
@@ -518,13 +521,14 @@ function Law(name, givens, conclusion) {
     this.index = allLaws.length;  // the order of the law in the text (used to determine circularity) - the allLaws.length is a placeholder, will be overwritten
     this.clone = "";  // points to the clone of the law with additional root environment, if needed
 
-	allLaws.push(this);
+    allLaws.push(this);
+    lawsByShortName[shortName] = this;
 
     if (allFormulas(this.givens)) {
         if (this.conclusion.type == 'sentence in environment' || this.conclusion.type == 'environment') {
             var givensClone = this.givens.slice(0);
             givensClone.push(rootEnvironmentContext());
-            this.clone = new Law(this.name, givensClone, this.conclusion);
+            this.clone = new Law(this.shortName + " clone", this.name, givensClone, this.conclusion);
         }
     }
 }
@@ -533,19 +537,19 @@ function Law(name, givens, conclusion) {
 
 // all the laws that require special treatment in the matching algorithm.  Moved from index.html
 
-var universalIntroduction = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x),toTerm(X)], forAll(PX,X));
-var universalIntroduction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X));
+var universalIntroduction = new Law("Universal Introduction", '<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x),toTerm(X)], forAll(PX,X));
+var universalIntroduction2 = new Law("Universal Introduction 2", '<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X));
 
-var universalSpecification = new Law('<A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</A>', [forAll(PX,X), alpha], Pa);
-var universalSpecification2 = new Law('REVERSE <A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [forAll(PX,X), toTerm(x)], assuming(Px,x))
+var universalSpecification = new Law("Universal Specification", '<A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</A>', [forAll(PX,X), alpha], Pa);
+var universalSpecification2 = new Law("Univeral Specification 2", 'REVERSE <A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [forAll(PX,X), toTerm(x)], assuming(Px,x))
 
-var existentialInstantiation = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X), toTerm(x)], assuming(Px, settingAssumption(Px,x)));
-var existentialInstantiation2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X)], assuming(Px, settingAssumption(Px,x)));
+var existentialInstantiation = new Law("Existential Instantiation", '<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X), toTerm(x)], assuming(Px, settingAssumption(Px,x)));
+var existentialInstantiation2 = new Law("Existential Instantiation 2", '<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X)], assuming(Px, settingAssumption(Px,x)));
 
-var existentialIntroduction = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha], thereExists(PX,X));
-var existentialIntroduction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha, X], thereExists(PX,X));
+var existentialIntroduction = new Law("Existential Introduction", '<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha], thereExists(PX,X));
+var existentialIntroduction2 = new Law("Existential Introduction 2", '<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha, X], thereExists(PX,X));
 
-var indiscernability = new Law('<A HREF="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">INDISCERNABILITY OF IDENTICALS</A>', [Pa, equals(alpha,beta)], Pb);
+var indiscernability = new Law("Indiscernability", '<A HREF="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">INDISCERNABILITY OF IDENTICALS</A>', [Pa, equals(alpha,beta)], Pb);
 
 // add  (name of) expr to list if not already there
 

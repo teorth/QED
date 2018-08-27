@@ -742,8 +742,20 @@ function checkForUnlocks() {
         if (localStorage.getItem("bound variable button") == "unlocked") reveal("bound variable button");
 
 		allLaws.forEach( function( law ) {
-	        if (localStorage.getItem("law " + law.name) != null)
-		        unlock(law, localStorage.getItem("law " + law.name));
+            // in legacy code, law is stored using the full name
+            var str;
+
+            str = localStorage.getItem("law " + law.name);
+            if (str != null) { 
+                unlock(law, str);
+            }
+                
+            // in current version, law is stored using short Name
+
+            str = localStorage.getItem("law " + law.shortName);
+            if (str != null) {
+                unlock(law, localStorage.getItem("law " + law.shortName));
+            }
 		});
 
   }
@@ -1179,7 +1191,7 @@ function unlock(law, text) {
     unlockedLaws.push(law);
     achieve("<B>" + text + "</B> " + law.desc);
     if (localStorage)
-        localStorage.setItem("law " + law.name, text);
+        localStorage.setItem("law " + law.shortName, text);
 
     // If the law has no environment but produces a conclusion in the root environment, add a version of the law in which the environment is relative.
 
@@ -1240,7 +1252,7 @@ function Exercise(shortName, lawName, givens, conclusion) {
 	else {
 	    if (lawName == "")
 		    lawName = this.name;
-	    this.law = new Law(lawName,givens,conclusion);
+	    this.law = new Law(shortName, lawName, givens, conclusion);
 	}
 
 	this.law.index = numIndexedLaws;

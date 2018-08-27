@@ -8,6 +8,7 @@
 Sentence sentences[];  // sentences[name] is a sentence/term attached to a name string; easier to populate this dynamically than to create a general string to sentence/term parser.
 Law unlockedLaws[];  // all the unlocked laws
 Law allLaws[];  // list of all Laws
+var lawsByShortName = {}; // laws indexed by shortname
 
 
 
@@ -136,7 +137,7 @@ Context {
 
 Button exerciseButtons[];   // ordered list of activated exercise buttons
 Exercise exerciseList[];  // list of all exercises (including those not yet unlocked)
-Exercise exercisesByShortName[]; // list of exercises indexed by shortname
+Exercise exercisesByShortName[]; // list of exercises (including those not yet unlocked) indexed by shortname
 Button lastClickedButton;   // this will be updated to the last deduction button one clicked; prevents double clicking from doing anything
 bool revealTrueFalse;  // do we populate the formula window with true and false?
 String sectionTitle;  // name of last section to be created
