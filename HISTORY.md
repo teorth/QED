@@ -1,5 +1,8 @@
 # QED - Release History
 
+* **Version 2.4.8** (released Aug 27, 2018).  Change `"unlockedby"` to
+  `"data-unlocked-by"`.
+
 * **Version 2.4.7** (released Aug 26, 2018).  Add initial support for an
 `"unlockedby"` attribute of the exercise HTML elements.
 

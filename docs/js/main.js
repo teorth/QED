@@ -565,7 +565,7 @@ exerciseList.forEach( function( exercise ) {
     var div = getElement(exercise.name);
     if (div == null) return;
 
-    var unlockedBy = div.getAttribute("unlockedby");
+    var unlockedBy = div.getAttribute("data-unlocked-by");
     if (unlockedBy) {
         var unlocker = exercisesByShortName[unlockedBy];
         exercise.unlockedBy(unlocker);
