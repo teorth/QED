@@ -33,11 +33,8 @@ Exercise21.unlocks(LawConjunction2);
 Exercise21.unlocks(LawConjunction3);
 
 var Exercise22 = new Exercise("2.2(a)", 'AND IS <A HREF="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</A> (left)', [AND(AND(A,B),C)], AND(A,AND(B,C)),8);
-Exercise22.unlockedBy(Exercise21);
-
 
 var Exercise22b = new Exercise("2.2(b)", 'AND IS <A HREF="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</A> (right)', [AND(A,AND(B,C))], AND(AND(A,B),C),7);
-Exercise22b.unlockedBy(Exercise21);
 
 newSection("3", "Disjunction introduction");
 
@@ -46,7 +43,6 @@ var LawDisjunction2 = new Law('<A HREF="https://en.wikipedia.org/wiki/Disjunctio
 var Exercise31 = new Exercise("3.1(a)", "", [A, formulaContext(B), formulaContext(C)], OR(C,OR(A,B)),4);
 Exercise31.unlocks(LawDisjunction1);
 Exercise31.unlocks(LawDisjunction2);
-Exercise31.unlockedBy(Exercise21);
 Exercise31.revealFormulaWindow = true;
 
 var Exercise31b = new Exercise("3.1(b)", 'OR IS <A HREF="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</A> (left)', [A], OR(A,A),3);
