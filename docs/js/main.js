@@ -568,7 +568,7 @@ Exercise247.unlockedBy(Exercise241);
 // load notes and proofs for exercises from HTML 
 
 exerciseList.forEach( function( exercise ) {
-    var div = getElement(exercise.shortName);
+    var div = getElement(exercise.name);
     if (div == null) return;
 
     var children = div.childNodes;
