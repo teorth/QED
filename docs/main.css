@@ -80,6 +80,11 @@ div.notes {
     display: none;
 }
 
+div.name {
+    visibility: hidden;
+    display: none;
+}
+
 ol.proof {
     visibility: hidden;
     display: none;
