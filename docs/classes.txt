@@ -134,7 +134,8 @@ Context {
 
 // Global variables
 
-Button exerciseButtons[];   // ordered list of exercise buttons (including those not yet unlocked)
+Button exerciseButtons[];   // ordered list of activated exercise buttons
+Exercise exerciseList[];  // list of all exercises (including those not yet unlocked)
 Button lastClickedButton;   // this will be updated to the last deduction button one clicked; prevents double clicking from doing anything
 bool revealTrueFalse;  // do we populate the formula window with true and false?
 String sectionTitle;  // name of last section to be created

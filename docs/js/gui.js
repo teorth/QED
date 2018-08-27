@@ -1,6 +1,7 @@
 /// Global variables
 
-var exerciseButtons = [];
+var exerciseButtons = [];  // list of all activated exercise buttons
+var exerciseList = [];
 var lastClickedButton = "";   // this will be updated to the last deduction button one clicked; prevents double clicking from doing anything
 var revealTrueFalse = false;  // do we populate the formula window with true and false?
 var sectionTitle = "";  // name of last section to be created
@@ -1284,6 +1285,7 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
         }
     };
 
+    exerciseList.push(this);
 }
 
 

@@ -67,6 +67,27 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 
 <noscript>This text requires JavaScript to run.  It appears that Javascript is not supported by your browser.</noscript>
 
+<div class="exercise" id="1.1">
+    <div class="notes">
+        <UL> 
+            <LI>  The <B>Root environment</B> window below contains all the statements that one already knows to be true for the given exercise (which, in this case, are <I>A</I> and <I>B</I>).  Initially this window will just contain the given hypotheses of the exercise. </LI>
+            <LI> Statements can be <A HREF="https://en.wikipedia.org/wiki/Atomic_formula" target="_blank">atomic formulas</A> such as <I>A</I>, <I>B</I>, and <I>C</I>, or compound formulas formed from the atomic formulas and logical connectives such as AND, OR, and NOT.  For instance, (<I>A</I> AND <I>B</I>) OR <I>C</I> is a compound formula, and thus a potential statement in one's argument.</LI>
+            <LI>  If one drags one statement to another, the <B>Available deductions</B> window below will show what conclusions one can draw from these statements using the available <A HREF="https://en.wikipedia.org/wiki/Rule_of_inference" target="_blank">deduction rules</A>; if any conclusions can be drawn, one can add them to the <B>Root environment</B> window by clicking on the button containing the conclusion.</LI>  
+            <LI> For instance, to solve this level one drags the <I>B</I> statement onto the <I>A</I> statement (or vice versa), clicks on the button marked "<I>B</I> AND <I>A</I>" to add that statement to the <B>Root environment</B>, drags the new <I>B</I> AND <I>A</I> statement onto the <I>B</I> statement (or vice versa), and then clicks on the button containing the desired conclusion.  <LI> By opening the first exercise of Section 1 (Exercise 1.1), you unlocked the rule of <A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">conjunction introduction</A>.  This asserts that if a statement <I>A</I> is known, and the statement <I>B</I> is known, then one can deduce the compound statement <I>A</I> AND <I>B</I>.  This is the only rule one starts with, but more deductive rules will be unlocked whenever one begins a new section of the textbook. </LI>
+            <LI> Progress is recorded in the <B>Achievements</B> and <B>Notifications</B> windows below.  This progress will be saved between sessions (assuming your browser supports local storage), unless you reset this interactive text completely using the button at the bottom of the page. </LI>
+            <LI> Your deductions will be recorded as a human-readable proof in the <B>Proof</B> window below.  This window is not absolutely necessary in order to play the game, but should help you understand and interpret the moves you are making.</LI>
+            <LI> The exercise is completed when you have managed to obtain the desired conclusion (in this case, (<I>B</I> AND <I>A</I>) AND <I>B</I>) in the <B>Root environment</B> window.  This will unlock further exercises and sections of the textbook, turning the exercise buttons from gray to yellow. </LI>
+        </UL>
+    </div>
+    <ol class="proof">
+        <li><span><em>A</em>. <i>[given]</i></span></li>
+        <li><span><em>B</em>. <i>[given]</i></span></li>
+        <li><span>From <em>B</em>, <em>A</em>: deduce <em>B</em> AND <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+        <li><span>From <em>B</em> AND <em>A</em>, <em>B</em>: deduce (<em>B</em> AND <em>A</em>) AND <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+        <li><span>QED!</span></li>
+    </ol>
+</div>
+
 </div>
 </body>
 </html>

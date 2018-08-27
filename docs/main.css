@@ -69,3 +69,15 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+exercise {
+    visibility: hidden;
+}
+
+notes {
+    visibility: hidden;
+}
+
+proof {
+    visibility: hidden;
+}
