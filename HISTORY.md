@@ -1,12 +1,14 @@
 # QED - Release History
 
+* **Version 2.5** (released Aug 27, 2018).  Added an "EDIT STATE" button to permit save/restore of states, and to transfer states from legacy versions of the text.
+
 * **Version 2.4.8** (released Aug 27, 2018).  Change `"unlockedby"` to
   `"data-unlocked-by"`.
 
 * **Version 2.4.7** (released Aug 26, 2018).  Add initial support for an
 `"unlockedby"` attribute of the exercise HTML elements.
 
-* **Version 2.4.6** (released Aug 26, 2018).  Began migration of notes and proof to HTML format.
+* **Version 2.4.6** (released Aug 26, 2018).  Migrated notes and proof to HTML format.
 
 * **Version 2.4.5** (released Aug 26, 2018).  Fixed typo in Exercise 24.1 notes.  Removed alpha release statement in Exercise 14.1.
 

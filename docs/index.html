@@ -57,7 +57,7 @@
 
 <p></p>
 <H4 id="version header"> This is
-  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.4.8</a>.
+  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.5</a>.
 </H4>
 
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
@@ -177,7 +177,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 3.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 3.1(b)" data-unlocked-by="3.1(a)">
         <div class="notes">
             The reverse implication (deducing <I>A</I> from <I>A</I> OR <I>A</I>) is true, but will be deferred to Exercise 9.1(b), as we first need to introduce the important concept of an assumption and then introduce some further laws of disjunction.
         </div>
@@ -188,7 +188,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 4.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 4.1" data-unlocked-by="3.1(a)">
         <div class="notes">
             <UL>
                 <LI> The <B>Root environment</B> window holds all the statements that are known to be true under the given hypothesis.  But sometimes in an argument, we also need to consider statements that are only <I>conditionally</I> known to be true, under one or more assumptions.  For instance, we might not know that a statement <I>A</I> is true unconditionally, but instead know that <I>A</I> is conditionally true under the assumption of a second statement <I>B</I>. </LI>
@@ -204,7 +204,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 5.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 5.1" data-unlocked-by="4.1">
         <div class="notes">
             <UL>
                 <LI> One can combine formulas together to create compound formulas.</LI>
@@ -219,7 +219,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 5.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 5.2" data-unlocked-by="5.1">
         <div class="notes">
             <UL>
                 <LI>Assumptions can be nested.</LI>
@@ -234,7 +234,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 6.1(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 6.1(a)" data-unlocked-by="5.1">
         <div class="notes">
             <UL>
                 <LI>The logical connective IMPLIES is also known as <A HREF="https://en.wikipedia.org/wiki/Material_conditional" target="_blank">material implication</A> (or the <I>conditional</I>); informally, one can think of the assertion IMPLIES(<I>A</I>, <I>B</I>) as the assertion that <I>B</I> is "at least as true as" <I>A</I>.  (But they do not need to be <I>equally</I> true: in particular, if <I>A</I> is false and <I>B</I> is true, then it turns out that <I>A</I> IMPLIES <I>B</I> is true.<LI> The statement <I>A</I> IMPLIES <I>B</I> can also be written as IF <I>A</I>, THEN <I>B</I>.</LI>
@@ -249,7 +249,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 6.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 6.1(b)" data-unlocked-by="6.1(a)">
         <div class="notes">
             To prove an implication of the form <I>X</I> IMPLIES <I>Y</I>, first create <I>X</I> as a formula in the <B>Formulas</B> window, drag it to the <B>Root environment</B> window to use it as an assumption, and then try to establish <I>Y</I> inside the window corresponding to that assumption.  Then use the deduction theorem.
         </div>
@@ -261,7 +261,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 6.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 6.2" data-unlocked-by="6.1(a)">
         <div class="notes">
             <UL>
                 <LI> This exercise easily follows from two applications of the deduction theorem, but is convenient for use in later exercises.</LI>
@@ -276,7 +276,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 7.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 7.1" data-unlocked-by="6.1(a)">
         <div class="notes">
             <UL>
                 <LI> If a statement is known without an assumption, then it can be "pushed" into an enviroment with that assumption.  For instance, if <I>A</I> is known to be true unconditionally, then it is also known to be true assuming <I>B</I>. </LI>
@@ -292,7 +292,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 7.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 7.2" data-unlocked-by="7.1">
         <div class="notes">
             <UL>
                 <LI> This exercise easily follows from two applications of the push law, but turns out to be convenient in some subsequent exercises. </LI>
@@ -308,7 +308,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 8.1(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 8.1(a)" data-unlocked-by="7.1">
         <div class="notes">
             <UL>
                 <LI><A HREF="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">Modus ponens</A> is one of the most famous deductive rules.  It asserts that if a statement <I>A</I> is known to be true, and it is also known that <I>A</I> IMPLIES <I>B</I>, then one can conclude that <I>B</I> is also true.</LI>
@@ -325,7 +325,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 8.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 8.1(b)" data-unlocked-by="8.1(a)">
         <div class="notes">
             This exercise will be useful in some later exercises.  To apply it, click on an implication statement such as <I>A</I> IMPLIES <I>B</I>.
         </div>
@@ -338,7 +338,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 8.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 8.2" data-unlocked-by="8.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -351,7 +351,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 8.3" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 8.3" data-unlocked-by="8.1(a)">
         <div class="notes">
             The fact that AND is commutative, proven in Exercise 2.1, will be helpful here.
         </div>
@@ -363,7 +363,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 8.4(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 8.4(a)" data-unlocked-by="8.1(a)">
         <div class="notes">
             General tip: one can press "n" to advance to the next available unsolved exercise, or "N" to advance to the last available unsolved exercise (which will usually be the first exercise of the section after the last solved exercise).
         </div>
@@ -380,7 +380,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 8.4(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 8.4(b)" data-unlocked-by="8.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -396,7 +396,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 8.4(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 8.4(c)" data-unlocked-by="8.1(a)">
         <div class="notes">
             Thanks to William Chargin and Junghyeon Park for a short proof.
         </div>
@@ -409,7 +409,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 8.5" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 8.5" data-unlocked-by="8.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -422,7 +422,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.1(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.1(a)" data-unlocked-by="8.1(a)">
         <div class="notes">
             <UL>
                 <LI> We now return to the laws of disjunction (i.e., the laws of the "OR" connective).  </LI>
@@ -443,7 +443,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.1(b)" data-unlocked-by="9.1(a)">
         <div class="notes">
             This is the reverse of Exercise 3.1(b).
         </div>
@@ -452,7 +452,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.2(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.2(a)" data-unlocked-by="9.1(a)">
         <div class="notes">
             <UL>
                 <LI> From this point onwards, the solutions will begin to be somewhat lengthy.</LI>
@@ -464,7 +464,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.2(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.2(b)" data-unlocked-by="9.1(a)">
         <div class="notes">
             Thanks to William Chargin for a short proof.
         </div>
@@ -473,7 +473,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.3(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.3(a)" data-unlocked-by="9.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -481,7 +481,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.3(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.3(b)" data-unlocked-by="9.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -489,7 +489,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.3(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.3(c)" data-unlocked-by="9.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -497,7 +497,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.3(d)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.3(d)" data-unlocked-by="9.1(a)">
         <div class="notes">
             Thanks to Jan Wieners for the short proof.
         </div>
@@ -506,7 +506,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.4(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.4(a)" data-unlocked-by="9.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -514,7 +514,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.4(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.4(b)" data-unlocked-by="9.1(a)">
         <div class="notes">
                 Thanks to William Chargin for a short proof.
         </div>
@@ -523,7 +523,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.4(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.4(c)" data-unlocked-by="9.1(a)">
         <div class="notes">
                 <UL>
                     <LI> This exercise involves three hypotheses, so it cannot be directly invoked by clicking or dragging on these hypotheses.  However, if one drags the first hypothesis to the second and then CTRL-clicks the third, or if one clicks the first and then CTRL-clicks the next two, one will be able to apply this exercise (once it is proven), of course.  Alternatively, one can use the two halves of this dilemma in Exercise 19(a) and Exercise 19(b) as a substitute. </LI>
@@ -535,7 +535,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.5(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.5(a)" data-unlocked-by="9.1(a)">
         <div class="notes">
                 Thanks to dP dt for the short proof, and Anders Kaseorg for a shorter proof (located using computer search!).
         </div>
@@ -544,7 +544,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 9.5(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 9.5(b)" data-unlocked-by="9.1(a)">
         <div class="notes">
                 Thanks to Pace Nielsen, Andrew Liftin, Alan Lu, and Ephim Kolmogorov for the short proof.
         </div>
@@ -553,7 +553,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.1(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.1(a)" data-unlocked-by="9.1(a)">
         <div class="notes">
                 <UL>
                     <LI> The logical connective IFF (short for "IF AND ONLY IF") is also known as the <A HREF="https://en.wikipedia.org/wiki/Logical_biconditional" target="_blank">biconditional</A>. </LI>
@@ -567,7 +567,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.1(b)" data-unlocked-by="10.1(a)">
         <div class="notes">
                 Thanks to Wilson Cheang and Alan Lu for the short proof.
         </div>
@@ -576,7 +576,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.1(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.1(c)" data-unlocked-by="10.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -584,7 +584,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.1(d)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.1(d)" data-unlocked-by="10.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -592,7 +592,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.1(e)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.1(e)" data-unlocked-by="10.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -600,7 +600,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.1(f)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.1(f)" data-unlocked-by="10.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -608,7 +608,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.1(g)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.1(g)" data-unlocked-by="10.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -616,7 +616,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.2(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.2(a)" data-unlocked-by="10.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -624,7 +624,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.2(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.2(b)" data-unlocked-by="10.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -632,7 +632,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.2(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.2(c)" data-unlocked-by="10.1(a)">
         <div class="notes">
                 "<I>if it was so, it might be; and if it were so, it would be; but as it isn't, it ain't. That's logic.</I>" - Tweedledee, "Through the Looking Glass"
         </div>
@@ -641,7 +641,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.3" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.3" data-unlocked-by="10.1(a)">
         <div class="notes">
                 This form of biconditional introduction is convenient in some later exercises, as it can shorten proofs slightly.
         </div>
@@ -650,7 +650,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.4" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.4" data-unlocked-by="10.1(a)">
         <div class="notes">
                 <UL>
                     <LI>The left and right idempotence of OR, proven in Exercise 3.1(b) and Exercise 9.1(b) respectively, will be useful here.</LI>
@@ -662,7 +662,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 10.5" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 10.5" data-unlocked-by="10.1(a)">
         <div class="notes">
                 The fact that AND is associative, proven in Exercise 2.2(a) and Exercise 2.2(b) will be useful here.
         </div>
@@ -671,7 +671,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 11.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 11.1" data-unlocked-by="10.1(a)">
         <div class="notes">
                 "<I>When you have eliminated the impossible, whatever remains, however improbable, must be the truth</I>" - Sherlock Holmes, "The Sign of the Four".
                 <UL>
@@ -687,7 +687,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.1(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.1(a)" data-unlocked-by="11.1">
         <div class="notes">
                 <UL>
                     <LI> The <A HREF="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">law of the excluded middle</A> is one of the most powerful rules in classical propositional logic, playing a role somewhat analogous to that of the parallel postulate in Euclidean geometry; it completes the basic set of rules of inference for propositional logic. </LI>
@@ -701,7 +701,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.1(b)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 <UL>
                     <LI> This form of reductio ad absurdum is slightly more convenient to use in subsequent exercises.  To apply it, combine <I>B</I> and NOT <I>B</I> together inside an assumption environment.</LI>
@@ -712,7 +712,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.1(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.1(c)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 <UL>
                     <LI>This form of the excluded middle is slightly more convenient to use in subsequent exercises.  To apply it, combine a statement <I>B</I> (in a window assuming some formula <I>A</I>) with the same statement <I>B</I> (in a separate window assuming NOT <I>A</I>).</LI>
@@ -723,7 +723,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.2(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.2(a)" data-unlocked-by="12.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -731,7 +731,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.2(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.2(b)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 Thanks to Steve Trout, Hugo Musso Gualandi, Jon Easterday, William Chargin, Haggai Nuchi, Andrew Lei, Jim Apple, Jorge Cañizales Díaz, and Matthew Steffen for discovering the short proof.
         </div>
@@ -740,7 +740,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.2(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.2(c)" data-unlocked-by="12.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -748,7 +748,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.3" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.3" data-unlocked-by="12.1(a)">
         <div class="notes">
                 Thanks to Tyler Freeman and Chandler Watson for a short proof, and Hugo Musso Gualandi, Jon Easterday, Haggai Nuchi, and Jorge Cañizales Díaz for an even shorter proof.
         </div>
@@ -757,7 +757,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.4(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.4(a)" data-unlocked-by="12.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -765,7 +765,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.4(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.4(b)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 Thanks to Yuval Wigderson, cory, Tyler Freeman, Haggai Nuchi, and Chandler Watson for supplying the short proof for this exercise.
         </div>
@@ -774,7 +774,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.4(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.4(c)" data-unlocked-by="12.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -782,7 +782,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.5(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.5(a)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 Thanks to Daniel Spivak for a short proof.
         </div>
@@ -791,7 +791,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.5(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.5(b)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 Thanks to Anders Kaseorg for a short proof (found by computer search!).
         </div>
@@ -800,7 +800,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.5(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.5(c)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 Thanks to Daniel Spivak, Anders Kaseorg, Vincent Hwang, and Olle Wiklund for supplying the short proof for this exercise.
         </div>
@@ -809,7 +809,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.5(d)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.5(d)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 <table>
                     <tr> <th>Object</th> <th>Dual</th> </tr>
@@ -831,7 +831,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.6(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.6(a)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 <UL>
                     <LI>Contraposition is also known as <A HREF="" target="_blank">transposition</A>, and the statement (NOT <I>B</I>) IMPLIES (NOT <I>A</I>) is known as the <I>contrapositive</I> of <I>A</I> IMPLIES <I>B</I>.</LI>
@@ -843,7 +843,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.6(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.6(b)" data-unlocked-by="12.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -851,7 +851,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.6(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.6(c)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 Thanks to Haggai Nuchi for a short proof, and Tyler Freeman, Jim Apple, and Jorge Cañizales Díaz for an even shorter proof.
         </div>
@@ -860,7 +860,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.7" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.7" data-unlocked-by="12.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -868,7 +868,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 12.8" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 12.8" data-unlocked-by="12.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -876,7 +876,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 13.1(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 13.1(a)" data-unlocked-by="12.1(a)">
         <div class="notes">
                 <UL>
                     <LI> In propositional logic, there are two formulas with a constant truth value: TRUE, which is always true, and FALSE, which is never true.  These have now been permanently added to the <B>Formulas</B> window for use.</LI>
@@ -890,7 +890,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 13.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 13.1(b)" data-unlocked-by="13.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -898,7 +898,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 13.2(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 13.2(a)" data-unlocked-by="13.1(a)">
         <div class="notes">
                 Thanks to Pace Nielsen, Elliot Parlin, Adam Glasgall, Ephim Kolmogorov, and Loren Spice for a short proof.
         </div>
@@ -907,7 +907,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 13.2(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 13.2(b)" data-unlocked-by="13.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -915,7 +915,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 13.3(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 13.3(a)" data-unlocked-by="13.1(a)">
         <div class="notes">
                 Thanks to Anders Kaseorg, Jacob Hobbs, and Pace Nielsen for the short proof.
         </div>
@@ -924,7 +924,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 13.3(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 13.3(b)" data-unlocked-by="13.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -932,7 +932,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 13.3(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 13.3(c)" data-unlocked-by="13.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -940,7 +940,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 13.3(d)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 13.3(d)" data-unlocked-by="13.1(a)">
         <div class="notes">
                 Thanks to Anders Kaseorg for the short proof, to Jacob Hobbs for a shorter proof, and to Pace Nielsen for an even shorter proof.
         </div>
@@ -949,7 +949,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 14.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 14.1" data-unlocked-by="13.1(a)">
         <div class="notes">
                 <UL>
                     <LI> In previous sections we were working in the simple setting of <A HREF="https://en.wikipedia.org/wiki/Propositional_calculus" target="_blank">propositional logic</A>, in which the atomic propositions were given short names such as <I>A</I>, <I>B</I>, or <I>C</I>, and had no further internal structure.  We now begin the exploration of a powerful extension of this logic known as <A HREF="https://en.wikipedia.org/wiki/First-order_logic" target="_blank">first-order logic</A> (or <I>predicate logic</I>), in which the atomic propositions may now depend on one or more <I>variables</I> such as <I>x</I>, <I>y</I>, <I>z</I>.  First-order logic is the standard logical framework for most of modern mathematics.</LI>
@@ -964,7 +964,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 15.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 15.1" data-unlocked-by="14.1">
         <div class="notes">
                 <UL>
                     <LI> We already know that a sentence (such as <I>A</I>) can be pushed into a sub-environment in which an additional statement (such as <I>B</I>) is assumed.</LI>
@@ -977,7 +977,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 15.2(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 15.2(a)" data-unlocked-by="15.1">
         <div class="notes">
                 This is the analogue of the DOUBLE PUSH law for assumptions introduced in Exercise 7.2, and can similarly be used to shorten some of the proofs in subsequent exercises.
         </div>
@@ -986,7 +986,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 15.2(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 15.2(b)" data-unlocked-by="15.1">
         <div class="notes">
                 It will also be helpful to have "mixed" double pushes involving both assumptions and arbitrary variables.
         </div>
@@ -995,7 +995,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 15.2(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 15.2(c)" data-unlocked-by="15.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1003,7 +1003,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 16.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 16.1" data-unlocked-by="15.1">
         <div class="notes">
                 <UL>
                     <LI>In any environment, one may introduce any free variable that is not already in use, thus forming a new environment in which that free variable is arbitrary.</LI>
@@ -1017,7 +1017,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 17.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 17.1" data-unlocked-by="16.1">
         <div class="notes">
                 <UL>
                     <LI>Recall the <A HREF="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">deduction theorem</A>, which allowed one to convert a statement <I>A</I> that was only known conditionally on an assumption <I>B</I>, to a statement <I>A</I> IMPLIES <I>B</I> that was known unconditionally.</LI>
@@ -1039,7 +1039,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 17.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 17.2" data-unlocked-by="17.1">
         <div class="notes">
                 <UL>
                     <LI> To create a formula of the form "FOR ALL <I>X</I>: <I>P(X)</I>", create the formula "<I>P(X)</I>" and drag it to the bound variable <I>X</I> (or vice versa).</LI>
@@ -1051,7 +1051,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 18.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 18.1" data-unlocked-by="17.1">
         <div class="notes">
                 <UL>
                     <LI>There is a reverse to the law of universal introduction, known as the law of <A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">universal specification</A>.  It asserts that if FOR ALL <I>X</I>: <I>P(X)</I> is true, and <I>&alpha;</I> is a term which is <I>well-defined</I> in the sense that it does not involve bound variables or free variables not present in the environment, then <I>P(&alpha;)</I> is also true.</LI>
@@ -1068,7 +1068,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 18.2(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 18.2(a)" data-unlocked-by="18.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1076,7 +1076,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 18.2(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 18.2(b)" data-unlocked-by="18.1">
         <div class="notes">
                 <UL>
                     <LI> This exercise, which reverses the universal introduction law from Section 17, will be helpful in some later exercises. (As such, it has been added to the matching code by hand, even though matching for general rules involving predicates have not yet been implemented.)</LI>
@@ -1088,7 +1088,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 18.3(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 18.3(a)" data-unlocked-by="18.1">
         <div class="notes">
                 <UL>
                     <LI> The classical syllogisms of <A HREF="https://en.wikipedia.org/wiki/Term_logic" target="_blank">Aristotlean logic</A> consisted of two premises (a major premise and a minor premise), and a conclusion that could be drawn from those premises.  These syllogisms can be interpreted using the more modern language of first-order logic.</LI>
@@ -1104,7 +1104,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 18.3(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 18.3(b)" data-unlocked-by="18.1">
         <div class="notes">
                 <UL>
                     <LI> There is another, more classical, form of the Barbara syllogism, a typical example of which is "All men are mortal.  All Greeks are men.  Hence, all Greeks are mortal".</LI>
@@ -1117,7 +1117,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 18.4" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 18.4" data-unlocked-by="18.1">
         <div class="notes">
                 Thanks to Anders Kaseorg for the short proof.
         </div>
@@ -1126,7 +1126,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 18.5" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 18.5" data-unlocked-by="18.1">
         <div class="notes">
                 Thanks to Elliot Parlin, Keith Winstein, and Andrew Lei for a (relatively) short proof (which has since been shortened further using some additional helper exercises.)
         </div>
@@ -1135,7 +1135,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 18.6" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 18.6" data-unlocked-by="18.1">
         <div class="notes">
                 Thanks to Gesse Roure for a short proof.
         </div>
@@ -1144,7 +1144,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 19.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 19.1" data-unlocked-by="18.1">
         <div class="notes">
                 <UL>
                     <LI>There is a twin sibling to the universal quantifier FOR ALL, namely the <A HREF="https://en.wikipedia.org/wiki/Existential_quantification" target="_blank">existential quantifier</A> THERE EXISTS.  As the name suggests, the sentence THERE EXISTS <I>X</I>: <I>P(X)</I> should be interpreted as the assertion that there exists a choice of <I>X</I> in the domain of discourse such that <I>P(X)</I> is true.</LI>
@@ -1158,7 +1158,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 19.2(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 19.2(a)" data-unlocked-by="19.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1166,7 +1166,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 19.2(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 19.2(b)" data-unlocked-by="19.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1174,7 +1174,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 19.2(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 19.2(c)" data-unlocked-by="19.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1182,7 +1182,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 19.2(d)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 19.2(d)" data-unlocked-by="19.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1190,7 +1190,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 19.2(e)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 19.2(e)" data-unlocked-by="19.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1198,7 +1198,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 20.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 20.1" data-unlocked-by="19.1">
         <div class="notes">
                 <UL>
                     <LI> There is a reverse to the PUSH law (for variables <I>x</I> that have been set to obey a certain property): if a statement <I>A</I> is known to hold for some set value of <I>x</I>, and the statement <I>A</I> does not involve the variable <I>x</I>, then one can pull <I>A</I> out of that environment and conclude that <I>A</I> holds unconditionally.</LI>
@@ -1211,7 +1211,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 20.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 20.2" data-unlocked-by="20.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1219,7 +1219,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 21.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 21.1" data-unlocked-by="20.1">
         <div class="notes">
                 <UL>
                     <LI> Recall that all variables in first-order logic are understood to range in some <A HREF="https://en.wikipedia.org/wiki/Domain_of_discourse" target="_blank">domain of discourse</A>.  However, so far we have not precluded the possibility that this domain of discourse is empty, so that there are no possible values for such variables to take!</LI>
@@ -1233,7 +1233,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.1" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.1" data-unlocked-by="21.1">
         <div class="notes">
                 <ul>
                     <LI> The <A HREF="https://en.wikipedia.org/wiki/Existential_generalization">law of existential introduction</A> asserts that if one knows a statement of the form <I>P</I>(&alpha;), where &alpha; is a term that does not involve any bound variables or any free variables not present in the ambient environment, then one can deduce THERE EXISTS <I>X</I>: <I>P(X)</I>, where <I>X</I> is a bound variable not already occuring in <I>P(&alpha;)</I>.  This is the main way in which existential statements are proven.  </LI>
@@ -1247,7 +1247,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.2" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI>This exercise will require the use of the law of existence, or a consequence of that law such as the "pull" law for arbitrary variables.</LI>
@@ -1259,7 +1259,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.3(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.3(a)" data-unlocked-by="22.1">
         <div class="notes">
                 The formula <I>P(x)</I> provided in the hypotheses will end up being useful during the proof.
         </div>
@@ -1268,7 +1268,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.3(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.3(b)" data-unlocked-by="22.1">
         <div class="notes">
                 This one is rather tough; you may have to think in terms of double negatives.
         </div>
@@ -1277,7 +1277,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.4(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.4(a)" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Celarent syllogism</A> is "No reptiles have fur.  All snakes are reptiles.  Hence, no snakes have fur."</LI>
@@ -1289,7 +1289,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.4(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.4(b)" data-unlocked-by="22.1">
         <div class="notes">
                 An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Darii  syllogism</A> is "All rabbits have fur.  Some pets are rabbits.  Hence, some pets have fur.".
         </div>
@@ -1298,7 +1298,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.4(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.4(c)" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI> An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Ferioque  syllogism</A> is "No homework is fun. Some reading is homework.  Hence, some reading is not fun.".</LI>
@@ -1310,7 +1310,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.4(d)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.4(d)" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI> An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Baroco  syllogism</A> is "All informative things are useful. Some websites are not useful.  Hence, some websites are not informative.".</LI>
@@ -1322,7 +1322,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.4(e)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.4(e)" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI> An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Bocardo  syllogism</A> is "Some cats have no tails.  All cats are mammals.  Hence, some mammals have no tails.".</LI>
@@ -1334,7 +1334,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.5(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.5(a)" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI> In contrast to the syllogisms in Exercise 22.4, these syllogisms require a third assumption, namely the existence of some class of object. As such, they are sometimes not considered to be genuine syllogisms in the classical sense by some authors.</LI>
@@ -1346,7 +1346,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.5(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.5(b)" data-unlocked-by="22.1">
         <div class="notes">
                 An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Celaront syllogism</A> is "No reptiles have fur.  All snakes are reptiles.  Snakes exist. Hence, some snakes have no fur."
         </div>
@@ -1355,7 +1355,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.5(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.5(c)" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI> An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Camestros  syllogism</A> is "All horses have hooves. No humans have hooves.  Humans exist.  Hence, some humans are not horses."</LI>
@@ -1367,7 +1367,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.5(d)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.5(d)" data-unlocked-by="22.1">
         <div class="notes">
                 An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Felapton  syllogism</A> is "No flowers are animals. All flowers are plants.  Flowers exist.  Hence, some plants are not animals."
         </div>
@@ -1376,7 +1376,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.5(e)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.5(e)" data-unlocked-by="22.1">
         <div class="notes">
                 An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Darapti  syllogism</A> is "All squares are rectangles.  All squares are rhombi.  Squares exist.  Hence, some rhombi are rectangles."
         </div>
@@ -1385,7 +1385,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.6(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.6(a)" data-unlocked-by="22.1">
         <div class="notes">
                 In this exercise you may need to use the law of existential instantiation with a specific choice of bound variable (rather than let the text choose the first available bound variable).  In order to do so, one needs to click on the original statement <I>P(&alpha;)</I>, then CTRL-click on the term <I>&alpha;</I>, then CTRL-click on the bound variable.  (Alternatively, one can drag the statement to the term and then CTRL-click on the bound variable.)
         </div>
@@ -1394,7 +1394,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.6(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.6(b)" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI> This exercise cannot be reversed.  For instance, using the natural numbers as the domain of discourse, the statement "FOR ALL X: THERE EXISTS Y: Y>X" is true (every number has another number larger than it), but the statement "THERE EXISTS Y: FOR ALL X: Y>X" is false (there is no number that is larger than every number).</LI>
@@ -1406,7 +1406,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.7" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.7" data-unlocked-by="22.1">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1414,7 +1414,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 22.8" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 22.8" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI> Lewis Carroll is best known for his books "Alice in Wonderland" and "Through the Looking Glass".  But he also wrote a list of logic puzzles, some of which can be found <A HREF="http://www.math.hawaii.edu/~hile/math100/logice.htm" target="_blank">here</A>.</LI>
@@ -1429,7 +1429,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 23.1(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 23.1(a)" data-unlocked-by="22.1">
         <div class="notes">
                 <UL>
                     <LI> In previous exercises, formulas such as <I>Q(x,y)</I> were manually provided for those exercises where they were needed.  In this section, a new window has been unlocked that allows one to generate such formulas without manual intervention. </LI>
@@ -1442,7 +1442,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 23.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 23.1(b)" data-unlocked-by="23.1(a)">
         <div class="notes">
                 <UL>
                     <LI> Some predicates are customarily written in between their arguments, rather than to the left of the arguments.  The most familiar examples of these are the comparison predicates &lt;, &gt;, &le;, &ge; and the equality relation =.  </LI>
@@ -1455,7 +1455,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 </div>
 
 
-<div class="exercise" id="EXERCISE 23.1(c)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 23.1(c)" data-unlocked-by="23.1(a)">
         <div class="notes">
                 <UL>
                     <LI> In addition to predicates, first-order logic also allows the use of <I>operators</I>, also known as <I>function symbols</I>.  </LI>
@@ -1470,7 +1470,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 23.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 23.2" data-unlocked-by="23.1(a)">
         <div class="notes">
                 <UL>
                     <LI><A HREF="https://en.wikipedia.org/wiki/Russell%27s_paradox" target="_blank">Russell's paradox</A> is a famous paradox in set theory.  It asserts that there cannot exist a set that consists precisely of those sets that do not contain themselves.</LI>
@@ -1484,7 +1484,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 23.3" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 23.3" data-unlocked-by="23.1(a)">
         <div class="notes">
                 <UL>
                     <LI>If one takes the natural numbers as the domain of discourse, and interprets arithmetic symbols such as <I>&ge;</I>, <I>+</I>, <I>1</I> in the usual fashion, then this exercise is asking you to prove that there is no natural number that is greater than or equal to all natural numbers.  Your given information is that a natural number <I>X</I> is never greater than its successor <I>X+1</I>. </LI>
@@ -1496,7 +1496,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 24.1(a)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 24.1(a)" data-unlocked-by="23.1(a)">
         <div class="notes">
                 <UL>
                     <LI>Amongst all the predicates in first-order logic, there is a special one that obeys special rules: the equality predicate <I>=</I>.  This binary predicate is written as a relation, thus we write <I>&alpha;=&beta;</I> rather than <I>=(&alpha;,&beta;)</I>.</LI>
@@ -1513,7 +1513,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 24.1(b)" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 24.1(b)" data-unlocked-by="24.1(a)">
         <div class="notes">
                 <UL>
                     <LI> The fact that equality is reflexive, symmetric, and transitive can be summarised into the single observation that equality is an <A HREF="https://en.wikipedia.org/wiki/Equivalence_relation" target="_blank">equivalence relation</A>.</LI>
@@ -1524,7 +1524,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 24.2" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 24.2" data-unlocked-by="24.1(a)">
         <div class="notes">
         </div>
         <ol class="proof">
@@ -1532,7 +1532,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 24.3" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 24.3" data-unlocked-by="24.1(a)">
         <div class="notes">
                 <UL>
                     <LI> Now that all the laws of first-order logic are unlocked, it is now possible (in principle at least) to start proving statements in mathematics itself, rather than in logic. </LI>
@@ -1544,7 +1544,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 24.4" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 24.4" data-unlocked-by="24.1(a)">
         <div class="notes">
                 <UL>
                     <LI> This exercise asks to prove a more complicated result in group theory, namely the cancellation law that allows one to deduce the identity <I>&beta; = &gamma;</I> from <I>&alpha; * &beta; = &alpha; * &gamma;</I> when <I>&alpha;, &beta;, &gamma;</I> lie in a group.</LI>
@@ -1560,7 +1560,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 24.5" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 24.5" data-unlocked-by="24.1(a)">
         <div class="notes">
                 <UL>
                     <LI> A <A HREF="https://en.wikipedia.org/wiki/Monoid" target="_blank">monoid</A> is like a group, but in which not every element <I>&alpha;</I> is invertible in the sense that there is an element <I>X</I> of the monoid for which <I>X * &alpha; = 1</I>.  A typical example of a monoid is the collection of <I>n &times; n</I> matrices with (say) real entries, for some fixed <I>n</I>.</LI>
@@ -1573,7 +1573,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 24.6" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 24.6" data-unlocked-by="24.1(a)">
         <div class="notes">
                 <UL>
                     <LI> This is another exercise in group theory.  In this exercise, we denote the (left) inverse of a group element <I>X</I> by <I>f(X)</I>, thus <I>f(X) * X = 1</I> for all <I>X</I>.</LI>
@@ -1588,7 +1588,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE 24.7" data-unlocked-by="">
+<div class="exercise" id="EXERCISE 24.7" data-unlocked-by="24.1(a)">
         <div class="notes">
                 <UL>
                     <LI> <B>Note:</B> This is one of the hardest exercises in this text; one needs to first think carefully as to how to establish the exercise mathematically, and only then try to translate your mathematical reasoning to a first-order proof. </LI>
