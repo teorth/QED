@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.5.1** (released Aug 27, 2018).  Computed best known proof lengths automatically from stored proof, rather than manual entry.
+
 * **Version 2.5** (released Aug 27, 2018).  Added an "EDIT STATE" button to permit save/restore of states, and to transfer states from legacy versions of the text.
 
 * **Version 2.4.8** (released Aug 27, 2018).  Change `"unlockedby"` to

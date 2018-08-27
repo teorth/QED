@@ -1230,7 +1230,7 @@ function appendConclusion(conclusion, justification, illegal, name, law) {
 
 // Exercise object
 
-function Exercise(shortName, lawName, givens, conclusion, bestLength) {
+function Exercise(shortName, lawName, givens, conclusion) {
     this.shortName = shortName;
     this.name = "EXERCISE " + this.shortName;
 
@@ -1262,7 +1262,7 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
     this.revealTrueFalse = false;  // do we populate formulas window with true and false?
     this.revealBoundButton = false; // do we reveal the new Bound var button?
     this.revealOperatorsWindow = false;  // do we reveal the operators window?
-    this.bestLength = bestLength;  // the shortest length proof I know of (w/o cheating)
+    this.bestLength = 1000;  // the shortest length proof I know of (w/o cheating)
     this.proof = ""; // the innerHTML of the best proof
     this.personalBest = 1000; // personal best length for proof
     this.activated = false;  // whether this exercise has been unlocked
@@ -1298,8 +1298,6 @@ function Exercise(shortName, lawName, givens, conclusion, bestLength) {
         }
         }
     }
-
-    colorExerciseButton(this.button, false);
 
     this.unlockedBy = function( prerequisite ) {
         prerequisite.newExercises.push(this);

@@ -159,9 +159,9 @@ Exercise {
 	bool revealTermWindow;  // do we unlock the term window?
 	bool revealTrueFalse;      // do we unlock TRUE and FALSE?
 	bool revealBoundButton;  // do we unlock the new bound var button?
-	bool bestLength;  // the shortest known length of proof
-	bool proof;  // the shortest known proof of this exercise
-	bool personalBest; // personal best length of proof
+	int bestLength;  // the shortest known length of proof
+	string proof;  // the shortest known proof of this exercise
+	int personalBest; // personal best length of proof
 	bool activated; // has this exercise been unlocked?
 	Button button;  // the button created by this exercise
 
