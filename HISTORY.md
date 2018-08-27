@@ -1,5 +1,8 @@
 # QED - Release History
 
+* **Version 2.4.7** (released Aug 26, 2018).  Add initial support for an
+`"unlockedby"` attribute of the exercise HTML elements.
+
 * **Version 2.4.6** (released Aug 26, 2018).  Began migration of notes and proof to HTML format.
 
 * **Version 2.4.5** (released Aug 26, 2018).  Fixed typo in Exercise 24.1 notes.  Removed alpha release statement in Exercise 14.1.

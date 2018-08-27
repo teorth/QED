@@ -23,7 +23,6 @@ Exercise11.completionMsg = 'Congratulations, you solved your first exercise!  No
 activateExerciseButton(Exercise11);
 
 var Exercise12 = new Exercise("1.2", 'AND IS <A HREF="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</A>', [A], AND(A,A),3);
-Exercise12.unlockedBy(Exercise11);
 
 newSection("2", "Conjunction elimination");
 
@@ -32,7 +31,6 @@ var LawConjunction3 = new Law('<A HREF="https://en.wikipedia.org/wiki/Conjunctio
 var Exercise21 = new Exercise("2.1", 'AND IS <A HREF="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</A>', [AND(A,B)], AND(B,A),5);
 Exercise21.unlocks(LawConjunction2);
 Exercise21.unlocks(LawConjunction3);
-Exercise21.unlockedBy(Exercise11);
 
 var Exercise22 = new Exercise("2.2(a)", 'AND IS <A HREF="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</A> (left)', [AND(AND(A,B),C)], AND(A,AND(B,C)),8);
 Exercise22.unlockedBy(Exercise21);
@@ -565,11 +563,17 @@ var Exercise247 = new Exercise("24.7", 'IRRATIONAL TO IRRATIONAL CAN BE RATIONAL
 Exercise247.unlockedBy(Exercise241);
 
 
-// load notes and proofs for exercises from HTML 
+// load notes and proofs for exercises from HTML
 
 exerciseList.forEach( function( exercise ) {
     var div = getElement(exercise.name);
     if (div == null) return;
+
+    var unlockedBy = div.getAttribute("unlockedby");
+    if (unlockedBy) {
+        var unlocker = exercisesByShortName[unlockedBy];
+        exercise.unlockedBy(unlocker);
+    }
 
     var children = div.childNodes;
     var i;
