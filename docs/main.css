@@ -72,12 +72,15 @@ tr:nth-child(even) {
 
 div.exercise {
     visibility: hidden;
+    display: none;
 }
 
 div.notes {
     visibility: hidden;
+    display: none;
 }
 
 ol.proof {
     visibility: hidden;
+    display: none;
 }
