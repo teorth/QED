@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.5.2** (released Aug 27, 2018).  Typos in text for Exercises 24.1(a) and 24.6 corrected (thanks to Antoine Deleforge for pointing them out).
+
 * **Version 2.5.1** (released Aug 27, 2018).  Computed best known proof lengths automatically from stored proof, rather than manual entry.
 
 * **Version 2.5** (released Aug 27, 2018).  Added an "EDIT STATE" button to permit save/restore of states, and to transfer states from legacy versions of the text.
