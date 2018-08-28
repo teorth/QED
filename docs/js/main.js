@@ -17,7 +17,7 @@ document.body.setAttribute("onkeydown", "keydown(event)");
 
 newSection("1", "Conjunction introduction");
 
-var LawConjunction1 = new Law("Conjunction introduction", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</A>', [A, B], AND(A,B));
+var LawConjunction1 = new Law("LawConjunction1", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</A>', [A, B], AND(A,B));
 var Exercise11 = new Exercise("1.1", "", [A, B], AND(AND(B,A),B));
 Exercise11.unlocks(LawConjunction1);
 Exercise11.completionMsg = 'Congratulations, you solved your first exercise!  Now two more exercises will be unlocked, as well as the next section of the text.  (For subsequent exercises, we will notify you of an exercise being solved by changing the color of the exercise and its proof to either green or blue, depending on whether you found the shortest known proof or not.  We also add a QED symbol (standing for "quod erat demonstrandum", or "what was to be demonstrated") to the end of the proof.)';
@@ -27,8 +27,8 @@ new Exercise("1.2", '', [A], AND(A,A));
 
 newSection("2", "Conjunction elimination");
 
-var LawConjunction2 = new Law("Conjunction elimination (left)", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</A> (left)', [AND(A,B)], A);
-var LawConjunction3 = new Law("Conjunction elimination (right)", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</A> (right)', [AND(A,B)], B);
+var LawConjunction2 = new Law("LawConjunction2", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</A> (left)', [AND(A,B)], A);
+var LawConjunction3 = new Law("LawConjunction3", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</A> (right)', [AND(A,B)], B);
 var Exercise21 = new Exercise("2.1", '', [AND(A,B)], AND(B,A));
 Exercise21.unlocks(LawConjunction2);
 Exercise21.unlocks(LawConjunction3);
@@ -39,8 +39,8 @@ new Exercise("2.2(b)", '', [AND(A,AND(B,C))], AND(AND(A,B),C));
 
 newSection("3", "Disjunction introduction");
 
-var LawDisjunction1 = new Law("Disjunction introduction (left)", '<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (left)', [formulaContext(B), A], OR(A,B));
-var LawDisjunction2 = new Law("Disjunction introduction (right)", '<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (right)', [formulaContext(B), A], OR(B,A));
+var LawDisjunction1 = new Law("LawDisjunction1", '<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (left)', [formulaContext(B), A], OR(A,B));
+var LawDisjunction2 = new Law("LawDisjunction2", '<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (right)', [formulaContext(B), A], OR(B,A));
 var Exercise31 = new Exercise("3.1(a)", "", [A, formulaContext(B), formulaContext(C)], OR(C,OR(A,B)));
 Exercise31.unlocks(LawDisjunction1);
 Exercise31.unlocks(LawDisjunction2);
@@ -50,7 +50,7 @@ new Exercise("3.1(b)", '', [A], OR(A,A),3);
 
 newSection("4", "Assumption");
 
-var LawAssumption = new Law("Implication introduction", 'IMPLICATION INTRODUCTION', [formulaContext(A)], assuming(A,A));
+var LawAssumption = new Law("LawAssumption", 'IMPLICATION INTRODUCTION', [formulaContext(A)], assuming(A,A));
 var Exercise41 = new Exercise("4.1", "", [formulaContext(A)], assuming(AND(A,A),A));
 Exercise41.unlocks(LawAssumption);
 
@@ -69,7 +69,7 @@ new Exercise("5.2", "", [formulaContext(A), formulaContext(B)], assuming(assumin
 newSection("6", "Deduction theorem");
 
 var formImplies = new Law("Implies", 'IMPLIES', [formulaContext(A), formulaContext(B)], formulaContext(IMPLIES(A,B)));
-var LawImplication = new Law("Deduction theorem", '<A HREF="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</A>', [assuming(B,A), rootEnvironmentContext()], IMPLIES(A,B));
+var LawImplication = new Law("LawImplication", '<A HREF="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</A>', [assuming(B,A), rootEnvironmentContext()], IMPLIES(A,B));
 var Exercise61 = new Exercise("6.1(a)", '', [formulaContext(A)], IMPLIES(A,A));
 Exercise61.unlocks(formImplies);
 Exercise61.unlocks(LawImplication);
@@ -82,7 +82,7 @@ newSection("7", "Push");
 
 
 var Push = new Law("Push", 'PUSH', [A, environmentContext([B])], assuming(A,B));
-var PushAlt = new Law("Push (alt)", 'PUSH (alternate form)', [A, formulaContext(B)], assuming(A,B));
+var PushAlt = new Law("PushAlt", 'PUSH (alternate form)', [A, formulaContext(B)], assuming(A,B));
 var Exercise71 = new Exercise("7.1", "", [formulaContext(A), formulaContext(B)], IMPLIES(A, IMPLIES(B,A)));
 Exercise71.unlocks(Push);
 Exercise71.unlocks(PushAlt);
@@ -91,7 +91,7 @@ new Exercise("7.2", "", [A, environmentContext([B,C])], assuming(assuming(A,C),B
 
 newSection("8", "Modus ponens");
 
-var ModusPonens = new Law("Modus Ponens", '<A HREF="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</A>', [A, IMPLIES(A,B)], B);
+var ModusPonens = new Law("ModusPonens", '<A HREF="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</A>', [A, IMPLIES(A,B)], B);
 var Exercise81 = new Exercise("8.1(a)", '', [A, assuming(B,A)], B);
 Exercise81.unlocks(ModusPonens);
 
@@ -111,7 +111,7 @@ new Exercise("8.5", '', [IMPLIES(A,B)], IMPLIES(A, AND(A,B)));
 
 newSection("9", "Case analysis");
 
-var caseAnalysis = new Law("Case analysis", '<A HREF="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">CASE ANALYSIS</A>', [assuming(C,A), assuming(C,B)], assuming(C,OR(A,B)));
+var caseAnalysis = new Law("CaseAnalysis", '<A HREF="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">CASE ANALYSIS</A>', [assuming(C,A), assuming(C,B)], assuming(C,OR(A,B)));
 var Exercise91 = new Exercise("9.1(a)", "", [OR(A,B)], OR(B,A));
 Exercise91.unlocks(caseAnalysis);
 
@@ -142,9 +142,9 @@ new Exercise("9.5(b)", '', [formulaContext(C), IMPLIES(A,B)], IMPLIES(OR(A,C), O
 newSection("10", "The biconditional");
 
 var formIFF = new Law("Iff", 'IFF', [formulaContext(A), formulaContext(B)], formulaContext(IFF(A,B)));
-var BiconditionalIntroduction = new Law("Biconditional introduction", 'BICONDITIONAL INTRODUCTION', [IMPLIES(A,B), IMPLIES(B,A)], IFF(A,B));
-var BiconditionalElimination1 = new Law("Biconditional elimination (left)", 'BICONDITIONAL ELIMINATION (left)', [IFF(A,B)], IMPLIES(A,B));
-var BiconditionalElimination2 = new Law("Biconditional elimination (right)", 'BICONDITIONAL ELIMINATION (right)', [IFF(A,B)], IMPLIES(B,A));
+var BiconditionalIntroduction = new Law("BiconditionalIntroduction", 'BICONDITIONAL INTRODUCTION', [IMPLIES(A,B), IMPLIES(B,A)], IFF(A,B));
+var BiconditionalElimination1 = new Law("BiconditionalElimination1", 'BICONDITIONAL ELIMINATION (left)', [IFF(A,B)], IMPLIES(A,B));
+var BiconditionalElimination2 = new Law("BiconditionalElimination2", 'BICONDITIONAL ELIMINATION (right)', [IFF(A,B)], IMPLIES(B,A));
 var Exercise101 = new Exercise("10.1(a)", "", [A, IFF(A,B)], B);
 Exercise101.unlocks(formIFF);
 Exercise101.unlocks(BiconditionalIntroduction);
@@ -178,8 +178,8 @@ new Exercise("10.5", "", [formulaContext(A), formulaContext(B), formulaContext(C
 newSection("11", "Disjunctive elimination");
 
 var formNot = new Law("Not", 'NOT', [formulaContext(A)], formulaContext(NOT(A)));
-var caseElimination1 = new Law("Disjunctive elimination (left)", '<A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</A> (left)', [OR(A,B), NOT(A)], B);
-var caseElimination2 = new Law("Disjunctive elimination (right)", '<A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</A> (right)', [OR(A,B), NOT(B)], A);
+var caseElimination1 = new Law("caseElimination1", '<A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</A> (left)', [OR(A,B), NOT(A)], B);
+var caseElimination2 = new Law("CaseElimination2", '<A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</A> (right)', [OR(A,B), NOT(B)], A);
 var Exercise111 = new Exercise("11.1", '', [AND(A,NOT(A)), formulaContext(B)], B);
 Exercise111.unlocks(formNot);
 Exercise111.unlocks(caseElimination1);
@@ -187,7 +187,7 @@ Exercise111.unlocks(caseElimination2);
 
 newSection("12", "Law of excluded middle");
 
-var excludedMiddle = new Law("Excluded middle", '<A HREF="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">EXCLUDED MIDDLE</A>', [formulaContext(A)], OR(A,NOT(A)));
+var excludedMiddle = new Law("ExcludedMiddle", '<A HREF="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">EXCLUDED MIDDLE</A>', [formulaContext(A)], OR(A,NOT(A)));
 var Exercise121 = new Exercise("12.1(a)", '', [assuming(AND(B,NOT(B)),A)], NOT(A));
 Exercise121.unlocks(excludedMiddle);
 
@@ -230,7 +230,7 @@ new Exercise("12.8", '', [OR(A,B), OR(NOT(A),C)], OR(C,B));
 newSection("13", "True and false");
 
 var trueLaw = new Law("True", "TRUE", [formulaContext(TRUE())], TRUE());
-var falseLaw = new Law("Not false", "NOT FALSE", [formulaContext(NOT(FALSE()))], NOT(FALSE()));
+var falseLaw = new Law("False", "NOT FALSE", [formulaContext(NOT(FALSE()))], NOT(FALSE()));
 var Exercise131 = new Exercise("13.1(a)", "", [formulaContext(A)], IFF(A,AND(TRUE(),A)),7);
 Exercise131.unlocks(trueLaw);
 Exercise131.unlocks(falseLaw);
@@ -257,7 +257,7 @@ var Exercise141 = new Exercise("14.1", "", [assuming(Px,x)], assuming(IMPLIES(Qx
 
 newSection("15", "Push (for free variables)");
 
-var PushVar = new Law("Push (free variables", "PUSH (for free variables)", [A, x], assuming(A, x));
+var PushVar = new Law("PushVar", "PUSH (for free variables)", [A, x], assuming(A, x));
 var Exercise151 = new Exercise("15.1", "", [assuming(Px,x), assuming(assuming(Qxy,y),x)], assuming(assuming(AND(Px,Qxy),y),x));
 Exercise151.unlocks(PushVar);
 
@@ -269,14 +269,14 @@ new Exercise("15.2(c)", "", [A, environmentContext([x,B])], assuming(assuming(A,
 
 newSection("16", "Free variable introduction");
 
-var freeLaw = new Law("Free variable introduction", "FREE VARIABLE INTRODUCTION", [toTerm(x)], x);
+var freeLaw = new Law("free", "FREE VARIABLE INTRODUCTION", [toTerm(x)], x);
 var Exercise161 = new Exercise("16.1", "", [formulaContext(Qxy)], assuming(assuming(OR(Qxy, NOT(Qxy)),y),x));
 Exercise161.unlocks(freeLaw);
 Exercise161.revealTermWindow = true;
 
 newSection("17", "Universal quantification");
 
-var forAllLaw = new Law("For all", "FOR ALL", [formulaContext(A), toTerm(X)], formulaContext(forAll(A,X)));
+var forAllLaw = new Law("forAll", "FOR ALL", [formulaContext(A), toTerm(X)], formulaContext(forAll(A,X)));
 var Exercise171 = new Exercise("17.1", "", [formulaContext(Px)], forAll(IMPLIES(PX,PX),X));
 Exercise171.unlocks(forAllLaw);
 Exercise171.unlocks(universalIntroduction);
@@ -308,8 +308,8 @@ new Exercise("18.6", "", [formulaContext(A), formulaContext(PX)], IFF( IMPLIES(A
 
 newSection("19", "Existential quantification");
 
-var thereExistsLaw = new Law("There exists", "THERE EXISTS", [formulaContext(A), toTerm(X)], formulaContext(thereExists(A,X)));
-var PushSet = new Law("Push (set variables)", "PUSH (for set variables)", [A, settingAssumption(B,x)], assuming(A, settingAssumption(B,x)));
+var thereExistsLaw = new Law("thereExists", "THERE EXISTS", [formulaContext(A), toTerm(X)], formulaContext(thereExists(A,X)));
+var PushSet = new Law("PushSet", "PUSH (for set variables)", [A, settingAssumption(B,x)], assuming(A, settingAssumption(B,x)));
 
 var Exercise191 = new Exercise("19.1", "", [thereExists(PX,X), forAll(QX,X)], assuming(AND(Px,Qx), settingAssumption(Px,x)));
 Exercise191.unlocks(thereExistsLaw);
@@ -330,7 +330,7 @@ new Exercise("19.2(e)", "", [A, environmentContext([settingAssumption(B,y),setti
 newSection("20", "Pull");
 
 var Pull = new Law("Pull", "PULL", [assuming(A, settingAssumption(B,x))], A);
-var Pull2 = new Law("Pull 2", "PULL", [assuming(A, settingAssumption(B,x)),rootEnvironmentContext()], A);
+var Pull2 = new Law("Pull2", "PULL", [assuming(A, settingAssumption(B,x)),rootEnvironmentContext()], A);
 
 var Exercise201 = new Exercise("20.1", "", [thereExists(A,X)], A);
 
@@ -342,7 +342,7 @@ new Exercise("20.2", "", [assuming(assuming(A, settingAssumption(B,x)),settingAs
 newSection("21", "Existence");
 
 var Existence = new Law("Existence", "EXISTENCE", [TRUE(), X], thereExists(TRUE(),X));
-var Existence2 = new Law("Existence 2", "EXISTENCE", [formulaContext(TRUE()), X], thereExists(TRUE(),X));
+var Existence2 = new Law("Existence2", "EXISTENCE", [formulaContext(TRUE()), X], thereExists(TRUE(),X));
 
 var Exercise211 = new Exercise("21.1", "", [assuming(A, x), rootEnvironmentContext()], A);
 Exercise211.unlocks(Existence);

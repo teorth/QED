@@ -56,6 +56,8 @@ function createResetButton() {
     return button;
 }
 
+// custom prompt window
+
 function myprompt(message, defaultContent, callback) {
     let prompt = document.createElement("div");
     prompt.classList.add("popup");
@@ -95,7 +97,7 @@ function createEditStateButton() {
              return;
          }
 
-         myprompt("Enter new state here", JSON.stringify(localStorage), input => {
+         myprompt("Enter new state here: ", JSON.stringify(localStorage), input => {
             if (input == null) return;
             localStorage.clear();
             let newState = JSON.parse(input);
