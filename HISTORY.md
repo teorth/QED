@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.5.5** (released Aug 28, 2018).  Edit state popup window replaced by a custom window in order to evade text length restrictions in Chrome popup windows.
+
 * **Version 2.5.4** (released Aug 27, 2018).  Exercise names are now stored in HTML rather than as javascript strings.
 
 * **Version 2.5.3** (released Aug 27, 2018).  Laws now have a short name which is used in local storage (and in future, for lookup in HTML).

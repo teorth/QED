@@ -56,6 +56,37 @@ function createResetButton() {
     return button;
 }
 
+function myprompt(message, defaultContent, callback) {
+    let prompt = document.createElement("div");
+    prompt.classList.add("popup");
+    let label = document.createElement("label");
+    let text = document.createTextNode(message);
+    label.appendChild(text);
+    let input = document.createElement("input");
+    input.value = defaultContent;
+    label.appendChild(input);
+    prompt.appendChild(label);
+    let cancel = document.createElement("button");
+    cancel.textContent = "Cancel";
+    prompt.appendChild(cancel);
+    let ok = document.createElement("button");
+    ok.textContent = "Ok";
+    prompt.appendChild(ok);
+    document.body.appendChild(prompt);
+  
+    function close() {
+      document.body.removeChild(prompt);
+    }
+  
+    function apply() {
+      callback(input.value);
+    }
+  
+    cancel.addEventListener("click", close);
+    ok.addEventListener("click", close);
+    ok.addEventListener("click", apply);
+  }
+  
 function createEditStateButton() {
     var button = getElement("edit state button");
      button.onclick =  function() {
@@ -64,17 +95,16 @@ function createEditStateButton() {
              return;
          }
 
-        var input = window.prompt('Enter new state here', JSON.stringify(window.localStorage)); 
-        
-        if (input !== null) {
+         myprompt("Enter new state here", JSON.stringify(localStorage), input => {
+            if (input == null) return;
             localStorage.clear();
-            var new_data = JSON.parse(input);
-            var i;
-            for (i in new_data) { // for in loop should'nt be a problem in this case
-              window.localStorage.setItem(i, new_data[i]);
+            let newState = JSON.parse(input);
+            for (let i in newState) {
+              window.localStorage.setItem(i, newState[i]);
             }
             location.reload();
-        }
+          });
+
     };
     return button;
 }
