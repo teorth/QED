@@ -924,14 +924,45 @@ function addContext(context) {
 
     if (context.type == "formula") {
         box.type = "formulaBox";
+        var nodes = getElement("formula-window").childNodes;
+        var i;
+
+        for (i=0; i < nodes.length; i++)
+            if (nodes[i].type == "formulaBox")
+            if (nodes[i].sentence.name == box.sentence.name) {
+                notify("The formula " + box.sentence.name + " is already present in this window.");
+                return box;
+            }
         getElement("formula-window").appendChild(box);
     } else if (context.type == "term context") {
         box.type = "termBox";
+        var nodes = getElement("term-window").childNodes;
+        var i;
+
+        for (i=0; i < nodes.length; i++)
+            if (nodes[i].type == "termBox")
+            if (nodes[i].term.name == box.term.name) {
+                notify("The term " + box.term.name + " is already present in this window.");
+                return box;
+            }
+
         getElement("term-window").appendChild(box);
     }
     else {
         var env = getEnvironment(context.environment);
         box.type = "sentenceBox";
+
+        var nodes = env.childNodes;
+        var i;
+
+        for (i=0; i < nodes.length; i++)
+            if (nodes[i].type == "sentenceBox")
+            if (nodes[i].sentence.name == box.sentence.name)
+            {
+                notify("The sentence " + box.sentence.name + " is already present in this window.");
+                return box;
+            }
+
         env.appendChild(box);
     }
 

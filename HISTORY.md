@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.6.2** (released Aug 29, 2018).  Duplicate sentences or terms are no longer produced in windows by deduction rules.
+
 * **Version 2.6.1** (released Aug 29, 2018).  "Previous exercise" and "Next exercise" buttons added, together with "<" and ">" hotkeys.
 
 * **Version 2.6** (released Aug 29, 2018).  Split Predicates and Operators window into two.  Fixed a bug with naming of law clones.  Reversed order of notifications window, which is now renamed to "Event log" window; availability notifications arising from loading from localStorage is now disabled.  Fixed missing ExistentialInstantiation law unlocks in Ex 19.1. 
