@@ -1,5 +1,9 @@
 # QED - Release History
 
+* **Version 2.5.12** (released Aug 29, 2018).  Fix the unlocking of
+  Reflexivity and Indiscernability
+  ([PR #16](https://github.com/teorth/QED/pull/16)).
+
 * **Version 2.5.11** (released Aug 29, 2018).  Add `data-reveals` attribute
   to HTML exercise elements.
 
