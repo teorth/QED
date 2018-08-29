@@ -39,6 +39,7 @@ var laws = [
     ["ExcludedMiddle",              [formulaContext(A)],                        OR(A,NOT(A))],
     ["True",                        [formulaContext(TRUE())],                   TRUE()],
     ["False",                       [formulaContext(NOT(FALSE()))],             NOT(FALSE())],
+    ["False2",                      [formulaContext(FALSE())],                  NOT(FALSE())],
     ["PushVar",                     [A, x],                                     assuming(A, x)],
     ["forAll",                      [formulaContext(A), toTerm(X)],             formulaContext(forAll(A,X))],
     ["thereExists",                 [formulaContext(A), toTerm(X)],             formulaContext(thereExists(A,X))],

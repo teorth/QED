@@ -1,6 +1,6 @@
 # QED - Release History
 
-* **Version 2.5.13** (released Aug 29, 2018).  Refactored laws to be partially drawn from HTML rather than javascript.
+* **Version 2.5.13** (released Aug 29, 2018).  Refactored laws to be partially drawn from HTML rather than javascript.  Alternate form of FALSE law added (triggering on the FALSE formula rather than NOT FALSE)
 
 * **Version 2.5.12** (released Aug 29, 2018).  Fix the unlocking of
   Reflexivity and Indiscernability
