@@ -6,7 +6,7 @@ var exercisesByShortName = {};
 var lastClickedButton = "";   // this will be updated to the last deduction button one clicked; prevents double clicking from doing anything
 var revealTrueFalse = false;  // do we populate the formula window with true and false?
 var sectionTitle = "";  // name of last section to be created
-var numIndexedLaws = 0;  // number of laws that have been properly assigned an index
+var maxLawIndex = 0;  // the largest index currently assigned to a law
 
 /////// CREATING AND UPDATING HTML ELEMENTS /////////////
 
@@ -1287,12 +1287,11 @@ function Exercise(shortName, lawName, givens, conclusion) {
 	    this.law = new Law(shortName, lawName, givens, conclusion);
 	}
 
-	this.law.index = numIndexedLaws;
-    numIndexedLaws++;
+    maxLawIndex++;
+    this.law.index = maxLawIndex;
 
     if (this.law.clone != "") {
-        this.law.clone.index = numIndexedLaws;
-        numIndexedLaws++;
+        this.law.clone.index = this.law.index;
     }
 
 
@@ -1314,16 +1313,10 @@ function Exercise(shortName, lawName, givens, conclusion) {
 
     this.unlocks = function( law ) {
         this.newLaws.push(law);
-		law.index = this.law.index;
-        this.law.index++;    // in order for this code to work, the unlocks() command should be used before introducing any additional exercise.  Probably would be better to store all loaded laws in a list rather than manually index them all (note that allLaws[] doesn't suffice for this purpose because the hardcoded laws come first there).
-        if (this.law.clone != "") this.law.clone.index++;
-        numIndexedLaws++;
+		law.index = this.law.index - 1; // this can cause some laws to share the same index, but this is OK
 
         if (law.clone != "") {
-            law.clone.index = this.law.index;
-            this.law.index++;
-            if (this.law.clone != "") this.law.clone.index++;
-            numIndexedLaws++;
+            law.clone.index = law.index;
         }
     };
 

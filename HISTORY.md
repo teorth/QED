@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.5.7** (released Aug 28, 2018).  Law unlock information now stored in HTML rather than in javascript.  Some redundant variable names now removed.
+
 * **Version 2.5.6** (released Aug 28, 2018).  Spaces and other special characters removed from law short names.  (This may cause some disruptions to any laws unlocked between 2.5.3 and 2.5.6.)
 
 * **Version 2.5.5** (released Aug 28, 2018).  Edit state popup window replaced by a custom window in order to evade text length restrictions in Chrome popup windows.
