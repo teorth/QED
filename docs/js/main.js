@@ -14,20 +14,80 @@ createResetButton();
 createEditStateButton();
 document.body.setAttribute("onkeydown", "keydown(event)");
 
+var laws = [
+    ["LawConjunction1",             [A, B],                                     AND(A,B)],
+    ["LawConjunction2",             [AND(A,B)],                                 A],
+    ["LawConjunction3",             [AND(A,B)],                                 B],
+    ["LawDisjunction1",             [formulaContext(B), A],                     OR(A,B)],
+    ["LawDisjunction2",             [formulaContext(B), A],                     OR(B,A)],
+    ["LawAssumption",               [formulaContext(A)],                        assuming(A,A)],
+    ["And",                         [formulaContext(A), formulaContext(B)],     formulaContext(AND(A,B))],
+    ["Or",                          [formulaContext(A), formulaContext(B)],     formulaContext(OR(A,B))],
+    ["Implies",                     [formulaContext(A), formulaContext(B)],     formulaContext(IMPLIES(A,B))],
+    ["LawImplication",              [assuming(B,A), rootEnvironmentContext()],  IMPLIES(A,B)],
+    ["Push",                        [A, environmentContext([B])],               assuming(A,B)],
+    ["PushAlt",                     [A, formulaContext(B)],                     assuming(A,B)],
+    ["ModusPonens",                 [A, IMPLIES(A,B)],                          B],
+    ["CaseAnalysis",                [assuming(C,A), assuming(C,B)],             assuming(C,OR(A,B))],
+    ["Iff",                         [formulaContext(A), formulaContext(B)],     formulaContext(IFF(A,B))],
+    ["BiconditionalIntroduction",   [IMPLIES(A,B), IMPLIES(B,A)],               IFF(A,B)],
+    ["BiconditionalElimination1",   [IFF(A,B)],                                 IMPLIES(A,B)],
+    ["BiconditionalElimination2",   [IFF(A,B)],                                 IMPLIES(B,A)],
+    ["Not",                         [formulaContext(A)],                        formulaContext(NOT(A))],
+    ["caseElimination1",            [OR(A,B), NOT(A)],                          B],
+    ["caseElimination2",            [OR(A,B), NOT(B)],                          A],
+    ["ExcludedMiddle",              [formulaContext(A)],                        OR(A,NOT(A))],
+    ["True",                        [formulaContext(TRUE())],                   TRUE()],
+    ["False",                       [formulaContext(NOT(FALSE()))],             NOT(FALSE())],
+    ["PushVar",                     [A, x],                                     assuming(A, x)],
+    ["forAll",                      [formulaContext(A), toTerm(X)],             formulaContext(forAll(A,X))],
+    ["thereExists",                 [formulaContext(A), toTerm(X)],             formulaContext(thereExists(A,X))],
+    ["PushSet",                     [A, settingAssumption(B,x)],                assuming(A, settingAssumption(B,x))],
+    ["Pull",                        [assuming(A, settingAssumption(B,x))],      A],
+    ["Pull2",                       [assuming(A, settingAssumption(B,x)),       rootEnvironmentContext()], A],
+    ["Existence",                   [TRUE(), X],                                thereExists(TRUE(),X)],
+    ["Existence2",                  [formulaContext(TRUE()), X],                thereExists(TRUE(),X)],
+    ["Reflexivity",                 [alpha],                                    equals(alpha,alpha)],
+    ["UniversalIntroduction",       [assuming(Px,x),toTerm(X)],                 forAll(PX,X)],
+    ["UniversalIntroduction2",      [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X)],
+    ["UniversalSpecification",      [forAll(PX,X), alpha],                      Pa],
+    ["UniversalSpecification2",     [forAll(PX,X), toTerm(x)],                  assuming(Px,x)],
+    ["ExistentialInstantiation",    [thereExists(PX,X), toTerm(x)],             assuming(Px, settingAssumption(Px,x))],
+    ["ExistentialInstantiation2",   [thereExists(PX,X)],                        assuming(Px, settingAssumption(Px,x))],
+    ["ExistentialIntroduction",     [Pa, alpha],                                thereExists(PX,X)],
+    ["ExistentialIntroduction2",    [Pa, alpha, X],                             thereExists(PX,X)],
+    ["Indiscernability",            [Pa, equals(alpha,beta)],                   Pb],
+];
+
+laws.forEach( function( data ) {
+    var shortName = data[0];
+    var givens = data[1];
+    var conclusion = data[2];
+    var div = getElement("law-" + shortName);
+    var name = div.innerHTML;
+
+    new Law(shortName, name, givens, conclusion);
+});
+
+var universalIntroduction     = lawsByShortName["UniversalIntroduction"];
+var universalIntroduction2    = lawsByShortName["UniversalIntroduction2"];
+var universalSpecification    = lawsByShortName["UniversalSpecification"];
+var universalSpecification2   = lawsByShortName["UniversalSpecification2"];
+var existentialInstantiation  = lawsByShortName["ExistentialInstantiation"];
+var existentialInstantiation2 = lawsByShortName["ExistentialInstantiation2"];
+var existentialIntroduction   = lawsByShortName["ExistentialIntroduction"];
+var existentialIntroduction2  = lawsByShortName["ExistentialIntroduction2"];
+var indiscernability          = lawsByShortName["Indiscernability"];
+
 
 newSection("1", "Conjunction introduction");
 
-new Law("LawConjunction1", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</A>', [A, B], AND(A,B));
 
 new Exercise("1.1", "", [A, B], AND(AND(B,A),B));
 
 new Exercise("1.2", '', [A], AND(A,A));
 
 newSection("2", "Conjunction elimination");
-
-new Law("LawConjunction2", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</A> (left)', [AND(A,B)], A);
-
-new Law("LawConjunction3", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</A> (right)', [AND(A,B)], B);
 
 new Exercise("2.1", '', [AND(A,B)], AND(B,A));
 
@@ -37,37 +97,21 @@ new Exercise("2.2(b)", '', [AND(A,AND(B,C))], AND(AND(A,B),C));
 
 newSection("3", "Disjunction introduction");
 
-new Law("LawDisjunction1", '<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (left)', [formulaContext(B), A], OR(A,B));
-
-new Law("LawDisjunction2", '<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (right)', [formulaContext(B), A], OR(B,A));
-
 new Exercise("3.1(a)", "", [A, formulaContext(B), formulaContext(C)], OR(C,OR(A,B)));
 
 new Exercise("3.1(b)", '', [A], OR(A,A),3);
 
 newSection("4", "Assumption");
 
-new Law("LawAssumption", 'IMPLICATION INTRODUCTION', [formulaContext(A)], assuming(A,A));
-
 new Exercise("4.1", "", [formulaContext(A)], assuming(AND(A,A),A));
 
-
 newSection("5", "Logical connectives");
-
-new Law("And", 'AND', [formulaContext(A), formulaContext(B)], formulaContext(AND(A,B)));
-
-new Law("Or", 'OR', [formulaContext(A), formulaContext(B)], formulaContext(OR(A,B)));
 
 new Exercise("5.1", "", [formulaContext(A), formulaContext(B), formulaContext(C)], assuming(OR(AND(A,B),C), OR(AND(A,B),C)),2);
 
 new Exercise("5.2", "", [formulaContext(A), formulaContext(B)], assuming(assuming(A,A),B));
 
-
 newSection("6", "Deduction theorem");
-
-new Law("Implies", 'IMPLIES', [formulaContext(A), formulaContext(B)], formulaContext(IMPLIES(A,B)));
-
-new Law("LawImplication", '<A HREF="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</A>', [assuming(B,A), rootEnvironmentContext()], IMPLIES(A,B));
 
 new Exercise("6.1(a)", '', [formulaContext(A)], IMPLIES(A,A));
 
@@ -77,17 +121,11 @@ new Exercise("6.2", '', [assuming(assuming(C,B),A), rootEnvironmentContext()], I
 
 newSection("7", "Push");
 
-new Law("Push", 'PUSH', [A, environmentContext([B])], assuming(A,B));
-
-new Law("PushAlt", 'PUSH (alternate form)', [A, formulaContext(B)], assuming(A,B));
-
 new Exercise("7.1", "", [formulaContext(A), formulaContext(B)], IMPLIES(A, IMPLIES(B,A)));
 
 new Exercise("7.2", "", [A, environmentContext([B,C])], assuming(assuming(A,C),B));
 
 newSection("8", "Modus ponens");
-
-new Law("ModusPonens", '<A HREF="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</A>', [A, IMPLIES(A,B)], B);
 
 new Exercise("8.1(a)", '', [A, assuming(B,A)], B);
 
@@ -106,8 +144,6 @@ new Exercise("8.4(c)", "", [IMPLIES(A,IMPLIES(B,C))], IMPLIES(B,IMPLIES(A,C)));
 new Exercise("8.5", '', [IMPLIES(A,B)], IMPLIES(A, AND(A,B)));
 
 newSection("9", "Case analysis");
-
-new Law("CaseAnalysis", '<A HREF="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">CASE ANALYSIS</A>', [assuming(C,A), assuming(C,B)], assuming(C,OR(A,B)));
 
 new Exercise("9.1(a)", "", [OR(A,B)], OR(B,A));
 
@@ -137,14 +173,6 @@ new Exercise("9.5(b)", '', [formulaContext(C), IMPLIES(A,B)], IMPLIES(OR(A,C), O
 
 newSection("10", "The biconditional");
 
-new Law("Iff", 'IFF', [formulaContext(A), formulaContext(B)], formulaContext(IFF(A,B)));
-
-new Law("BiconditionalIntroduction", 'BICONDITIONAL INTRODUCTION', [IMPLIES(A,B), IMPLIES(B,A)], IFF(A,B));
-
-new Law("BiconditionalElimination1", 'BICONDITIONAL ELIMINATION (left)', [IFF(A,B)], IMPLIES(A,B));
-
-new Law("BiconditionalElimination2", 'BICONDITIONAL ELIMINATION (right)', [IFF(A,B)], IMPLIES(B,A));
-
 new Exercise("10.1(a)", "", [A, IFF(A,B)], B);
 
 new Exercise("10.1(b)", "", [AND(A,B), IFF(A,C)], AND(C,B));
@@ -173,17 +201,9 @@ new Exercise("10.5", "", [formulaContext(A), formulaContext(B), formulaContext(C
 
 newSection("11", "Disjunctive elimination");
 
-new Law("Not", 'NOT', [formulaContext(A)], formulaContext(NOT(A)));
-
-new Law("caseElimination1", '<A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</A> (left)', [OR(A,B), NOT(A)], B);
-
-new Law("caseElimination2", '<A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</A> (right)', [OR(A,B), NOT(B)], A);
-
 new Exercise("11.1", '', [AND(A,NOT(A)), formulaContext(B)], B);
 
 newSection("12", "Law of excluded middle");
-
-new Law("ExcludedMiddle", '<A HREF="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">EXCLUDED MIDDLE</A>', [formulaContext(A)], OR(A,NOT(A)));
 
 new Exercise("12.1(a)", '', [assuming(AND(B,NOT(B)),A)], NOT(A));
 
@@ -225,10 +245,6 @@ new Exercise("12.8", '', [OR(A,B), OR(NOT(A),C)], OR(C,B));
 
 newSection("13", "True and false");
 
-new Law("True", "TRUE", [formulaContext(TRUE())], TRUE());
-
-new Law("False", "NOT FALSE", [formulaContext(NOT(FALSE()))], NOT(FALSE()));
-
 new Exercise("13.1(a)", "", [formulaContext(A)], IFF(A,AND(TRUE(),A)),7);
 
 new Exercise("13.1(b)", "", [formulaContext(A)], IFF(A,OR(FALSE(),A)));
@@ -251,8 +267,6 @@ new Exercise("14.1", "", [assuming(Px,x)], assuming(IMPLIES(Qx,AND(Px,Qx)),x));
 
 newSection("15", "Push (for free variables)");
 
-new Law("PushVar", "PUSH (for free variables)", [A, x], assuming(A, x));
-
 new Exercise("15.1", "", [assuming(Px,x), assuming(assuming(Qxy,y),x)], assuming(assuming(AND(Px,Qxy),y),x));
 
 new Exercise("15.2(a)", "", [A, environmentContext([x,y])], assuming(assuming(A,y),x));
@@ -268,8 +282,6 @@ new Law("free", "FREE VARIABLE INTRODUCTION", [toTerm(x)], x);
 new Exercise("16.1", "", [formulaContext(Qxy)], assuming(assuming(OR(Qxy, NOT(Qxy)),y),x));
 
 newSection("17", "Universal quantification");
-
-new Law("forAll", "FOR ALL", [formulaContext(A), toTerm(X)], formulaContext(forAll(A,X)));
 
 new Exercise("17.1", "", [formulaContext(Px)], forAll(IMPLIES(PX,PX),X));
 
@@ -296,10 +308,6 @@ new Exercise("18.6", "", [formulaContext(A), formulaContext(PX)], IFF( IMPLIES(A
 
 newSection("19", "Existential quantification");
 
-new Law("thereExists", "THERE EXISTS", [formulaContext(A), toTerm(X)], formulaContext(thereExists(A,X)));
-
-new Law("PushSet", "PUSH (for set variables)", [A, settingAssumption(B,x)], assuming(A, settingAssumption(B,x)));
-
 new Exercise("19.1", "", [thereExists(PX,X), forAll(QX,X)], assuming(AND(Px,Qx), settingAssumption(Px,x)));
 
 new Exercise("19.2(a)", "", [A, environmentContext([B, settingAssumption(C,x)])], assuming(assuming(A,settingAssumption(C,x)),B));
@@ -314,9 +322,6 @@ new Exercise("19.2(e)", "", [A, environmentContext([settingAssumption(B,y),setti
 
 newSection("20", "Pull");
 
-new Law("Pull", "PULL", [assuming(A, settingAssumption(B,x))], A);
-
-new Law("Pull2", "PULL", [assuming(A, settingAssumption(B,x)),rootEnvironmentContext()], A);
 
 new Exercise("20.1", "", [thereExists(A,X)], A);
 
@@ -324,9 +329,6 @@ new Exercise("20.2", "", [assuming(assuming(A, settingAssumption(B,x)),settingAs
 
 newSection("21", "Existence");
 
-new Law("Existence", "EXISTENCE", [TRUE(), X], thereExists(TRUE(),X));
-
-new Law("Existence2", "EXISTENCE", [formulaContext(TRUE()), X], thereExists(TRUE(),X));
 
 new Exercise("21.1", "", [assuming(A, x), rootEnvironmentContext()], A);
 
@@ -381,8 +383,6 @@ new Exercise("23.2", '', [thereExists(forAll(IFF(YinX,NOT(YinY)),Y),X)], NOT(TRU
 new Exercise("23.3", '', [forAll(NOT(XgteX1),X)], NOT(thereExists(forAll(XgteY,Y),X)));
 
 newSection("24", "Equality");
-
-new Law("Reflexivity", 'EQUALITY IS <A HREF="https://en.wikipedia.org/wiki/Reflexive_relation" target="_blank">REFLEXIVE</A>', [alpha], equals(alpha,alpha));
 
 new Exercise("24.1(a)", '', [equals(alpha,beta)], equals(beta,alpha));
 

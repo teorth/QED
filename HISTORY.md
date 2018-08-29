@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.5.13** (released Aug 29, 2018).  Refactored laws to be partially drawn from HTML rather than javascript.
+
 * **Version 2.5.12** (released Aug 29, 2018).  Fix the unlocking of
   Reflexivity and Indiscernability
   ([PR #16](https://github.com/teorth/QED/pull/16)).

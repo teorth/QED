@@ -535,21 +535,6 @@ function Law(shortName, name, givens, conclusion) {
 
 
 
-// all the laws that require special treatment in the matching algorithm.  Moved from index.html
-
-var universalIntroduction = new Law("UniversalIntroduction", '<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x),toTerm(X)], forAll(PX,X));
-var universalIntroduction2 = new Law("UniversalIntroduction2", '<A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X));
-
-var universalSpecification = new Law("UniversalSpecification", '<A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</A>', [forAll(PX,X), alpha], Pa);
-var universalSpecification2 = new Law("UniveralSpecification2", 'REVERSE <A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A>', [forAll(PX,X), toTerm(x)], assuming(Px,x))
-
-var existentialInstantiation = new Law("ExistentialInstantiation", '<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X), toTerm(x)], assuming(Px, settingAssumption(Px,x)));
-var existentialInstantiation2 = new Law("ExistentialInstantiation2", '<A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A>', [thereExists(PX,X)], assuming(Px, settingAssumption(Px,x)));
-
-var existentialIntroduction = new Law("ExistentialIntroduction", '<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha], thereExists(PX,X));
-var existentialIntroduction2 = new Law("ExistentialIntroduction2", '<A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A>', [Pa, alpha, X], thereExists(PX,X));
-
-var indiscernability = new Law("Indiscernability", '<A HREF="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">INDISCERNABILITY OF IDENTICALS</A>', [Pa, equals(alpha,beta)], Pb);
 
 // add  (name of) expr to list if not already there
 
