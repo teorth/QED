@@ -282,6 +282,9 @@ function createExerciseBox() {
     text.exercise = "";  // no exercise set yet
     text.exerciseButton = "";
 
+    // a hack to remove the initial hidden nature of this text field
+    text.className = "clearfix";
+
     return text;
 }
 
@@ -514,7 +517,7 @@ function setExercise(exerciseButton) {
     exerciseText.exerciseButton = exerciseButton;
 
 // reveal the formula window, if this option is active
-    if (exercise.revealFormulaWindow) reveal("formulas window");
+    if (exercise.revealFormulaWindow) reveal("formula window");
 // reveal the term window, if this option is active
     if (exercise.revealTermWindow) reveal("term window");
 // reveal the bound button, if this option is active
@@ -642,6 +645,7 @@ function makeAssumption(env, obj) {
 function createFormulaWindow() {
     var box = getElement("formula window");
 
+    box.style.display = 'none';
     box.style.margin = "5px";
     box.style.padding = "0px 10px";
     box.style.border = "1px solid black";
@@ -651,7 +655,6 @@ function createFormulaWindow() {
     box.setAttribute('ondrop', "drop(event)");
     box.type = "formula window";
     box.appendChild(newHeading("Formulas"));
-    box.style.display = 'none';
     return box;
 }
 
@@ -659,7 +662,8 @@ function createFormulaWindow() {
 
 function createTermWindow() {
     var box = getElement("term window");
-
+    
+    box.style.display = 'none';
     box.style.margin = "5px";
     box.style.padding = "0px 10px";
     box.style.border = "1px solid black";
@@ -672,18 +676,17 @@ function createTermWindow() {
     div.appendChild(newHeading("Terms"));
     div.id = "term heading";
     box.appendChild(div);
-    box.style.display = 'none';
 
     var freeButton = newButton("New free variable");
     div.appendChild(freeButton);
     freeButton.onclick = freeButtonClick;
 
     var boundButton = newButton("New bound variable");
+    boundButton.style.display = 'none';
     boundButton.id = "bound variable button";
     div.appendChild(boundButton);
     boundButton.onclick = boundButtonClick;
-    boundButton.style.display = 'none';
-
+   
     return box;
 }
 
@@ -745,11 +748,11 @@ function boundButtonClick() {
 
 function createOperatorsWindow() {
     var box = getElement("operators window");
+    box.style.display = 'none';
 
     var div = document.createElement("DIV");
     div.appendChild(newHeading("Predicates and operators"));
     box.appendChild(div);
-    box.style.display = 'none';
 
     var ul = document.createElement("UL");
     ul.id = "operators list";
@@ -762,7 +765,7 @@ function createOperatorsWindow() {
 // if previous session unlocked formula window, true/false, and/or term window, reveal it; also unlock all laws already unlocked
 function checkForUnlocks() {
     if (localStorage) {
-        if (localStorage.getItem("formula window") == "unlocked") reveal("formulas window");
+        if (localStorage.getItem("formula window") == "unlocked") reveal("formula window");
 
         if (localStorage.getItem("true false") == "unlocked") {
             achieve("<B>UNLOCKED</B> TRUE and FALSE formulas.");

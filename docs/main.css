@@ -73,3 +73,7 @@ tr:nth-child(even) {
 #dataContainer {
     display: none;
 }
+
+.hidden {
+    display: none;
+}
