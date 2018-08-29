@@ -27,8 +27,8 @@
 <div class="clearfix" id="exercise-button-box"><b>Sections and exercises</b><div id="exercise-button-subbox"></div></div>
 <br>
 <div class="clearfix hidden" id="exercise"><UL>
-    <li>Welcome to QED, a short interactive text in <A HREF="https://en.wikipedia.org/wiki/Propositional_calculus" target="_blank">propositional logic</A> arranged in the format of a computer game.  </li>
-    <li>Propositional logic is the logic of <A HREF="https://en.wikipedia.org/wiki/Atomic_sentence" target="_blank">atomic propositions</A> (which in this text are given names such as <I>A</I>, <I>B</I>, or <I>C</I>) and the statements one can form from these propositions using logical connectives such as AND, OR, and IMPLIES.  It is a subset of <A HREF="https://en.wikipedia.org/wiki/First-order_logic" target="_blank">first-order logic</A>, which is the main form of logic used in mathematics. </li>
+    <li>Welcome to QED, a short interactive text in <A HREF="https://en.wikipedia.org/wiki/Propositional_calculus" target="_blank">propositional logic</A> arranged in the format of a computer game.</li>
+    <li>Propositional logic is the logic of <A HREF="https://en.wikipedia.org/wiki/Atomic_sentence" target="_blank">atomic propositions</A> (which in this text are given names such as <I>A</I>, <I>B</I>, or <I>C</I>) and the statements one can form from these propositions using logical connectives such as AND, OR, and IMPLIES.  It is a subset of <A HREF="https://en.wikipedia.org/wiki/First-order_logic" target="_blank">first-order logic</A>, which is the main form of logic used in mathematics.</li>
     <li>The objective of this "game" is to prove statements in propositional logic from the given hypotheses by clicking and dragging on statements that one has already deduced.  By solving exercises in this game, you should develop a greater understanding of propositional logic.</li>
     <li>Expand the "Sections and exercises" section above and then click on the "Exercise 1.1" button to begin the text and start the sequence of exercises!</li>
 </UL>
@@ -120,14 +120,14 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
     <div class="name"></div>
     <div class="notes">
         <UL>
-            <li>The <B>Root environment</B> window below contains all the statements that one already knows to be true for the given exercise (which, in this case, are <I>A</I> and <I>B</I>).  Initially this window will just contain the given hypotheses of the exercise. </li>
+            <li>The <B>Root environment</B> window below contains all the statements that one already knows to be true for the given exercise (which, in this case, are <I>A</I> and <I>B</I>).  Initially this window will just contain the given hypotheses of the exercise.</li>
             <li>Statements can be <A HREF="https://en.wikipedia.org/wiki/Atomic_formula" target="_blank">atomic formulas</A> such as <I>A</I>, <I>B</I>, and <I>C</I>, or compound formulas formed from the atomic formulas and logical connectives such as AND, OR, and NOT.  For instance, (<I>A</I> AND <I>B</I>) OR <I>C</I> is a compound formula, and thus a potential statement in one's argument.</li>
             <li>If one drags one statement to another, the <B>Available deductions</B> window below will show what conclusions one can draw from these statements using the available <A HREF="https://en.wikipedia.org/wiki/Rule_of_inference" target="_blank">deduction rules</A>; if any conclusions can be drawn, one can add them to the <B>Root environment</B> window by clicking on the button containing the conclusion.</li>
             <li>For instance, to solve this level one drags the <I>B</I> statement onto the <I>A</I> statement (or vice versa), clicks on the button marked "<I>B</I> AND <I>A</I>" to add that statement to the <B>Root environment</B>, drags the new <I>B</I> AND <I>A</I> statement onto the <I>B</I> statement (or vice versa), and then clicks on the button containing the desired conclusion.</li>
-            <li>By opening the first exercise of Section 1 (Exercise 1.1), you unlocked the rule of <A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">conjunction introduction</A>.  This asserts that if a statement <I>A</I> is known, and the statement <I>B</I> is known, then one can deduce the compound statement <I>A</I> AND <I>B</I>.  This is the only rule one starts with, but more deductive rules will be unlocked whenever one begins a new section of the textbook. </li>
-            <li>Progress is recorded in the <B>Achievements</B> and <B>Notifications</B> windows below.  This progress will be saved between sessions (assuming your browser supports local storage), unless you reset this interactive text completely using the button at the bottom of the page. </li>
+            <li>By opening the first exercise of Section 1 (Exercise 1.1), you unlocked the rule of <A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">conjunction introduction</A>.  This asserts that if a statement <I>A</I> is known, and the statement <I>B</I> is known, then one can deduce the compound statement <I>A</I> AND <I>B</I>.  This is the only rule one starts with, but more deductive rules will be unlocked whenever one begins a new section of the textbook.</li>
+            <li>Progress is recorded in the <B>Achievements</B> and <B>Notifications</B> windows below.  This progress will be saved between sessions (assuming your browser supports local storage), unless you reset this interactive text completely using the button at the bottom of the page.</li>
             <li>Your deductions will be recorded as a human-readable proof in the <B>Proof</B> window below.  This window is not absolutely necessary in order to play the game, but should help you understand and interpret the moves you are making.</li>
-            <li>The exercise is completed when you have managed to obtain the desired conclusion (in this case, (<I>B</I> AND <I>A</I>) AND <I>B</I>) in the <B>Root environment</B> window.  This will unlock further exercises and sections of the textbook, turning the exercise buttons from gray to yellow. </li>
+            <li>The exercise is completed when you have managed to obtain the desired conclusion (in this case, (<I>B</I> AND <I>A</I>) AND <I>B</I>) in the <B>Root environment</B> window.  This will unlock further exercises and sections of the textbook, turning the exercise buttons from gray to yellow.</li>
         </UL>
     </div>
     <ol class="proof">
@@ -244,10 +244,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"></div>
         <div class="notes">
             <UL>
-                <li>The <B>Root environment</B> window holds all the statements that are known to be true under the given hypothesis.  But sometimes in an argument, we also need to consider statements that are only <I>conditionally</I> known to be true, under one or more assumptions.  For instance, we might not know that a statement <I>A</I> is true unconditionally, but instead know that <I>A</I> is conditionally true under the assumption of a second statement <I>B</I>. </li>
-                <li>In this interactive text, assumptions are depicted as subwindows of the <B>Root environment</B> window.  For instance, to depict the knowledge of <I>A</I> conditionally under the assumption of <I>B</I>, one would form a subwindow of <B>Root environment</B> titled "<B>Assume <I>B</I></B>", and place <I>A</I> inside that window. </li>
+                <li>The <B>Root environment</B> window holds all the statements that are known to be true under the given hypothesis.  But sometimes in an argument, we also need to consider statements that are only <I>conditionally</I> known to be true, under one or more assumptions.  For instance, we might not know that a statement <I>A</I> is true unconditionally, but instead know that <I>A</I> is conditionally true under the assumption of a second statement <I>B</I>.</li>
+                <li>In this interactive text, assumptions are depicted as subwindows of the <B>Root environment</B> window.  For instance, to depict the knowledge of <I>A</I> conditionally under the assumption of <I>B</I>, one would form a subwindow of <B>Root environment</B> titled "<B>Assume <I>B</I></B>", and place <I>A</I> inside that window.</li>
                 <li>The <A HREF="https://en.wikipedia.org/wiki/Conditional_proof" target="_blank">law of assumption</A> (or <I>implication introduction</I>) asserts that if <I>A</I> is a formula, then it will be true if we first make an assumption that <I>A</I> holds.</li>
-                <li>Try dragging the formula <I>A</I> to the <B>Root environment</B> window (or clicking on the formula) to make such an assumption! </li>
+                <li>Try dragging the formula <I>A</I> to the <B>Root environment</B> window (or clicking on the formula) to make such an assumption!</li>
                 <li>Every deductive rule that one can apply in the root environment, one can also apply in a sub-environment.  This is the key to solving the current exercise (and to many subsequent exercises).
             </UL>
         </div>
@@ -263,7 +263,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
             <UL>
                 <li>One can combine formulas together to create compound formulas.</li>
-                <li>For binary logical connectives such as AND and OR, this is done here by dragging formulas together in the <B>Formulas</B> window.  </li>
+                <li>For binary logical connectives such as AND and OR, this is done here by dragging formulas together in the <B>Formulas</B> window.</li>
                 <li>See what happens if one drags the formula <I>A</I> onto the formula <I>B</I> or vice versa!</li>
                 <li>For the purposes of recording proof length, the creation of new formulas is considered to be a "free move" in this text, in that it does not use up any lines of the proof.</li>
             </UL>
@@ -295,7 +295,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
             <UL>
                 <li>The logical connective IMPLIES is also known as <A HREF="https://en.wikipedia.org/wiki/Material_conditional" target="_blank">material implication</A> (or the <I>conditional</I>); informally, one can think of the assertion IMPLIES(<I>A</I>, <I>B</I>) as the assertion that <I>B</I> is "at least as true as" <I>A</I>.  (But they do not need to be <I>equally</I> true: in particular, if <I>A</I> is false and <I>B</I> is true, then it turns out that <I>A</I> IMPLIES <I>B</I> is true.<li>The statement <I>A</I> IMPLIES <I>B</I> can also be written as IF <I>A</I>, THEN <I>B</I>.</li>
-                <li>The <A HREF="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">deduction theorem</A> asserts that if you can prove a statement <I>B</I> under the assumption of another statement <I>A</I>, then you can deduce the compound statement <I>A</I> IMPLIES <I>B</I>. It is very commonly used in mathematics to prove implication statements.<li>To use the deduction theorem, take a statement that is known under some hypothesis, and drag it out of the window corresponding to that hypothesis. </li>
+                <li>The <A HREF="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">deduction theorem</A> asserts that if you can prove a statement <I>B</I> under the assumption of another statement <I>A</I>, then you can deduce the compound statement <I>A</I> IMPLIES <I>B</I>. It is very commonly used in mathematics to prove implication statements.<li>To use the deduction theorem, take a statement that is known under some hypothesis, and drag it out of the window corresponding to that hypothesis.</li>
                 <li>In some proof systems for propositional calculus, the deduction theorem is not one of the given laws of inference, but actually has to be proven as a theorem, which explains the name.  However, in this text, we will take the deduction theorem as a primitive inference rule.</li>
             </UL>
         </div>
@@ -339,7 +339,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"></div>
         <div class="notes">
             <UL>
-                <li>If a statement is known without an assumption, then it can be "pushed" into an enviroment with that assumption.  For instance, if <I>A</I> is known to be true unconditionally, then it is also known to be true assuming <I>B</I>. </li>
+                <li>If a statement is known without an assumption, then it can be "pushed" into an enviroment with that assumption.  For instance, if <I>A</I> is known to be true unconditionally, then it is also known to be true assuming <I>B</I>.</li>
                 <li>The push law is also known as "weakening" or <A HREF="https://en.wikipedia.org/wiki/Monotonicity_of_entailment" target = "_blank">monotonicity of entailment</A>.</li>
                 <li>To apply a push, drag a statement into an assumption environment that shares the same parent environment as the original statement.  (Alternatively, if this environment has not yet been created, drag the statement onto a formula containing the assumption, or vice versa.)</li>
             </UL>
@@ -356,7 +356,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name">DOUBLE PUSH</div>
         <div class="notes">
             <UL>
-                <li>This exercise easily follows from two applications of the push law, but turns out to be convenient in some subsequent exercises. </li>
+                <li>This exercise easily follows from two applications of the push law, but turns out to be convenient in some subsequent exercises.</li>
                 <li>The presence of the assumption environment [assuming <I>B</I>, <I>C</I>] is needed for two technical reasons.  Firstly, it populates the formula window with the atomic formulas <I>B</I>, <I>C</I>, which otherwise would not be present.  Secondly, it affects the user interface for applying the double push rule.  Namely, to invoke this law, one should push a statement "down" two levels, into an assumption window that is two levels nested below the one that the statement lies in.</li>
                 <li>Thanks to Steve Trout for contributing a short proof.</li>
             </UL>
@@ -497,9 +497,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name">OR IS COMMUTATIVE</div>
         <div class="notes">
             <UL>
-                <li>We now return to the laws of disjunction (i.e., the laws of the "OR" connective).  </li>
-                <li>To complement the laws of <A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">disjunction introduction</A> from Section 3, one has the law of <A HREF="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">case analysis</A>: if a statement <I>C</I> is known to be true under the assumption <I>A</I>, and also known to be true under the assumption <I>B</I>, then it is true under the assumption <I>A</I> OR <I>B</I>.  </li>
-                <li>For instance, to solve the current exercise, first establish <I>B</I> OR <I>A</I> under the assumption of <I>A</I>, and then separately establish <I>B</I> OR <I>A</I> under the assumption of <I>B</I>.  Then drag the two conclusions together! </li>
+                <li>We now return to the laws of disjunction (i.e., the laws of the "OR" connective).</li>
+                <li>To complement the laws of <A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">disjunction introduction</A> from Section 3, one has the law of <A HREF="https://en.wikipedia.org/wiki/Proof_by_exhaustion" target="_blank">case analysis</A>: if a statement <I>C</I> is known to be true under the assumption <I>A</I>, and also known to be true under the assumption <I>B</I>, then it is true under the assumption <I>A</I> OR <I>B</I>.</li>
+                <li>For instance, to solve the current exercise, first establish <I>B</I> OR <I>A</I> under the assumption of <I>A</I>, and then separately establish <I>B</I> OR <I>A</I> under the assumption of <I>B</I>.  Then drag the two conclusions together!</li>
                 <li>Splitting into cases is a common technique in mathematics.  For instance, to prove a statement <I>A</I> involving a natural number <i>n</i>, one might first prove the statement <I>A</I> assuming <i>n</I> is odd, and then prove it assuming <I>n</I> is even.  Since <i>n</I> has to be odd or even, the law of case analysis then establishes the statement <I>A</I> unconditionally.</li>
             </UL>
         </div>
@@ -696,7 +696,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"><A HREF="https://en.wikipedia.org/wiki/Constructive_dilemma" target="_blank">CONSTRUCTIVE DILEMMA</A> (both)</div>
         <div class="notes">
                 <UL>
-                    <li>This exercise involves three hypotheses, so it cannot be directly invoked by clicking or dragging on these hypotheses.  However, if one drags the first hypothesis to the second and then CTRL-clicks the third, or if one clicks the first and then CTRL-clicks the next two, one will be able to apply this exercise (once it is proven), of course.  Alternatively, one can use the two halves of this dilemma in Exercise 19(a) and Exercise 19(b) as a substitute. </li>
+                    <li>This exercise involves three hypotheses, so it cannot be directly invoked by clicking or dragging on these hypotheses.  However, if one drags the first hypothesis to the second and then CTRL-clicks the third, or if one clicks the first and then CTRL-clicks the next two, one will be able to apply this exercise (once it is proven), of course.  Alternatively, one can use the two halves of this dilemma in Exercise 19(a) and Exercise 19(b) as a substitute.</li>
                     <li>This exercise can be solved quickly if one uses Exercises 9.4(a) and 9.4(b).  (Of course, you must then solve these exercises first!)</li>
                 </UL>
         </div>
@@ -744,7 +744,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name">SUBSTITUTION</div>
         <div class="notes">
                 <UL>
-                    <li>The logical connective IFF (short for "IF AND ONLY IF") is also known as the <A HREF="https://en.wikipedia.org/wiki/Logical_biconditional" target="_blank">biconditional</A>. </li>
+                    <li>The logical connective IFF (short for "IF AND ONLY IF") is also known as the <A HREF="https://en.wikipedia.org/wiki/Logical_biconditional" target="_blank">biconditional</A>.</li>
                     <li>As the laws of biconditional assert, the statement <I>A</I> IFF <I>B</I> is equivalent to the statements <I>A</I> IMPLIES <I>B</I> and <I>B</I> IMPLIES <I>A</I> both being true.</li>
                     <li>Another way of thinking about it is that the statement <I>A</I> IFF <I>B</I> asserts that <I>A</I> and <I>B</I> are <I>equally</I> true.</li>
                     <li>To use the laws, either click on a statement of the form <I>A</I> IFF <I>B</I> to be able to apply biconditional elimination to deduce <I>A</I> IMPLIES <I>B</I> or <I>B</I> IMPLIES <I>A</I>, or drag <I>A</I> IMPLIES <I>B</I> and <I>B</I> IMPLIES <I>A</I> together to form <I>A</I> IFF <I>B</I> (or <I>B</I> IFF <I>A</I>) via the law of biconditional introduction.</li>
@@ -933,11 +933,11 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 "<I>When you have eliminated the impossible, whatever remains, however improbable, must be the truth</I>" - Sherlock Holmes, "The Sign of the Four".
                 <UL>
-                    <li>The logical connective NOT (also known as <A HREF="https://en.wikipedia.org/wiki/Negation" target="_blank">negation</A>) is a unary connective; click on a formula to find the option to build the negated formula.  A statement NOT <I>A</I> is true when <I>A</I> is false, and false when <I>A</I> is true. </li>
-                    <li>We have unlocked the <A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">laws of disjunctive elimination</A>.  These laws assert that if a disjunction <I>A</I> OR <I>B</I> is true, and (say) NOT <I>A</I> is known to be true (so <I>A</I> is known to be false), then <I>B</I> must be true. </li>
+                    <li>The logical connective NOT (also known as <A HREF="https://en.wikipedia.org/wiki/Negation" target="_blank">negation</A>) is a unary connective; click on a formula to find the option to build the negated formula.  A statement NOT <I>A</I> is true when <I>A</I> is false, and false when <I>A</I> is true.</li>
+                    <li>We have unlocked the <A HREF="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">laws of disjunctive elimination</A>.  These laws assert that if a disjunction <I>A</I> OR <I>B</I> is true, and (say) NOT <I>A</I> is known to be true (so <I>A</I> is known to be false), then <I>B</I> must be true.</li>
                     <li>To use this law, drag a disjunction such as <I>A</I> OR <I>B</I> to the negation of either <I>A</I> or <I>B</I>; one can also drag in the reversed direction.</li>
-                    <li>This exercise, <A HREF="https://en.wikipedia.org/wiki/Principle_of_explosion" target="_blank"><I>ex falso quodlibet</I></A>, is also known as the "principle of explosion".  Informally, it asserts that once one has arrived at a contradiction, one can obtain any conclusion one wishes.  </li>
-                    <li>To apply <I>ex falso quodlibet</I> in subsequent exercises, drag a sentence of the form <I>A</I> AND (NOT <I>A</I>) to a formula in the <B>Formulas</B> window (or vice versa).  </li>
+                    <li>This exercise, <A HREF="https://en.wikipedia.org/wiki/Principle_of_explosion" target="_blank"><I>ex falso quodlibet</I></A>, is also known as the "principle of explosion".  Informally, it asserts that once one has arrived at a contradiction, one can obtain any conclusion one wishes.</li>
+                    <li>To apply <I>ex falso quodlibet</I> in subsequent exercises, drag a sentence of the form <I>A</I> AND (NOT <I>A</I>) to a formula in the <B>Formulas</B> window (or vice versa).</li>
                 </UL>
         </div>
         <ol class="proof">
@@ -954,9 +954,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"><A HREF="https://en.wikipedia.org/wiki/Reductio_ad_absurdum" target="_blank">REDUCTIO AD ABSURDUM</A></div>
         <div class="notes">
                 <UL>
-                    <li>The <A HREF="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">law of the excluded middle</A> is one of the most powerful rules in classical propositional logic, playing a role somewhat analogous to that of the parallel postulate in Euclidean geometry; it completes the basic set of rules of inference for propositional logic. </li>
-                    <li>The law asserts that for any statement <I>A</I>, one of the statements <I>A</I> and NOT <I>A</I> is true.  To apply this law, drag the formula <I>A</I> from the <B>Formulas</B> window to an assumption environment (such as the <B>Root environment</B>), or just click on <I>A</I> if one wants to use the law in the root environment. </li>
-                    <li>If one removes the law of the excluded middle from classical logic (replacing it with the <I>reductio ad absurdum</I> rule of this exercise), one obtains the system of <A HREF="https://en.wikipedia.org/wiki/Intuitionistic_logic" target="_blank">constructivist logic</A> (also known as intuitionistic logic), which is deductively weaker, but (by the same token) makes a stronger assertion about the statements that it can still prove. </li>
+                    <li>The <A HREF="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">law of the excluded middle</A> is one of the most powerful rules in classical propositional logic, playing a role somewhat analogous to that of the parallel postulate in Euclidean geometry; it completes the basic set of rules of inference for propositional logic.</li>
+                    <li>The law asserts that for any statement <I>A</I>, one of the statements <I>A</I> and NOT <I>A</I> is true.  To apply this law, drag the formula <I>A</I> from the <B>Formulas</B> window to an assumption environment (such as the <B>Root environment</B>), or just click on <I>A</I> if one wants to use the law in the root environment.</li>
+                    <li>If one removes the law of the excluded middle from classical logic (replacing it with the <I>reductio ad absurdum</I> rule of this exercise), one obtains the system of <A HREF="https://en.wikipedia.org/wiki/Intuitionistic_logic" target="_blank">constructivist logic</A> (also known as intuitionistic logic), which is deductively weaker, but (by the same token) makes a stronger assertion about the statements that it can still prove.</li>
                     <li><Q><I>Reductio ad absurdum</I> is a far finer gambit than any chess gambit: a chess player may offer the sacrifice of a pawn or even a piece, but a mathematician offers the game.</Q> - G. H. Hardy</li>
                 </UL>
         </div>
@@ -1167,8 +1167,8 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <tr>  <td>Hypothesis</td> <td>Conclusion</td> </tr>
                 </table>
                 <UL>
-                    <li>At this point, the reader may have noticed a certain symmetry to propositional logic.  This symmetry is formalised by the <A HREF="https://en.wikipedia.org/wiki/Boolean_algebra#Duality_principle" target="_blank">duality principle</A> in <A HREF="https://en.wikipedia.org/wiki/Boolean_algebra" target="_blank">boolean algebra</A>, and may be summarised by the displayed table of "dual" pairs. </li>
-                    <li>Every deductive law involving the connectives TRUE, FALSE, AND, OR, and NOT with a single hypothesis and conclusion then has a dual law in which the hypothesis and conclusion are interchanged, and the logical connectives are replaced with their duals as indicated by the table. </li>
+                    <li>At this point, the reader may have noticed a certain symmetry to propositional logic.  This symmetry is formalised by the <A HREF="https://en.wikipedia.org/wiki/Boolean_algebra#Duality_principle" target="_blank">duality principle</A> in <A HREF="https://en.wikipedia.org/wiki/Boolean_algebra" target="_blank">boolean algebra</A>, and may be summarised by the displayed table of "dual" pairs.</li>
+                    <li>Every deductive law involving the connectives TRUE, FALSE, AND, OR, and NOT with a single hypothesis and conclusion then has a dual law in which the hypothesis and conclusion are interchanged, and the logical connectives are replaced with their duals as indicated by the table.</li>
                     <li>For instance, Exercise 12.5(a) and Exercise 12.5(b) are dual, as are Exercise 12.5(c) and Exercise 12.5(d).</li>
                     <li>Thanks to Yuval Wigderson and cory for supplying the short proof for this exercise.</li>
                 </UL>
@@ -1386,7 +1386,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>In previous sections we were working in the simple setting of <A HREF="https://en.wikipedia.org/wiki/Propositional_calculus" target="_blank">propositional logic</A>, in which the atomic propositions were given short names such as <I>A</I>, <I>B</I>, or <I>C</I>, and had no further internal structure.  We now begin the exploration of a powerful extension of this logic known as <A HREF="https://en.wikipedia.org/wiki/First-order_logic" target="_blank">first-order logic</A> (or <I>predicate logic</I>), in which the atomic propositions may now depend on one or more <I>variables</I> such as <I>x</I>, <I>y</I>, <I>z</I>.  First-order logic is the standard logical framework for most of modern mathematics.</li>
                     <li>For now, we focus on the type of variable known as <A HREF="https://en.wikipedia.org/wiki/Free_variables_and_bound_variables" target="_blank">free variables</A>.</li>
                     <li>A free variable can take any value within a given <A HREF="https://en.wikipedia.org/wiki/Domain_of_discourse" target="_blank">domain of discourse</A>.  The precise domain of discourse used is important when applying first-order logic to mathematical situations; for instance, if one is doing number theory, the domain of discourse might be the real numbers, while if one is doing group theory, domain of discourse might be the collection of elements of the group.  For more complicated mathematics, the domain of discourse may be the <A HREF="https://en.wikipedia.org/wiki/Universe_(mathematics)" target="_blank">universe of sets</A>.  However the rules of first-order logic do not care exactly what this domain is, so we will usually leave the domain unspecified.</li>
-                    <li>In previous sections, we created sub-environments of the <B>Root environment</B> in which certain sentences were assumed to be true.  In first-order logic, one can also create sub-environments in which new free variables are introduced and allowed to range freely in the domain of discourse.  Any statement in such a sub-environment is known to be true for all values of this variable. </li> <li>All the usual laws of propositional logic apply within such sub-environments, with one new wrinkle: if one wants to use a sentence such as <I>P(x)</I> that depends on a variable <I>x</I>, one can only do so inside an environment in which that variable has been introduced.  For instance, <I>P(x)</I> cannot be directly used in the <B>Root environment</B>, but can be used in a sub-environment where <I>x</I> is arbitrary.  (Try dragging <I>P(x)</I> or <I>Q(x)</I> to various environments to see what happens!)</li>
+                    <li>In previous sections, we created sub-environments of the <B>Root environment</B> in which certain sentences were assumed to be true.  In first-order logic, one can also create sub-environments in which new free variables are introduced and allowed to range freely in the domain of discourse.  Any statement in such a sub-environment is known to be true for all values of this variable.</li> <li>All the usual laws of propositional logic apply within such sub-environments, with one new wrinkle: if one wants to use a sentence such as <I>P(x)</I> that depends on a variable <I>x</I>, one can only do so inside an environment in which that variable has been introduced.  For instance, <I>P(x)</I> cannot be directly used in the <B>Root environment</B>, but can be used in a sub-environment where <I>x</I> is arbitrary.  (Try dragging <I>P(x)</I> or <I>Q(x)</I> to various environments to see what happens!)</li>
                     <li><B>Technical note</B>: matching has not been automatically implemented on exercises containing terms such as <I>P(x)</I> that involve variables.  As such, once one completes exercises in this section and later ones, it may not necessarily be possible to apply these exercises the same way as for preceding exercises.  I hope to implement this functionality in the future.</li>
                 </UL>
         </div>
@@ -1487,7 +1487,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>Here <I>X</I> is a different type of variable than a free variable, namely a <A HREF="https://en.wikipedia.org/wiki/Free_variables_and_bound_variables" target="_blank">bound variable</A>.  <I>P(X)</I> is formed from <I>P(x)</I> by replacing every occurrence of the free variable <I>x</I> in <I>P(x)</I> with the bound variable <I>X</I>.</li>
                     <li>Bound variables need to have different names from free variables; in this text, we ensure this by using lower case letters such as <I>x</I>, <I>y</I>, <I>z</I> for free variables and upper case variables such as <I>X</I>, <I>Y</I>, <I>Z</I> for bound variables. (Note: this convention is not standard in the mathematics literature; usually, one sees free and bound variables share the same namespace, and then one has to ensure that a variable is not simultaneously used as a free variable and as a bound variable.)</li>
                     <li>Both free and bound variables will be placed in the <B>Terms</B> window.  In later sections we will also introduce further types of terms.</li>
-                    <li>A bound variable such as <I>X</I> can only be used in statements in various environments if they are "bound" by an appropriate quantifier.  </li>
+                    <li>A bound variable such as <I>X</I> can only be used in statements in various environments if they are "bound" by an appropriate quantifier.</li>
                     <li>For instance, the formula <I>P(X)</I> cannot be directly used in environment windows right now, as it is not bound by a quantifier.  (However, we still consider it to be a valid formula.)</li>
             <li>Currently, the only available quantifier is the universal quantifier "FOR ALL"; later we will also introduce the existential quantifier "THERE EXISTS".</li>
                     <li>Quantifiers can be nested, as long as each quantifier uses different bound variables: "FOR ALL <I>X</I>: (FOR ALL <I>Y</I>: <I>Q(X,Y)</I>)" is a valid formula, but "FOR ALL <I>X</I>: (FOR ALL <I>X</I>: <I>Q(X,X)</I>)" is not.</li>
@@ -1526,7 +1526,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>Here, <I>X</I> is a bound variable, <I>P(X)</I> is any statement that can involve the variable <I>X</I>.</li>
                     <li>At present, the only terms you have seen are free variables and bound variables, so the law can only be currently applied to free variables <I>&alpha;</I>.  However, some further examples of terms will be introduced later.</li>
                     <li>As with all other laws, this law is only applicable if the conclusion <I>P(&alpha;)</I> is <A HREF="https://en.wikipedia.org/wiki/Well-formed_formula" target="_blank">well-formed</A>: in particular, the statement <I>P(&alpha;)</I> cannot use free variables that are not present in the environment, nor can it have nested quantifiers involving the same bound variable.</li>
-                    <li>The law of universal specification can fail if one permits <I>&alpha;</I> to contain bound variables.  For instance, using the natural numbers as the domain of discourse, the sentence "FOR ALL <I>X</I>: THERE EXISTS <I>Y</I>: <I>Y</I>=<I>X</I>+1" is true (every natural number has a successor), but one cannot specify <I>X</I> to equal <I>Y</I> to conclude the (incorrect) statement THERE EXISTS <I>Y</I>: <I>Y</I>=<I>Y</I>+1.  However, if <I>y</I> is an ambient free variable in the current environment, one may specify <I>X</I> to equal <I>y</I> and conclude THERE EXISTS <I>Y</I>: <I>Y</I>=<I>y</I>+1. </li>
+                    <li>The law of universal specification can fail if one permits <I>&alpha;</I> to contain bound variables.  For instance, using the natural numbers as the domain of discourse, the sentence "FOR ALL <I>X</I>: THERE EXISTS <I>Y</I>: <I>Y</I>=<I>X</I>+1" is true (every natural number has a successor), but one cannot specify <I>X</I> to equal <I>Y</I> to conclude the (incorrect) statement THERE EXISTS <I>Y</I>: <I>Y</I>=<I>Y</I>+1.  However, if <I>y</I> is an ambient free variable in the current environment, one may specify <I>X</I> to equal <I>y</I> and conclude THERE EXISTS <I>Y</I>: <I>Y</I>=<I>y</I>+1.</li>
                     <li>To use the law of universal specification, drag a sentence of the form FOR ALL <I>X</I>: <I>P(X)</I> to a term <I>&alpha;</I> or vice versa.</li>
                     <li>Note that currently the law does not work in the <B>Root environment</B>, because the unquantified bound variables <I>X,Y</I> cannot be used in this environment; similarly for any further free and bound variables one creates.  How would one get around this problem?</li>
                 </UL>
@@ -1576,7 +1576,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>The classical syllogisms of <A HREF="https://en.wikipedia.org/wiki/Term_logic" target="_blank">Aristotlean logic</A> consisted of two premises (a major premise and a minor premise), and a conclusion that could be drawn from those premises.  These syllogisms can be interpreted using the more modern language of first-order logic.</li>
-                    <li>One of the classical syllogisms is the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Barbara_(AAA-1)" target="_blank">Barbara syllogism</A>.  A famous example of this syllogism (in its singular form) is "All men are mortal.  Socrates is a man.  Hence, Socrates is mortal." </li>
+                    <li>One of the classical syllogisms is the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Barbara_(AAA-1)" target="_blank">Barbara syllogism</A>.  A famous example of this syllogism (in its singular form) is "All men are mortal.  Socrates is a man.  Hence, Socrates is mortal."</li>
                     <li>In this exercise, we model this syllogism by using <I>P(X)</I> to denote the statement "<I>X</I> is a man", <I>Q(X)</I> to denote the statement "<I>X</I> is a mortal", and <I>&alpha;</I> to denote Socrates.</li>
                     <li>The term <I>&alpha;</I> is an example of a primitive term - neither a free variable or a bound variable, but an object or quantity that one can use in one's arguments.</li>
                     <li>Primitive terms are to terms as atomic propositions such as <I>A</I>, <I>B</I>, <I>C</I> are to propositions.  To avoid confusion with other objects in first-order logic, we will use Greek letters such as <I>&alpha;</I>, <I>&beta;</I>, <I>&gamma;</I> to refer to primitive terms (or more generally to terms that are not required to be free or bound variables)</li>
@@ -1685,7 +1685,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>There is a twin sibling to the universal quantifier FOR ALL, namely the <A HREF="https://en.wikipedia.org/wiki/Existential_quantification" target="_blank">existential quantifier</A> THERE EXISTS.  As the name suggests, the sentence THERE EXISTS <I>X</I>: <I>P(X)</I> should be interpreted as the assertion that there exists a choice of <I>X</I> in the domain of discourse such that <I>P(X)</I> is true.</li>
-                    <li>One can formalise this using the <A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">law of existential instantiation</A>.  This law asserts that if THERE EXISTS <I>X</I>: <I>P(X)</I> is true, and <i>x</I> is an available free variable, then one can set <I>x</I> to a value for which <I>P(x)</I> holds. </li>
+                    <li>One can formalise this using the <A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">law of existential instantiation</A>.  This law asserts that if THERE EXISTS <I>X</I>: <I>P(X)</I> is true, and <i>x</I> is an available free variable, then one can set <I>x</I> to a value for which <I>P(x)</I> holds.</li>
                     <li>In this text, this is depicted by a subenvironment entitled <B>Set <i>x</I> s.t. <I>P(x)</I></B>.  This is an environment similar to an environment introducing a free variable, but now the variable <I>x</I> is not free to range throughout the domain of discourse, but instead has to obey <I>P(x)</I>.</li>
             <li>The PUSH law extends to these environments also, by the usual mechanism of dragging a statement into the environment where <I>x</I> is set.</li>
                     <li>To use the existential instantiation law, drag a statement of the form THERE EXISTS <I>X</I>: <I>P(X)</I> to a free variable.  One can also simply click on the law, and the text will try to locate an available free variable to use.</li>
@@ -1772,7 +1772,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>There is a reverse to the PUSH law (for variables <I>x</I> that have been set to obey a certain property): if a statement <I>A</I> is known to hold for some set value of <I>x</I>, and the statement <I>A</I> does not involve the variable <I>x</I>, then one can pull <I>A</I> out of that environment and conclude that <I>A</I> holds unconditionally.</li>
-                    <li>Of course, if <I>A</I> does depend on <I>x</I>, then no such pull is possible, since the statement <I>A</I> is not even well-formed once one leaves the environment where <I>x</I> is being set. </li>
+                    <li>Of course, if <I>A</I> does depend on <I>x</I>, then no such pull is possible, since the statement <I>A</I> is not even well-formed once one leaves the environment where <I>x</I> is being set.</li>
                     <li>There are two ways to invoke the PULL law.  Either drag a statement <I>A</I> in an environment where a variable <I>x</I> is set outside of that environment, or simply click on <I>A</I>.</li>
                 </UL>
         </div>
@@ -1801,9 +1801,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>Recall that all variables in first-order logic are understood to range in some <A HREF="https://en.wikipedia.org/wiki/Domain_of_discourse" target="_blank">domain of discourse</A>.  However, so far we have not precluded the possibility that this domain of discourse is empty, so that there are no possible values for such variables to take!</li>
-                    <li>This is of course a rather degenerate situation, in particular all existential statements of the form "THERE EXISTS <I>X</I>: <I>P(X)</I>" would automatically be false.  To exclude it, we introduce the law of existence: there exists a quantity <I>X</I> for which the statement TRUE holds.  </li>
-                    <li>This law may seem trivial or redundant, but it actually cannot be deduced from the other laws in this text, and must be stated explicitly.  (If one deletes this law, one obtains instead the theory of <A HREF="https://en.wikipedia.org/wiki/Free_logic" target="_blank">free logic</A>, in which the domain of discourse is permitted to be empty.) </li> <li>The error of assuming the law of existence when the domain of discourse is not known to be non-empty is known as the <A HREF="https://en.wikipedia.org/wiki/Existential_fallacy">existential fallacy.</A></li>
-                    <li>To use the law of existence, drag the TRUE statement (or the formula TRUE) onto a bound variable (or vice versa). </li>
+                    <li>This is of course a rather degenerate situation, in particular all existential statements of the form "THERE EXISTS <I>X</I>: <I>P(X)</I>" would automatically be false.  To exclude it, we introduce the law of existence: there exists a quantity <I>X</I> for which the statement TRUE holds.</li>
+                    <li>This law may seem trivial or redundant, but it actually cannot be deduced from the other laws in this text, and must be stated explicitly.  (If one deletes this law, one obtains instead the theory of <A HREF="https://en.wikipedia.org/wiki/Free_logic" target="_blank">free logic</A>, in which the domain of discourse is permitted to be empty.)</li> <li>The error of assuming the law of existence when the domain of discourse is not known to be non-empty is known as the <A HREF="https://en.wikipedia.org/wiki/Existential_fallacy">existential fallacy.</A></li>
+                    <li>To use the law of existence, drag the TRUE statement (or the formula TRUE) onto a bound variable (or vice versa).</li>
                 </UL>
         </div>
         <ol class="proof">
@@ -1822,9 +1822,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"></div>
         <div class="notes">
                 <ul>
-                    <li>The <A HREF="https://en.wikipedia.org/wiki/Existential_generalization">law of existential introduction</A> asserts that if one knows a statement of the form <I>P</I>(&alpha;), where &alpha; is a term that does not involve any bound variables or any free variables not present in the ambient environment, then one can deduce THERE EXISTS <I>X</I>: <I>P(X)</I>, where <I>X</I> is a bound variable not already occuring in <I>P(&alpha;)</I>.  This is the main way in which existential statements are proven.  </li>
+                    <li>The <A HREF="https://en.wikipedia.org/wiki/Existential_generalization">law of existential introduction</A> asserts that if one knows a statement of the form <I>P</I>(&alpha;), where &alpha; is a term that does not involve any bound variables or any free variables not present in the ambient environment, then one can deduce THERE EXISTS <I>X</I>: <I>P(X)</I>, where <I>X</I> is a bound variable not already occuring in <I>P(&alpha;)</I>.  This is the main way in which existential statements are proven.</li>
                      <li>To use this law (with <I>X</I> chosen to be the next available bound variable), drag the sentence <I>P</I>(&alpha;) onto the term &alpha; (or vice versa).</li>
-                     <li>If one wants to specify the bound variable as well, drag the sentence <I>P</I>(&alpha;) onto the term &alpha; and then CTRL-click on the bound variable <I>X</I> (or one can click on <I>P</I>(&alpha;) and then CTRL-click on both &alpha; and <I>X</I>. </li>
+                     <li>If one wants to specify the bound variable as well, drag the sentence <I>P</I>(&alpha;) onto the term &alpha; and then CTRL-click on the bound variable <I>X</I> (or one can click on <I>P</I>(&alpha;) and then CTRL-click on both &alpha; and <I>X</I>.</li>
                      <li>Important note: dragging <I>P</I>(&alpha;) onto a bound variable <I>X</I> will <I>not</I> trigger this law (because this does not specify what the term <I>&alpha;</I> is that one is using to introduce the existential quantifier).</li>
                      <li>Note that if the expression <I>P</I>(&alpha;) contains multiple copies of &alpha;, then there will be multiple options for <I>P(X)</I>, as one is permitted to change zero, one or more of the &alpha; into a copy of <I>X</I>.  This can lead to a rather large number of possible ways to use the law of existential introduction if the statement <I>P</I>(&alpha;) contains many copies of &alpha;!</li>
                 </ul>
@@ -1842,7 +1842,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>This exercise will require the use of the law of existence, or a consequence of that law such as the "pull" law for arbitrary variables.</li>
-                    <li>Thanks to Anders Kaseorg for a short proof. </li>
+                    <li>Thanks to Anders Kaseorg for a short proof.</li>
                 </UL>
         </div>
         <ol class="proof">
@@ -1962,7 +1962,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Ferioque  syllogism</A> is "No homework is fun. Some reading is homework.  Hence, some reading is not fun.".</li>
-                    <li>Thanks to Anders Kaseorg for a short proof. </li>
+                    <li>Thanks to Anders Kaseorg for a short proof.</li>
                 </UL>
         </div>
         <ol class="proof">
@@ -2087,7 +2087,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Camestros  syllogism</A> is "All horses have hooves. No humans have hooves.  Humans exist.  Hence, some humans are not horses."</li>
-                    <li>Thanks to Anders Kaseorg for a short proof. </li>
+                    <li>Thanks to Anders Kaseorg for a short proof.</li>
                 </UL>
         </div>
         <ol class="proof">
@@ -2180,7 +2180,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>This exercise cannot be reversed.  For instance, using the natural numbers as the domain of discourse, the statement "FOR ALL X: THERE EXISTS Y: Y>X" is true (every number has another number larger than it), but the statement "THERE EXISTS Y: FOR ALL X: Y>X" is false (there is no number that is larger than every number).</li>
-                    <li>Thanks to Anders Kaseorg for a short proof. </li>
+                    <li>Thanks to Anders Kaseorg for a short proof.</li>
                 </UL>
         </div>
         <ol class="proof">
@@ -2229,8 +2229,8 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>Lewis Carroll is best known for his books "Alice in Wonderland" and "Through the Looking Glass".  But he also wrote a list of logic puzzles, some of which can be found <A HREF="http://www.math.hawaii.edu/~hile/math100/logice.htm" target="_blank">here</A>.</li>
-                    <li>The simplest of his logic puzzles is the following.  Given the hypotheses "Babies are illogical.  Illogical persons are despised.  Nobody who is despised can manage a crocodile", conclude "Babies cannot handle crocodiles".  </li>
-                    <li>The exercise here is a translation of that puzzle to first-order logic - can you see how? </li>
+                    <li>The simplest of his logic puzzles is the following.  Given the hypotheses "Babies are illogical.  Illogical persons are despised.  Nobody who is despised can manage a crocodile", conclude "Babies cannot handle crocodiles".</li>
+                    <li>The exercise here is a translation of that puzzle to first-order logic - can you see how?</li>
                     <li>The solution of this exercise would be significantly shorter if it were possible to use previous syllogism exercises here.  Unfortunately, a matching algorithm for these syllogisms has not yet been implemented.  Perhaps this will be done in a future version of the text.</li>
                     <li>Thanks to Anders Kaseorg for a short proof, and Opax for an even shorter proof.</li>
                 </UL>
@@ -2258,7 +2258,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"></div>
         <div class="notes">
                 <UL>
-                    <li>In previous exercises, formulas such as <I>Q(x,y)</I> were manually provided for those exercises where they were needed.  In this section, a new window has been unlocked that allows one to generate such formulas without manual intervention. </li>
+                    <li>In previous exercises, formulas such as <I>Q(x,y)</I> were manually provided for those exercises where they were needed.  In this section, a new window has been unlocked that allows one to generate such formulas without manual intervention.</li>
                     <li>The <B>Predicates and operators</B> window contains all the predicates (and also operators - see the next few exercises) that appear in the exercise.  Predicates can be take one or more arguments, indicated here by em-dashes &mdash;.</li>
                     <li>If one drags a term to each argument of a predicate, one creates a formula in the <B>Formulas</B> window (and the arguments of the predicate are then reset to em-dashes).  For instance, to create the formula <I>Q(x,y)</I>, drag the term <I>x</I> to the first argument of <I>Q</I>(&mdash;,&mdash;), and drag the term <I>y</I> to the second argument.</li>
                 </UL>
@@ -2277,7 +2277,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"></div>
         <div class="notes">
                 <UL>
-                    <li>Some predicates are customarily written in between their arguments, rather than to the left of the arguments.  The most familiar examples of these are the comparison predicates &lt;, &gt;, &le;, &ge; and the equality relation =.  </li>
+                    <li>Some predicates are customarily written in between their arguments, rather than to the left of the arguments.  The most familiar examples of these are the comparison predicates &lt;, &gt;, &le;, &ge; and the equality relation =.</li>
                     <li>However, this difference is purely notational, and these predicates otherwise follow all the laws of first-order logic that predicates such as <I>Q</I>(&mdash;, &mdash;) do.</li>
                 </UL>
         </div>
@@ -2296,9 +2296,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"></div>
         <div class="notes">
                 <UL>
-                    <li>In addition to predicates, first-order logic also allows the use of <I>operators</I>, also known as <I>function symbols</I>.  </li>
-                    <li>operators are symbols that take some number of terms to produce more complicated terms.  The most familiar examples of operators are the arithmetic operators +, -, x, /; thus for instance one could take the terms <I>x</I> and <I>y</I> and produce a new term <I>x</I>+<I>y</I>.  </li>
-                    <li>Operators closely resemble predicates, except that a predicate produces formulas, whereas an operator produces terms.  </li>
+                    <li>In addition to predicates, first-order logic also allows the use of <I>operators</I>, also known as <I>function symbols</I>.</li>
+                    <li>operators are symbols that take some number of terms to produce more complicated terms.  The most familiar examples of operators are the arithmetic operators +, -, x, /; thus for instance one could take the terms <I>x</I> and <I>y</I> and produce a new term <I>x</I>+<I>y</I>.</li>
+                    <li>Operators closely resemble predicates, except that a predicate produces formulas, whereas an operator produces terms.</li>
                     <li>As such, we place operators in the same <B>Predicates and operators</B> window as predicates; the only difference is that the output of such operators goes into the <B>Terms</B> window rather than the <B>Formulas</B> window.</li>
                     <li>Note that compound terms such as <I>x+y</I> are not free variables or bound variables, and so cannot be used for those laws of first-order logic that require such variables.  However, they are still perfectly good terms for use in such laws as universal specification or existential introduction.</li>
                 </UL>
@@ -2342,7 +2342,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name">NO LARGEST NATURAL NUMBER</div>
         <div class="notes">
                 <UL>
-                    <li>If one takes the natural numbers as the domain of discourse, and interprets arithmetic symbols such as <I>&ge;</I>, <I>+</I>, <I>1</I> in the usual fashion, then this exercise is asking you to prove that there is no natural number that is greater than or equal to all natural numbers.  Your given information is that a natural number <I>X</I> is never greater than its successor <I>X+1</I>. </li>
+                    <li>If one takes the natural numbers as the domain of discourse, and interprets arithmetic symbols such as <I>&ge;</I>, <I>+</I>, <I>1</I> in the usual fashion, then this exercise is asking you to prove that there is no natural number that is greater than or equal to all natural numbers.  Your given information is that a natural number <I>X</I> is never greater than its successor <I>X+1</I>.</li>
                     <li>While one could solve this exercise by randomly trying various laws of deduction, it is better to use your mathematical intuition and think first about <i>why</i> the above assertion about natural numbers is true.  Once you figure out why, convert your reasoning into a formal proof.</li>
                 </UL>
         </div>
@@ -2366,9 +2366,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>Amongst all the predicates in first-order logic, there is a special one that obeys special rules: the equality predicate <I>=</I>.  This binary predicate is written as a relation, thus we write <I>&alpha;=&beta;</I> rather than <I>=(&alpha;,&beta;)</I>.</li>
-                    <li>Equality obeys two fundamental laws.  The first is <A HREF="https://en.wikipedia.org/wiki/Reflexive_relation" target="_blank">reflexivity</A>: if <I>&alpha;</I> is a term, then the statement <I>&alpha;=&alpha;</I> is true (assuming of course that this statement is well-formed in the target environment. </li>
+                    <li>Equality obeys two fundamental laws.  The first is <A HREF="https://en.wikipedia.org/wiki/Reflexive_relation" target="_blank">reflexivity</A>: if <I>&alpha;</I> is a term, then the statement <I>&alpha;=&alpha;</I> is true (assuming of course that this statement is well-formed in the target environment.</li>
                     <li>The second law is the <A HREF="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">indiscernability of identicals</A> (also known as Leibniz's law): if one knows that <I>&alpha;=&beta;</I>, and one knows that <I>P(&alpha;)</I> is true, then one can conclude that <I>P(&beta;)</I> is also true.</li>
-                    <li>To use the law of reflexivity, click on a term in the <B>Terms</B> window, or drag a term into a target environment. </li>
+                    <li>To use the law of reflexivity, click on a term in the <B>Terms</B> window, or drag a term into a target environment.</li>
                     <li>To use the indiscernability of identicals, drag an equation of the form <I>&alpha;=&beta;</I> to another statement in the same environment.</li>
                     <li>As with the law of existential introduction, there can be multiple ways in which the indiscernability of identicals law can be applied to a given pair of statements.  However, the game removes the "trivial" deduction of concluding a statement from itself.</li>
                     <li>With these two laws of equality, the  the set of rules of deduction for first-order logic used in this text is now complete.  (But this is not the only such set of rules; there are other deductive systems for first-order logic that use a different set of rules, though they still end up proving the same set of statements.)</li>
@@ -2413,7 +2413,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name">LEFT IDENTITY EQUALS RIGHT IDENTITY</div>
         <div class="notes">
                 <UL>
-                    <li>Now that all the laws of first-order logic are unlocked, it is now possible (in principle at least) to start proving statements in mathematics itself, rather than in logic. </li>
+                    <li>Now that all the laws of first-order logic are unlocked, it is now possible (in principle at least) to start proving statements in mathematics itself, rather than in logic.</li>
                     <li>We illustrate this with one of the first results in <A HREF="https://en.wikipedia.org/wiki/Group_theory" target="_blank">group theory</A>: if one has a left-identity <I>&alpha;</I> (so that <I>&alpha; * X = X</I> for all <I>X</I>) and a right-identity <I>&beta;</I> (so that <I>X * &beta; = X</I> for all <I>X</I>), then <I>&alpha;</I> and <I>&beta;</I> must be equal.</li>
                 </UL>
         </div>
@@ -2432,10 +2432,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>This exercise asks to prove a more complicated result in group theory, namely the cancellation law that allows one to deduce the identity <I>&beta; = &gamma;</I> from <I>&alpha; * &beta; = &alpha; * &gamma;</I> when <I>&alpha;, &beta;, &gamma;</I> lie in a group.</li>
-                    <li>There are three relevant group laws here.  The first is identity: there is a term <I>1</I> such that <I>1*X=X</I> for all group elements <I>X</I>. </li>
-                    <li>The second is associativity: one has <I>X*(Y*Z) = (X*Y)*Z</I> for all group elements <I>X,Y,Z</I>.  </li>
+                    <li>There are three relevant group laws here.  The first is identity: there is a term <I>1</I> such that <I>1*X=X</I> for all group elements <I>X</I>.</li>
+                    <li>The second is associativity: one has <I>X*(Y*Z) = (X*Y)*Z</I> for all group elements <I>X,Y,Z</I>.</li>
                     <li>The third is inverse: for every group element <I>X</I>, there is a group element <I>Y</I> such that <I>Y*X=1</I>.</li>
-                    <li>This is a relatively easy exercise in group theory when written out in informal mathematical language, but turns out to be somewhat lengthy when one tries to formalise it in first-order logic.  More generally, first-order logic tends to be too "low-level" of a proof system to be convenient for advanced mathematics; most proofs in mathematics are instead written in a more "high-level" fashion, using less formal, but more expressive, sentences in English (or in other languages) in place of the very limited sentences available to first-order logic. </li>
+                    <li>This is a relatively easy exercise in group theory when written out in informal mathematical language, but turns out to be somewhat lengthy when one tries to formalise it in first-order logic.  More generally, first-order logic tends to be too "low-level" of a proof system to be convenient for advanced mathematics; most proofs in mathematics are instead written in a more "high-level" fashion, using less formal, but more expressive, sentences in English (or in other languages) in place of the very limited sentences available to first-order logic.</li>
                     <li>Thanks to Gesse Roure for a short proof, and Anders Kaseorg for a shorter proof.</li>
                 </UL>
         </div>
@@ -2469,7 +2469,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>A <A HREF="https://en.wikipedia.org/wiki/Monoid" target="_blank">monoid</A> is like a group, but in which not every element <I>&alpha;</I> is invertible in the sense that there is an element <I>X</I> of the monoid for which <I>X * &alpha; = 1</I>.  A typical example of a monoid is the collection of <I>n &times; n</I> matrices with (say) real entries, for some fixed <I>n</I>.</li>
-                    <li>This exercise asks to prove that if two elements <I>&alpha;, &beta;</I> are known to be invertible, then so is their product <I>&alpha; * &beta;</I>.</li> <li>The only monoid laws one is given here are the identity law <I>1 * X = X</I> and the associativity law <I>X * (Y * Z)=(X * Y) * Z</I>, valid for all monoid elements <I>X,Y,Z</I>. </li>
+                    <li>This exercise asks to prove that if two elements <I>&alpha;, &beta;</I> are known to be invertible, then so is their product <I>&alpha; * &beta;</I>.</li> <li>The only monoid laws one is given here are the identity law <I>1 * X = X</I> and the associativity law <I>X * (Y * Z)=(X * Y) * Z</I>, valid for all monoid elements <I>X,Y,Z</I>.</li>
                     <li>As with the other exercises involving actual mathematical objects, one should first sketch out a proof using informal mathematical reasoning, and only then try transferring that proof to the first-order logic deductive system of this text.</li>
                 </UL>
         </div>
@@ -2507,7 +2507,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>This is another exercise in group theory.  In this exercise, we denote the (left) inverse of a group element <I>X</I> by <I>f(X)</I>, thus <I>f(X) * X = 1</I> for all <I>X</I>.</li>
                     <li>We also are given the associativity law <I>X * (Y * Z)=(X * Y) * Z</I>, the left identity law <I>1 * X = X</I>, and the right identity law <I>X * 1 = X</I> for all <I>X,Y,Z</I>.</li>
-                    <li>The task here is to show that when one applies the inverse operation twice, one ends up where one started: <I>f(f(X)) = X</I>. </li>
+                    <li>The task here is to show that when one applies the inverse operation twice, one ends up where one started: <I>f(f(X)) = X</I>.</li>
                     <li><SPAN title="There is a certain product of three group elements that can be computed in two different ways.">To get a hint, hover over this sentence.</SPAN></li>
                     <li>Still stuck?  <SPAN title="Compute f(f(X))*f(X)*X.">Hover over this sentence.</SPAN></li>
                  </UL>
@@ -2540,13 +2540,13 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name">IRRATIONAL TO IRRATIONAL CAN BE RATIONAL</div>
         <div class="notes">
                 <UL>
-                    <li><B>Note:</B> This is one of the hardest exercises in this text; one needs to first think carefully as to how to establish the exercise mathematically, and only then try to translate your mathematical reasoning to a first-order proof. </li>
-                    <li>Here, the domain of discourse is intended to be the positive reals, and the predicate <I>R(X)</I> should be interpreted as an assertion that <I>X</I> is a rational number. </li>
-                    <li>The task is to show that there exist irrational positive reals <I>X,Y</I> such that the quantity <I>X^Y</I> is rational. </li>
-                    <li>As it turns out, this claim can be established using the following relatively elementary facts.  Firstly, one needs some laws of exponentiation, namely that <I>(X^Y)^Z = X^(Y*Z)</I>, <I>&radic;X * &radic;X = X</I>, and <I>(&radic;X)^2 = X</I>. </li>
-                    <li>Secondly, one needs to know that <I>2</I> is rational, and <I>&radic; 2</I> is irrational. </li>
-                    <li>This problem is notable for two reasons.  Firstly, and rather surprisingly, the solution relies crucially at one point on the law of the excluded middle!  </li>
-                    <li>Secondly, you will find at some points in the proof that the law of existential introduction will generate a <i>lot</i> of possible options.  One will have to carefully select the right option amongst them! </li>
+                    <li><B>Note:</B> This is one of the hardest exercises in this text; one needs to first think carefully as to how to establish the exercise mathematically, and only then try to translate your mathematical reasoning to a first-order proof.</li>
+                    <li>Here, the domain of discourse is intended to be the positive reals, and the predicate <I>R(X)</I> should be interpreted as an assertion that <I>X</I> is a rational number.</li>
+                    <li>The task is to show that there exist irrational positive reals <I>X,Y</I> such that the quantity <I>X^Y</I> is rational.</li>
+                    <li>As it turns out, this claim can be established using the following relatively elementary facts.  Firstly, one needs some laws of exponentiation, namely that <I>(X^Y)^Z = X^(Y*Z)</I>, <I>&radic;X * &radic;X = X</I>, and <I>(&radic;X)^2 = X</I>.</li>
+                    <li>Secondly, one needs to know that <I>2</I> is rational, and <I>&radic; 2</I> is irrational.</li>
+                    <li>This problem is notable for two reasons.  Firstly, and rather surprisingly, the solution relies crucially at one point on the law of the excluded middle!</li>
+                    <li>Secondly, you will find at some points in the proof that the law of existential introduction will generate a <i>lot</i> of possible options.  One will have to carefully select the right option amongst them!</li>
                     <li>Just a reminder: to apply the law of existential introduction with a specific bound variable, drag the sentence <I>P(&alpha;)</I> to the term <I>&alpha;</I>, and then CTRL-CLICK on the desired bound variable.</li>
                     <li><SPAN title="Use the laws of exponentiation provided to compute the expression (SQRT(2)^SQRT(2))^SQRT(2).">To get a hint, hover over this sentence.</SPAN></li>
                     <li>Still stuck? <SPAN title="You will have to divide into two cases, depending on whether SQRT(2)^SQRT(2) is rational or not.">Hover over this sentence.</SPAN></li>
