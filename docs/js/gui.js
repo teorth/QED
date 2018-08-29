@@ -223,7 +223,7 @@ function notify(msg) {
     var span = document.createElement("SPAN");
     span.innerHTML = msg;
     node.appendChild(span);
-    log.appendChild(node);
+    log.insertBefore(node, log.firstChild);
 
     return node;
 }
@@ -381,7 +381,10 @@ function addPredicate(name)
     if (obj.arity == 0) return;  // don't bother puting 0-ary predicates or operators on the list (actually these are redundant anyway since atomic predicates and terms are functionally equivalent)
 
     var li = document.createElement("LI");
-    getElement("operators-list").appendChild(li);
+
+    if (obj.type == "operator") getElement("operators-list").appendChild(li);
+    if (obj.type == "predicate") getElement("predicates-list").appendChild(li);
+
     li.operator = obj;
     li.args = [];
     li.fields = [];
@@ -460,6 +463,7 @@ function setExercise(exerciseButton) {
     clearElement("term-window");
     getElement("term-window").appendChild(head);
 
+    clearElement("predicates-list");
     clearElement("operators-list");
 
     var exerciseText = getElement("exercise");
@@ -750,11 +754,22 @@ function createOperatorsWindow() {
     var box = getElement("operators-window");
     box.style.display = 'none';
 
-    var div = document.createElement("DIV");
-    div.appendChild(newHeading("Predicates and operators"));
+    var div;
+    var ul;
+
+    div = document.createElement("DIV");
+    div.appendChild(newHeading("Predicates"));
     box.appendChild(div);
 
-    var ul = document.createElement("UL");
+    ul = document.createElement("UL");
+    ul.id = "predicates-list";
+    box.appendChild(ul);
+ 
+    div = document.createElement("DIV");
+    div.appendChild(newHeading("Operators"));
+    box.appendChild(div);
+
+    ul = document.createElement("UL");
     ul.id = "operators-list";
     box.appendChild(ul);
     return box;

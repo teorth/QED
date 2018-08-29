@@ -433,7 +433,11 @@ exerciseList.forEach( function( exercise ) {
     if (div.getElementsByClassName("name").length > 0) {
         var str = div.getElementsByClassName("name")[0].innerHTML;
         if (str != "")
+        {
             exercise.law.name = str;
+// need to assign name to the clone of law as well
+            if (exercise.law.clone != "") exercise.law.clone.name = exercise.law.name; 
+        }
     }
 
     if (div.getElementsByClassName("notes").length > 0)

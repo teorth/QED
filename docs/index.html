@@ -57,7 +57,7 @@
 
 <p></p>
 <H4 id="version-header"> This is
-  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.5.13</a>.
+  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.6</a>.
 </H4>
 
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
@@ -1680,7 +1680,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </ol>
 </div>
 
-<div class="exercise" id="EXERCISE-19.1" data-unlocked-by="18.1" data-unlocks="thereExists PushSet">
+<div class="exercise" id="EXERCISE-19.1" data-unlocked-by="18.1" data-unlocks="thereExists PushSet ExistentialInstantiation ExistentialInstantiation2">
         <div class="name"></div>
         <div class="notes">
                 <UL>
@@ -2259,7 +2259,8 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <UL>
                     <li>In previous exercises, formulas such as <I>Q(x,y)</I> were manually provided for those exercises where they were needed.  In this section, a new window has been unlocked that allows one to generate such formulas without manual intervention.</li>
-                    <li>The <B>Predicates and operators</B> window contains all the predicates (and also operators - see the next few exercises) that appear in the exercise.  Predicates can be take one or more arguments, indicated here by em-dashes &mdash;.</li>
+                    <li>The <B>Predicates</B> window contains all the predicates that appear in the exercise.  Predicates can be take one or more arguments, indicated here by em-dashes &mdash;.</li>
+                    <li> A few exercises from now, we will also introduce operators, which are similar to predicates and which will appear in the <B>Operators</B> window.</li>
                     <li>If one drags a term to each argument of a predicate, one creates a formula in the <B>Formulas</B> window (and the arguments of the predicate are then reset to em-dashes).  For instance, to create the formula <I>Q(x,y)</I>, drag the term <I>x</I> to the first argument of <I>Q</I>(&mdash;,&mdash;), and drag the term <I>y</I> to the second argument.</li>
                 </UL>
         </div>
@@ -2299,7 +2300,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>In addition to predicates, first-order logic also allows the use of <I>operators</I>, also known as <I>function symbols</I>.</li>
                     <li>operators are symbols that take some number of terms to produce more complicated terms.  The most familiar examples of operators are the arithmetic operators +, -, x, /; thus for instance one could take the terms <I>x</I> and <I>y</I> and produce a new term <I>x</I>+<I>y</I>.</li>
                     <li>Operators closely resemble predicates, except that a predicate produces formulas, whereas an operator produces terms.</li>
-                    <li>As such, we place operators in the same <B>Predicates and operators</B> window as predicates; the only difference is that the output of such operators goes into the <B>Terms</B> window rather than the <B>Formulas</B> window.</li>
+                    <li>As such, we place operators an <B>Operators</B> window similar to the <B>Predicates</B> window as predicates; the only difference is that the output of such operators goes into the <B>Terms</B> window rather than the <B>Formulas</B> window.</li>
                     <li>Note that compound terms such as <I>x+y</I> are not free variables or bound variables, and so cannot be used for those laws of first-order logic that require such variables.  However, they are still perfectly good terms for use in such laws as universal specification or existential introduction.</li>
                 </UL>
         </div>
