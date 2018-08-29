@@ -1,5 +1,8 @@
 # QED - Release History
 
+* **Version 2.5.10** (released Aug 29, 2018).  Make exercise 11.1 unlock
+  "NOT" again ([issue #14](https://github.com/teorth/QED/issues/14)).
+
 * **Version 2.5.9** (released Aug 28, 2018).  Spaces in HTML element id's changed to hyphens.  Ids and display names decoupled in reveal() function.
 
 * **Version 2.5.8** (released Aug 28, 2018).  Exercise text window initially hidden to prevent "flicker" effect on startup.  Exercise 1.1 completion message recoded to activate whenever an exercise is solved for the first time.
