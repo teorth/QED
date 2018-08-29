@@ -19,8 +19,7 @@ newSection("1", "Conjunction introduction");
 
 new Law("LawConjunction1", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</A>', [A, B], AND(A,B));
 
-var Exercise11 = new Exercise("1.1", "", [A, B], AND(AND(B,A),B));
-Exercise11.completionMsg = 'Congratulations, you solved your first exercise!  Now two more exercises will be unlocked, as well as the next section of the text.  (For subsequent exercises, we will notify you of an exercise being solved by changing the color of the exercise and its proof to either green or blue, depending on whether you found the shortest known proof or not.  We also add a QED symbol (standing for "quod erat demonstrandum", or "what was to be demonstrated") to the end of the proof.)';
+new Exercise("1.1", "", [A, B], AND(AND(B,A),B));
 
 new Exercise("1.2", '', [A], AND(A,A));
 

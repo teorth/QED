@@ -884,6 +884,17 @@ function completedAllExercises() {
     return exerciseButtons.every( function(button) { return button.solved; } );
 }
 
+// checks if exactly one exercise has been completed
+
+function completedOneExercise() {
+    var i = 0;
+
+    exerciseButtons.forEach( function (button) { if (button.solved) i++; });
+
+    return (i==1);
+}
+
+
 // adds a collapsible proof (in HTML format) to the element node
 
 function listProof( node, proof ) {
@@ -1005,8 +1016,9 @@ function deduce(conclusion, justification, law) {
             exercise.newExercises.forEach( function(item) {
                 activateExerciseButton(item);
              });
-            if (exercise.completionMsg != "")
-                alert(exercise.completionMsg);
+
+            if (completedOneExercise()) 
+                alert('Congratulations, you solved your first exercise!  Now two more exercises will be unlocked, as well as the next section of the text.  (For subsequent exercises, we will notify you of an exercise being solved by changing the color of the exercise and its proof to either green or blue, depending on whether you found the shortest known proof or not.  We also add a QED symbol (standing for "quod erat demonstrandum", or "what was to be demonstrated") to the end of the proof.)');
 
             if (completedAllExercises()) {
                 alert("Congratulations, you completed all the exercises! You are now a master of propositional and first-order slogic!  The next time one clicks on an exercise, one should now see a button next to the shortest length proof message which, when clicked, will reveal the shortest known proof for that exercise.");

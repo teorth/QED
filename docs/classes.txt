@@ -154,7 +154,6 @@ Exercise {
 	Law newLaws[]; // the laws unlocked when starting exercise
 	Exercise newExercises[]; // the exercises unlocked when completing exercise
 	bool hasButton; // whether there is a button for this exercise already
-	string completionMsg; // the message shown when exercise is completed
 	string notes; // the notes for the exercise, displayed on opening
 	bool revealFormulaWindow;  // do we unlock the formula window?
 	bool revealTermWindow;  // do we unlock the term window?

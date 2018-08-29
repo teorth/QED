@@ -57,7 +57,7 @@
 
 <p></p>
 <H4 id="version header"> This is
-  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.5.8</a>.
+  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.5.</a>.
 </H4>
 
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
@@ -1118,7 +1118,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 </UL>
         </div>
         <ol class="proof">
-                <li><span>Form environment [letting <i>x</i> be arbitrary]. <i>[FREE VARIABLE INTRODUCTION]</i></span></li><li><span>Deduce <i>P</i>(<i>x</i>) IMPLIES <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]. <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank" target="_blank">IDEMPOTENT</a>]</i></span></li><li><span>From <i>P</i>(<i>x</i>) IMPLIES <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)). <i>[UNIVERSAL INTRODUCTION]</i></span></li><li><span>QED!</span></li>
+                <li><span>Form environment [letting <i>x</i> be arbitrary]. <i>[FREE VARIABLE INTRODUCTION]</i></span></li><li><span>Deduce <i>P</i>(<i>x</i>) IMPLIES <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]. <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</a>]</i></span></li><li><span>From <i>P</i>(<i>x</i>) IMPLIES <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)). <i>[UNIVERSAL INTRODUCTION]</i></span></li><li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -1339,7 +1339,8 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
                 <ul>
                     <LI> The <A HREF="https://en.wikipedia.org/wiki/Existential_generalization">law of existential introduction</A> asserts that if one knows a statement of the form <I>P</I>(&alpha;), where &alpha; is a term that does not involve any bound variables or any free variables not present in the ambient environment, then one can deduce THERE EXISTS <I>X</I>: <I>P(X)</I>, where <I>X</I> is a bound variable not already occuring in <I>P(&alpha;)</I>.  This is the main way in which existential statements are proven.  </LI>
-                     <LI> To use this law (with <I>X</I> chosen to be the next available bound variable), drag the sentence <I>P</I>(&alpha;) onto the term &alpha; (or vice versa).</LI>  If one wants to specify the bound variable as well, drag the sentence <I>P</I>(&alpha;) onto the term &alpha; and then CTRL-click on the bound variable <I>X</I> (or one can click on <I>P</I>(&alpha;) and then CTRL-click on both &alpha; and <I>X</I>. </LI>
+                     <LI> To use this law (with <I>X</I> chosen to be the next available bound variable), drag the sentence <I>P</I>(&alpha;) onto the term &alpha; (or vice versa).</LI>
+                     <LI>  If one wants to specify the bound variable as well, drag the sentence <I>P</I>(&alpha;) onto the term &alpha; and then CTRL-click on the bound variable <I>X</I> (or one can click on <I>P</I>(&alpha;) and then CTRL-click on both &alpha; and <I>X</I>. </LI>
                      <LI> Important note: dragging <I>P</I>(&alpha;) onto a bound variable <I>X</I> will <I>not</I> trigger this law (because this does not specify what the term <I>&alpha;</I> is that one is using to introduce the existential quantifier).</LI>
                      <LI> Note that if the expression <I>P</I>(&alpha;) contains multiple copies of &alpha;, then there will be multiple options for <I>P(X)</I>, as one is permitted to change zero, one or more of the &alpha; into a copy of <I>X</I>.  This can lead to a rather large number of possible ways to use the law of existential introduction if the statement <I>P</I>(&alpha;) contains many copies of &alpha;!</LI>
                 </ul>
