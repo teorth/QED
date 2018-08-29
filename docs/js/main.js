@@ -418,7 +418,7 @@ exerciseList.forEach( function( exercise ) {
     var unlocks = div.getAttribute("data-unlocks");
     if (unlocks) {
         var split = unlocks.split(" ");
-        split.forEach( function( str ) { 
+        split.forEach( function( str ) {
             switch(str) {
                 case "revealFormulaWindow": exercise.revealFormulaWindow = true; break;
                 case "revealBoundButton": exercise.revealBoundButton = true; break;
@@ -431,7 +431,7 @@ exerciseList.forEach( function( exercise ) {
          } );
     }
 
-    if (div.getElementsByClassName("name").length > 0) { 
+    if (div.getElementsByClassName("name").length > 0) {
         var str = div.getElementsByClassName("name")[0].innerHTML;
         if (str != "")
             exercise.law.name = str;
