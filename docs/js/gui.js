@@ -204,7 +204,7 @@ function achieve(achievement) {
 
 function createNotificationsBox() {
         var box = getElement("notification-box");
-        var heading = newHeading("Notifications");
+        var heading = newHeading("Event log");
         box.appendChild(heading);
 
         var list = document.createElement("UL");
@@ -1035,7 +1035,7 @@ function deduce(conclusion, justification, law) {
             if (localStorage)
                 localStorage.setItem(exercise.name, "solved");
             exercise.newExercises.forEach( function(item) {
-                activateExerciseButton(item);
+                activateExerciseButton(item, false);
              });
 
             if (completedOneExercise()) 
@@ -1144,7 +1144,9 @@ function newSection(section, name) {
 }
 
 
-function activateExerciseButton(exercise) {
+// fromStorage is true if one is activating the button because localStorage reports that it was previously activated. In which case we hide the "now available" notification.
+
+function activateExerciseButton(exercise, fromStorage) {
     exercise.activated = true;
 
     var button = exercise.button;
@@ -1156,7 +1158,7 @@ function activateExerciseButton(exercise) {
         setExercise(this);
     };
 
-    notify(exercise.name + " now available.")
+    if (!fromStorage) notify(exercise.name + " now available.")
     exerciseButtons.push(button);
     if (localStorage) {
         if (localStorage.getItem(exercise.name) == undefined) {
@@ -1362,7 +1364,7 @@ function Exercise(shortName, lawName, givens, conclusion) {
         var str = localStorage.getItem(this.name);
 
         if (str == "unlocked" || str == "solved") {
-           activateExerciseButton(this);
+           activateExerciseButton(this, true);
            if (str == "solved")
            {
             this.solved = true;
@@ -1377,7 +1379,7 @@ function Exercise(shortName, lawName, givens, conclusion) {
         if (prerequisite.button.solved)
         {
 // this is needed if the dependency graph for the text has updated and one doesn't want to reset the text
-            activateExerciseButton(this);
+            activateExerciseButton(this, false);
         }
     };
 
