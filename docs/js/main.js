@@ -21,7 +21,6 @@ new Law("LawConjunction1", '<A HREF="https://en.wikipedia.org/wiki/Conjunction_i
 
 var Exercise11 = new Exercise("1.1", "", [A, B], AND(AND(B,A),B));
 Exercise11.completionMsg = 'Congratulations, you solved your first exercise!  Now two more exercises will be unlocked, as well as the next section of the text.  (For subsequent exercises, we will notify you of an exercise being solved by changing the color of the exercise and its proof to either green or blue, depending on whether you found the shortest known proof or not.  We also add a QED symbol (standing for "quod erat demonstrandum", or "what was to be demonstrated") to the end of the proof.)';
-activateExerciseButton(Exercise11);
 
 new Exercise("1.2", '', [A], AND(A,A));
 
@@ -43,8 +42,7 @@ new Law("LawDisjunction1", '<A HREF="https://en.wikipedia.org/wiki/Disjunction_i
 
 new Law("LawDisjunction2", '<A HREF="https://en.wikipedia.org/wiki/Disjunction_introduction" target="_blank">DISJUNCTION INTRODUCTION</A> (right)', [formulaContext(B), A], OR(B,A));
 
-var Exercise31 = new Exercise("3.1(a)", "", [A, formulaContext(B), formulaContext(C)], OR(C,OR(A,B)));
-Exercise31.revealFormulaWindow = true;
+new Exercise("3.1(a)", "", [A, formulaContext(B), formulaContext(C)], OR(C,OR(A,B)));
 
 new Exercise("3.1(b)", '', [A], OR(A,A),3);
 
@@ -232,8 +230,7 @@ new Law("True", "TRUE", [formulaContext(TRUE())], TRUE());
 
 new Law("False", "NOT FALSE", [formulaContext(NOT(FALSE()))], NOT(FALSE()));
 
-var Exercise131 = new Exercise("13.1(a)", "", [formulaContext(A)], IFF(A,AND(TRUE(),A)),7);
-Exercise131.revealTrueFalse = true;
+new Exercise("13.1(a)", "", [formulaContext(A)], IFF(A,AND(TRUE(),A)),7);
 
 new Exercise("13.1(b)", "", [formulaContext(A)], IFF(A,OR(FALSE(),A)));
 
@@ -269,15 +266,13 @@ newSection("16", "Free variable introduction");
 
 new Law("free", "FREE VARIABLE INTRODUCTION", [toTerm(x)], x);
 
-var Exercise161 = new Exercise("16.1", "", [formulaContext(Qxy)], assuming(assuming(OR(Qxy, NOT(Qxy)),y),x));
-Exercise161.revealTermWindow = true;
+new Exercise("16.1", "", [formulaContext(Qxy)], assuming(assuming(OR(Qxy, NOT(Qxy)),y),x));
 
 newSection("17", "Universal quantification");
 
 new Law("forAll", "FOR ALL", [formulaContext(A), toTerm(X)], formulaContext(forAll(A,X)));
 
-var Exercise171 = new Exercise("17.1", "", [formulaContext(Px)], forAll(IMPLIES(PX,PX),X));
-Exercise171.revealBoundButton = true;
+new Exercise("17.1", "", [formulaContext(Px)], forAll(IMPLIES(PX,PX),X));
 
 new Exercise("17.2", "", [formulaContext(QXY)], IMPLIES(forAll(forAll(QXY,Y),X),forAll(forAll(QXY,Y),X)));
 
@@ -376,8 +371,7 @@ new Exercise("22.8", "", [forAll(IMPLIES(PX,NOT(QX)),X), forAll(IMPLIES(NOT(QX),
 
 newSection("23", "Predicates and operators");
 
-var Exercise231 = new Exercise("23.1(a)", "", [], forAll(forAll(IMPLIES(QXY,QXY),Y),X));
-Exercise231.revealOperatorsWindow = true;
+new Exercise("23.1(a)", "", [], forAll(forAll(IMPLIES(QXY,QXY),Y),X));
 
 new Exercise("23.1(b)", "", [], forAll(forAll(IMPLIES(gtXY,gtXY),Y),X));
 
@@ -418,11 +412,24 @@ exerciseList.forEach( function( exercise ) {
         var unlocker = exercisesByShortName[unlockedBy];
         exercise.unlockedBy(unlocker);
     }
+    else {
+        activateExerciseButton(exercise);
+    }
 
     var unlocks = div.getAttribute("data-unlocks");
     if (unlocks) {
         var split = unlocks.split(" ");
-        split.forEach( function( str ) { exercise.unlocks(lawsByShortName[str]); } );
+        split.forEach( function( str ) { 
+            switch(str) {
+                case "revealFormulaWindow": exercise.revealFormulaWindow = true; break;
+                case "revealBoundButton": exercise.revealBoundButton = true; break;
+                case "revealOperatorsWindow": exercise.revealOperatorsWindow = true; break;
+                case "revealFormulaWindow": exercise.revealFormulaWindow = true; break;
+                case "revealTermWindow": exercise.revealTermWindow  = true; break;
+                case "revealTrueFalse": exercise.revealTrueFalse = true; break;
+                default: exercise.unlocks(lawsByShortName[str]);
+            }
+         } );
     }
 
     if (div.getElementsByClassName("name").length > 0) { 

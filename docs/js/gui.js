@@ -514,7 +514,7 @@ function setExercise(exerciseButton) {
     exerciseText.exerciseButton = exerciseButton;
 
 // reveal the formula window, if this option is active
-    if (exercise.revealFormulaWindow) reveal("formula window");
+    if (exercise.revealFormulaWindow) reveal("formulas window");
 // reveal the term window, if this option is active
     if (exercise.revealTermWindow) reveal("term window");
 // reveal the bound button, if this option is active
@@ -762,7 +762,7 @@ function createOperatorsWindow() {
 // if previous session unlocked formula window, true/false, and/or term window, reveal it; also unlock all laws already unlocked
 function checkForUnlocks() {
     if (localStorage) {
-        if (localStorage.getItem("formula window") == "unlocked") reveal("formula window");
+        if (localStorage.getItem("formula window") == "unlocked") reveal("formulas window");
 
         if (localStorage.getItem("true false") == "unlocked") {
             achieve("<B>UNLOCKED</B> TRUE and FALSE formulas.");
