@@ -420,7 +420,6 @@ exerciseList.forEach( function( exercise ) {
         var split = unlocks.split(" ");
         split.forEach( function( str ) {
             switch(str) {
-                case "revealFormulaWindow": exercise.revealFormulaWindow = true; break;
                 case "revealBoundButton": exercise.revealBoundButton = true; break;
                 case "revealOperatorsWindow": exercise.revealOperatorsWindow = true; break;
                 case "revealFormulaWindow": exercise.revealFormulaWindow = true; break;
