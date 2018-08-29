@@ -419,15 +419,14 @@ exerciseList.forEach( function( exercise ) {
     if (unlocks) {
         var split = unlocks.split(" ");
         split.forEach( function( str ) {
-            switch(str) {
-                case "revealBoundButton": exercise.revealBoundButton = true; break;
-                case "revealOperatorsWindow": exercise.revealOperatorsWindow = true; break;
-                case "revealFormulaWindow": exercise.revealFormulaWindow = true; break;
-                case "revealTermWindow": exercise.revealTermWindow  = true; break;
-                case "revealTrueFalse": exercise.revealTrueFalse = true; break;
-                default: exercise.unlocks(lawsByShortName[str]);
-            }
-         } );
+            exercise.unlocks(lawsByShortName[str]);
+        } );
+    }
+
+    var revealTarget;
+    if (revealTarget = div.getAttribute("data-reveals")) {
+        // For example, sets exercise.revealBoundButton to true.
+        exercise["reveal" + revealTarget] = true;
     }
 
     if (div.getElementsByClassName("name").length > 0) {

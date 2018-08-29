@@ -1,5 +1,8 @@
 # QED - Release History
 
+* **Version 2.5.11** (released Aug 29, 2018).  Add `data-reveals` attribute
+  to HTML exercise elements.
+
 * **Version 2.5.10** (released Aug 29, 2018).  Make exercise 11.1 unlock
   "NOT" again ([issue #14](https://github.com/teorth/QED/issues/14)).
 
