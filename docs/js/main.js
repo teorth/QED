@@ -403,7 +403,7 @@ new Exercise("24.7", '', [forAll(forAll(forAll(equals(power(power(X,Y),Z), power
 // load notes, proofs, best length, and unlockedBy for exercises from HTML
 
 exerciseList.forEach( function( exercise ) {
-    var div = getElement(exercise.name);
+    var div = getElement("EXERCISE-"+exercise.shortName);
     if (div == null) return;
 
     var unlockedBy = div.getAttribute("data-unlocked-by");

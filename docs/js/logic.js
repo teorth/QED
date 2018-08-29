@@ -1704,7 +1704,7 @@ function isLegal(context) {
 
 // return the list of assumptions associated to an environment box
 function listAssumptions(env) {
-    if (env.id == "root environment") {
+    if (env.id == "root-environment") {
         return [];
     } else {
         var list = listAssumptions(env.parentElement).slice(0);

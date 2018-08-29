@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.5.9** (released Aug 28, 2018).  Spaces in HTML element id's changed to hyphens.  Ids and display names decoupled in reveal() function.
+
 * **Version 2.5.8** (released Aug 28, 2018).  Exercise text window initially hidden to prevent "flicker" effect on startup.  Exercise 1.1 completion message recoded to activate whenever an exercise is solved for the first time.
 
 * **Version 2.5.7** (released Aug 28, 2018).  Law unlock information now stored in HTML rather than in javascript.  Some redundant variable names now removed.

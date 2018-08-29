@@ -45,7 +45,7 @@ function newButton(text) {
 }
 
 function createResetButton() {
-    var button = getElement("reset button");
+    var button = getElement("reset-button");
      button.onclick =  function() {
         if (confirm("Are you sure?  This will erase all your progress!")) {
             if (localStorage)
@@ -90,7 +90,7 @@ function myprompt(message, defaultContent, callback) {
   }
   
 function createEditStateButton() {
-    var button = getElement("edit state button");
+    var button = getElement("edit-state-button");
      button.onclick =  function() {
          if (!localStorage) {
              alert("Local storage is not supported in this browser.");
@@ -113,7 +113,7 @@ function createEditStateButton() {
 
 
 function createRestartButton() {
-    var button = getElement("restart button");
+    var button = getElement("restart-button");
      button.onclick =  function() {
         var exButton = getElement("exercise").exerciseButton;
         if (exButton == undefined)
@@ -125,7 +125,7 @@ function createRestartButton() {
 }
 
 function createUndoButton() {
-    var button = getElement("undo button");
+    var button = getElement("undo-button");
     button.canUndo = false;   // whether undo is available
     button.deletionList = []; // list  of elements to be deleted on undo
     button.numlines = 0;  // what to rewind numlines back to
@@ -138,7 +138,7 @@ function createUndoButton() {
         button.canUndo = false;
         getElement("proof").numlines = button.numlines;
         getElement("proof").hasCircularity = button.hasCircularity;
-        getElement("undo button").deletionList.forEach( function(item) { item.remove(); });
+        getElement("undo-button").deletionList.forEach( function(item) { item.remove(); });
         notify("The deduction that was just made has now been undone.");
         lastClickedButton = "";  // no longer need duplication prevention
     };
@@ -173,7 +173,7 @@ function clickCollapse() {
 }
 
 function createAchievementsBox() {
-    var box = getElement("achievement box");
+    var box = getElement("achievement-box");
 
     var heading = newHeading("Achievements");
     box.appendChild(heading);
@@ -203,7 +203,7 @@ function achieve(achievement) {
 // notifications, error messages, debugging tool
 
 function createNotificationsBox() {
-        var box = getElement("notification box");
+        var box = getElement("notification-box");
         var heading = newHeading("Notifications");
         box.appendChild(heading);
 
@@ -242,7 +242,7 @@ function error(msg) {
 // create the proof box
 
 function createProofBox() {
-    var box = getElement("proof box");
+    var box = getElement("proof-box");
     box.appendChild(newHeading("Proof"));
     var list = document.createElement("OL");
     list.id = "proof";
@@ -263,7 +263,7 @@ function appendToProof(line) {
     proof.appendChild(node);
 
     // add node to the list of items removed by immediate undo
-    getElement("undo button").deletionList.push(node);
+    getElement("undo-button").deletionList.push(node);
     proof.numlines++;
    }
 
@@ -315,9 +315,9 @@ function clearElement(id) {
 
 
 // reveal named element
-function reveal(name) {
+function reveal(name, longName) {
     if (getElement(name).style.display == 'none') {
-        achieve("<B>UNLOCKED</B> " + name + ".");
+        achieve("<B>UNLOCKED</B> " + longName + ".");
         getElement(name).style.display = 'block';
         if (localStorage)
             localStorage.setItem(name, "unlocked");
@@ -381,7 +381,7 @@ function addPredicate(name)
     if (obj.arity == 0) return;  // don't bother puting 0-ary predicates or operators on the list (actually these are redundant anyway since atomic predicates and terms are functionally equivalent)
 
     var li = document.createElement("LI");
-    getElement("operators list").appendChild(li);
+    getElement("operators-list").appendChild(li);
     li.operator = obj;
     li.args = [];
     li.fields = [];
@@ -441,8 +441,8 @@ function addPredicate(name)
 function setExercise(exerciseButton) {
 
 // clear all existing elements
-    clearElement("root environment");
-    getElement("root environment").appendChild(newHeading("Root environment"));
+    clearElement("root-environment");
+    getElement("root-environment").appendChild(newHeading("Root environment"));
 
     clearElement("proof");
     getElement("proof").numlines = 0;
@@ -452,20 +452,20 @@ function setExercise(exerciseButton) {
     clearElement("deductions");
     clearElement("deductionFootnote");
 
-    clearElement("formula window");
-    getElement("formula window").appendChild(newHeading("Formulas"));
+    clearElement("formula-window");
+    getElement("formula-window").appendChild(newHeading("Formulas"));
 
-    var head = getElement("term heading");
+    var head = getElement("term-heading");
 
-    clearElement("term window");
-    getElement("term window").appendChild(head);
+    clearElement("term-window");
+    getElement("term-window").appendChild(head);
 
-    clearElement("operators list");
+    clearElement("operators-list");
 
     var exerciseText = getElement("exercise");
 
     var exerciseDesc = document.createElement("DIV");
-    exerciseDesc.id = "exercise desc";
+    exerciseDesc.id = "exercise-desc";
 
     var exercise = exerciseButton.exercise;
 
@@ -517,13 +517,13 @@ function setExercise(exerciseButton) {
     exerciseText.exerciseButton = exerciseButton;
 
 // reveal the formula window, if this option is active
-    if (exercise.revealFormulaWindow) reveal("formula window");
+    if (exercise.revealFormulaWindow) reveal("formula-window", "<B>Formulas</B> window");
 // reveal the term window, if this option is active
-    if (exercise.revealTermWindow) reveal("term window");
+    if (exercise.revealTermWindow) reveal("term-window", "<B>Terms</B> window");
 // reveal the bound button, if this option is active
-    if (exercise.revealBoundButton) reveal("bound variable button");
+    if (exercise.revealBoundButton) reveal("bound-variable-button", "New bound variables button");
 // reveal the operators window, if this option is active
-    if (exercise.revealOperatorsWindow) reveal("operators window");
+    if (exercise.revealOperatorsWindow) reveal("operators-window", "<B>Predicates and operators</B> window");
 
 // Unlock any laws that were unlocked by the exercise
     exercise.newLaws.forEach( function(item) {
@@ -574,13 +574,13 @@ function setExercise(exerciseButton) {
 
 
 // can't undo with only the given hypotheses
-    getElement("undo button").canUndo = false;
+    getElement("undo-button").canUndo = false;
  }
 
 // create the root environment window
 
 function createRootEnvironment() {
-    var box = getElement("root environment");
+    var box = getElement("root-environment");
 
     box.style.margin = "5px";
     box.style.padding = "0px 10px";
@@ -633,7 +633,7 @@ function makeAssumption(env, obj) {
     box.assumption = assumption;
 
 // add box to the list of things removed by an immediate undo
-    getElement("undo button").deletionList.push(box);
+    getElement("undo-button").deletionList.push(box);
 
     return box;
 }
@@ -643,7 +643,7 @@ function makeAssumption(env, obj) {
 // create formula window
 
 function createFormulaWindow() {
-    var box = getElement("formula window");
+    var box = getElement("formula-window");
 
     box.style.display = 'none';
     box.style.margin = "5px";
@@ -661,7 +661,7 @@ function createFormulaWindow() {
 // create term window
 
 function createTermWindow() {
-    var box = getElement("term window");
+    var box = getElement("term-window");
     
     box.style.display = 'none';
     box.style.margin = "5px";
@@ -674,7 +674,7 @@ function createTermWindow() {
     box.type = "term window";
     var div = document.createElement("DIV");
     div.appendChild(newHeading("Terms"));
-    div.id = "term heading";
+    div.id = "term-heading";
     box.appendChild(div);
 
     var freeButton = newButton("New free variable");
@@ -683,7 +683,7 @@ function createTermWindow() {
 
     var boundButton = newButton("New bound variable");
     boundButton.style.display = 'none';
-    boundButton.id = "bound variable button";
+    boundButton.id = "bound-variable-button";
     div.appendChild(boundButton);
     boundButton.onclick = boundButtonClick;
    
@@ -694,7 +694,7 @@ function createTermWindow() {
 function freeButtonClick() {
     var i;
     var num=0;
-    var box = getElement("term window");
+    var box = getElement("term-window");
 
     do
     {
@@ -723,7 +723,7 @@ function freeButtonClick() {
 function boundButtonClick() {
     var i;
     var num=0;
-    var box = getElement("term window");
+    var box = getElement("term-window");
 
     do {
         var str = BoundVariableName(num);
@@ -747,7 +747,7 @@ function boundButtonClick() {
 
 
 function createOperatorsWindow() {
-    var box = getElement("operators window");
+    var box = getElement("operators-window");
     box.style.display = 'none';
 
     var div = document.createElement("DIV");
@@ -755,7 +755,7 @@ function createOperatorsWindow() {
     box.appendChild(div);
 
     var ul = document.createElement("UL");
-    ul.id = "operators list";
+    ul.id = "operators-list";
     box.appendChild(ul);
     return box;
 }
@@ -765,16 +765,22 @@ function createOperatorsWindow() {
 // if previous session unlocked formula window, true/false, and/or term window, reveal it; also unlock all laws already unlocked
 function checkForUnlocks() {
     if (localStorage) {
-        if (localStorage.getItem("formula window") == "unlocked") reveal("formula window");
+        // the string form with spaces instead of hyphens is for backwards compatibility
+        if (localStorage.getItem("formula window") == "unlocked" || localStorage.getItem("formula-window") == "unlocked" )
+            reveal("formula-window", "<B>Formulas</B> window");
 
-        if (localStorage.getItem("true false") == "unlocked") {
+        if (localStorage.getItem("true false") == "unlocked" || localStorage.getItem("true-false") == "unlocked") {
             achieve("<B>UNLOCKED</B> TRUE and FALSE formulas.");
             revealTrueFalse = true;
         }
 
-        if (localStorage.getItem("term window") == "unlocked") reveal("term window");
-        if (localStorage.getItem("operators window") == "unlocked") reveal("operators window");
-        if (localStorage.getItem("bound variable button") == "unlocked") reveal("bound variable button");
+        if (localStorage.getItem("term window") == "unlocked" || localStorage.getItem("term-window") == "unlocked") 
+            reveal("term-window", "<B>Terms</B> window");
+        
+        if (localStorage.getItem("operators window") == "unlocked" || localStorage.getItem("operators-window") == "unlocked") 
+            reveal("operators-window", "<B>Predicates and operators</B> window");
+        if (localStorage.getItem("bound variable button") == "unlocked" || localStorage.getItem("bound-variable-button") == "unlocked") 
+            reveal("bound-variable-button", "New bound variable button");
 
 		allLaws.forEach( function( law ) {
             // in legacy code, law is stored using the full name
@@ -821,7 +827,7 @@ function newSentenceBox(sentence) {
 
 // convert a list of assumptions into an environment box
 function getEnvironment(list) {
-    var env = getElement("root environment");
+    var env = getElement("root-environment");
     list.forEach( function(statement) {
         env = makeAssumption(env, statement);
     });
@@ -861,10 +867,10 @@ function addContext(context) {
 
     if (context.type == "formula") {
         box.type = "formulaBox";
-        getElement("formula window").appendChild(box);
+        getElement("formula-window").appendChild(box);
     } else if (context.type == "term context") {
         box.type = "termBox";
-        getElement("term window").appendChild(box);
+        getElement("term-window").appendChild(box);
     }
     else {
         var env = getEnvironment(context.environment);
@@ -873,7 +879,7 @@ function addContext(context) {
     }
 
     // add box to the list of things that can be deleted by undo button
-    getElement("undo button").deletionList.push(box);
+    getElement("undo-button").deletionList.push(box);
 
     return box;
 }
@@ -922,8 +928,8 @@ function colorExerciseButton(exerciseButton, windows)
             exerciseButton.style.color = 'white';
             exerciseButton.style.cursor = 'pointer';
             if (windows) {
-                getElement("exercise desc").style.backgroundColor = 'aqua';
-                getElement("proof box").style.backgroundColor = 'aqua';
+                getElement("exercise-desc").style.backgroundColor = 'aqua';
+                getElement("proof-box").style.backgroundColor = 'aqua';
             }
             return;
         }
@@ -932,8 +938,8 @@ function colorExerciseButton(exerciseButton, windows)
             exerciseButton.style.color = 'white';
             exerciseButton.style.cursor = 'pointer';
             if (windows) {
-                getElement("exercise desc").style.backgroundColor = 'lightgreen';
-                getElement("proof box").style.backgroundColor = 'lightgreen';
+                getElement("exercise-desc").style.backgroundColor = 'lightgreen';
+                getElement("proof-box").style.backgroundColor = 'lightgreen';
             }
             return;
         }
@@ -942,8 +948,8 @@ function colorExerciseButton(exerciseButton, windows)
             exerciseButton.style.color = 'white';
             exerciseButton.style.cursor = 'pointer';
             if (windows) {
-                getElement("exercise desc").style.backgroundColor = 'greenyellow';
-                getElement("proof box").style.backgroundColor = 'greenyellow';
+                getElement("exercise-desc").style.backgroundColor = 'greenyellow';
+                getElement("proof-box").style.backgroundColor = 'greenyellow';
             }
             return;
         }
@@ -954,8 +960,8 @@ function colorExerciseButton(exerciseButton, windows)
         exerciseButton.style.color = "black";
         exerciseButton.style.cursor = "pointer"
         if (windows) {
-            getElement("exercise desc").style.backgroundColor = 'yellow';
-            getElement("proof box").style.backgroundColor = 'yellow';
+            getElement("exercise-desc").style.backgroundColor = 'yellow';
+            getElement("proof-box").style.backgroundColor = 'yellow';
         }
         return;
     }
@@ -970,10 +976,10 @@ function colorExerciseButton(exerciseButton, windows)
 
 function deduce(conclusion, justification, law) {
 
-    getElement("undo button").canUndo = true;
-    getElement("undo button").deletionList = [];  // list of elements to be deleted on undo
-    getElement("undo button").numlines = getElement("proof").numlines;
-    getElement("undo button").hasCircularity = getElement("proof").hasCircularity;
+    getElement("undo-button").canUndo = true;
+    getElement("undo-button").deletionList = [];  // list of elements to be deleted on undo
+    getElement("undo-button").numlines = getElement("proof").numlines;
+    getElement("undo-button").hasCircularity = getElement("proof").hasCircularity;
 
 
 // add conclusion to either a deduction environment or the formula window, as appropriate.
@@ -1004,7 +1010,7 @@ function deduce(conclusion, justification, law) {
     if (conclusion.name == exercise.law.conclusion.name)
      {
          // hooray, you solved it!  Now one can't undo it.
-         getElement("undo button").canUndo = false;
+         getElement("undo-button").canUndo = false;
 
         if (!exerciseButton.solved) {
             appendToProof('QED!');
@@ -1074,9 +1080,9 @@ function deduce(conclusion, justification, law) {
 //// ExerciseButton ////
 
 function createExerciseButtonBox() {
-    var box = getElement("exercise button box");
+    var box = getElement("exercise-button-box");
 
-    var subnode = getElement("exercise button subbox");
+    var subnode = getElement("exercise-button-subbox");
 
     var button = newCollapseButton(subnode, false);
 
@@ -1098,12 +1104,12 @@ function createExerciseButton( exercise) {
 
     exercise.button = button;
 
-    getElement("exercise button subbox").lastChild.lastChild.appendChild(button);
+    getElement("exercise-button-subbox").lastChild.lastChild.appendChild(button);
     return button;
 }
 
 function newSection(section, name) {
-    var box = getElement("exercise button subbox");
+    var box = getElement("exercise-button-subbox");
     var div = document.createElement("DIV");
     div.style.clear = "both";
     div.className = "clearfix";
@@ -1160,7 +1166,7 @@ function activateExerciseButton(exercise) {
 // create the box of available deductions
 
 function createDeductionsBox() {
-    var box = getElement("deductions box");
+    var box = getElement("deductions-box");
     box.style.margin = "5px";
     box.style.padding = "0px 10px";
 
@@ -1188,7 +1194,7 @@ function from( assumptions )
     var shortStr = "From ";
     var longStr = "From ";
 
-    getElement("undo button").canUndo = false;  // there was an exploit where one set up a deduction, undid the hypothesis enambling that deduction, and then executed the deduction anyway, to save a proof line step
+    getElement("undo-button").canUndo = false;  // there was an exploit where one set up a deduction, undid the hypothesis enambling that deduction, and then executed the deduction anyway, to save a proof line step
 
     assumptions.forEach( function( assumption ) {
         shortStr = longStr + toContext(assumption).name;
@@ -1504,10 +1510,10 @@ function drop(ev) {
 function keydown(event) {
 
     if (event.key == 'u' || event.key == 'U')
-        getElement("undo button").onclick();
+        getElement("undo-button").onclick();
 
     if (event.key == 'r' || event.key == 'R')
-        getElement("restart button").onclick();
+        getElement("restart-button").onclick();
 
         if (event.key == 'l') {
 
