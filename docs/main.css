@@ -70,22 +70,6 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-div.exercise {
-    visibility: hidden;
-    display: none;
-}
-
-div.notes {
-    visibility: hidden;
-    display: none;
-}
-
-div.name {
-    visibility: hidden;
-    display: none;
-}
-
-ol.proof {
-    visibility: hidden;
+#dataContainer {
     display: none;
 }
