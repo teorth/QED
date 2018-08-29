@@ -10,6 +10,8 @@ createNotificationsBox();
 createOperatorsWindow();
 createUndoButton();
 createRestartButton();
+createPrevExerciseButtons();
+createNextExerciseButtons();
 createResetButton();
 createEditStateButton();
 document.body.setAttribute("onkeydown", "keydown(event)");

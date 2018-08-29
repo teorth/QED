@@ -146,6 +146,48 @@ function createUndoButton() {
     return button;
 }
 
+function createPrevExerciseButtons() {
+    var button = getElement("prev-exercise");
+
+    button.onclick = function() {
+        var exercise = getElement("exercise").exercise;
+        var num, i;
+
+        for (i=0; i < exerciseList.length; i++)
+            if (exerciseList[i] == exercise) {
+                num = i; break;
+            }
+        
+        if (num==0) return;
+        var newExercise = exerciseList[num-1];
+        setExercise(newExercise.button);
+    };
+
+    return button;
+}
+
+function createNextExerciseButtons() {
+    var button = getElement("next-exercise");
+
+    button.onclick = function() {
+        var exercise = getElement("exercise").exercise;
+        var num, i;
+
+        for (i=0; i < exerciseList.length; i++)
+            if (exerciseList[i] == exercise) {
+                num = i; break;
+            }
+        
+        if (num==exerciseList.length-1) return;
+        var newExercise = exerciseList[num+1];
+        if (!newExercise.activated) return;
+        setExercise(newExercise.button);
+    };
+
+    return button;
+}
+
+
 // create a button that collapses upon clicking.  If log is enabled, it logs the innerHTML on expansion
 
 function newCollapseButton(subnode, log)
@@ -527,7 +569,7 @@ function setExercise(exerciseButton) {
 // reveal the bound button, if this option is active
     if (exercise.revealBoundButton) reveal("bound-variable-button", "New bound variables button");
 // reveal the operators window, if this option is active
-    if (exercise.revealOperatorsWindow) reveal("operators-window", "<B>Predicates and operators</B> window");
+    if (exercise.revealOperatorsWindow) reveal("operators-window", "<B>Predicates</B> and <B>Operators</B> window");
 
 // Unlock any laws that were unlocked by the exercise
     exercise.newLaws.forEach( function(item) {
@@ -793,7 +835,7 @@ function checkForUnlocks() {
             reveal("term-window", "<B>Terms</B> window");
         
         if (localStorage.getItem("operators window") == "unlocked" || localStorage.getItem("operators-window") == "unlocked") 
-            reveal("operators-window", "<B>Predicates and operators</B> window");
+            reveal("operators-window", "<B>Predicates<B> and <B>Operators</B> windows");
         if (localStorage.getItem("bound variable button") == "unlocked" || localStorage.getItem("bound-variable-button") == "unlocked") 
             reveal("bound-variable-button", "New bound variable button");
 
@@ -1538,6 +1580,12 @@ function keydown(event) {
                 debug("law " + law.name + " has index " + law.index);
             });
         }
+
+    if (event.key == '<')
+        getElement("prev-exercise").onclick();
+
+    if (event.key == '>')
+        getElement("next-exercise").onclick();
 
 // click the first unsolved exercise, if such exists
     if (event.key == 'n') {
