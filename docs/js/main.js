@@ -406,17 +406,17 @@ exerciseList.forEach( function( exercise ) {
     var div = getElement("EXERCISE-"+exercise.shortName);
     if (div == null) return;
 
-    var unlockedBy = div.getAttribute("data-unlocked-by");
-    if (unlockedBy) {
+    var unlockedBy;
+    if (unlockedBy = div.getAttribute("data-unlocked-by")) {
         var unlocker = exercisesByShortName[unlockedBy];
         exercise.unlockedBy(unlocker);
-    }
-    else {
+    } else {
+        // Otherwise, this is the first exercise.
         activateExerciseButton(exercise);
     }
 
-    var unlocks = div.getAttribute("data-unlocks");
-    if (unlocks) {
+    var unlocks;
+    if (unlocks = div.getAttribute("data-unlocks")) {
         var split = unlocks.split(" ");
         split.forEach( function( str ) {
             exercise.unlocks(lawsByShortName[str]);
