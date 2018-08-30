@@ -44,6 +44,7 @@ var lawsData = {
     "False":                      [[formulaContext(NOT(FALSE()))],             NOT(FALSE())],
     "False2":                     [[formulaContext(FALSE())],                  NOT(FALSE())],
     "PushVar":                    [[A, x],                                     assuming(A, x)],
+    "free":                       [[toTerm(x)],                                x],
     "forAll":                     [[formulaContext(A), toTerm(X)],             formulaContext(forAll(A,X))],
     "thereExists":                [[formulaContext(A), toTerm(X)],             formulaContext(thereExists(A,X))],
     "PushSet":                    [[A, settingAssumption(B,x)],                assuming(A, settingAssumption(B,x))],
@@ -315,8 +316,6 @@ exerciseFromData("15.2(b)", [A, environmentContext([B,x])], assuming(assuming(A,
 exerciseFromData("15.2(c)", [A, environmentContext([x,B])], assuming(assuming(A,B),x));
 
 newSection("16", "Free variable introduction");
-
-new Law("free", "FREE VARIABLE INTRODUCTION", [toTerm(x)], x);
 
 exerciseFromData("16.1", [formulaContext(Qxy)], assuming(assuming(OR(Qxy, NOT(Qxy)),y),x));
 
