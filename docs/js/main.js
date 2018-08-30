@@ -55,10 +55,7 @@ var lawsData = {
     "Reflexivity":                [[alpha],                                    equals(alpha,alpha)],
     "UniversalIntroduction":      [[assuming(Px,x),toTerm(X)],                 forAll(PX,X)],
     "UniversalIntroduction2":     [[assuming(Px,x), rootEnvironmentContext()], forAll(PX,X)],
-    // TODO: is it necessary for this law's shortName to match the shortName
-    //  of the Exercise it is used to construct?  If not, it can be given
-    //  a more natural shortName like UniversalRenamingBoundVar.
-    "18.1":                       [[forAll(PX,X)],                             forAll(PY,Y)],
+    "UniversalRenamingBoundVar":  [[forAll(PX,X)],                             forAll(PY,Y)],
     "UniversalSpecification":     [[forAll(PX,X), alpha],                      Pa],
     "UniversalSpecification2":    [[forAll(PX,X), toTerm(x)],                  assuming(Px,x)],
     "ExistentialInstantiation":   [[thereExists(PX,X), toTerm(x)],             assuming(Px, settingAssumption(Px,x))],
@@ -68,7 +65,7 @@ var lawsData = {
     "Indiscernability":           [[Pa, equals(alpha,beta)],                   Pb],
 };
 
-var lawElements = getElement("lawContainer").children
+var lawElements = getElement("lawContainer").children;
 
 for (var i = 0; i < lawElements.length; i++) {
     var div = lawElements[i];
@@ -89,7 +86,7 @@ for (var i = 0; i < lawElements.length; i++) {
 
 var universalIntroduction     = lawsByShortName["UniversalIntroduction"];
 var universalIntroduction2    = lawsByShortName["UniversalIntroduction2"];
-var universalRenamingBoundVar = lawsByShortName["18.1"];
+var universalRenamingBoundVar = lawsByShortName["UniversalRenamingBoundVar"];
 var universalSpecification    = lawsByShortName["UniversalSpecification"];
 var universalSpecification2   = lawsByShortName["UniversalSpecification2"];
 var existentialInstantiation  = lawsByShortName["ExistentialInstantiation"];

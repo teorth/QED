@@ -716,24 +716,24 @@ function matchWithGivens( arglist, law, primitives ) {
    }
 
 
-    switch(law) { // a number of laws are too complex to be matched by the standard algorithm and have to be treated separately
-        case universalIntroduction:
-        case universalIntroduction2:
+    switch(law.shortName) { // a number of laws are too complex to be matched by the standard algorithm and have to be treated separately
+        case "UniversalIntroduction":
+        case "UniversalIntroduction2":
             matchUniversalIntroduction(arglist, output, law);
             break;
-        case universalSpecification:
-        case universalSpecification2:
+        case "UniversalSpecification":
+        case "UniversalSpecification2":
             matchUniversalSpecification(arglist, output, law);
             break;
-        case existentialInstantiation:
-        case existentialInstantiation2:
+        case "ExistentialInstantiation":
+        case "ExistentialInstantiation2":
             matchExistentialInstantiation(arglist, output, law);
             break;
-        case existentialIntroduction:
-        case existentialIntroduction2:
+        case "ExistentialIntroduction":
+        case "ExistentialIntroduction2":
             matchExistentialIntroduction(arglist, output, law);
             break;
-        case indiscernability:
+        case "Indiscernability":
             matchIndiscernability(arglist, output, law);
             break;
         default:
@@ -778,8 +778,8 @@ function matchUniversalIntroduction(arglist, output, law) {
 
     var boundVariable;
 
-    switch (law) {
-        case universalIntroduction:
+    switch (law.shortName) {
+        case "UniversalIntroduction":
             if (arglist[1].type != "term context") {
                 output.matches = false;
                 return;
@@ -790,7 +790,7 @@ function matchUniversalIntroduction(arglist, output, law) {
             }
             boundVariable = arglist[1].term.argList[0];
             break;
-        case universalIntroduction2:
+        case "UniversalIntroduction2":
             if (arglist[1].type != "environment") {
                 output.matches = false;
                 return;
@@ -857,12 +857,12 @@ function matchUniversalSpecification(arglist, output, law) {
     var term = toTerm(arglist[1].term);
     var newSentence = searchReplace( sentence, boundVar, term );
 
-    if (law == universalSpecification) {
+    if (law.shortName == "UniversalSpecification") {
         if (hasBoundOrUnknownFree(term, output.env)) {
             output.illegal = true; // will keep matching but will display in silver
         }
         output.conclusion = sentenceContext( newSentence, output.env );
-    } else if (law == universalSpecification2) {
+    } else if (law.shortName == "UniversalSpecification2") {
         if (term.subtype != "free variable") {
             output.matches = false;
             return;
@@ -953,7 +953,7 @@ function matchExistentialInstantiation(arglist, output, law) {
 
     var freeVariable;
 
-    if (law == existentialInstantiation) {
+    if (law.shortName == "ExistentialInstantiation") {
         if (arglist[1].type != "term context") {
             output.matches = false;
             return;
@@ -963,7 +963,7 @@ function matchExistentialInstantiation(arglist, output, law) {
             return;
         }
         freeVariable = arglist[1].term.argList[0];
-    } else  if (law == existentialInstantiation2) {
+    } else  if (law.shortName == "ExistentialInstantiation2") {
         // choose the next available free Variable
         var freeVars = [];
 
@@ -1017,8 +1017,8 @@ function matchExistentialIntroduction(arglist, output, law) {
 
     var boundVariable;
 
-    switch (law) {
-        case existentialIntroduction2:
+    switch (law.shortName) {
+        case "ExistentialIntroduction2":
             if (arglist[2].type != "term context") {
                 output.matches = false;
                 return;
@@ -1029,7 +1029,7 @@ function matchExistentialIntroduction(arglist, output, law) {
             }
             boundVariable = arglist[2].term.argList[0];
             break;
-        case existentialIntroduction:
+        case "ExistentialIntroduction":
             // choose the next available bound Variable
             boundVariable = nextAvailableBoundVariable(sentence);
             break;

@@ -93,7 +93,8 @@ Sentence {
 // A law is a rule of deduction that has sentence templates as input, and another sentence template as output.  (For instance, Modus ponens "Given A, A IMPLIES B: deduce B" is a law.) Some laws are too complex to be fully captured by these templates due to side conditions, and need to be handled separately.
 
 Law {
-	string name; // short name of law
+	string shortName;  // id of law
+	string name; // HTML name of law
 	Context givens[]; // hypotheses
 	Context conclusion; // conclusion
 	bool unlocked;  // is it available for use?
