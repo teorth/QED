@@ -77,8 +77,8 @@ for (var i = 0; i < lawElements.length; i++) {
     var lawName = div.innerHTML;
 
     var pair = lawsData[shortName];
-    if (pair === null) {
-        throw new Error("shortName not found: " + shortName);
+    if (!pair) {
+        throw new Error("law shortName not found: " + shortName);
     }
 
     var givens = pair[0];
@@ -97,37 +97,42 @@ var existentialIntroduction   = lawsByShortName["ExistentialIntroduction"];
 var existentialIntroduction2  = lawsByShortName["ExistentialIntroduction2"];
 var indiscernability          = lawsByShortName["Indiscernability"];
 
+// A mapping from exercise shortName to the pair [givens, conclusion].
+var exerciseData = {
+    "1.1": [[A, B], AND(AND(B,A),B)],
+    "1.2": [[A], AND(A,A)],
+    "2.1": [[AND(A,B)], AND(B,A)],
+    "2.2(a)": [[AND(AND(A,B),C)], AND(A,AND(B,C))],
+    "2.2(b)": [[AND(A,AND(B,C))], AND(AND(A,B),C)],
+    "3.1(a)": [[A, formulaContext(B), formulaContext(C)], OR(C,OR(A,B))],
+    "3.1(b)": [[A], OR(A,A)],
+    "4.1": [[formulaContext(A)], assuming(AND(A,A),A)],
+    "5.1": [[formulaContext(A), formulaContext(B), formulaContext(C)], assuming(OR(AND(A,B),C), OR(AND(A,B),C))],
+    "5.2": [[formulaContext(A), formulaContext(B)], assuming(assuming(A,A),B)],
+};
+
+function exerciseFromShortName(shortName) {
+    var pair = exerciseData[shortName];
+    if (!pair) {
+        throw new Error("exercise shortName not found: " + shortName);
+    }
+    exerciseFromData(shortName, pair[0], pair[1]);
+}
 
 newSection("1", "Conjunction introduction");
-
-
-exerciseFromData("1.1", [A, B], AND(AND(B,A),B));
-
-exerciseFromData("1.2", [A], AND(A,A));
+["1.1", "1.2"].forEach(exerciseFromShortName);
 
 newSection("2", "Conjunction elimination");
-
-exerciseFromData("2.1", [AND(A,B)], AND(B,A));
-
-exerciseFromData("2.2(a)", [AND(AND(A,B),C)], AND(A,AND(B,C)));
-
-exerciseFromData("2.2(b)", [AND(A,AND(B,C))], AND(AND(A,B),C));
+["2.1", "2.2(a)", "2.2(b)"].forEach(exerciseFromShortName);
 
 newSection("3", "Disjunction introduction");
-
-exerciseFromData("3.1(a)", [A, formulaContext(B), formulaContext(C)], OR(C,OR(A,B)));
-
-exerciseFromData("3.1(b)", [A], OR(A,A),3);
+["3.1(a)", "3.1(b)"].forEach(exerciseFromShortName);
 
 newSection("4", "Assumption");
-
-exerciseFromData("4.1", [formulaContext(A)], assuming(AND(A,A),A));
+["4.1"].forEach(exerciseFromShortName);
 
 newSection("5", "Logical connectives");
-
-exerciseFromData("5.1", [formulaContext(A), formulaContext(B), formulaContext(C)], assuming(OR(AND(A,B),C), OR(AND(A,B),C)),2);
-
-exerciseFromData("5.2", [formulaContext(A), formulaContext(B)], assuming(assuming(A,A),B));
+["5.1", "5.2"].forEach(exerciseFromShortName);
 
 newSection("6", "Deduction theorem");
 
