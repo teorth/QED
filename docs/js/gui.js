@@ -839,7 +839,7 @@ function checkForUnlocks() {
         if (localStorage.getItem("bound variable button") == "unlocked" || localStorage.getItem("bound-variable-button") == "unlocked")
             reveal("bound-variable-button", "New bound variable button");
 
-		allLaws.forEach( function( law ) {
+        allLaws.forEach( function( law ) {
             // in legacy code, law is stored using the full name
             var str;
 
@@ -854,7 +854,7 @@ function checkForUnlocks() {
             if (str != null) {
                 unlock(law, localStorage.getItem("law " + law.shortName));
             }
-		});
+        });
 
   }
 }
@@ -1389,17 +1389,17 @@ function Exercise(shortName, lawName, givens, conclusion) {
     this.shortName = shortName;
     this.name = "EXERCISE " + this.shortName;
 
-	if (lawName instanceof Law)  {
-		// Allow for an exercise to prove a law that was already constructed
-		// (this is needed for Exercise 18.2(b)).  In this case givens and
-		// conclusion are irrelevant and can be set for instance to null.
-		this.law = lawName;
-	}
-	else {
-	    if (lawName == "")
-		    lawName = this.name;
-	    this.law = new Law(shortName, lawName, givens, conclusion);
-	}
+    if (lawName instanceof Law)  {
+        // Allow for an exercise to prove a law that was already constructed
+        // (this is needed for Exercise 18.2(b)).  In this case givens and
+        // conclusion are irrelevant and can be set for instance to null.
+        this.law = lawName;
+    }
+    else {
+        if (lawName == "")
+            lawName = this.name;
+        this.law = new Law(shortName, lawName, givens, conclusion);
+    }
 
     maxLawIndex++;
     this.law.index = maxLawIndex;
@@ -1426,7 +1426,7 @@ function Exercise(shortName, lawName, givens, conclusion) {
 
     this.unlocks = function( law ) {
         this.newLaws.push(law);
-		law.index = this.law.index - 1; // this can cause some laws to share the same index, but this is OK
+        law.index = this.law.index - 1; // this can cause some laws to share the same index, but this is OK
 
         if (law.clone != "") {
             law.clone.index = law.index;
