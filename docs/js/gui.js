@@ -1389,21 +1389,23 @@ function makeExerciseName(shortName) {
     return "EXERCISE " + shortName;
 }
 
-function Exercise(shortName, lawName, givens, conclusion) {
+// Register an exercise from givens and conclusion.
+function exerciseFromData(shortName, givens, conclusion) {
+    var lawName = makeExerciseName(shortName);
+    var law = new Law(shortName, lawName, givens, conclusion);
+
+    // We don't actually need to return the object.
+    new Exercise(shortName, law);
+}
+
+function Exercise(shortName, law) {
+    if (!(law instanceof Law)) {
+        throw new Error('law argument is not a Law object: ' + law);
+    }
+
     this.shortName = shortName;
     this.name = makeExerciseName(shortName);
-
-    if (lawName instanceof Law)  {
-        // Allow for an exercise to prove a law that was already constructed
-        // (this is needed for Exercise 18.2(b)).  In this case givens and
-        // conclusion are irrelevant and can be set for instance to null.
-        this.law = lawName;
-    } else if (lawName) {
-        throw new Error('non-Law lawName must be falsey: ' + lawName);
-    } else {
-        lawName = this.name;
-        this.law = new Law(shortName, lawName, givens, conclusion);
-    }
+    this.law = law;
 
     maxLawIndex++;
     this.law.index = maxLawIndex;

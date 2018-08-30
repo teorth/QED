@@ -59,7 +59,7 @@
 
 <p></p>
 <H4 id="version-header"> This is
-  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.7.1</a>.
+  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.7.2</a>.
 </H4>
 
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
@@ -119,6 +119,8 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <div class="law" id="law-ExistentialIntroduction2"><A HREF="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</A></div>
                 <div class="law" id="law-Indiscernability"><A HREF="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">INDISCERNABILITY OF IDENTICALS</A></div>
         </div>
+
+<div id="exerciseContainer">
 <div class="exercise" id="EXERCISE-1.1" data-unlocks="LawConjunction1">
     <div class="name"></div>
     <div class="notes">
@@ -181,9 +183,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
             <UL>
                 <li>One can think of a deduction rule as a template in which the <A HREF="https://en.wikipedia.org/wiki/Atomic_formula" target="_blank">atomic formulas</A> of the deduction rule (such as <I>A</I> or <I>B</I>) can be replaced by compound formulas (e.g. "<I>A</I> AND <I>B</I>").  This can greatly increase the power of such laws.</li>
-                <li>There are no "wrong" moves in the QED game - every move you make is a valid deduction!  However, you may end up making "useless" moves - moves that are logically valid, but do not bring one closer to the desired conclusion.  If you are finding the deduction environment to be getting too cluttered, you can click on the exercise button (in this case, Exercise 2.2(a)) to start from the beginning; one can also press the "RESTART QUESTION" (or presses "r") at the bottom of the page.  </li>li>
-                <li> One can also delete sentences by selecting them and then pressing the delete key, though one should caution that this may render the exercise unsolvable without a restart if a key hypothesis ends up being deleted.</li>
-                <li> Finally, one can also "UNDO" a deduction if one presses the "IMMEDIATE UNDO" button at the bottom of this page (or presses "u") immediately after making a deduction.  This feature is not available if the deduction solves the exercise, or if one has performed any action between the deduction and the undo.</li>
+                <li>There are no "wrong" moves in the QED game - every move you make is a valid deduction!  However, you may end up making "useless" moves - moves that are logically valid, but do not bring one closer to the desired conclusion.  If you are finding the deduction environment to be getting too cluttered, you can click on the exercise button (in this case, Exercise 2.2(a)) to start from the beginning; one can also press the "RESTART QUESTION" (or presses "r") at the bottom of the page.</li>
+                <li>One can also delete sentences by selecting them and then pressing the delete key, though one should caution that this may render the exercise unsolvable without a restart if a key hypothesis ends up being deleted.</li>
+                <li>Finally, one can also "UNDO" a deduction if one presses the "IMMEDIATE UNDO" button at the bottom of this page (or presses "u") immediately after making a deduction.  This feature is not available if the deduction solves the exercise, or if one has performed any action between the deduction and the undo.</li>
             </UL>
         </div>
         <ol class="proof">
@@ -503,7 +505,11 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
         </div>
         <ol class="proof">
-                        <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES (<em>A</em> AND <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Absorption_(logic)" target="_blank">ABSORPTION (right)</a>]</i></span></li><li><span>Deduce (<em>A</em> AND <em>B</em>) IMPLIES (<em>B</em> AND <em>A</em>). <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a> (implication form)]</i></span></li><li><span>From <em>A</em> IMPLIES (<em>A</em> AND <em>B</em>), (<em>A</em> AND <em>B</em>) IMPLIES (<em>B</em> AND <em>A</em>): deduce <em>A</em> IMPLIES (<em>B</em> AND <em>A</em>). <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li><li><span>QED!</span></li>
+              <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
+              <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES (<em>A</em> AND <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Absorption_(logic)" target="_blank">ABSORPTION (right)</a>]</i></span></li>
+              <li><span>Deduce (<em>A</em> AND <em>B</em>) IMPLIES (<em>B</em> AND <em>A</em>). <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a> (implication form)]</i></span></li>
+              <li><span>From <em>A</em> IMPLIES (<em>A</em> AND <em>B</em>), (<em>A</em> AND <em>B</em>) IMPLIES (<em>B</em> AND <em>A</em>): deduce <em>A</em> IMPLIES (<em>B</em> AND <em>A</em>). <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li>
+              <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -512,7 +518,13 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
         </div>
         <ol class="proof">
-                        <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li><li><span><em>A</em> IMPLIES <em>C</em>. <i>[given]</i></span></li><li><span>From <em>A</em> AND <em>B</em>: deduce <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li><li><span>From <em>A</em> AND <em>B</em>: deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li><li><span>From <em>A</em>, <em>A</em> IMPLIES <em>C</em>: deduce <em>C</em>. <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a>]</i></span></li><li><span>From <em>C</em>, <em>B</em>: deduce <em>C</em> AND <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li><li><span>QED!</span></li>
+              <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li>
+              <li><span><em>A</em> IMPLIES <em>C</em>. <i>[given]</i></span></li>
+              <li><span>From <em>A</em> AND <em>B</em>: deduce <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (left)]</i></span></li>
+              <li><span>From <em>A</em> AND <em>B</em>: deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_elimination" target="_blank">CONJUNCTION ELIMINATION</a> (right)]</i></span></li>
+              <li><span>From <em>A</em>, <em>A</em> IMPLIES <em>C</em>: deduce <em>C</em>. <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a>]</i></span></li>
+              <li><span>From <em>C</em>, <em>B</em>: deduce <em>C</em> AND <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+              <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -521,7 +533,12 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
         </div>
         <ol class="proof">
-                        <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li><li><span><em>B</em> IMPLIES <em>C</em>. <i>[given]</i></span></li><li><span>From <em>A</em> AND <em>B</em>: deduce <em>B</em> AND <em>A</em>. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li><li><span>From <em>B</em> AND <em>A</em>, <em>B</em> IMPLIES <em>C</em>: deduce <em>C</em> AND <em>A</em>. <i>[EXERCISE 8.6(a)]</i></span></li><li><span>From <em>C</em> AND <em>A</em>: deduce <em>A</em> AND <em>C</em>. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li><li><span>QED!</span></li>
+              <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li>
+              <li><span><em>B</em> IMPLIES <em>C</em>. <i>[given]</i></span></li>
+              <li><span>From <em>A</em> AND <em>B</em>: deduce <em>B</em> AND <em>A</em>. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li>
+              <li><span>From <em>B</em> AND <em>A</em>, <em>B</em> IMPLIES <em>C</em>: deduce <em>C</em> AND <em>A</em>. <i>[EXERCISE 8.6(a)]</i></span></li>
+              <li><span>From <em>C</em> AND <em>A</em>: deduce <em>A</em> AND <em>C</em>. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li>
+              <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -778,7 +795,12 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
         </div>
         <ol class="proof">
-                        <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li><li><span>Deduce <em>C</em> AND <em>A</em> [assuming <em>C</em> AND <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> AND <em>A</em>]. <i>[PUSH]</i></span></li><li><span>From <em>C</em> AND <em>A</em> [assuming <em>C</em> AND <em>A</em>], <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> AND <em>A</em>]: deduce <em>C</em> AND <em>B</em> [assuming <em>C</em> AND <em>A</em>]. <i>[EXERCISE 8.6(b)]</i></span></li><li><span>From <em>C</em> AND <em>B</em> [assuming <em>C</em> AND <em>A</em>]: deduce (<em>C</em> AND <em>A</em>) IMPLIES (<em>C</em> AND <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li><li><span>QED!</span></li>
+                <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
+                <li><span>Deduce <em>C</em> AND <em>A</em> [assuming <em>C</em> AND <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+                <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> AND <em>A</em>]. <i>[PUSH]</i></span></li>
+                <li><span>From <em>C</em> AND <em>A</em> [assuming <em>C</em> AND <em>A</em>], <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> AND <em>A</em>]: deduce <em>C</em> AND <em>B</em> [assuming <em>C</em> AND <em>A</em>]. <i>[EXERCISE 8.6(b)]</i></span></li>
+                <li><span>From <em>C</em> AND <em>B</em> [assuming <em>C</em> AND <em>A</em>]: deduce (<em>C</em> AND <em>A</em>) IMPLIES (<em>C</em> AND <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -787,7 +809,12 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
         </div>
         <ol class="proof">
-                        <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li><li><span>Deduce <em>C</em> OR <em>A</em> [assuming <em>C</em> OR <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li><li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> OR <em>A</em>]. <i>[PUSH]</i></span></li><li><span>From <em>C</em> OR <em>A</em> [assuming <em>C</em> OR <em>A</em>], <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> OR <em>A</em>]: deduce <em>C</em> OR <em>B</em> [assuming <em>C</em> OR <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Constructive_dilemma" target="_blank">CONSTRUCTIVE DILEMMA</a> (right)]</i></span></li><li><span>From <em>C</em> OR <em>B</em> [assuming <em>C</em> OR <em>A</em>]: deduce (<em>C</em> OR <em>A</em>) IMPLIES (<em>C</em> OR <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li><li><span>QED!</span></li>
+                <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
+                <li><span>Deduce <em>C</em> OR <em>A</em> [assuming <em>C</em> OR <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+                <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> OR <em>A</em>]. <i>[PUSH]</i></span></li>
+                <li><span>From <em>C</em> OR <em>A</em> [assuming <em>C</em> OR <em>A</em>], <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> OR <em>A</em>]: deduce <em>C</em> OR <em>B</em> [assuming <em>C</em> OR <em>A</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Constructive_dilemma" target="_blank">CONSTRUCTIVE DILEMMA</a> (right)]</i></span></li>
+                <li><span>From <em>C</em> OR <em>B</em> [assuming <em>C</em> OR <em>A</em>]: deduce (<em>C</em> OR <em>A</em>) IMPLIES (<em>C</em> OR <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -816,7 +843,11 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 Thanks to Wilson Cheang and Alan Lu for a short proof from a previous version of the text.
         </div>
         <ol class="proof">
-                        <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li><li><span><em>A</em> IFF <em>C</em>. <i>[given]</i></span></li><li><span>From <em>A</em> IFF <em>C</em>: deduce <em>A</em> IMPLIES <em>C</em>. <i>[BICONDITIONAL ELIMINATION (left)]</i></span></li><li><span>From <em>A</em> AND <em>B</em>, <em>A</em> IMPLIES <em>C</em>: deduce <em>C</em> AND <em>B</em>. <i>[EXERCISE 8.6(a)]</i></span></li><li><span>QED!</span></li>
+                <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li>
+                <li><span><em>A</em> IFF <em>C</em>. <i>[given]</i></span></li>
+                <li><span>From <em>A</em> IFF <em>C</em>: deduce <em>A</em> IMPLIES <em>C</em>. <i>[BICONDITIONAL ELIMINATION (left)]</i></span></li>
+                <li><span>From <em>A</em> AND <em>B</em>, <em>A</em> IMPLIES <em>C</em>: deduce <em>C</em> AND <em>B</em>. <i>[EXERCISE 8.6(a)]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -825,7 +856,11 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
         </div>
         <ol class="proof">
-                        <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li><li><span><em>B</em> IFF <em>C</em>. <i>[given]</i></span></li><li><span>From <em>B</em> IFF <em>C</em>: deduce <em>B</em> IMPLIES <em>C</em>. <i>[BICONDITIONAL ELIMINATION (left)]</i></span></li><li><span>From <em>A</em> AND <em>B</em>, <em>B</em> IMPLIES <em>C</em>: deduce <em>A</em> AND <em>C</em>. <i>[EXERCISE 8.6(b)]</i></span></li><li><span>QED!</span></li>
+                <li><span><em>A</em> AND <em>B</em>. <i>[given]</i></span></li>
+                <li><span><em>B</em> IFF <em>C</em>. <i>[given]</i></span></li>
+                <li><span>From <em>B</em> IFF <em>C</em>: deduce <em>B</em> IMPLIES <em>C</em>. <i>[BICONDITIONAL ELIMINATION (left)]</i></span></li>
+                <li><span>From <em>A</em> AND <em>B</em>, <em>B</em> IMPLIES <em>C</em>: deduce <em>A</em> AND <em>C</em>. <i>[EXERCISE 8.6(b)]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -861,10 +896,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </div>
         <ol class="proof">
                 <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
-            <li><span><em>A</em> IFF <em>C</em>. <i>[given]</i></span></li>
-            <li><span>From <em>A</em> IFF <em>C</em>: deduce <em>C</em> IMPLIES <em>A</em>. <i>[BICONDITIONAL ELIMINATION (right)]</i></span></li>
-            <li><span>From <em>C</em> IMPLIES <em>A</em>, <em>A</em> IMPLIES <em>B</em>: deduce <em>C</em> IMPLIES <em>B</em>. <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li>
-            <li><span>QED!</span></li>
+                <li><span><em>A</em> IFF <em>C</em>. <i>[given]</i></span></li>
+                <li><span>From <em>A</em> IFF <em>C</em>: deduce <em>C</em> IMPLIES <em>A</em>. <i>[BICONDITIONAL ELIMINATION (right)]</i></span></li>
+                <li><span>From <em>C</em> IMPLIES <em>A</em>, <em>A</em> IMPLIES <em>B</em>: deduce <em>C</em> IMPLIES <em>B</em>. <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -874,10 +909,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </div>
         <ol class="proof">
                 <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
-            <li><span><em>B</em> IFF <em>C</em>. <i>[given]</i></span></li>
-            <li><span>From <em>B</em> IFF <em>C</em>: deduce <em>B</em> IMPLIES <em>C</em>. <i>[BICONDITIONAL ELIMINATION (left)]</i></span></li>
-            <li><span>From <em>A</em> IMPLIES <em>B</em>, <em>B</em> IMPLIES <em>C</em>: deduce <em>A</em> IMPLIES <em>C</em>. <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li>
-            <li><span>QED!</span></li>
+                <li><span><em>B</em> IFF <em>C</em>. <i>[given]</i></span></li>
+                <li><span>From <em>B</em> IFF <em>C</em>: deduce <em>B</em> IMPLIES <em>C</em>. <i>[BICONDITIONAL ELIMINATION (left)]</i></span></li>
+                <li><span>From <em>A</em> IMPLIES <em>B</em>, <em>B</em> IMPLIES <em>C</em>: deduce <em>A</em> IMPLIES <em>C</em>. <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -996,7 +1031,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
         </div>
         <ol class="proof">
-                        <li><span>(NOT <em>A</em>) AND <em>A</em>. <i>[given]</i></span></li><li><span>From (NOT <em>A</em>) AND <em>A</em>: deduce <em>A</em> AND (NOT <em>A</em>). <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li><li><span>From <em>A</em> AND (NOT <em>A</em>): deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Principle_of_explosion" target="_blank">EX FALSO QUODLIBET</a>]</i></span></li><li><span>QED!</span></li>
+                <li><span>(NOT <em>A</em>) AND <em>A</em>. <i>[given]</i></span></li>
+                <li><span>From (NOT <em>A</em>) AND <em>A</em>: deduce <em>A</em> AND (NOT <em>A</em>). <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li>
+                <li><span>From <em>A</em> AND (NOT <em>A</em>): deduce <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Principle_of_explosion" target="_blank">EX FALSO QUODLIBET</a>]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -1059,7 +1097,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
         </div>
         <ol class="proof">
-                        <li><span>Deduce <em>A</em> OR (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">EXCLUDED MIDDLE</a>]</i></span></li><li><span>From <em>A</em> OR (NOT <em>A</em>): deduce (NOT <em>A</em>) OR <em>A</em>. <i>[OR IS COMMUTATIVE]</i></span></li><li><span>QED!</span></li>
+                <li><span>Deduce <em>A</em> OR (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">EXCLUDED MIDDLE</a>]</i></span></li>
+                <li><span>From <em>A</em> OR (NOT <em>A</em>): deduce (NOT <em>A</em>) OR <em>A</em>. <i>[OR IS COMMUTATIVE]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -1121,7 +1161,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <div class="notes">
                 </div>
                 <ol class="proof">
-                                <li><span>(NOT <em>B</em>) AND <em>B</em> [assuming NOT <em>A</em>]. <i>[given]</i></span></li><li><span>From (NOT <em>B</em>) AND <em>B</em> [assuming NOT <em>A</em>]: deduce <em>B</em> AND (NOT <em>B</em>) [assuming NOT <em>A</em>]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li><li><span>From <em>B</em> AND (NOT <em>B</em>) [assuming NOT <em>A</em>]: deduce <em>A</em>. <i>[PROOF BY CONTRADICTION]</i></span></li><li><span>QED!</span></li>
+                        <li><span>(NOT <em>B</em>) AND <em>B</em> [assuming NOT <em>A</em>]. <i>[given]</i></span></li>
+                        <li><span>From (NOT <em>B</em>) AND <em>B</em> [assuming NOT <em>A</em>]: deduce <em>B</em> AND (NOT <em>B</em>) [assuming NOT <em>A</em>]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a>]</i></span></li>
+                        <li><span>From <em>B</em> AND (NOT <em>B</em>) [assuming NOT <em>A</em>]: deduce <em>A</em>. <i>[PROOF BY CONTRADICTION]</i></span></li>
+                        <li><span>QED!</span></li>
                 </ol>
         </div>
 
@@ -1131,10 +1174,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </div>
         <ol class="proof">
                 <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
-            <li><span>Deduce <em>A</em> OR (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">EXCLUDED MIDDLE</a>]</i></span></li>
-            <li><span>From <em>A</em> OR (NOT <em>A</em>), <em>A</em> IMPLIES <em>B</em>: deduce <em>B</em> OR (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Constructive_dilemma" target="_blank">CONSTRUCTIVE DILEMMA</a> (left)]</i></span></li>
-            <li><span>From <em>B</em> OR (NOT <em>A</em>): deduce (NOT <em>A</em>) OR <em>B</em>. <i>[OR IS COMMUTATIVE]</i></span></li>
-            <li><span>QED!</span></li>
+                <li><span>Deduce <em>A</em> OR (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Law_of_excluded_middle" target="_blank">EXCLUDED MIDDLE</a>]</i></span></li>
+                <li><span>From <em>A</em> OR (NOT <em>A</em>), <em>A</em> IMPLIES <em>B</em>: deduce <em>B</em> OR (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Constructive_dilemma" target="_blank">CONSTRUCTIVE DILEMMA</a> (left)]</i></span></li>
+                <li><span>From <em>B</em> OR (NOT <em>A</em>): deduce (NOT <em>A</em>) OR <em>B</em>. <i>[OR IS COMMUTATIVE]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -1263,12 +1306,12 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </div>
         <ol class="proof">
                 <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
-            <li><span>Deduce NOT <em>B</em> [assuming NOT <em>B</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
-            <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming NOT <em>B</em>]. <i>[PUSH]</i></span></li>
-            <li><span>From <em>A</em> IMPLIES <em>B</em> [assuming NOT <em>B</em>]: deduce (NOT <em>A</em>) OR <em>B</em> [assuming NOT <em>B</em>]. <i>[EXERCISE 12.4(a)]</i></span></li>
-            <li><span>From (NOT <em>A</em>) OR <em>B</em> [assuming NOT <em>B</em>], NOT <em>B</em> [assuming NOT <em>B</em>]: deduce NOT <em>A</em> [assuming NOT <em>B</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</a> (right)]</i></span></li>
-            <li><span>From NOT <em>A</em> [assuming NOT <em>B</em>]: deduce (NOT <em>B</em>) IMPLIES (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
-            <li><span>QED!</span></li>
+                <li><span>Deduce NOT <em>B</em> [assuming NOT <em>B</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+                <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming NOT <em>B</em>]. <i>[PUSH]</i></span></li>
+                <li><span>From <em>A</em> IMPLIES <em>B</em> [assuming NOT <em>B</em>]: deduce (NOT <em>A</em>) OR <em>B</em> [assuming NOT <em>B</em>]. <i>[EXERCISE 12.4(a)]</i></span></li>
+                <li><span>From (NOT <em>A</em>) OR <em>B</em> [assuming NOT <em>B</em>], NOT <em>B</em> [assuming NOT <em>B</em>]: deduce NOT <em>A</em> [assuming NOT <em>B</em>]. <i>[<a href="https://en.wikipedia.org/wiki/Disjunctive_syllogism" target="_blank">DISJUNCTIVE ELIMINATION</a> (right)]</i></span></li>
+                <li><span>From NOT <em>A</em> [assuming NOT <em>B</em>]: deduce (NOT <em>B</em>) IMPLIES (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -1278,10 +1321,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </div>
         <ol class="proof">
                 <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
-            <li><span>NOT <em>B</em>. <i>[given]</i></span></li>
-            <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce (NOT <em>B</em>) IMPLIES (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Contraposition" target="_blank">CONTRAPOSITION</a>]</i></span></li>
-            <li><span>From NOT <em>B</em>, (NOT <em>B</em>) IMPLIES (NOT <em>A</em>): deduce NOT <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a>]</i></span></li>
-            <li><span>QED!</span></li>
+                <li><span>NOT <em>B</em>. <i>[given]</i></span></li>
+                <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce (NOT <em>B</em>) IMPLIES (NOT <em>A</em>). <i>[<a href="https://en.wikipedia.org/wiki/Contraposition" target="_blank">CONTRAPOSITION</a>]</i></span></li>
+                <li><span>From NOT <em>B</em>, (NOT <em>B</em>) IMPLIES (NOT <em>A</em>): deduce NOT <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Modus_ponens" target="_blank">MODUS PONENS</a>]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -2328,7 +2371,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>In previous exercises, formulas such as <I>Q(x,y)</I> were manually provided for those exercises where they were needed.  In this section, a new window has been unlocked that allows one to generate such formulas without manual intervention.</li>
                     <li>The <B>Predicates</B> window contains all the predicates that appear in the exercise.  Predicates can be take one or more arguments, indicated here by em-dashes &mdash;.</li>
-                    <li> A few exercises from now, we will also introduce operators, which are similar to predicates and which will appear in the <B>Operators</B> window.</li>
+                    <li>A few exercises from now, we will also introduce operators, which are similar to predicates and which will appear in the <B>Operators</B> window.</li>
                     <li>If one drags a term to each argument of a predicate, one creates a formula in the <B>Formulas</B> window (and the arguments of the predicate are then reset to em-dashes).  For instance, to create the formula <I>Q(x,y)</I>, drag the term <I>x</I> to the first argument of <I>Q</I>(&mdash;,&mdash;), and drag the term <I>y</I> to the second argument.</li>
                 </UL>
         </div>
@@ -2653,6 +2696,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
             <li><span>QED! (again)</span></li>
         </ol>
 </div> <!-- End class="exercise" -->
+</div> <!-- End id="exerciseContainer" -->
 
 </div> <!-- End id="dataContainer" -->
 </div> <!-- End class="container" -->
