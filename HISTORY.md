@@ -1,5 +1,8 @@
 # QED - Release History
 
+* **Version 2.7.1** (released Aug 29, 2018).  Remove support for passing a
+  non-empty string lawName to the Exercise constructor.
+
 * **Version 2.7** (released Aug 29, 2018).  Several new helper exercises added to Sections 8-12.  (Note that due to exercise renumbering, some exercises may need to be reproven.)
 
 * **Version 2.6.3** (released Aug 29, 2018).  Ability to delete sentences and environments added.
@@ -8,7 +11,7 @@
 
 * **Version 2.6.1** (released Aug 29, 2018).  "Previous exercise" and "Next exercise" buttons added, together with "<" and ">" hotkeys.
 
-* **Version 2.6** (released Aug 29, 2018).  Split Predicates and Operators window into two.  Fixed a bug with naming of law clones.  Reversed order of notifications window, which is now renamed to "Event log" window; availability notifications arising from loading from localStorage is now disabled.  Fixed missing ExistentialInstantiation law unlocks in Ex 19.1. 
+* **Version 2.6** (released Aug 29, 2018).  Split Predicates and Operators window into two.  Fixed a bug with naming of law clones.  Reversed order of notifications window, which is now renamed to "Event log" window; availability notifications arising from loading from localStorage is now disabled.  Fixed missing ExistentialInstantiation law unlocks in Ex 19.1.
 
 * **Version 2.5.13** (released Aug 29, 2018).  Refactored laws to be partially drawn from HTML rather than javascript.  Alternate form of FALSE law added (triggering on the FALSE formula rather than NOT FALSE)
 
