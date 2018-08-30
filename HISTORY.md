@@ -1,6 +1,6 @@
 # QED - Release History
 
-* **Version 2.7.3** (released Aug 30, 2018).  New records for Exercise 12.4(a).
+* **Version 2.7.3** (released Aug 30, 2018).  New records for Exercise 9.5(c), 12.4(a).
 
 * **Version 2.7.2** (released Aug 29, 2018).  Change the Exercise constructor
   to require a Law object.

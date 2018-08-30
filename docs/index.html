@@ -793,15 +793,15 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-9.5(c)" data-unlocked-by="9.1(a)">
         <div class="name"><A HREF="https://en.wikipedia.org/wiki/Monotonic_function" target="_blank">MONOTONICITY</A> OF AND (left)</div>
         <div class="notes">
+                Thanks to Gesse Roure for a short proof.
         </div>
         <ol class="proof">
                 <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
-                <li><span>Deduce (<em>C</em> AND <em>A</em>) IMPLIES (<em>A</em> AND <em>C</em>). <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a> (implication form)]</i></span></li>
-                <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce (<em>A</em> AND <em>C</em>) IMPLIES (<em>B</em> AND <em>C</em>). <i>[<a href="https://en.wikipedia.org/wiki/Monotonic_function" target="_blank">MONOTONICITY</a> OF AND (right)]</i></span></li>
-                <li><span>Deduce (<em>B</em> AND <em>C</em>) IMPLIES (<em>C</em> AND <em>B</em>). <i>[AND IS <a href="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</a> (implication form)]</i></span></li>
-                <li><span>From (<em>C</em> AND <em>A</em>) IMPLIES (<em>A</em> AND <em>C</em>), (<em>A</em> AND <em>C</em>) IMPLIES (<em>B</em> AND <em>C</em>): deduce (<em>C</em> AND <em>A</em>) IMPLIES (<em>B</em> AND <em>C</em>). <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li>
-                <li><span>From (<em>C</em> AND <em>A</em>) IMPLIES (<em>B</em> AND <em>C</em>), (<em>B</em> AND <em>C</em>) IMPLIES (<em>C</em> AND <em>B</em>): deduce (<em>C</em> AND <em>A</em>) IMPLIES (<em>C</em> AND <em>B</em>). <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li>
-                <li><span>QED!</span></li>
+                <li><span>Deduce <em>C</em> AND <em>A</em> [assuming <em>C</em> AND <em>A</em>]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
+                <li><span>From <em>A</em> IMPLIES <em>B</em>: deduce <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> AND <em>A</em>]. <i>[PUSH]</i></span></li>
+                <li><span>From <em>C</em> AND <em>A</em> [assuming <em>C</em> AND <em>A</em>], <em>A</em> IMPLIES <em>B</em> [assuming <em>C</em> AND <em>A</em>]: deduce <em>C</em> AND <em>B</em> [assuming <em>C</em> AND <em>A</em>]. <i>[EXERCISE 8.6(b)]</i></span></li>
+                <li><span>From <em>C</em> AND <em>B</em> [assuming <em>C</em> AND <em>A</em>]: deduce (<em>C</em> AND <em>A</em>) IMPLIES (<em>C</em> AND <em>B</em>). <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
+                <li><span>QED! (again)</span></li>        
         </ol>
 </div>
 
@@ -1172,7 +1172,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-12.4(a)" data-unlocked-by="12.1(a)">
         <div class="name"></div>
         <div class="notes">
-                Thanks to Anders Kaseorg for a short proof.
+                Thanks to Anders Kaseorg and Carl Lucas for a short proof.
         </div>
         <ol class="proof">
                 <li><span><em>A</em> IMPLIES <em>B</em>. <i>[given]</i></span></li>
