@@ -144,7 +144,13 @@ new Exercise("8.4(b)", "", [IMPLIES(AND(A,B),C)], IMPLIES(A,IMPLIES(B,C)));
 
 new Exercise("8.4(c)", "", [IMPLIES(A,IMPLIES(B,C))], IMPLIES(B,IMPLIES(A,C)));
 
-new Exercise("8.5", '', [IMPLIES(A,B)], IMPLIES(A, AND(A,B)));
+new Exercise("8.5(a)", '', [IMPLIES(A,B)], IMPLIES(A, AND(A,B)));
+
+new Exercise("8.5(b)", '', [IMPLIES(A,B)], IMPLIES(A, AND(B,A)));
+
+new Exercise("8.6(a)", '', [AND(A,B), IMPLIES(A,C)], AND(C,B));
+
+new Exercise("8.6(b)", '', [AND(A,B), IMPLIES(B,C)], AND(A,C));
 
 newSection("9", "Case analysis");
 
@@ -173,6 +179,10 @@ new Exercise("9.4(c)", '', [OR(A,B), IMPLIES(A,C), IMPLIES(B,D)], OR(C,D));
 new Exercise("9.5(a)", '', [formulaContext(C), IMPLIES(A,B)], IMPLIES(AND(A,C), AND(B,C)));
 
 new Exercise("9.5(b)", '', [formulaContext(C), IMPLIES(A,B)], IMPLIES(OR(A,C), OR(B,C)));
+
+new Exercise("9.5(c)", '', [formulaContext(C), IMPLIES(A,B)], IMPLIES(AND(C,A), AND(C,B)));
+
+new Exercise("9.5(d)", '', [formulaContext(C), IMPLIES(A,B)], IMPLIES(OR(C,A), OR(C,B)));
 
 newSection("10", "The biconditional");
 
@@ -206,6 +216,8 @@ newSection("11", "Disjunctive elimination");
 
 new Exercise("11.1", '', [AND(A,NOT(A)), formulaContext(B)], B);
 
+new Exercise("11.2", '', [AND(NOT(A),A), formulaContext(B)], B);
+
 newSection("12", "Law of excluded middle");
 
 new Exercise("12.1(a)", '', [assuming(AND(B,NOT(B)),A)], NOT(A));
@@ -214,13 +226,17 @@ new Exercise("12.1(b)", '', [assuming(B,A), assuming(NOT(B),A)], NOT(A));
 
 new Exercise("12.1(c)", '', [assuming(B,A), assuming(B,NOT(A))], B);
 
+new Exercise("12.1(d)", '', [formulaContext(A)], OR(NOT(A),A));
+
 new Exercise("12.2(a)", '', [NOT(NOT(A))], A);
 
 new Exercise("12.2(b)", '', [A], NOT(NOT(A)));
 
 new Exercise("12.2(c)", '', [formulaContext(A)], IFF(A,NOT(NOT(A))));
 
-new Exercise("12.3", '', [assuming(AND(B,NOT(B)),NOT(A))], A);
+new Exercise("12.3(a)", '', [assuming(AND(B,NOT(B)),NOT(A))], A);
+
+new Exercise("12.3(b)", '', [assuming(AND(NOT(B),B),NOT(A))], A);
 
 new Exercise("12.4(a)", "", [IMPLIES(A,B)], OR( NOT(A), B));
 

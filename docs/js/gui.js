@@ -1408,7 +1408,6 @@ function Exercise(shortName, lawName, givens, conclusion) {
 
     this.newLaws = []; // an array of laws unlocked when exercise is attempted(can be empty)
     this.newExercises = [];  // an array of exercises unlocked when exercise is completed (empty by default)
-    this.hasButton = false;  // whether a button for this exercise exists yet
     this.completionMsg = "";  // message upon completion of exercise (default empty)
     this.notes = "";  // notes to make when an exercise is set
     this.revealFormulaWindow = false;  // do we reveal the formula window when this exercise opens?
@@ -1624,9 +1623,9 @@ function keydown(event) {
 // click the first unsolved exercise, if such exists
     if (event.key == 'n') {
         var i;
-        for (i=0; i < exerciseButtons.length; i++) {
-            if (exerciseButtons[i].enabled && !exerciseButtons[i].solved) {
-                exerciseButtons[i].onclick();
+        for (i=0; i < exerciseList.length; i++) {
+            if (exerciseList[i].button.enabled && !exerciseList[i].button.solved) {
+                exerciseList[i].button.onclick();
                 return;
             }
         }
@@ -1635,9 +1634,9 @@ function keydown(event) {
     // click the last unsolved exercise, if such exists
     if (event.key == 'N') {
         var i;
-        for (i=exerciseButtons.length; i--;) {
-            if (exerciseButtons[i].enabled && !exerciseButtons[i].solved) {
-                exerciseButtons[i].onclick();
+        for (i=exerciseList.length; i--;) {
+            if (exerciseList[i].button.enabled && !exerciseList[i].button.solved) {
+                exerciseList[i].button.onclick();
                 return;
             }
         }

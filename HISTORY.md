@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.7** (released Aug 29, 2018).  Several new helper exercises added to Sections 8-12.  (Note that due to exercise renumbering, some exercises may need to be reproven.)
+
 * **Version 2.6.3** (released Aug 29, 2018).  Ability to delete sentences and environments added.
 
 * **Version 2.6.2** (released Aug 29, 2018).  Duplicate sentences or terms are no longer produced in windows by deduction rules.

@@ -153,7 +153,6 @@ Exercise {
 	Law law;      // the law the exercise seeks to prove
 	Law newLaws[]; // the laws unlocked when starting exercise
 	Exercise newExercises[]; // the exercises unlocked when completing exercise
-	bool hasButton; // whether there is a button for this exercise already
 	string notes; // the notes for the exercise, displayed on opening
 	bool revealFormulaWindow;  // do we unlock the formula window?
 	bool revealTermWindow;  // do we unlock the term window?
@@ -240,4 +239,4 @@ exerciseButton extends button {
 	bool solved;  // has the exercise been solved yet?
 	bool enabled;  // is the button eabled yet?
 	String sectionTitle; // what is the title of the section the button is in?
-
+}
