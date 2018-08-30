@@ -1389,7 +1389,10 @@ function Exercise(shortName, lawName, givens, conclusion) {
     this.shortName = shortName;
     this.name = "EXERCISE " + this.shortName;
 
-	if (lawName instanceof Law)  {  // allow for an exercise to prove a law that was already constructed (this is needed for Exercise 18.2(b)).  In this case givens and conclusion are irrelevant and can be set for instance to null.
+	if (lawName instanceof Law)  {
+		// Allow for an exercise to prove a law that was already constructed
+		// (this is needed for Exercise 18.2(b)).  In this case givens and
+		// conclusion are irrelevant and can be set for instance to null.
 		this.law = lawName;
 	}
 	else {
