@@ -53,6 +53,10 @@ var laws = [
     ["Reflexivity",                 [alpha],                                    equals(alpha,alpha)],
     ["UniversalIntroduction",       [assuming(Px,x),toTerm(X)],                 forAll(PX,X)],
     ["UniversalIntroduction2",      [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X)],
+    // TODO: is it necessary for this law's shortName to match the shortName
+    //  of the Exercise it is used to construct?  If not, it can be given
+    //  a more natural shortName like UniversalRenamingBoundVar.
+    ["18.1",                        [forAll(PX,X)],                             forAll(PY,Y)],
     ["UniversalSpecification",      [forAll(PX,X), alpha],                      Pa],
     ["UniversalSpecification2",     [forAll(PX,X), toTerm(x)],                  assuming(Px,x)],
     ["ExistentialInstantiation",    [thereExists(PX,X), toTerm(x)],             assuming(Px, settingAssumption(Px,x))],
@@ -66,7 +70,11 @@ laws.forEach( function( data ) {
     var shortName = data[0];
     var givens = data[1];
     var conclusion = data[2];
-    var div = getElement("law-" + shortName);
+    var id = "law-" + shortName;
+    var div = getElement(id);
+    if (div === null) {
+        throw new Error("html element not found with id: " + id);
+    }
     var name = div.innerHTML;
 
     new Law(shortName, name, givens, conclusion);
@@ -74,6 +82,7 @@ laws.forEach( function( data ) {
 
 var universalIntroduction     = lawsByShortName["UniversalIntroduction"];
 var universalIntroduction2    = lawsByShortName["UniversalIntroduction2"];
+var universalRenamingBoundVar = lawsByShortName["18.1"];
 var universalSpecification    = lawsByShortName["UniversalSpecification"];
 var universalSpecification2   = lawsByShortName["UniversalSpecification2"];
 var existentialInstantiation  = lawsByShortName["ExistentialInstantiation"];
@@ -308,7 +317,7 @@ new Exercise("17.2", "", [formulaContext(QXY)], IMPLIES(forAll(forAll(QXY,Y),X),
 
 newSection("18", "Universal specification");
 
-new Exercise("18.1", "RENAMING BOUND VARIABLE (universal)", [forAll(PX,X)], forAll(PY,Y));
+new Exercise("18.1", universalRenamingBoundVar, null, null);
 
 new Exercise("18.2(a)", "", [A, toTerm(X)], forAll(A,X));
 
@@ -454,7 +463,7 @@ exerciseList.forEach( function( exercise ) {
         {
             exercise.law.name = str;
 // need to assign name to the clone of law as well
-            if (exercise.law.clone != "") exercise.law.clone.name = exercise.law.name; 
+            if (exercise.law.clone != "") exercise.law.clone.name = exercise.law.name;
         }
     }
 
