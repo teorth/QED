@@ -75,20 +75,20 @@ function myprompt(message, defaultContent, callback) {
     ok.textContent = "Ok";
     prompt.appendChild(ok);
     document.body.appendChild(prompt);
-  
+
     function close() {
       document.body.removeChild(prompt);
     }
-  
+
     function apply() {
       callback(input.value);
     }
-  
+
     cancel.addEventListener("click", close);
     ok.addEventListener("click", close);
     ok.addEventListener("click", apply);
   }
-  
+
 function createEditStateButton() {
     var button = getElement("edit-state-button");
      button.onclick =  function() {
@@ -157,7 +157,7 @@ function createPrevExerciseButtons() {
             if (exerciseList[i] == exercise) {
                 num = i; break;
             }
-        
+
         if (num==0) return;
         var newExercise = exerciseList[num-1];
         setExercise(newExercise.button);
@@ -177,7 +177,7 @@ function createNextExerciseButtons() {
             if (exerciseList[i] == exercise) {
                 num = i; break;
             }
-        
+
         if (num==exerciseList.length-1) return;
         var newExercise = exerciseList[num+1];
         if (!newExercise.activated) return;
@@ -708,7 +708,7 @@ function createFormulaWindow() {
 
 function createTermWindow() {
     var box = getElement("term-window");
-    
+
     box.style.display = 'none';
     box.style.margin = "5px";
     box.style.padding = "0px 10px";
@@ -732,7 +732,7 @@ function createTermWindow() {
     boundButton.id = "bound-variable-button";
     div.appendChild(boundButton);
     boundButton.onclick = boundButtonClick;
-   
+
     return box;
 }
 
@@ -806,7 +806,7 @@ function createOperatorsWindow() {
     ul = document.createElement("UL");
     ul.id = "predicates-list";
     box.appendChild(ul);
- 
+
     div = document.createElement("DIV");
     div.appendChild(newHeading("Operators"));
     box.appendChild(div);
@@ -831,12 +831,12 @@ function checkForUnlocks() {
             revealTrueFalse = true;
         }
 
-        if (localStorage.getItem("term window") == "unlocked" || localStorage.getItem("term-window") == "unlocked") 
+        if (localStorage.getItem("term window") == "unlocked" || localStorage.getItem("term-window") == "unlocked")
             reveal("term-window", "<B>Terms</B> window");
-        
-        if (localStorage.getItem("operators window") == "unlocked" || localStorage.getItem("operators-window") == "unlocked") 
+
+        if (localStorage.getItem("operators window") == "unlocked" || localStorage.getItem("operators-window") == "unlocked")
             reveal("operators-window", "<B>Predicates<B> and <B>Operators</B> windows");
-        if (localStorage.getItem("bound variable button") == "unlocked" || localStorage.getItem("bound-variable-button") == "unlocked") 
+        if (localStorage.getItem("bound variable button") == "unlocked" || localStorage.getItem("bound-variable-button") == "unlocked")
             reveal("bound-variable-button", "New bound variable button");
 
 		allLaws.forEach( function( law ) {
@@ -844,10 +844,10 @@ function checkForUnlocks() {
             var str;
 
             str = localStorage.getItem("law " + law.name);
-            if (str != null) { 
+            if (str != null) {
                 unlock(law, str);
             }
-                
+
             // in current version, law is stored using short Name
 
             str = localStorage.getItem("law " + law.shortName);
@@ -1111,7 +1111,7 @@ function deduce(conclusion, justification, law) {
                 activateExerciseButton(item, false);
              });
 
-            if (completedOneExercise()) 
+            if (completedOneExercise())
                 alert('Congratulations, you solved your first exercise!  Now two more exercises will be unlocked, as well as the next section of the text.  (For subsequent exercises, we will notify you of an exercise being solved by changing the color of the exercise and its proof to either green or blue, depending on whether you found the shortest known proof or not.  We also add a QED symbol (standing for "quod erat demonstrandum", or "what was to be demonstrated") to the end of the proof.)');
 
             if (completedAllExercises()) {
