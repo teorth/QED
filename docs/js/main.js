@@ -16,69 +16,75 @@ createResetButton();
 createEditStateButton();
 document.body.setAttribute("onkeydown", "keydown(event)");
 
-var laws = [
-    ["LawConjunction1",             [A, B],                                     AND(A,B)],
-    ["LawConjunction2",             [AND(A,B)],                                 A],
-    ["LawConjunction3",             [AND(A,B)],                                 B],
-    ["LawDisjunction1",             [formulaContext(B), A],                     OR(A,B)],
-    ["LawDisjunction2",             [formulaContext(B), A],                     OR(B,A)],
-    ["LawAssumption",               [formulaContext(A)],                        assuming(A,A)],
-    ["And",                         [formulaContext(A), formulaContext(B)],     formulaContext(AND(A,B))],
-    ["Or",                          [formulaContext(A), formulaContext(B)],     formulaContext(OR(A,B))],
-    ["Implies",                     [formulaContext(A), formulaContext(B)],     formulaContext(IMPLIES(A,B))],
-    ["LawImplication",              [assuming(B,A), rootEnvironmentContext()],  IMPLIES(A,B)],
-    ["Push",                        [A, environmentContext([B])],               assuming(A,B)],
-    ["PushAlt",                     [A, formulaContext(B)],                     assuming(A,B)],
-    ["ModusPonens",                 [A, IMPLIES(A,B)],                          B],
-    ["CaseAnalysis",                [assuming(C,A), assuming(C,B)],             assuming(C,OR(A,B))],
-    ["Iff",                         [formulaContext(A), formulaContext(B)],     formulaContext(IFF(A,B))],
-    ["BiconditionalIntroduction",   [IMPLIES(A,B), IMPLIES(B,A)],               IFF(A,B)],
-    ["BiconditionalElimination1",   [IFF(A,B)],                                 IMPLIES(A,B)],
-    ["BiconditionalElimination2",   [IFF(A,B)],                                 IMPLIES(B,A)],
-    ["Not",                         [formulaContext(A)],                        formulaContext(NOT(A))],
-    ["caseElimination1",            [OR(A,B), NOT(A)],                          B],
-    ["caseElimination2",            [OR(A,B), NOT(B)],                          A],
-    ["ExcludedMiddle",              [formulaContext(A)],                        OR(A,NOT(A))],
-    ["True",                        [formulaContext(TRUE())],                   TRUE()],
-    ["False",                       [formulaContext(NOT(FALSE()))],             NOT(FALSE())],
-    ["False2",                      [formulaContext(FALSE())],                  NOT(FALSE())],
-    ["PushVar",                     [A, x],                                     assuming(A, x)],
-    ["forAll",                      [formulaContext(A), toTerm(X)],             formulaContext(forAll(A,X))],
-    ["thereExists",                 [formulaContext(A), toTerm(X)],             formulaContext(thereExists(A,X))],
-    ["PushSet",                     [A, settingAssumption(B,x)],                assuming(A, settingAssumption(B,x))],
-    ["Pull",                        [assuming(A, settingAssumption(B,x))],      A],
-    ["Pull2",                       [assuming(A, settingAssumption(B,x)),       rootEnvironmentContext()], A],
-    ["Existence",                   [TRUE(), X],                                thereExists(TRUE(),X)],
-    ["Existence2",                  [formulaContext(TRUE()), X],                thereExists(TRUE(),X)],
-    ["Reflexivity",                 [alpha],                                    equals(alpha,alpha)],
-    ["UniversalIntroduction",       [assuming(Px,x),toTerm(X)],                 forAll(PX,X)],
-    ["UniversalIntroduction2",      [assuming(Px,x), rootEnvironmentContext()], forAll(PX,X)],
+// A mapping from law shortName to the pair [givens, conclusion].
+var lawsData = {
+    "LawConjunction1":            [[A, B],                                     AND(A,B)],
+    "LawConjunction2":            [[AND(A,B)],                                 A],
+    "LawConjunction3":            [[AND(A,B)],                                 B],
+    "LawDisjunction1":            [[formulaContext(B), A],                     OR(A,B)],
+    "LawDisjunction2":            [[formulaContext(B), A],                     OR(B,A)],
+    "LawAssumption":              [[formulaContext(A)],                        assuming(A,A)],
+    "And":                        [[formulaContext(A), formulaContext(B)],     formulaContext(AND(A,B))],
+    "Or":                         [[formulaContext(A), formulaContext(B)],     formulaContext(OR(A,B))],
+    "Implies":                    [[formulaContext(A), formulaContext(B)],     formulaContext(IMPLIES(A,B))],
+    "LawImplication":             [[assuming(B,A), rootEnvironmentContext()],  IMPLIES(A,B)],
+    "Push":                       [[A, environmentContext([B])],               assuming(A,B)],
+    "PushAlt":                    [[A, formulaContext(B)],                     assuming(A,B)],
+    "ModusPonens":                [[A, IMPLIES(A,B)],                          B],
+    "CaseAnalysis":               [[assuming(C,A), assuming(C,B)],             assuming(C,OR(A,B))],
+    "Iff":                        [[formulaContext(A), formulaContext(B)],     formulaContext(IFF(A,B))],
+    "BiconditionalIntroduction":  [[IMPLIES(A,B), IMPLIES(B,A)],               IFF(A,B)],
+    "BiconditionalElimination1":  [[IFF(A,B)],                                 IMPLIES(A,B)],
+    "BiconditionalElimination2":  [[IFF(A,B)],                                 IMPLIES(B,A)],
+    "Not":                        [[formulaContext(A)],                        formulaContext(NOT(A))],
+    "caseElimination1":           [[OR(A,B), NOT(A)],                          B],
+    "caseElimination2":           [[OR(A,B), NOT(B)],                          A],
+    "ExcludedMiddle":             [[formulaContext(A)],                        OR(A,NOT(A))],
+    "True":                       [[formulaContext(TRUE())],                   TRUE()],
+    "False":                      [[formulaContext(NOT(FALSE()))],             NOT(FALSE())],
+    "False2":                     [[formulaContext(FALSE())],                  NOT(FALSE())],
+    "PushVar":                    [[A, x],                                     assuming(A, x)],
+    "forAll":                     [[formulaContext(A), toTerm(X)],             formulaContext(forAll(A,X))],
+    "thereExists":                [[formulaContext(A), toTerm(X)],             formulaContext(thereExists(A,X))],
+    "PushSet":                    [[A, settingAssumption(B,x)],                assuming(A, settingAssumption(B,x))],
+    "Pull":                       [[assuming(A, settingAssumption(B,x))],      A],
+    "Pull2":                      [[assuming(A, settingAssumption(B,x)),       rootEnvironmentContext()], A],
+    "Existence":                  [[TRUE(), X],                                thereExists(TRUE(),X)],
+    "Existence2":                 [[formulaContext(TRUE()), X],                thereExists(TRUE(),X)],
+    "Reflexivity":                [[alpha],                                    equals(alpha,alpha)],
+    "UniversalIntroduction":      [[assuming(Px,x),toTerm(X)],                 forAll(PX,X)],
+    "UniversalIntroduction2":     [[assuming(Px,x), rootEnvironmentContext()], forAll(PX,X)],
     // TODO: is it necessary for this law's shortName to match the shortName
     //  of the Exercise it is used to construct?  If not, it can be given
     //  a more natural shortName like UniversalRenamingBoundVar.
-    ["18.1",                        [forAll(PX,X)],                             forAll(PY,Y)],
-    ["UniversalSpecification",      [forAll(PX,X), alpha],                      Pa],
-    ["UniversalSpecification2",     [forAll(PX,X), toTerm(x)],                  assuming(Px,x)],
-    ["ExistentialInstantiation",    [thereExists(PX,X), toTerm(x)],             assuming(Px, settingAssumption(Px,x))],
-    ["ExistentialInstantiation2",   [thereExists(PX,X)],                        assuming(Px, settingAssumption(Px,x))],
-    ["ExistentialIntroduction",     [Pa, alpha],                                thereExists(PX,X)],
-    ["ExistentialIntroduction2",    [Pa, alpha, X],                             thereExists(PX,X)],
-    ["Indiscernability",            [Pa, equals(alpha,beta)],                   Pb],
-];
+    "18.1":                       [[forAll(PX,X)],                             forAll(PY,Y)],
+    "UniversalSpecification":     [[forAll(PX,X), alpha],                      Pa],
+    "UniversalSpecification2":    [[forAll(PX,X), toTerm(x)],                  assuming(Px,x)],
+    "ExistentialInstantiation":   [[thereExists(PX,X), toTerm(x)],             assuming(Px, settingAssumption(Px,x))],
+    "ExistentialInstantiation2":  [[thereExists(PX,X)],                        assuming(Px, settingAssumption(Px,x))],
+    "ExistentialIntroduction":    [[Pa, alpha],                                thereExists(PX,X)],
+    "ExistentialIntroduction2":   [[Pa, alpha, X],                             thereExists(PX,X)],
+    "Indiscernability":           [[Pa, equals(alpha,beta)],                   Pb],
+};
 
-laws.forEach( function( data ) {
-    var shortName = data[0];
-    var givens = data[1];
-    var conclusion = data[2];
-    var id = "law-" + shortName;
-    var div = getElement(id);
-    if (div === null) {
-        throw new Error("html element not found with id: " + id);
+var lawElements = getElement("lawContainer").children
+
+for (var i = 0; i < lawElements.length; i++) {
+    var div = lawElements[i];
+    var id = div.id;
+    // An example id is "law-LawConjunction1".
+    var shortName = id.split("-", 2)[1];
+    var lawName = div.innerHTML;
+
+    var pair = lawsData[shortName];
+    if (pair === null) {
+        throw new Error("shortName not found: " + shortName);
     }
-    var name = div.innerHTML;
 
-    new Law(shortName, name, givens, conclusion);
-});
+    var givens = pair[0];
+    var conclusion = pair[1];
+    new Law(shortName, lawName, givens, conclusion);
+}
 
 var universalIntroduction     = lawsByShortName["UniversalIntroduction"];
 var universalIntroduction2    = lawsByShortName["UniversalIntroduction2"];
