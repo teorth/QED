@@ -126,22 +126,23 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
     <div class="name"></div>
     <div class="notes">
         <UL>
-            <li>The <B>Root environment</B> window below contains all the statements that one already knows to be true for the given exercise (which, in this case, are <I>A</I> and <I>B</I>).  Initially this window will just contain the given hypotheses of the exercise.</li>
+            <li>The <B>Root environment</B> window below contains all the statements that one already knows to be true for the given exercise (which, in this case, are <I>A</I>, <I>B</I> and <I>C</I>).  Initially this window will just contain the given hypotheses of the exercise.</li>
             <li>Statements can be <A HREF="https://en.wikipedia.org/wiki/Atomic_formula" target="_blank">atomic formulas</A> such as <I>A</I>, <I>B</I>, and <I>C</I>, or compound formulas formed from the atomic formulas and logical connectives such as AND, OR, and NOT.  For instance, (<I>A</I> AND <I>B</I>) OR <I>C</I> is a compound formula, and thus a potential statement in one's argument.</li>
             <li>If one drags one statement to another, the <B>Available deductions</B> window below will show what conclusions one can draw from these statements using the available <A HREF="https://en.wikipedia.org/wiki/Rule_of_inference" target="_blank">deduction rules</A>; if any conclusions can be drawn, one can add them to the <B>Root environment</B> window by clicking on the button containing the conclusion.</li>
-            <li>For instance, to solve this level one drags the <I>B</I> statement onto the <I>A</I> statement (or vice versa), clicks on the button marked "<I>B</I> AND <I>A</I>" to add that statement to the <B>Root environment</B>, drags the new <I>B</I> AND <I>A</I> statement onto the <I>B</I> statement (or vice versa), and then clicks on the button containing the desired conclusion.</li>
-            <li>By opening the first exercise of Section 1 (Exercise 1.1), you unlocked the rule of <A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">conjunction introduction</A>.  This asserts that if a statement <I>A</I> is known, and the statement <I>B</I> is known, then one can deduce the compound statement <I>A</I> AND <I>B</I>.  This is the only rule one starts with, but more deductive rules will be unlocked whenever one begins a new section of the textbook.</li>
+            <li>For instance, to solve this level one drags the <I>A</I> statement onto the <I>B</I> statement (or vice versa), clicks on the button marked "<I>A</I> AND <I>B</I>" to add that statement to the <B>Root environment</B>, drags the new <I>A</I> AND <I>B</I> statement onto the <I>C</I> statement (or vice versa), and then clicks on the button containing the desired conclusion.</li>
+            <li>By opening the first exercise of Section 1 (Exercise 1.1), you unlocked the rule of <A HREF="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">conjunction introduction</A>.  This asserts that if a statement <I>A</I> is known, and the statement <I>B</I> is known, then one can deduce the compound statement <I>A</I> AND <I>B</I>.  This is the only rule one starts with, but more deductive rules will be unlocked whenever one begins a new section of the textbook.  The <B>Achievements</B> window will record all the unlocked laws.</li>
             <li>Progress is recorded in the <B>Achievements</B> and <B>Event log</B> windows below.  This progress will be saved between sessions (assuming your browser supports local storage), unless you reset this interactive text completely using the button at the bottom of the page.</li>
             <li>Your deductions will be recorded as a human-readable proof in the <B>Proof</B> window below.  This window is not absolutely necessary in order to play the game, but should help you understand and interpret the moves you are making.</li>
-            <li>The exercise is completed when you have managed to obtain the desired conclusion (in this case, (<I>B</I> AND <I>A</I>) AND <I>B</I>) in the <B>Root environment</B> window.  This will unlock further exercises and sections of the textbook, turning the exercise buttons from gray to yellow.</li>
+            <li>The exercise is completed when you have managed to obtain the desired conclusion (in this case, (<I>A</I> AND <I>B</I>) AND <I>C</I>) in the <B>Root environment</B> window.  This will unlock further exercises and sections of the textbook, turning the exercise buttons from gray to yellow.</li>
         </UL>
     </div>
     <ol class="proof">
-        <li><span><em>A</em>. <i>[given]</i></span></li>
-        <li><span><em>B</em>. <i>[given]</i></span></li>
-        <li><span>From <em>B</em>, <em>A</em>: deduce <em>B</em> AND <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
-        <li><span>From <em>B</em> AND <em>A</em>, <em>B</em>: deduce (<em>B</em> AND <em>A</em>) AND <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
-        <li><span>QED!</span></li>
+                <li><span><em>A</em>. <i>[given]</i></span></li>
+                <li><span><em>B</em>. <i>[given]</i></span></li>
+                <li><span><em>C</em>. <i>[given]</i></span></li>
+                <li><span>From <em>A</em>, <em>B</em>: deduce <em>A</em> AND <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+                <li><span>From <em>A</em> AND <em>B</em>, <em>C</em>: deduce (<em>A</em> AND <em>B</em>) AND <em>C</em>. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+                <li><span>QED!</span></li>
     </ol>
 </div>
 
@@ -150,8 +151,6 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
             <UL>
                 <li>It is permissible to drag a statement onto itself.</li>
-                <li><Q>Each problem that I solved became a rule, which served afterwards to solve other problems</Q> - <A HREF="https://en.wikiquote.org/wiki/Ren%C3%A9_Descartes" target="_blank">René Descartes</A>.  Each exercise solved in this text becomes a new deduction rule that you may use in subsequent exercises.  The <B>Achievements</B> window lists all the rules of inference one has available, either through being unlocked by opening the appropriate exercise, or by proving that rule as one of the exercises.</li>
-                <li>One can also use the numbers '1' through '9' as hotkeys for the available eductions (or the first 9 of them, at any rate).</li>
                 <LI>You can move forwards and backwards through the unlocked exercises using the "PREVIOUS EXERCISE" and "NEXT EXERCISE" buttons at the bottom of this page, or by using the '&lt;' and '&gt;' hotkeys.</LI>
             </UL>
         </div>
@@ -184,9 +183,8 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="notes">
             <UL>
                 <li>One can think of a deduction rule as a template in which the <A HREF="https://en.wikipedia.org/wiki/Atomic_formula" target="_blank">atomic formulas</A> of the deduction rule (such as <I>A</I> or <I>B</I>) can be replaced by compound formulas (e.g. "<I>A</I> AND <I>B</I>").  This can greatly increase the power of such laws.</li>
-                <li>There are no "wrong" moves in the QED game - every move you make is a valid deduction!  However, you may end up making "useless" moves - moves that are logically valid, but do not bring one closer to the desired conclusion.  If you are finding the deduction environment to be getting too cluttered, you can click on the exercise button (in this case, Exercise 2.2(a)) to start from the beginning; one can also press the "RESTART QUESTION" (or presses "r") at the bottom of the page.</li>
-                <li>One can also delete sentences by selecting them and then pressing the delete key, though one should caution that this may render the exercise unsolvable without a restart if a key hypothesis ends up being deleted.</li>
-                <li>Finally, one can also "UNDO" a deduction if one presses the "IMMEDIATE UNDO" button at the bottom of this page (or presses "u") immediately after making a deduction.  This feature is not available if the deduction solves the exercise, or if one has performed any action between the deduction and the undo.</li>
+                <li><Q>Each problem that I solved became a rule, which served afterwards to solve other problems</Q> - <A HREF="https://en.wikiquote.org/wiki/Ren%C3%A9_Descartes" target="_blank">René Descartes</A>.  Each exercise solved in this text becomes a new deduction rule that you may use in subsequent exercises.  The <B>Achievements</B> window lists all the rules of inference one has available, either through being unlocked by opening the appropriate exercise, or by proving that rule as one of the exercises.</li>
+                <li>One can also use the numbers '1' through '9' as hotkeys for the available eductions (or the first 9 of them, at any rate).</li>
             </UL>
         </div>
         <ol class="proof">
@@ -205,7 +203,12 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-2.2(b)" data-unlocked-by="2.1">
         <div class="name">AND IS <A HREF="https://en.wikipedia.org/wiki/Associative_property" target="_blank">ASSOCIATIVE</A> (right)</div>
         <div class="notes">
-            Thanks to Stijn Vanhee and Siddhartha Srivastava for supplying a short proof.
+                <UL>
+                        <li>There are no "wrong" moves in the QED game - every move you make is a valid deduction!  However, you may end up making "useless" moves - moves that are logically valid, but do not bring one closer to the desired conclusion.  If you are finding the deduction environment to be getting too cluttered, you can click on the exercise button (in this case, Exercise 2.2(b)) to start from the beginning; one can also press the "RESTART QUESTION" (or presses "r") at the bottom of the page.</li>
+                        <li>One can also delete sentences by selecting them and then pressing the delete key, though one should caution that this may render the exercise unsolvable without a restart if a key hypothesis ends up being deleted.</li>
+                        <li>Finally, one can also "UNDO" a deduction if one presses the "IMMEDIATE UNDO" button at the bottom of this page (or presses "u") immediately after making a deduction.  This feature is not available if the deduction solves the exercise, or if one has performed any action between the deduction and the undo.</li>
+                        <LI>Thanks to Stijn Vanhee and Siddhartha Srivastava for supplying a short proof.</LI>
+                </UL>
         </div>
         <ol class="proof">
             <li><span><em>A</em> AND (<em>B</em> AND <em>C</em>). <i>[given]</i></span></li>

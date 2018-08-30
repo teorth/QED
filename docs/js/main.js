@@ -100,7 +100,7 @@ var indiscernability          = lawsByShortName["Indiscernability"];
 
 // A mapping from exercise shortName to the pair [givens, conclusion].
 var exerciseData = {
-    "1.1": [[A, B], AND(AND(B,A),B)],
+    "1.1": [[A, B, C], AND(AND(A,B),C)],
     "1.2": [[A], AND(A,A)],
     "2.1": [[AND(A,B)], AND(B,A)],
     "2.2(a)": [[AND(AND(A,B),C)], AND(A,AND(B,C))],
