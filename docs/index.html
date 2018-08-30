@@ -59,7 +59,7 @@
 
 <p></p>
 <H4 id="version-header"> This is
-  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.7.3</a>.
+  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.7.4</a>.
 </H4>
 
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
@@ -1506,7 +1506,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>For now, we focus on the type of variable known as <A HREF="https://en.wikipedia.org/wiki/Free_variables_and_bound_variables" target="_blank">free variables</A>.</li>
                     <li>A free variable can take any value within a given <A HREF="https://en.wikipedia.org/wiki/Domain_of_discourse" target="_blank">domain of discourse</A>.  The precise domain of discourse used is important when applying first-order logic to mathematical situations; for instance, if one is doing number theory, the domain of discourse might be the real numbers, while if one is doing group theory, domain of discourse might be the collection of elements of the group.  For more complicated mathematics, the domain of discourse may be the <A HREF="https://en.wikipedia.org/wiki/Universe_(mathematics)" target="_blank">universe of sets</A>.  However the rules of first-order logic do not care exactly what this domain is, so we will usually leave the domain unspecified.</li>
                     <li>In previous sections, we created sub-environments of the <B>Root environment</B> in which certain sentences were assumed to be true.  In first-order logic, one can also create sub-environments in which new free variables are introduced and allowed to range freely in the domain of discourse.  Any statement in such a sub-environment is known to be true for all values of this variable.</li> <li>All the usual laws of propositional logic apply within such sub-environments, with one new wrinkle: if one wants to use a sentence such as <I>P(x)</I> that depends on a variable <I>x</I>, one can only do so inside an environment in which that variable has been introduced.  For instance, <I>P(x)</I> cannot be directly used in the <B>Root environment</B>, but can be used in a sub-environment where <I>x</I> is arbitrary.  (Try dragging <I>P(x)</I> or <I>Q(x)</I> to various environments to see what happens!)</li>
-                    <li><B>Technical note</B>: matching has not been automatically implemented on exercises containing terms such as <I>P(x)</I> that involve variables.  As such, once one completes exercises in this section and later ones, it may not necessarily be possible to apply these exercises the same way as for preceding exercises.  I hope to implement this functionality in the future.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented (thus, this exercise will not appear in subsequent available deductions).  I hope to implement this functionality in the future.  Many further exercises will also have matching not implemented.</li>
                 </UL>
         </div>
         <ol class="proof">
@@ -1526,6 +1526,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>We already know that a sentence (such as <I>A</I>) can be pushed into a sub-environment in which an additional statement (such as <I>B</I>) is assumed.</li>
                     <li>Similarly, we may push a sentence into a sub-environment in which an additional free variable (such as <I>x</I>) is introduced.</li>
                     <li>By invoking the push law in this fashion, we may end up with statements that do not depend on all of the ambient free variables, but this is perfectly acceptable in first-order logic. (However, as mentioned previously, in any given environment, it is not permitted to work with sentences that depend on free variables that have not been introduced into that environment.)</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
                 </UL>
         </div>
         <ol class="proof">
@@ -1586,6 +1587,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>To do this, drag a free variable from the (now unlocked) <B>Terms</B> window to the target environment (or, if one wants to start from the root environment, one can just click on a free variable).</li>
                     <li>If all the free variables in the <B>Terms</B> window are already in use, you can click on the "New free variable" button to create a further free variable.</li>
                     <li>Later, we will introduce some other types of terms than free variables, namely bound variables, primitive terms, and operators applied to other terms. But for now, the <B>Terms</B> window will only be occupied by free variables.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
                 </UL>
         </div>
         <ol class="proof">
@@ -1613,6 +1615,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>To use the law of universal introduction, either drag a statement (in which some free variable is arbitrary) to a bound variable in the <B>Terms</B> window, or drag it to the parent environment.</li>
                     <li>In the former case, the bound variable selected will be used to perform universal quantification.  In the latter case, the text will pick the next available bound variable.</li>
                     <li>As with free variables, a button is now provided to produce additional bound variables, should this prove necessary.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
                 </UL>
         </div>
         <ol class="proof">
@@ -1629,6 +1632,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>To create a formula of the form "FOR ALL <I>X</I>: <I>P(X)</I>", create the formula "<I>P(X)</I>" and drag it to the bound variable <I>X</I> (or vice versa).</li>
                     <li>As previously noted, we allow the <B>Formulas</B> window to contain formulas such as <I>Q(X,Y)</I> that contain unquantified bound variables.  As such, these formulas cannot be <I>directly</I> used in an environment window; however, after enclosing such formulas in quantifiers to bound all the bound variables, it becomes legal to use them in those windows.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
                 </UL>
         </div>
         <ol class="proof">
@@ -1648,6 +1652,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>The law of universal specification can fail if one permits <I>&alpha;</I> to contain bound variables.  For instance, using the natural numbers as the domain of discourse, the sentence "FOR ALL <I>X</I>: THERE EXISTS <I>Y</I>: <I>Y</I>=<I>X</I>+1" is true (every natural number has a successor), but one cannot specify <I>X</I> to equal <I>Y</I> to conclude the (incorrect) statement THERE EXISTS <I>Y</I>: <I>Y</I>=<I>Y</I>+1.  However, if <I>y</I> is an ambient free variable in the current environment, one may specify <I>X</I> to equal <I>y</I> and conclude THERE EXISTS <I>Y</I>: <I>Y</I>=<I>y</I>+1.</li>
                     <li>To use the law of universal specification, drag a sentence of the form FOR ALL <I>X</I>: <I>P(X)</I> to a term <I>&alpha;</I> or vice versa.</li>
                     <li>Note that currently the law does not work in the <B>Root environment</B>, because the unquantified bound variables <I>X,Y</I> cannot be used in this environment; similarly for any further free and bound variables one creates.  How would one get around this problem?</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
                 </UL>
         </div>
         <ol class="proof">
@@ -1677,7 +1682,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         <div class="name"></div>
         <div class="notes">
                 <UL>
-                    <li>This exercise, which reverses the universal introduction law from Section 17, will be helpful in some later exercises. (As such, it has been added to the matching code by hand, even though matching for general rules involving predicates have not yet been implemented.)</li>
+                    <li>This exercise, which reverses the universal introduction law from Section 17, will be helpful in some later exercises. (As such, matching <I>has</I> been implemented for this exercise.)</li>
                     <li>To use it, drag a statement of the form FOR ALL <I>X</I>: <I>P(X)</I> onto a free variable term such as <I>x</I> (or vice versa).</li>
                 </UL>
         </div>
@@ -1700,6 +1705,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>The term <I>&alpha;</I> is an example of a <I>primitive term</I> - neither a free variable or a bound variable, but an object or quantity that one can use in one's arguments.</li>
                     <li>Primitive terms are to terms as atomic propositions such as <I>A</I>, <I>B</I>, <I>C</I> are to propositions.  To avoid confusion with other objects in first-order logic, we will use Greek letters such as <I>&alpha;</I>, <I>&beta;</I>, <I>&gamma;</I> to refer to primitive terms (or more generally to terms that are not required to be free or bound variables).</li>
                     <li>Most of the other classical syllogisms will be treated in Section 22.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
                 </UL>
         </div>
         <ol class="proof">
@@ -1718,6 +1724,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>There is another, more classical, form of the Barbara syllogism, a typical example of which is "All men are mortal.  All Greeks are men.  Hence, all Greeks are mortal".</li>
                     <li>Again, we can model this in first-order logic as before, where now <I>R(X)</I> denotes the statement "<I>X</I> is Greek".</li>
                     <li>We will present the other classical syllogisms of Aristotlean logic later in this text.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
                 </UL>
         </div>
         <ol class="proof">
@@ -1734,7 +1741,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-18.4" data-unlocked-by="18.1">
         <div class="name">FOR ALL IS <A HREF="https://en.wikipedia.org/wiki/Commutative_property" target="_blank">COMMUTATIVE</A></div>
         <div class="notes">
-                Thanks to Anders Kaseorg for the short proof.
+                <UL>
+                        <LI>Thanks to Anders Kaseorg for the short proof.</LI>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
+                </UL>
         </div>
         <ol class="proof">
                 <li><span>FOR ALL <i>X</i>: (FOR ALL <i>Y</i>: <i>Q</i>(<i>X</i>, <i>Y</i>)). <i>[given]</i></span></li>
@@ -1751,7 +1761,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-18.5" data-unlocked-by="18.1">
         <div class="name">AND COMMUTES WITH FOR ALL</div>
         <div class="notes">
-                Thanks to Elliot Parlin, Keith Winstein, and Andrew Lei for a (relatively) short proof (which has since been shortened further using some additional helper exercises.)
+                <UL>
+                        <LI>Thanks to Elliot Parlin, Keith Winstein, and Andrew Lei for a (relatively) short proof (which has since been shortened further using some additional helper exercises.)</LI>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </UL>
         </div>
         <ol class="proof">
                 <li><span>Deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)) [assuming FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
@@ -1776,7 +1789,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-18.6" data-unlocked-by="18.1">
         <div class="name">IMPLIES COMMUTES WITH FOR ALL</div>
         <div class="notes">
-                Thanks to Gesse Roure for a short proof.
+                <UL>
+                        <li>Thanks to Gesse Roure for a short proof.</li>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </UL>
         </div>
         <ol class="proof">
                 <li><span>Deduce <em>A</em> IMPLIES (FOR ALL <i>X</i>: <i>P</i>(<i>X</i>)) [assuming <em>A</em> IMPLIES (FOR ALL <i>X</i>: <i>P</i>(<i>X</i>))]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
@@ -1808,6 +1824,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>In this text, this is depicted by a subenvironment entitled <B>Set <i>x</I> s.t. <I>P(x)</I></B>.  This is an environment similar to an environment introducing a free variable, but now the variable <I>x</I> is not free to range throughout the domain of discourse, but instead has to obey <I>P(x)</I>.</li>
             <li>The PUSH law extends to these environments also, by the usual mechanism of dragging a statement into the environment where <I>x</I> is set.</li>
                     <li>To use the existential instantiation law, drag a statement of the form THERE EXISTS <I>X</I>: <I>P(X)</I> to a free variable.  One can also simply click on the law, and the text will try to locate an available free variable to use.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -1946,6 +1963,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                      <li>If one wants to specify the bound variable as well, drag the sentence <I>P</I>(&alpha;) onto the term &alpha; and then CTRL-click on the bound variable <I>X</I> (or one can click on <I>P</I>(&alpha;) and then CTRL-click on both &alpha; and <I>X</I>.</li>
                      <li>Important note: dragging <I>P</I>(&alpha;) onto a bound variable <I>X</I> will <I>not</I> trigger this law (because this does not specify what the term <I>&alpha;</I> is that one is using to introduce the existential quantifier).</li>
                      <li>Note that if the expression <I>P</I>(&alpha;) contains multiple copies of &alpha;, then there will be multiple options for <I>P(X)</I>, as one is permitted to change zero, one or more of the &alpha; into a copy of <I>X</I>.  This can lead to a rather large number of possible ways to use the law of existential introduction if the statement <I>P</I>(&alpha;) contains many copies of &alpha;!</li>
+                     <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </ul>
         </div>
         <ol class="proof">
@@ -1962,6 +1980,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>This exercise will require the use of the law of existence, or a consequence of that law such as the "pull" law for arbitrary variables.</li>
                     <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -1976,7 +1995,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.3(a)" data-unlocked-by="22.1">
         <div class="name">DE MORGAN'S LAW FOR QUANTIFIERS I</div>
         <div class="notes">
-                The formula <I>P(x)</I> provided in the hypotheses will end up being useful during the proof.
+                <UL>
+                        <LI>The formula <I>P(x)</I> provided in the hypotheses will end up being useful during the proof.</LI>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </UL>
         </div>
         <ol class="proof">
                 <li><span>Deduce NOT (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) [assuming NOT (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>))]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
@@ -2003,7 +2025,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.3(b)" data-unlocked-by="22.1">
         <div class="name">DE MORGAN'S LAW FOR QUANTIFIERS II</div>
         <div class="notes">
-                This one is rather tough; you may have to think in terms of double negatives.
+                <UL>
+                        <LI>This one is rather tough; you may have to think in terms of double negatives.</LI>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </UL>
         </div>
         <ol class="proof">
                 <li><span>Deduce NOT (FOR ALL <i>X</i>: <i>P</i>(<i>X</i>)) [assuming NOT (FOR ALL <i>X</i>: <i>P</i>(<i>X</i>))]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
@@ -2036,6 +2061,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Celarent syllogism</A> is "No reptiles have fur.  All snakes are reptiles.  Hence, no snakes have fur."</li>
                     <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2057,7 +2083,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.4(b)" data-unlocked-by="22.1">
         <div class="name">DARII SYLLOGISM</div>
         <div class="notes">
-                An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Darii syllogism</A> is "All rabbits have fur.  Some pets are rabbits.  Hence, some pets have fur.".
+                <UL>
+                        <LI>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Darii syllogism</A> is "All rabbits have fur.  Some pets are rabbits.  Hence, some pets have fur.".</LI>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </UL>
         </div>
         <ol class="proof">
                 <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)). <i>[given]</i></span></li>
@@ -2078,6 +2107,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Ferioque syllogism</A> is "No homework is fun. Some reading is homework.  Hence, some reading is not fun.".</li>
                     <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2105,6 +2135,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Baroco syllogism</A> is "All informative things are useful. Some websites are not useful.  Hence, some websites are not informative.".</li>
                     <li>Thanks to Anders Kaseorg for a shorter proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2129,6 +2160,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Bocardo syllogism</A> is "Some cats have no tails.  All cats are mammals.  Hence, some mammals have no tails.".</li>
                     <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2146,9 +2178,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.5(a)" data-unlocked-by="22.1">
         <div class="name">BARBARI SYLLOGISM</div>
         <div class="notes">
-                <UL>
+                <UL>a
                     <li>In contrast to the syllogisms in Exercise 22.4, these syllogisms require a third assumption, namely the existence of some class of object. As such, they are sometimes not considered to be genuine syllogisms in the classical sense by some authors.</li>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Barbari syllogism</A> is "All men are mortal.  All Greeks are men.  Greeks exist.  Hence, some Greeks are mortal."</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2172,7 +2205,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.5(b)" data-unlocked-by="22.1">
         <div class="name">CELARONT SYLLOGISM</div>
         <div class="notes">
-                An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Celaront syllogism</A> is "No reptiles have fur.  All snakes are reptiles.  Snakes exist. Hence, some snakes have no fur."
+                <ul>
+                        <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Celaront syllogism</A> is "No reptiles have fur.  All snakes are reptiles.  Snakes exist. Hence, some snakes have no fur."</li>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
+                </ul>
         </div>
         <ol class="proof">
                 <li><span>NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
@@ -2201,6 +2237,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Camestros syllogism</A> is "All horses have hooves. No humans have hooves.  Humans exist.  Hence, some humans are not horses."</li>
                     <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2226,7 +2263,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.5(d)" data-unlocked-by="22.1">
         <div class="name">FELAPTON SYLLOGISM</div>
         <div class="notes">
-                An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Felapton syllogism</A> is "No flowers are animals. All flowers are plants.  Flowers exist.  Hence, some plants are not animals."
+                <ul>
+                        <LI>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Felapton syllogism</A> is "No flowers are animals. All flowers are plants.  Flowers exist.  Hence, some plants are not animals."</LI>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </ul>                
         </div>
         <ol class="proof">
                 <li><span>NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
@@ -2252,7 +2292,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.5(e)" data-unlocked-by="22.1">
         <div class="name">DARAPTI SYLLOGISM</div>
         <div class="notes">
-                An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Darapti syllogism</A> is "All squares are rectangles.  All squares are rhombi.  Squares exist.  Hence, some rhombi are rectangles."
+                <ul>
+                        <LI>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Darapti syllogism</A> is "All squares are rectangles.  All squares are rhombi.  Squares exist.  Hence, some rhombi are rectangles."</LI>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </ul>
         </div>
         <ol class="proof">
                 <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)). <i>[given]</i></span></li>
@@ -2275,7 +2318,10 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.6(a)" data-unlocked-by="22.1">
         <div class="name">THERE EXISTS IS COMMUTATIVE</div>
         <div class="notes">
-                In this exercise you may need to use the law of existential instantiation with a specific choice of bound variable (rather than let the text choose the first available bound variable).  In order to do so, one needs to click on the original statement <I>P(&alpha;)</I>, then CTRL-click on the term <I>&alpha;</I>, then CTRL-click on the bound variable.  (Alternatively, one can drag the statement to the term and then CTRL-click on the bound variable.)
+               <ul>
+                       <LI>In this exercise you may need to use the law of existential instantiation with a specific choice of bound variable (rather than let the text choose the first available bound variable).  In order to do so, one needs to click on the original statement <I>P(&alpha;)</I>, then CTRL-click on the term <I>&alpha;</I>, then CTRL-click on the bound variable.  (Alternatively, one can drag the statement to the term and then CTRL-click on the bound variable.)</LI>
+                       <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+               </ul> 
         </div>
         <ol class="proof">
                 <li><span>THERE EXISTS <i>Y</i>: (THERE EXISTS <i>X</i>: <i>Q</i>(<i>X</i>, <i>Y</i>)). <i>[given]</i></span></li>
@@ -2294,6 +2340,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>This exercise cannot be reversed.  For instance, using the natural numbers as the domain of discourse, the statement "FOR ALL X: THERE EXISTS Y: Y>X" is true (every number has another number larger than it), but the statement "THERE EXISTS Y: FOR ALL X: Y>X" is false (there is no number that is larger than every number).</li>
                     <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2310,6 +2357,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-22.7" data-unlocked-by="22.1">
         <div class="name"></div>
         <div class="notes">
+                <ul>
+                        <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </ul>
         </div>
         <ol class="proof">
                 <li><span>Deduce (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) AND (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>)) [assuming (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) AND (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>))]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
@@ -2346,6 +2396,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>The exercise here is a translation of that puzzle to first-order logic - can you see how?</li>
                     <li>The solution of this exercise would be significantly shorter if it were possible to use previous syllogism exercises here.  Unfortunately, a matching algorithm for these syllogisms has not yet been implemented.  Perhaps this will be done in a future version of the text.</li>
                     <li>Thanks to Anders Kaseorg for a short proof, and Opax for an even shorter proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2375,6 +2426,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>The <B>Predicates</B> window contains all the predicates that appear in the exercise.  Predicates can be take one or more arguments, indicated here by em-dashes &mdash;.</li>
                     <li>A few exercises from now, we will also introduce operators, which are similar to predicates and which will appear in the <B>Operators</B> window.</li>
                     <li>If one drags a term to each argument of a predicate, one creates a formula in the <B>Formulas</B> window (and the arguments of the predicate are then reset to em-dashes).  For instance, to create the formula <I>Q(x,y)</I>, drag the term <I>x</I> to the first argument of <I>Q</I>(&mdash;,&mdash;), and drag the term <I>y</I> to the second argument.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2393,6 +2445,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>Some predicates are customarily written in between their arguments, rather than to the left of the arguments.  The most familiar examples of these are the comparison predicates &lt;, &gt;, &le;, &ge; and the equality relation =.</li>
                     <li>However, this difference is purely notational, and these predicates otherwise follow all the laws of first-order logic that predicates such as <I>Q</I>(&mdash;, &mdash;) do.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2415,6 +2468,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>Operators closely resemble predicates, except that a predicate produces formulas, whereas an operator produces terms.</li>
                     <li>As such, we place operators an <B>Operators</B> window similar to the <B>Predicates</B> window as predicates; the only difference is that the output of such operators goes into the <B>Terms</B> window rather than the <B>Formulas</B> window.</li>
                     <li>Note that compound terms such as <I>x+y</I> are not free variables or bound variables, and so cannot be used for those laws of first-order logic that require such variables.  However, they are still perfectly good terms for use in such laws as universal specification or existential introduction.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2435,6 +2489,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>It had a significant impact in set theory, showing that certain axioms of "<A HREF="https://en.wikipedia.org/wiki/Naive_set_theory" target="_blank">naive set theory</A>" were in fact inconsistent.  This eventually led to modern axiomatisations of set theory, such as <A HREF="https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory" target="_blank">Zermelo-Fraenkel-Choice (ZFC)</A></li>
                     <li>An informal version of the paradox involves a barber who shaves everyone who does not shave themselves.  Who shaves the barber?</li>
                     <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2458,6 +2513,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>If one takes the natural numbers as the domain of discourse, and interprets arithmetic symbols such as <I>&ge;</I>, <I>+</I>, <I>1</I> in the usual fashion, then this exercise is asking you to prove that there is no natural number that is greater than or equal to all natural numbers.  Your given information is that a natural number <I>X</I> is never greater than its successor <I>X+1</I>.</li>
                     <li>While one could solve this exercise by randomly trying various laws of deduction, it is better to use your mathematical intuition and think first about <i>why</i> the above assertion about natural numbers is true.  Once you figure out why, convert your reasoning into a formal proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2483,7 +2539,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>Equality obeys two fundamental laws.  The first is <A HREF="https://en.wikipedia.org/wiki/Reflexive_relation" target="_blank">reflexivity</A>: if <I>&alpha;</I> is a term, then the statement <I>&alpha;=&alpha;</I> is true (assuming of course that this statement is well-formed in the target environment.</li>
                     <li>The second law is the <A HREF="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">indiscernability of identicals</A> (also known as Leibniz's law): if one knows that <I>&alpha;=&beta;</I>, and one knows that <I>P(&alpha;)</I> is true, then one can conclude that <I>P(&beta;)</I> is also true.</li>
                     <li>To use the law of reflexivity, click on a term in the <B>Terms</B> window, or drag a term into a target environment.</li>
-                    <li>To use the indiscernability of identicals, drag an equation of the form <I>&alpha;=&beta;</I> to another statement in the same environment.</li>
+                        <li>To use the indiscernability of identicals, drag an equation of the form <I>&alpha;=&beta;</I> to another statement in the same environment.</li>
                     <li>As with the law of existential introduction, there can be multiple ways in which the indiscernability of identicals law can be applied to a given pair of statements.  However, the game removes the "trivial" deduction of concluding a statement from itself.</li>
                     <li>With these two laws of equality, the  the set of rules of deduction for first-order logic used in this text is now complete.  (But this is not the only such set of rules; there are other deductive systems for first-order logic that use a different set of rules, though they still end up proving the same set of statements.)</li>
                 </UL>
@@ -2514,6 +2570,9 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 <div class="exercise" id="EXERCISE-24.2" data-unlocked-by="24.1(a)">
         <div class="name">SUBSTITUTION</div>
         <div class="notes">
+                <UL>
+                                <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                </UL>
         </div>
         <ol class="proof">
                 <li><span>α <i>=</i> β. <i>[given]</i></span></li>
@@ -2529,6 +2588,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <UL>
                     <li>Now that all the laws of first-order logic are unlocked, it is now possible (in principle at least) to start proving statements in mathematics itself, rather than in logic.</li>
                     <li>We illustrate this with one of the first results in <A HREF="https://en.wikipedia.org/wiki/Group_theory" target="_blank">group theory</A>: if one has a left-identity <I>&alpha;</I> (so that <I>&alpha; * X = X</I> for all <I>X</I>) and a right-identity <I>&beta;</I> (so that <I>X * &beta; = X</I> for all <I>X</I>), then <I>&alpha;</I> and <I>&beta;</I> must be equal.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2551,6 +2611,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>The third is inverse: for every group element <I>X</I>, there is a group element <I>Y</I> such that <I>Y*X=1</I>.</li>
                     <li>This is a relatively easy exercise in group theory when written out in informal mathematical language, but turns out to be somewhat lengthy when one tries to formalise it in first-order logic.  More generally, first-order logic tends to be too "low-level" of a proof system to be convenient for advanced mathematics; most proofs in mathematics are instead written in a more "high-level" fashion, using less formal, but more expressive, sentences in English (or in other languages) in place of the very limited sentences available to first-order logic.</li>
                     <li>Thanks to Gesse Roure for a short proof, and Anders Kaseorg for a shorter proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2585,6 +2646,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>A <A HREF="https://en.wikipedia.org/wiki/Monoid" target="_blank">monoid</A> is like a group, but in which not every element <I>&alpha;</I> is invertible in the sense that there is an element <I>X</I> of the monoid for which <I>X * &alpha; = 1</I>.  A typical example of a monoid is the collection of <I>n &times; n</I> matrices with (say) real entries, for some fixed <I>n</I>.</li>
                     <li>This exercise asks to prove that if two elements <I>&alpha;, &beta;</I> are known to be invertible, then so is their product <I>&alpha; * &beta;</I>.</li> <li>The only monoid laws one is given here are the identity law <I>1 * X = X</I> and the associativity law <I>X * (Y * Z)=(X * Y) * Z</I>, valid for all monoid elements <I>X,Y,Z</I>.</li>
                     <li>As with the other exercises involving actual mathematical objects, one should first sketch out a proof using informal mathematical reasoning, and only then try transferring that proof to the first-order logic deductive system of this text.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
@@ -2624,6 +2686,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>The task here is to show that when one applies the inverse operation twice, one ends up where one started: <I>f(f(X)) = X</I>.</li>
                     <li><SPAN title="There is a certain product of three group elements that can be computed in two different ways.">To get a hint, hover over this sentence.</SPAN></li>
                     <li>Still stuck?  <SPAN title="Compute f(f(X))*f(X)*X.">Hover over this sentence.</SPAN></li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                  </UL>
         </div>
         <ol class="proof">
@@ -2665,6 +2728,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li><SPAN title="Use the laws of exponentiation provided to compute the expression (SQRT(2)^SQRT(2))^SQRT(2).">To get a hint, hover over this sentence.</SPAN></li>
                     <li>Still stuck? <SPAN title="You will have to divide into two cases, depending on whether SQRT(2)^SQRT(2) is rational or not.">Hover over this sentence.</SPAN></li>
                     <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
                 </UL>
         </div>
         <ol class="proof">
