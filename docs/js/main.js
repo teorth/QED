@@ -84,17 +84,6 @@ for (var i = 0; i < lawElements.length; i++) {
     new Law(shortName, lawName, givens, conclusion);
 }
 
-var universalIntroduction     = lawsByShortName["UniversalIntroduction"];
-var universalIntroduction2    = lawsByShortName["UniversalIntroduction2"];
-var universalRenamingBoundVar = lawsByShortName["UniversalRenamingBoundVar"];
-var universalSpecification    = lawsByShortName["UniversalSpecification"];
-var universalSpecification2   = lawsByShortName["UniversalSpecification2"];
-var existentialInstantiation  = lawsByShortName["ExistentialInstantiation"];
-var existentialInstantiation2 = lawsByShortName["ExistentialInstantiation2"];
-var existentialIntroduction   = lawsByShortName["ExistentialIntroduction"];
-var existentialIntroduction2  = lawsByShortName["ExistentialIntroduction2"];
-var indiscernability          = lawsByShortName["Indiscernability"];
-
 // A mapping from exercise shortName to the pair [givens, conclusion].
 var exerciseData = {
     "1.1": [[A, B, C], AND(AND(A,B),C)],
@@ -324,11 +313,11 @@ exerciseFromData("17.2", [formulaContext(QXY)], IMPLIES(forAll(forAll(QXY,Y),X),
 
 newSection("18", "Universal specification");
 
-new Exercise("18.1", universalRenamingBoundVar);
+new Exercise("18.1", lawsByShortName["UniversalRenamingBoundVar"]);
 
 exerciseFromData("18.2(a)", [A, toTerm(X)], forAll(A,X));
 
-new Exercise("18.2(b)", universalSpecification2);
+new Exercise("18.2(b)", lawsByShortName["UniversalSpecification2"]);
 
 exerciseFromData("18.3(a)", [forAll(IMPLIES(PX,QX),X), Pa], Qa);
 
