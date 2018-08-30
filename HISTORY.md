@@ -1,5 +1,8 @@
 # QED - Release History
 
+* **Version 2.7.2** (released Aug 29, 2018).  Change the Exercise constructor
+  to require a Law object.
+
 * **Version 2.7.1** (released Aug 29, 2018).  Remove support for passing a
   non-empty string lawName to the Exercise constructor.
 
