@@ -1385,9 +1385,13 @@ function appendConclusion(conclusion, justification, illegal, name, law) {
 
 // Exercise object
 
+function makeExerciseName(shortName) {
+    return "EXERCISE " + shortName;
+}
+
 function Exercise(shortName, lawName, givens, conclusion) {
     this.shortName = shortName;
-    this.name = "EXERCISE " + this.shortName;
+    this.name = makeExerciseName(shortName);
 
     if (lawName instanceof Law)  {
         // Allow for an exercise to prove a law that was already constructed
