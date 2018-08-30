@@ -1492,10 +1492,13 @@ function clickBox(box,event) {
         var assumptions = getElement("deductionDesc").assumptions;
         if (assumptions == undefined) assumptions = [];
         assumptions.push(toContext(box));
+        getElement("deductionDesc").box = box;
         makeMatches(assumptions);
     }
-    else
+    else {
+        getElement("deductionDesc").box = box;
         makeMatches([toContext(box)]);
+    }
 }
 
 
@@ -1638,6 +1641,20 @@ function keydown(event) {
                 return;
             }
         }
+    }
+
+    // delete selected item, if it is not the root environment
+
+    if (event.key == 'Delete') {
+        var assumptions = getElement("deductionDesc").assumptions;
+        if (assumptions.length != 1) return;
+        var box = getElement("deductionDesc").box;
+        if (box == getElement("root-environment")) {
+            notify("Cannot delete root environment.");
+            return;
+        }
+        getElement("undo-button").canUndo = false;  // can't undo a delete
+        box.remove();
     }
 
     var num = parseInt(event.key);

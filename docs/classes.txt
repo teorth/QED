@@ -222,6 +222,17 @@ sentenceBox extends box {
 	string type;  // "sentenceBox"
 }
 
+formulaBox extends box {
+	Sentence sentence;  // the ambient sentence;
+	string type;  // "formulaBox"
+}
+
+termBox extends box {
+	Term term;  // the ambient term;
+	string type;  // "termBox"
+}
+
+
 
 
 exerciseButton extends button {
