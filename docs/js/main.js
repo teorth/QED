@@ -10,6 +10,7 @@ createNotificationsBox();
 createOperatorsWindow();
 createUndoButton();
 createRestartButton();
+createUnsolveButton();
 createPrevExerciseButtons();
 createNextExerciseButtons();
 createResetButton();

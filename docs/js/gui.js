@@ -124,6 +124,36 @@ function createRestartButton() {
     return button;
 }
 
+function createUnsolveButton() {
+    var button = getElement("unsolve-button");
+     button.onclick =  function() {
+        var exButton = getElement("exercise").exerciseButton;
+        if (exButton == undefined)
+        {
+            notify("There is currently no exercise to reset.");
+            return;
+        }
+        if (!exButton.solved)
+        {
+            notify("This exercise has not yet been solved.");
+            return;
+        }
+        exButton.solved = false;
+
+        var exercise = exButton.exercise;
+        exercise.personalBest = 1000;
+
+        if (localStorage) {
+            localStorage.setItem(exercise.name, "unlocked");
+            localStorage.removeItem("lines " + exercise.name);
+            localStorage.removeItem("proof " + exercise.name);
+        }
+    
+        exButton.onclick();
+    };
+    return button;
+}
+
 function createUndoButton() {
     var button = getElement("undo-button");
     button.canUndo = false;   // whether undo is available

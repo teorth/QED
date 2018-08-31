@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.8.1** (released Aug 30, 2018).  New records for 22.4(cd).  "Unsolve exercise" button added to reset the solved status of an exercise (can be useful for legacy exercises which have been altered by version changes).
+
 * **Version 2.8** (released Aug 30, 2018).  Proxy matching implemented for several more exercises (including all of the syllogism ones).  This feature may not be completely bug-free.
 
 * **Version 2.7.6** (released Aug 30, 2018).  Proxy matching templates for laws implemented, allowing in particular for matching for laws 22.2 and 22.6(a).  More to follow shortly.
