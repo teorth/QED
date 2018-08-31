@@ -1220,7 +1220,6 @@ function newSection(section, name) {
     Object.keys(exerciseData).forEach( function(key) {
         if (key.indexOf(section + ".") == 0)
         {
-            debug("Exercise " + key);
             exerciseFromShortName(key);
         }
     });
