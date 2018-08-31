@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.7.5** (released Aug 30, 2018).  Exercises now loaded from an array, section by section.
+
 * **Version 2.7.4** (released Aug 30, 2018).  Made explicit the exercises for which matching is not currently implemented.
 
 * **Version 2.7.3** (released Aug 30, 2018).  New records for Exercise 9.5(c), 12.4(a), 22.4(abe), 24.7.  Exercise 1.1 changed to something more useful and less cluttering; text for first few exercises adjusted accordingly.

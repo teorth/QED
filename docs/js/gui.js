@@ -1214,6 +1214,16 @@ function newSection(section, name) {
     div.appendChild(span);
     div.appendChild(rightBox);
     box.appendChild(div);
+
+    // load all exercises starting with section
+
+    Object.keys(exerciseData).forEach( function(key) {
+        if (key.indexOf(section + ".") == 0)
+        {
+            debug("Exercise " + key);
+            exerciseFromShortName(key);
+        }
+    });
 }
 
 
@@ -1389,10 +1399,20 @@ function makeExerciseName(shortName) {
     return "EXERCISE " + shortName;
 }
 
-// Register an exercise from givens and conclusion.
-function exerciseFromData(shortName, givens, conclusion) {
-    var lawName = makeExerciseName(shortName);
-    var law = new Law(shortName, lawName, givens, conclusion);
+// Register an exercise from givens and conclusion, or from the shortname of an existing law
+
+function exerciseFromData(shortName, args) {
+    var law;
+
+// relying here on the fact that different input types have different length; probably not the most proper solution
+    switch(args.length) {
+        case 1:
+            law = lawsByShortName[args[0]];
+            break;
+        case 2: 
+            law = new Law(shortName, makeExerciseName(shortName), args[0], args[1]);
+            break;
+    }
 
     // We don't actually need to return the object.
     new Exercise(shortName, law);
