@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.8** (released Aug 30, 2018).  Proxy matching implemented for several more exercises (including all of the syllogism ones).  This feature may not be completely bug-free.
+
 * **Version 2.7.6** (released Aug 30, 2018).  Proxy matching templates for laws implemented, allowing in particular for matching for laws 22.2 and 22.6(a).  More to follow shortly.
 
 * **Version 2.7.5** (released Aug 30, 2018).  Exercises now loaded from an array, section by section.
