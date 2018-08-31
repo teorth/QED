@@ -438,7 +438,6 @@ function Law(shortName, name, givens, conclusion) {
     this.conclusion = toContext(conclusion);  // given conclusion
     this.unlocked = false;         // by default the law is not unlocked
     this.string = deductionString("Given", givens, this.conclusion);
-    this.desc = "<I>"+name+"</I>: " + this.string;
     this.index = allLaws.length;  // the order of the law in the text (used to determine circularity) - the allLaws.length is a placeholder, will be overwritten
     this.clone = "";  // points to the clone of the law with additional root environment, if needed
 

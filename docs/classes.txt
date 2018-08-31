@@ -101,7 +101,6 @@ Law {
 	Context conclusionTemplate; // conclusion template (used for matching)
 	bool unlocked;  // is it available for use?
 	string string; // name of law when invoked
-	string desc; // full name and description of law
 	int index; // index in the list of laws
 	Law clone; // in case one can add a root environment hypothesis
 }

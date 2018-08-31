@@ -1379,7 +1379,7 @@ function unlock(law, text) {
     if (law.unlocked) return;  // prevent duplicate unlocking
     law.unlocked = true;
     unlockedLaws.push(law);
-    achieve("<B>" + text + "</B> " + law.desc);
+    achieve("<B>" + text + "</B> " + "<I>"+ law.name+"</I>: " + law.string);
     if (localStorage)
         localStorage.setItem("law " + law.shortName, text);
 
