@@ -595,21 +595,21 @@ function setExercise(exerciseButton) {
 
 // add each primitive to the formula window
 
-    var primitives = listPrimitives(exercise.law, true, false, false, false,false,false,false);
+    var primitives = listPrimitives(exercise.law, true, false, false, false,false,false,false, false);
     primitives.forEach( function(name) {
         addContext(formulaContext(name));
     });
 
     // add each free and bound var and primitive term to the term window
 
-    var Vars = listPrimitives(exercise.law, false, true, true, true,false,false,false);
+    var Vars = listPrimitives(exercise.law, false, true, true, true,false,false,false, false);
     Vars.forEach( function(name) {
         addContext(termContext(name));
     });
 
 // add each predicate and operator to the operators window
 
-    var Predicates = listPrimitives(exercise.law, false,false,false,false,true,true,false);
+    var Predicates = listPrimitives(exercise.law, false,false,false,false,true,true,false, false);
     Predicates.forEach( function(name) {
         addPredicate(name);
     });
@@ -1196,6 +1196,14 @@ function createExerciseButton( exercise) {
     return button;
 }
 
+function exerciseFromShortName(shortName) {
+    var args = exerciseData[shortName];
+    if (!args) {
+        throw new Error("exercise shortName not found: " + shortName);
+    }
+    exerciseFromData(shortName, args);
+}
+
 function newSection(section, name) {
     var box = getElement("exercise-button-subbox");
     var div = document.createElement("DIV");
@@ -1411,6 +1419,20 @@ function exerciseFromData(shortName, args) {
         case 2: 
             law = new Law(shortName, makeExerciseName(shortName), args[0], args[1]);
             break;
+        case 4:  // in this case we also supply an alternate givens/conclusion pair as a matching template
+            law = new Law(shortName, makeExerciseName(shortName), args[0], args[1]);
+            law.givensTemplate = [];
+            args[2].forEach( function(given) {
+                law.givensTemplate.push(toContext(given));
+             });
+            law.conclusionTemplate = toContext(args[3]);
+            if (law.clone != "") {
+                var givensTemplateClone = law.givensTemplate.slice(0);
+                givensTemplateClone.push(rootEnvironmentContext());
+                law.clone.givensTemplate = givensTemplateClone;
+                law.clone.conclusionTemplate = law.conclusionTemplate;
+            }
+            break;
     }
 
     // We don't actually need to return the object.
@@ -1550,7 +1572,7 @@ function makeMatches(justification) {
 
         // collect: free variables, bound variables, primitive terms, atomic sentences
 
-        var primitives = listPrimitives(law, false, true, true, true,false,false,true);
+        var primitives = listPrimitives(law, false, true, true, true,false,false,true, true);
 
         var output = matchWithGivens( justification, law, primitives);
 

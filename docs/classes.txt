@@ -97,6 +97,8 @@ Law {
 	string name; // HTML name of law
 	Context givens[]; // hypotheses
 	Context conclusion; // conclusion
+	Context givensTemplate[];  // hypothesis template (used for matching)
+	Context conclusionTemplate; // conclusion template (used for matching)
 	bool unlocked;  // is it available for use?
 	string string; // name of law when invoked
 	string desc; // full name and description of law

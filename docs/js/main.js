@@ -163,7 +163,7 @@ for (var i = 0; i < lawElements.length; i++) {
     new Law(shortName, lawName, givens, conclusion);
 }
 
-// A mapping from exercise shortName to the pair [givens, conclusion].
+// A mapping from exercise shortName to the pair [givens, conclusion] (or to [shortname-of-existing-law]).
 var exerciseData = {
     "1.1":      [[A, B, C], AND(AND(A,B),C)],
     "1.2":      [[A], AND(A,A)],
@@ -276,7 +276,8 @@ var exerciseData = {
     "20.2":     [[assuming(assuming(A, settingAssumption(B,x)),settingAssumption(C,y)),rootEnvironmentContext()], A],
     "21.1":     [[assuming(A, x), rootEnvironmentContext()], A],
     "22.1":     [[Qaa], thereExists(AND(QaX,QXa),X)],
-    "22.2":     [[forAll(PX,X)], thereExists(PX,X)],    
+    "22.2":     [[forAll(PX,X)], thereExists(PX,X),
+                    [forAll(A,X)], thereExists(A,X)],    
     "22.3(a)":  [[formulaContext(PX), formulaContext(Px), X], IFF( NOT(thereExists(PX, X)), forAll(NOT(PX),X))],
     "22.3(b)":  [[formulaContext(PX), formulaContext(Px), X], IFF( NOT(forAll(PX, X)), thereExists(NOT(PX),X))],
     "22.4(a)":  [[NOT(thereExists(AND(PX,QX),X)), forAll(IMPLIES(RX,PX),X), formulaContext(Px), formulaContext(Qx), formulaContext(Rx)], NOT(thereExists(AND(RX,QX),X))],
@@ -289,7 +290,8 @@ var exerciseData = {
     "22.5(c)":  [[forAll(IMPLIES(PX,QX),X), NOT(thereExists(AND(RX,QX),X)), thereExists(RX,X), formulaContext(Px), formulaContext(Qx), formulaContext(Rx)], thereExists(AND(RX,NOT(PX)),X)],
     "22.5(d)":  [[NOT(thereExists(AND(PX,QX),X)), forAll(IMPLIES(PX,RX),X), thereExists(PX,X), formulaContext(Px), formulaContext(Qx), formulaContext(Rx)], thereExists(AND(RX, NOT(QX)),X)],
     "22.5(e)":  [[forAll(IMPLIES(PX,QX),X), forAll(IMPLIES(PX,RX),X), thereExists(PX,X)], thereExists(AND(RX, QX),X)],
-    "22.6(a)":  [[thereExists(thereExists(QXY,X),Y)], thereExists(thereExists(QXY,Y),X)],
+    "22.6(a)":  [[thereExists(thereExists(QXY,X),Y)], thereExists(thereExists(QXY,Y),X), 
+                    [thereExists(thereExists(A,X),Y)], thereExists(thereExists(A,Y),X)],
     "22.6(b)":  [[thereExists(forAll(QXY,X),Y)], forAll(thereExists(QXY,Y),X)],
     "22.7":     [[formulaContext(Px), formulaContext(Qy)], IFF( AND(thereExists(PX,X), thereExists(QY,Y)), thereExists(thereExists(AND(PX,QY),Y),X))],
     "22.8":     [[forAll(IMPLIES(PX,NOT(QX)),X), forAll(IMPLIES(NOT(QX),RX),X), NOT(thereExists(AND(RX,SX),X)), formulaContext(Px), formulaContext(Qx), formulaContext(Rx), formulaContext(Sx)], forAll(IMPLIES(PX, NOT(SX)),X)],
@@ -308,13 +310,7 @@ var exerciseData = {
     "24.7":     [[forAll(forAll(forAll(equals(power(power(X,Y),Z), power(X,multiply(Y,Z))),Z),Y),X), forAll(equals(multiply(sqrtX, sqrtX),X),X), forAll(equals(power(sqrtX,two),X),X), predicateSentence(R,[two]), NOT(predicateSentence(R,[sqrt2]))], thereExists(thereExists(AND(AND(NOT(RX),NOT(RY)), predicateSentence(R,[power(X,Y)])), Y), X)],        
 };
 
-function exerciseFromShortName(shortName) {
-    var args = exerciseData[shortName];
-    if (!args) {
-        throw new Error("exercise shortName not found: " + shortName);
-    }
-    exerciseFromData(shortName, args);
-}
+// the newSection commands automatically create the exercises whose name begins with that section.
 
 newSection("1", "Conjunction introduction");
 newSection("2", "Conjunction elimination");

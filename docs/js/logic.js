@@ -435,13 +435,16 @@ function Law(shortName, name, givens, conclusion) {
        givenslist.push(toContext(given));
     });
     this.givens = givenslist;
-
     this.conclusion = toContext(conclusion);  // given conclusion
     this.unlocked = false;         // by default the law is not unlocked
     this.string = deductionString("Given", givens, this.conclusion);
     this.desc = "<I>"+name+"</I>: " + this.string;
     this.index = allLaws.length;  // the order of the law in the text (used to determine circularity) - the allLaws.length is a placeholder, will be overwritten
     this.clone = "";  // points to the clone of the law with additional root environment, if needed
+
+// for most laws, the matching givens and conclusions template is the same as what is displayed to the user.  
+    this.givensTemplate = this.givens;
+    this.conclusionTemplate = this.conclusion;
 
     allLaws.push(this);
     lawsByShortName[shortName] = this;
@@ -481,16 +484,27 @@ function makeOptions(getPrimitives, getFreeVars, getBoundVars, getPrimTerms, get
 
 // list the (names of) atomic primitives, free variables, bound variables, primitive terms, predicates, operators occurring in a law
 
-function listPrimitives(law, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic) {
+function listPrimitives(law, getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic, useTemplate) {
     var list = [];
     var options = makeOptions(getPrimitives, getFreeVars, getBoundVars, getPrimTerms, getPredicates, getOperators, getAtomic);
 
-    law.givens.forEach( function(item) {
+    var givens;
+    var conclusion;
+
+    if (useTemplate) {
+        givens = law.givensTemplate;
+        conclusion = law.conclusionTemplate;
+    } else {
+        givens = law.givens;
+        conclusion = law.conclusion;
+    }
+
+    givens.forEach( function(item) {
         pushPrimitivesFromContext(list, toContext(item), options);
     });
 
 // usually the line below is redundant, as any primitives in conclusion should have already appeared in one of the givens, but there are some exceptions, e.g. universal introduction without specifying the bound variable
-    pushPrimitivesFromContext(list, law.conclusion, options);
+    pushPrimitivesFromContext(list, conclusion, options);
 
      return list;
 }
@@ -579,8 +593,9 @@ function allFormulas(givens) {
 
 function matchWithGivens( arglist, law, primitives ) {
 
-    var givens = law.givens;
-    var conclusion = law.conclusion;
+    // for matching, we use the template, rather than the givens and conclusion displayed to user (but these are usually the same)
+    var givens = law.givensTemplate;
+    var conclusion = law.conclusionTemplate;
 
     var output = new Object();
     output.matches = true;  // so far, no reason to doubt a match.
@@ -1230,6 +1245,15 @@ function matchWithGivenSentence( sentence, template, output) {
                     output.matches=false;
                     return;
             }
+            return;
+        case "free variable":
+        case "bound variable":
+            if (sentence.type != template.type) {
+                output.matches = false;
+                return;
+            }
+            makeMatch(sentence, template, output);
+            return;
     }
 }
 
@@ -1313,7 +1337,6 @@ function subs(template, output)
 {
     // TODO: in some laws there will be bound variables that are not currently set in output.  If so, they need to be set to first available bound variable
     // for now such laws will be coded in by hand.
-
 
     if (template.type == "formula") {
         return formulaContext(subsSentence(template.sentence, output));
