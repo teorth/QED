@@ -672,7 +672,8 @@ function matchWithGivens( arglist, law, primitives ) {
             matchIndiscernability(arglist, output, law);
             break;
         case "UniversalRenamingBoundVar":
-            matchUniversalRenamingBoundVar(arglist, output, law);
+        case "ExistentialRenamingBoundVar":
+            matchRenamingBoundVar(arglist, output, law);
             break;
         default:
             var i;
@@ -1074,8 +1075,8 @@ function matchExistentialInstantiation(arglist, output, law) {
     output.conclusion = sentenceContext( newSentence, env );
 }
 
-// match arglist against the law of universal renaming of bound variables and report the conclusions in output
-function matchUniversalRenamingBoundVar(arglist, output,law) {
+// match arglist against the law of universal or existential renaming of bound variables and report the conclusions in output
+function matchRenamingBoundVar(arglist, output,law) {
     if (!output.matches) return;
 
     // arglist[0] needs to be of the form "FOR ALL X: P(X)" after the output.env
@@ -1084,7 +1085,11 @@ function matchUniversalRenamingBoundVar(arglist, output,law) {
         return;
     }
 
-    if (arglist[0].sentence.type != "quantifier" || arglist[0].sentence.subtype != "for all") {
+    var subtype;
+    if (law.shortName == "UniversalRenamingBoundVar") subtype = "for all";
+    if (law.shortName == "ExistentialRenamingBoundVar") subtype = "there exists";
+
+    if (arglist[0].sentence.type != "quantifier" || arglist[0].sentence.subtype != subtype) {
         output.matches = false;
         return;
     }
@@ -1110,7 +1115,13 @@ function matchUniversalRenamingBoundVar(arglist, output,law) {
 
 
     var newSentence = searchReplace(sentence, boundVar, newBoundVar);
-    output.conclusion = sentenceContext( forAll( newSentence, newBoundVar), output.env);
+
+    if (law.shortName == "UniversalRenamingBoundVar") 
+        output.conclusion = sentenceContext( forAll( newSentence, newBoundVar), output.env);
+
+    if (law.shortName == "ExistentialRenamingBoundVar") 
+        output.conclusion = sentenceContext( thereExists( newSentence, newBoundVar), output.env);
+
 }
 
 

@@ -1,6 +1,6 @@
 # QED - Release History
 
-* **Version 2.8.3** (released Sep 1, 2018).  Matching created for Ex 18.1.  Code added to ensure legacy solved exercises still load all relevant laws.
+* **Version 2.8.3** (released Sep 1, 2018).  Matching created for Ex 18.1.  Code added to ensure legacy solved exercises still load all relevant laws.  Added an existential counterpart to Ex 18.1, Ex 22.6(c).
 
 * **Version 2.8.2** (released Aug 31, 2018).  New records for 22.3(b), 22.5(ab), 22.8.
 

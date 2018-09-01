@@ -113,6 +113,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <div class="law" id="law-UniversalIntroduction"><A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A></div>
                 <div class="law" id="law-UniversalIntroduction2"><A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A></div>
                 <div class="law" id="law-UniversalRenamingBoundVar">RENAMING BOUND VARIABLE (universal)</div>
+                <div class="law" id="law-ExistentialRenamingBoundVar">RENAMING BOUND VARIABLE (existential)</div>
                 <div class="law" id="law-UniversalSpecification"><A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</A></div>
                 <div class="law" id="law-UniversalSpecification2">REVERSE <A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A></div>
                 <div class="law" id="law-ExistentialInstantiation"><A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A></div>
@@ -2327,12 +2328,26 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
         </div>
         <ol class="proof">
                 <li><span>THERE EXISTS <i>Y</i>: (FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>Y</i>)). <i>[given]</i></span></li>
-            <li><span>From THERE EXISTS <i>Y</i>: (FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>Y</i>)): deduce FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
+                <li><span>From THERE EXISTS <i>Y</i>: (FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>Y</i>)): deduce FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
             <li><span>From FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>)]: deduce <i>Q</i>(<i>x</i>, <i>y</i>) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>), letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
             <li><span>From <i>Q</i>(<i>x</i>, <i>y</i>) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>), letting <i>x</i> be arbitrary]: deduce THERE EXISTS <i>Y</i>: <i>Q</i>(<i>x</i>, <i>Y</i>) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>), letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
             <li><span>From THERE EXISTS <i>Y</i>: <i>Q</i>(<i>x</i>, <i>Y</i>) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>), letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>X</i>, <i>Y</i>)) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
             <li><span>From FOR ALL <i>X</i>: (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>X</i>, <i>Y</i>)) [setting <i>y</i> s.t. FOR ALL <i>X</i>: <i>Q</i>(<i>X</i>, <i>y</i>)]: deduce FOR ALL <i>X</i>: (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>X</i>, <i>Y</i>)). <i>[PULL]</i></span></li>
             <li><span>QED!</span></li>
+        </ol>
+</div>
+
+<div class="exercise" id="EXERCISE-22.6(c)" data-unlocked-by="22.1">
+        <div class="name"></div>
+        <div class="notes">
+                This is the existential counterpart of Exercise 18.1.
+        </div>
+        <ol class="proof">
+                        <li><span>THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li>
+                        <li><span>From THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>): deduce <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
+                        <li><span>From <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>Y</i>: <i>P</i>(<i>Y</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
+                        <li><span>From THERE EXISTS <i>Y</i>: <i>P</i>(<i>Y</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>Y</i>: <i>P</i>(<i>Y</i>). <i>[PULL]</i></span></li>
+                        <li><span>QED!</span></li>
         </ol>
 </div>
 
