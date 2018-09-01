@@ -60,7 +60,7 @@
 
 <p></p>
 <H4 id="version-header"> This is
-  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.8.3</a>.
+  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.8.4</a>.
 </H4>
 
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
@@ -114,6 +114,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                 <div class="law" id="law-UniversalIntroduction2"><A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A></div>
                 <div class="law" id="law-UniversalRenamingBoundVar">RENAMING BOUND VARIABLE (universal)</div>
                 <div class="law" id="law-ExistentialRenamingBoundVar">RENAMING BOUND VARIABLE (existential)</div>
+                <div class="law" id="law-BarbaraSingular">BARBARA SYLLOGISM (singular form)</div>
                 <div class="law" id="law-UniversalSpecification"><A HREF="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</A></div>
                 <div class="law" id="law-UniversalSpecification2">REVERSE <A HREF="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</A></div>
                 <div class="law" id="law-ExistentialInstantiation"><A HREF="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</A></div>
@@ -1698,7 +1699,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
 </div>
 
 <div class="exercise" id="EXERCISE-18.3(a)" data-unlocked-by="18.1">
-        <div class="name">BARBARA SYLLOGISM (singular form)</div>
+        <div class="name"></div>
         <div class="notes">
                 <UL>
                     <li>The classical <A HREF="https://en.wikipedia.org/wiki/Syllogism" target="_blank">syllogisms</A> of <A HREF="https://en.wikipedia.org/wiki/Term_logic" target="_blank">Aristotlean logic</A> consisted of two premises (a major premise and a minor premise), and a conclusion that could be drawn from those premises.  These syllogisms can be interpreted using the more modern language of first-order logic.</li>
@@ -1707,7 +1708,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>The term <I>&alpha;</I> is an example of a <I>primitive term</I> - neither a free variable or a bound variable, but an object or quantity that one can use in one's arguments.</li>
                     <li>Primitive terms are to terms as atomic propositions such as <I>A</I>, <I>B</I>, <I>C</I> are to propositions.  To avoid confusion with other objects in first-order logic, we will use Greek letters such as <I>&alpha;</I>, <I>&beta;</I>, <I>&gamma;</I> to refer to primitive terms (or more generally to terms that are not required to be free or bound variables).</li>
                     <li>Most of the other classical syllogisms will be treated in Section 22.</li>
-                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
+                    <li>The presence of the term <I>&alpha;</I> in the hypotheses is not needed to solve the exercise, but affects how the exercise is invoked in subsequent applications.  Namely, to apply this exercise, one drags a sentence of the form FOR ALL <I>X</I>: <I>P(X)</I> IMPLIES <I>Q(X)</I> to a sentence of the form <I>P(&alpha;)</I>, and then CTRL-clicks on the term <I>&alpha;</I>.</LI>
                 </UL>
         </div>
         <ol class="proof">

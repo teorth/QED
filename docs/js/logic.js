@@ -675,6 +675,9 @@ function matchWithGivens( arglist, law, primitives ) {
         case "ExistentialRenamingBoundVar":
             matchRenamingBoundVar(arglist, output, law);
             break;
+        case "BarbaraSingular":
+            matchBarbaraSingular(arglist, output);
+            break;
         default:
             var i;
 
@@ -1079,7 +1082,7 @@ function matchExistentialInstantiation(arglist, output, law) {
 function matchRenamingBoundVar(arglist, output,law) {
     if (!output.matches) return;
 
-    // arglist[0] needs to be of the form "FOR ALL X: P(X)" after the output.env
+    // arglist[0] needs to be of the form "FOR ALL X: P(X)" or "THERE EXISTS X: P(X)" after the output.env
     if (arglist[0].type != "sentence in environment") {
         output.matches = false;
         return;
@@ -1122,6 +1125,68 @@ function matchRenamingBoundVar(arglist, output,law) {
     if (law.shortName == "ExistentialRenamingBoundVar") 
         output.conclusion = sentenceContext( thereExists( newSentence, newBoundVar), output.env);
 
+}
+
+
+// match arglist against the singular form of the Barbara syllogism and report the conclusions in output
+function matchBarbaraSingular(arglist, output) {
+    if (!output.matches) return;
+
+    // arglist[0] needs to be of the form "FOR ALL X: P(X) IMPLIES Q(X)" after the output.env
+    if (arglist[0].type != "sentence in environment") {
+        output.matches = false;
+        return;
+    }
+    if (arglist[0].sentence.type != "quantifier" || arglist[0].sentence.subtype != "for all") {
+        output.matches = false;
+        return;
+    }
+
+    var sentence = arglist[0].sentence.argList[0];
+    var X = arglist[0].sentence.argList[1];
+
+    if (sentence.type != "connective" || sentence.subtype != "IMPLIES") {
+        output.matches = false;
+        return;
+    }
+
+    var PX = sentence.argList[0];
+    var QX = sentence.argList[1];
+
+    // arglist[1] needs to be a sentence
+    
+    if (arglist[1].type != "sentence in environment") {
+        output.matches = false;
+        return;
+    }
+
+    var Pa = arglist[1].sentence;
+
+    // arglist[2] needs to be a term
+
+    if (arglist[2].type != "term context") {
+        output.matches = false;
+        return;
+    }
+
+    var alpha = arglist[2].term;
+
+// as with universalSpecification, alpha cannot contain bound variables or free variables not present in the environment.
+
+    if (hasBoundOrUnknownFree(alpha, output.env)) {
+        output.illegal = true; // will keep matching but will display in silver
+    }
+
+// Pa has to match what happens to PX when X is replaced by alpha
+
+    var testSentence = searchReplace(PX, X, alpha);
+    
+    if (testSentence.name != Pa.name) {
+        output.matches = false;
+        return;
+    }
+
+    output.conclusion = sentenceContext( searchReplace(QX, X, alpha), output.env);
 }
 
 
