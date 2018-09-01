@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.8.3** (released Sep 1, 2018).  Matching created for Ex 18.1.  Code added to ensure legacy solved exercises still load all relevant laws.
+
 * **Version 2.8.2** (released Aug 31, 2018).  New records for 22.3(b), 22.5(ab), 22.8.
 
 * **Version 2.8.1** (released Aug 30, 2018).  New records for 22.4(cd).  "Unsolve exercise" button added to reset the solved status of an exercise (can be useful for legacy exercises which have been altered by version changes).

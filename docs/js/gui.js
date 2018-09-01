@@ -874,6 +874,7 @@ function checkForUnlocks() {
             var str;
 
             str = localStorage.getItem("law " + law.name);
+            
             if (str != null) {
                 unlock(law, str);
             }
@@ -882,11 +883,24 @@ function checkForUnlocks() {
 
             str = localStorage.getItem("law " + law.shortName);
             if (str != null) {
-                unlock(law, localStorage.getItem("law " + law.shortName));
+                unlock(law, str);
             }
         });
 
   }
+
+// ensure legacy games from older versions still unlock solved exercises and the laws they in turn unlock
+  exerciseList.forEach( function(exercise) {
+    if (exercise.button.solved)
+        if (localStorage)
+        {
+            unlock(exercise.law, "PROVED");  
+            exercise.newLaws.forEach( function(item) {
+                unlock(item, "UNLOCKED");
+            });          
+        }
+  });
+
 }
 
 
@@ -1380,6 +1394,7 @@ function unlock(law, text) {
     law.unlocked = true;
     unlockedLaws.push(law);
     achieve("<B>" + text + "</B> " + "<I>"+ law.name+"</I>: " + law.string);
+    
     if (localStorage)
         localStorage.setItem("law " + law.shortName, text);
 
@@ -1517,12 +1532,11 @@ function Exercise(shortName, law) {
 
         if (str == "unlocked" || str == "solved") {
            activateExerciseButton(this, true);
-           if (str == "solved")
-           {
+           if (str == "solved") {
             this.solved = true;
             this.button.solved = true;
-            this.personalBest = localStorage.getItem("lines " + this.name);
-        }
+            this.personalBest = localStorage.getItem("lines " + this.name);        
+            }
         }
     }
 

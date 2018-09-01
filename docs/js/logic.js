@@ -651,7 +651,6 @@ function matchWithGivens( arglist, law, primitives ) {
     output.env = proposedEnv;
    }
 
-
     switch(law.shortName) { // a number of laws are too complex to be matched by the standard algorithm and have to be treated separately
         case "UniversalIntroduction":
         case "UniversalIntroduction2":
@@ -671,6 +670,9 @@ function matchWithGivens( arglist, law, primitives ) {
             break;
         case "Indiscernability":
             matchIndiscernability(arglist, output, law);
+            break;
+        case "UniversalRenamingBoundVar":
+            matchUniversalRenamingBoundVar(arglist, output, law);
             break;
         default:
             var i;
@@ -810,7 +812,7 @@ function matchUniversalSpecification(arglist, output, law) {
 
 }
 
-// returns true if term contains a bound variable
+// returns true if term contains a bound variable or a free variable not already in environment
 
 function hasBoundOrUnknownFree(term,env) {
     switch(term.subtype) {
@@ -1015,6 +1017,102 @@ function matchIndiscernability(arglist, output, law) {
         if (translations[i].name != sentence.name)  //remove trivial applications of indiscernability in which ibe deduces a sentence from itself
             output.conclusions.push(sentenceContext( translations[i], output.env ));
 }
+
+// match arglist against the law of existential instantiation and report the conclusions in output
+function matchExistentialInstantiation(arglist, output, law) {
+    if (!output.matches) return;
+
+    // arglist[0] needs to be of the form "THERE EXISTS X: P(X)" after the output.env
+    if (arglist[0].type != "sentence in environment") {
+        output.matches = false;
+        return;
+    }
+
+    if (arglist[0].sentence.type != "quantifier" || arglist[0].sentence.subtype != "there exists") {
+        output.matches = false;
+        return;
+    }
+
+    var sentence = arglist[0].sentence.argList[0];
+    var boundVar = toTerm(arglist[0].sentence.argList[1]).argList[0];
+
+    var freeVariable;
+
+    if (law.shortName == "ExistentialInstantiation") {
+        if (arglist[1].type != "term context") {
+            output.matches = false;
+            return;
+        }
+        if (arglist[1].term.subtype != "free variable") {
+            output.matches = false;
+            return;
+        }
+        freeVariable = arglist[1].term.argList[0];
+    } else  if (law.shortName == "ExistentialInstantiation2") {
+        // choose the next available free Variable
+        var freeVars = [];
+
+        pushPrimitivesFromContext(freeVars, sentenceContext(sentence,output.env), makeOptions(false, true, false, false, false, false, false));
+
+        var num=0;
+        var match;
+        var str, longStr;
+
+        do {
+            str = FreeVariableName(num);
+            longStr = "<I>"+str+"</I>";
+            match = freeVars.includes(longStr);
+            num++;
+        } while (match);
+
+        freeVariable = new FreeVariable(str);
+    }
+
+    var newSentence = searchReplace( sentence, boundVar, freeVariable );
+    var env = output.env.slice(0);
+    env.push( settingAssumption(newSentence, freeVariable) );
+    output.conclusion = sentenceContext( newSentence, env );
+}
+
+// match arglist against the law of universal renaming of bound variables and report the conclusions in output
+function matchUniversalRenamingBoundVar(arglist, output,law) {
+    if (!output.matches) return;
+
+    // arglist[0] needs to be of the form "FOR ALL X: P(X)" after the output.env
+    if (arglist[0].type != "sentence in environment") {
+        output.matches = false;
+        return;
+    }
+
+    if (arglist[0].sentence.type != "quantifier" || arglist[0].sentence.subtype != "for all") {
+        output.matches = false;
+        return;
+    }
+
+    var sentence = arglist[0].sentence.argList[0];
+    var boundVar = arglist[0].sentence.argList[1];
+
+    // arglist[1] needs to be a bound variable
+    
+    if (arglist[1].type != "term context") {
+        output.matches = false;
+        return;
+    }
+
+    if (arglist[1].term.subtype != "bound variable") {
+        output.matches = false;
+        return;
+    }
+
+    var newBoundVar = arglist[1].term.argList[0];
+
+    // it can happen that newBoundVar already appears in sentence; this makes the conclusion illegal, but we will still list the deduction as being greyed out
+
+
+    var newSentence = searchReplace(sentence, boundVar, newBoundVar);
+    output.conclusion = sentenceContext( forAll( newSentence, newBoundVar), output.env);
+}
+
 
 // return a list of all possible ways in which appearances of "search" in sentence can be replaced with "replace"
 

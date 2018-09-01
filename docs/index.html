@@ -1653,7 +1653,7 @@ Further discussion of this text may be found at <A HREF="https://terrytao.wordpr
                     <li>The law of universal specification can fail if one permits <I>&alpha;</I> to contain bound variables.  For instance, using the natural numbers as the domain of discourse, the sentence "FOR ALL <I>X</I>: THERE EXISTS <I>Y</I>: <I>Y</I>=<I>X</I>+1" is true (every natural number has a successor), but one cannot specify <I>X</I> to equal <I>Y</I> to conclude the (incorrect) statement THERE EXISTS <I>Y</I>: <I>Y</I>=<I>Y</I>+1.  However, if <I>y</I> is an ambient free variable in the current environment, one may specify <I>X</I> to equal <I>y</I> and conclude THERE EXISTS <I>Y</I>: <I>Y</I>=<I>y</I>+1.</li>
                     <li>To use the law of universal specification, drag a sentence of the form FOR ALL <I>X</I>: <I>P(X)</I> to a term <I>&alpha;</I> or vice versa.</li>
                     <li>Note that currently the law does not work in the <B>Root environment</B>, because the unquantified bound variables <I>X,Y</I> cannot be used in this environment; similarly for any further free and bound variables one creates.  How would one get around this problem?</li>
-                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>
+                    <li>The presence of the term <I>Y</I> in the hypotheses has no impact on how this exercise is proven, but affects how the exercise can be used in subsequent problems.  Namely, to invoke this exercise, drag a sentence of the forn FOR ALL <I>X</I>: <I>P(X)</I> to a term of the form <I>Y</I> (or vice versa).</LI>
                 </UL>
         </div>
         <ol class="proof">

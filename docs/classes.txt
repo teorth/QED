@@ -124,7 +124,7 @@ Assumption {
 Context {
     string type; // "sentence in environment", "environment", "formula", "term context"
     Sentence sentence; // sentence used (for sentence, sentence-in-envrionment, and formula types)
-    Assumption environment [];  // environment used (for sentence-in-environment and environment types)
+    Assumption environment[];  // environment used (for sentence-in-environment and environment types)
     Term term;  // term used (For term context types)
 
     string name;  // name of context

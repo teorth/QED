@@ -135,7 +135,7 @@ var lawsData = {
     "Reflexivity":                [[alpha],                                                             equals(alpha,alpha)],
     "UniversalIntroduction":      [[assuming(Px,x),toTerm(X)],                                          forAll(PX,X)],
     "UniversalIntroduction2":     [[assuming(Px,x), rootEnvironmentContext()],                          forAll(PX,X)],
-    "UniversalRenamingBoundVar":  [[forAll(PX,X)],                                                      forAll(PY,Y)],
+    "UniversalRenamingBoundVar":  [[forAll(PX,X),toTerm(Y)],                                            forAll(PY,Y)],
     "UniversalSpecification":     [[forAll(PX,X), alpha],                                               Pa],
     "UniversalSpecification2":    [[forAll(PX,X), toTerm(x)],                                           assuming(Px,x)],
     "ExistentialInstantiation":   [[thereExists(PX,X), toTerm(x)],                                      assuming(Px, settingAssumption(Px,x))],
