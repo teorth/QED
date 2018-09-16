@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.8.6** (released Sep 16, 2018).  New record for 22.5(b).
+
 * **Version 2.8.5** (released Sep 2, 2018).  New records for 22.5(ade).
 
 * **Version 2.8.4** (released Sep 1, 2018).  Matching coded for Ex 18.3(a) (Barbara syllogism, singular form).
