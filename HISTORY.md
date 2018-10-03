@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.9** (released Oct 2, 2018).  New exercise (24.8), suggested by Martin Epstein.
+
 * **Version 2.8.6** (released Sep 16, 2018).  New record for 22.5(b).
 
 * **Version 2.8.5** (released Sep 2, 2018).  New records for 22.5(ade).
