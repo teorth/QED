@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.9.3** (released Oct 6, 2018).  New record for 24.8.  
+
 * **Version 2.9.2** (released Oct 6, 2018).  New record for 24.8.  Added links to similar "logic games".
 
 * **Version 2.9.1** (released Oct 3, 2018).  New record for 24.8.
