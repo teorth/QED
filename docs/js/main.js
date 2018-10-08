@@ -243,6 +243,7 @@ var exerciseData = {
     "12.6(a)":  [[IMPLIES(A,B)], IMPLIES(NOT(B),NOT(A))],
     "12.6(b)":  [[IMPLIES(A,B), NOT(B)], NOT(A)],
     "12.6(c)":  [[NOT(A), IFF(A,B)], NOT(B)],
+    "12.6(d)":  [[IMPLIES(A,NOT(B)), B], NOT(A)],   
     "12.7":     [[IMPLIES(IMPLIES(A,B),A)], A],
     "12.8":     [[OR(A,B), OR(NOT(A),C)], OR(C,B)],
     "13.1(a)":  [[formulaContext(A)], IFF(A,AND(TRUE(),A))],
