@@ -1,6 +1,6 @@
 # QED - Release History
 
-* **Version 2.9.4** (released Oct 8, 2018).  New record for 22.5(bc).  New helper exercise (12.6(d)).
+* **Version 2.10** (released Oct 8, 2018).  New record for 22.5(bc).  New helper exercise (12.6(d)).
 
 * **Version 2.9.3** (released Oct 6, 2018).  New record for 24.8.  
 
