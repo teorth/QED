@@ -383,7 +383,7 @@ function forAll(predicate, bound) {
     sentence.subtype = "for all";
     sentence.name = "FOR ALL " + bound.name + ": " + predicate.longName;
     sentence.longName = "(" + sentence.name + ")";
-    sentence.argList = [predicate, bound];
+    sentence.argList = [predicate, toTerm(bound)];
     sentence.name = sentence.name;
     return sentence;
 }
@@ -395,7 +395,7 @@ function thereExists(predicate, bound) {
     sentence.subtype = "there exists";
     sentence.name = "THERE EXISTS " + bound.name + ": " + predicate.longName;
     sentence.longName = "(" + sentence.name + ")";
-    sentence.argList = [predicate, bound];
+    sentence.argList = [predicate, toTerm(bound)];
     sentence.name = sentence.name;
     return sentence;
 }
@@ -1298,7 +1298,6 @@ function matchWithGiven( context, template, output) {
     output.matches = false;
     return;
   }
-
 
   if (template.type == "environment" || template.type == "sentence in environment") {
       var i;
