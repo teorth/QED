@@ -1,3 +1,5 @@
+"use strict";
+
 // polyfill the Array includes method (which is not supported in IE).  This code moved from index.html
 
 if (!Array.prototype.includes) {
@@ -65,12 +67,7 @@ function FreeVariable(name)
 // the name of a free variable associated to a non-negative integer i.  Note: this is the name without the italics; should be matched to the "subtype" of a variable rather than its name.
 
 function FreeVariableName(i) {
-    var str;
-    switch(i % 3) {
-        case 0: str = 'x'; break;
-        case 1: str = 'y'; break;
-        case 2: str = 'z'; break;
-    }
+    var str = "xyz"[i%3];
 
     var j;
     for (j=0; j < (i-2)/3; j++)  str += "'";
@@ -92,12 +89,7 @@ function BoundVariable(name)
 /// the name of a bound variable associated to a non-negative integer i
 
 function BoundVariableName(i) {
-    var i;
-    switch(i % 3) {
-        case 0: str = 'X'; break;
-        case 1: str = 'Y'; break;
-        case 2: str = 'Z'; break;
-    }
+    var str="XYZ"[i%3];
 
     var j;
 
@@ -1661,7 +1653,7 @@ function ContextToString(context) {
 // obj is either a sentence, or a string to which one can look up a sentence
 
 function formulaContext(obj) {
-  formula = new Context();
+  var formula = new Context();
   formula.type = "formula";
 
   if (typeof obj == 'string')
@@ -1676,7 +1668,7 @@ function formulaContext(obj) {
 }
 
 function termContext(obj) {
-    context = new Context();
+    var context = new Context();
     context.type = "term context";
 
     if (typeof obj == 'string')
@@ -1691,7 +1683,7 @@ function termContext(obj) {
   }
 
 function sentenceContext(sentence, env) {
-    context = new Context();
+    var context = new Context();
     context.type = "sentence in environment";
     context.sentence = sentence;
     context.environment = env;

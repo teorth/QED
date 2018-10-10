@@ -60,7 +60,7 @@
 
 <p></p>
 <H4 id="version-header"> This is
-  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.10.1</a>.
+  <a href="https://github.com/teorth/QED/blob/master/HISTORY.md">version 2.10.2</a>.
 </H4>
 
 If the text has updated to a new version since your last session, you may need to reset the text in order for it to work correctly, or at least redo some of the exercises that unlock certain laws.  This page works best when viewed on a large screen and with the ability to drag-and-drop; in particular, this page is unlikely to be all that functional on a cell phone.  Also one may need a recently updated browser in order for the page to work properly (in particular, grid layouts and local storage should be supported for the best experience).
@@ -991,7 +991,7 @@ Here are some other interactive logic demonstrations:
             <li><span>From <em>A</em> [assuming <em>B</em>]: deduce <em>B</em> IMPLIES <em>A</em>. <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
             <li><span>From <em>B</em> [assuming <em>A</em>]: deduce <em>A</em> IMPLIES <em>B</em>. <i>[<a href="https://en.wikipedia.org/wiki/Deduction_theorem" target="_blank">DEDUCTION THEOREM</a>]</i></span></li>
             <li><span>From <em>A</em> IMPLIES <em>B</em>, <em>B</em> IMPLIES <em>A</em>: deduce <em>A</em> IFF <em>B</em>. <i>[BICONDITIONAL INTRODUCTION]</i></span></li>
-            <li><span>QED! (again)</span></li>
+            <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -2128,23 +2128,21 @@ Here are some other interactive logic demonstrations:
         <div class="notes">
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Ferioque syllogism</A> is "No homework is fun. Some reading is homework.  Hence, some reading is not fun.".</li>
-                    <li>Thanks to Anders Kaseorg for a short proof, and Opax for a shorter proof.</li>
+                    <li>Thanks to Anders Kaseorg for a short proof, Opax for a shorter proof, and Brian Quach for an even shorter proof.</li>
                     <li>For the purposes of matching, the formulae <I>P(x)</I>, <I>Q(x)</I>, <I>R(x)</I> should be ignored.</LI>
                 </UL>
         </div>
         <ol class="proof">
                 <li><span>NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
                 <li><span>THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[given]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
-                <li><span>Deduce <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)]. <i>[IMPLICATION INTRODUCTION]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))): deduce NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)]. <i>[DOUBLE PUSH (mixed IV)]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)], NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>), assuming <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)]: deduce NOT (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Reductio_ad_absurdum" target="_blank">REDUCTIO AD ABSURDUM</a> (separated form)]</i></span></li>
-                <li><span>From NOT (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce (NOT <i>P</i>(<i>x</i>)) OR (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws" target="_blank">DE MORGAN'S LAW</a> III]</i></span></li>
-                <li><span>From (NOT <i>P</i>(<i>x</i>)) OR (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce <i>P</i>(<i>x</i>) IMPLIES (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[EXERCISE 12.4(b)]</i></span></li><li><span>From <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)], <i>P</i>(<i>x</i>) IMPLIES (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[EXERCISE 8.6(b)]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[PULL]</i></span></li>
-                <li><span>QED!</span></li>        
+                <li><span>Deduce (NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))). <i>[DE MORGAN'S LAW FOR QUANTIFIERS I]</i></span></li>
+                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), (NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))): deduce FOR ALL <i>X</i>: (NOT (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[SUBSTITUTION]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: (NOT (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))): deduce NOT (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i>
+                </span></li><li><span>From NOT (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce (NOT <i>P</i>(<i>x</i>)) OR (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws" target="_blank">DE MORGAN'S LAW</a> III]</i></span></li>
+                <li><span>From (NOT <i>P</i>(<i>x</i>)) OR (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce <i>P</i>(<i>x</i>) IMPLIES (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[EXERCISE 12.4(b)]</i></span></li>
+                <li><span>From <i>P</i>(<i>x</i>) IMPLIES (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[DARII SYLLOGISM]</i></span></li>
+                <li><span>QED!</span></li>  
         </ol>
 </div>
 
@@ -2153,19 +2151,16 @@ Here are some other interactive logic demonstrations:
         <div class="notes">
                 <UL>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Baroco syllogism</A> is "All informative things are useful. Some websites are not useful.  Hence, some websites are not informative.".</li>
-                    <li>Thanks to Anders Kaseorg for a short proof, and Opax for a shorter proof.</li>
+                    <li>Thanks to Anders Kaseorg for a short proof, Opax for a shorter proof, and Brian Quach for an even shorter proof.</li>
                 </UL>
         </div>
         <ol class="proof">
                 <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)). <i>[given]</i></span></li>
                 <li><span>THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))): deduce <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)): deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[PUSH (for set variables)]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce <i>P</i>(<i>x</i>) IMPLIES <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[<a href="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</a>]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) IMPLIES <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce (NOT <i>Q</i>(<i>x</i>)) IMPLIES (NOT <i>P</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[<a href="https://en.wikipedia.org/wiki/Contraposition" target="_blank">CONTRAPOSITION</a>]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))], (NOT <i>Q</i>(<i>x</i>)) IMPLIES (NOT <i>P</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce <i>R</i>(<i>x</i>) AND (NOT <i>P</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[EXERCISE 8.6(b)]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) AND (NOT <i>P</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>P</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>P</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>P</i>(<i>X</i>))). <i>[PULL]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)): deduce <i>P</i>(<i>x</i>) IMPLIES <i>Q</i>(<i>x</i>) [letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From <i>P</i>(<i>x</i>) IMPLIES <i>Q</i>(<i>x</i>) [letting <i>x</i> be arbitrary]: deduce (NOT <i>Q</i>(<i>x</i>)) IMPLIES (NOT <i>P</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/Contraposition" target="_blank">CONTRAPOSITION</a>]</i></span></li>
+                <li><span>From (NOT <i>Q</i>(<i>x</i>)) IMPLIES (NOT <i>P</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES (NOT <i>P</i>(<i>X</i>))). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES (NOT <i>P</i>(<i>X</i>))), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>P</i>(<i>X</i>))). <i>[DARII SYLLOGISM]</i></span></li>
                 <li><span>QED!</span></li>
         </ol>
 </div>
@@ -2197,18 +2192,19 @@ Here are some other interactive logic demonstrations:
                 <UL>
                     <li>In contrast to the syllogisms in Exercise 22.4, these syllogisms require a third assumption, namely the existence of some class of object. As such, they are sometimes not considered to be genuine syllogisms in the classical sense by some authors.</li>
                     <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Barbari syllogism</A> is "All men are mortal.  All Greeks are men.  Greeks exist.  Hence, some Greeks are mortal."</li>
-                    <li>Thanks to Anders Kaseorg for a short proof.</li>
+                    <li>Thanks to Anders Kaseorg for a short proof, and Brian Quach for a shorter proof.</li>
                 </UL>
         </div>
         <ol class="proof">
                 <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)). <i>[given]</i></span></li>
                 <li><span>FOR ALL <i>X</i>: (<i>Q</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)). <i>[given]</i></span></li>
-                <li><span>THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li><li><span>From FOR ALL <i>X</i>: (<i>Q</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)), FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)): deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)). <i>[BARBARA SYLLOGISM (classical form)]</i></span></li>
+                <li><span>THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li>
                 <li><span>From THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>): deduce <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)): deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[PUSH (for set variables)]</i></span></li><li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)], <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[BARBARA SYLLOGISM (singular form)]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)], <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>P</i>(<i>x</i>) AND <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) AND <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)). <i>[PULL]</i></span></li>
+                <li><span>From <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>P</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</a>]</i></span></li>
+                <li><span>From <i>P</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[PULL]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)), THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)). <i>[DARII SYLLOGISM]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: (<i>Q</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)), THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)). <i>[DARII SYLLOGISM]</i></span></li>
                 <li><span>QED!</span></li>        
         </ol>
 </div>
@@ -2224,16 +2220,13 @@ Here are some other interactive logic demonstrations:
         </div>
         <ol class="proof">
                 <li><span>NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
-                <li><span>FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)). <i>[given]</i></span></li>
-                <li><span>THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>). <i>[given]</i></span></li>
-                <li><span>Deduce (NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))). <i>[DE MORGAN'S LAW FOR QUANTIFIERS I]</i></span></li>
-                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), (NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))): deduce FOR ALL <i>X</i>: (NOT (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[SUBSTITUTION]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (NOT (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))): deduce NOT (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From NOT (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce (NOT <i>P</i>(<i>x</i>)) OR (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws" target="_blank">DE MORGAN'S LAW</a> III]</i></span></li>
-                <li><span>From (NOT <i>P</i>(<i>x</i>)) OR (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce <i>P</i>(<i>x</i>) IMPLIES (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[EXERCISE 12.4(b)]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) IMPLIES (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)), FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))), THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[BARBARI SYLLOGISM]</i></span></li>
-                <li><span>QED! (again)</span></li>
+                <li><span>FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)). <i>[given]</i></span></li><li><span>THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>). <i>[given]</i></span></li>
+                <li><span>From THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>): deduce <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
+                <li><span>From <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) AND <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</a>]</i></span></li>
+                <li><span>From <i>R</i>(<i>x</i>) AND <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)). <i>[PULL]</i></span></li><li><span>From FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[DARII SYLLOGISM]</i></span></li>
+                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[FERIOQUE SYLLOGISM]</i></span></li>
+                <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -2247,20 +2240,16 @@ Here are some other interactive logic demonstrations:
                     </UL>
         </div>
         <ol class="proof">
-                <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)). <i>[given]</i></span></li>
-                <li><span>NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
-                <li><span>THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>). <i>[given]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)): deduce <i>P</i>(<i>x</i>) IMPLIES <i>Q</i>(<i>x</i>) [letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) IMPLIES <i>Q</i>(<i>x</i>) [letting <i>x</i> be arbitrary]: deduce (NOT <i>Q</i>(<i>x</i>)) IMPLIES (NOT <i>P</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/Contraposition" target="_blank">CONTRAPOSITION</a>]</i></span></li>
-                <li><span>From (NOT <i>Q</i>(<i>x</i>)) IMPLIES (NOT <i>P</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES (NOT <i>P</i>(<i>X</i>))). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
-                <li><span>Deduce (NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))). <i>[DE MORGAN'S LAW FOR QUANTIFIERS I]</i></span></li>
-                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), (NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)))): deduce FOR ALL <i>X</i>: (NOT (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[SUBSTITUTION]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (NOT (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))): deduce NOT (<i>R</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From NOT (<i>R</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce (NOT <i>R</i>(<i>x</i>)) OR (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws" target="_blank">DE MORGAN'S LAW</a> III]</i></span></li>
-                <li><span>From (NOT <i>R</i>(<i>x</i>)) OR (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce <i>R</i>(<i>x</i>) IMPLIES (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[EXERCISE 12.4(b)]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) IMPLIES (NOT <i>Q</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))), FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES (NOT <i>P</i>(<i>X</i>))), THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>P</i>(<i>X</i>))). <i>[BARBARI SYLLOGISM]</i></span></li>
-                <li><span>QED!</span></li>
+                        <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)). <i>[given]</i></span></li>
+                        <li><span>NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
+                        <li><span>THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>). <i>[given]</i></span></li>
+                        <li><span>From THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>): deduce <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
+                        <li><span>From <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) AND <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</a>]</i></span></li>
+                        <li><span>From <i>R</i>(<i>x</i>) AND <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
+                        <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)). <i>[PULL]</i></span></li>
+                        <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[FERIOQUE SYLLOGISM]</i></span></li>
+                        <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>P</i>(<i>X</i>))). <i>[BAROCO SYLLOGISM]</i></span></li>
+                        <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -2274,21 +2263,16 @@ Here are some other interactive logic demonstrations:
                 </ul>                
         </div>
         <ol class="proof">
-                <li><span>NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
-                <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)). <i>[given]</i></span></li>
-                <li><span>THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>): deduce <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>P</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</a>]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[PULL]</i></span></li>
-                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[FERIOQUE SYLLOGISM]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))): deduce <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)): deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[PUSH (for set variables)]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce <i>P</i>(<i>x</i>) IMPLIES <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[<a href="https://en.wikipedia.org/wiki/Universal_instantiation" target="_blank">UNIVERSAL SPECIFICATION</a>]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))], <i>P</i>(<i>x</i>) IMPLIES <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[EXERCISE 8.6(a)]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>) AND (NOT <i>Q</i>(<i>x</i>))]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[PULL]</i></span></li>
-                <li><span>QED!</span></li>        
+                        <li><span>NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
+                        <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)). <i>[given]</i></span></li>
+                        <li><span>THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li>
+                        <li><span>From THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>): deduce <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
+                        <li><span>From <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>P</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</a>]</i></span></li>
+                        <li><span>From <i>P</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
+                        <li><span>From THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[PULL]</i></span></li>
+                        <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[FERIOQUE SYLLOGISM]</i></span></li>
+                        <li><span>From THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))), FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[BOCARDO SYLLOGISM]</i></span></li>
+                        <li><span>QED!</span></li>        
         </ol>
 </div>
 
@@ -2297,21 +2281,19 @@ Here are some other interactive logic demonstrations:
         <div class="notes">
                 <ul>
                         <LI>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Darapti syllogism</A> is "All squares are rectangles.  All squares are rhombi.  Squares exist.  Hence, some rhombi are rectangles."</LI>
-                        <li>Thanks to Anders Kaseorg for a short proof.</li>
+                        <li>Thanks to Anders Kaseorg for a short proof, and Brian Quach for a shorter proof.</li>
                 </ul>
         </div>
         <ol class="proof">
                 <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)). <i>[given]</i></span></li>
-                <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)). <i>[given]</i></span></li>
-                <li><span>THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li>
+                <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)). <i>[given]</i></span></li><li><span>THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>). <i>[given]</i></span></li>
                 <li><span>From THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>): deduce <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)): deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[PUSH (for set variables)]</i></span></li>
                 <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)): deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[PUSH (for set variables)]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)], <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[BARBARA SYLLOGISM (singular form)]</i></span></li>
                 <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)], <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[BARBARA SYLLOGISM (singular form)]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)], <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) AND <i>Q</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)). <i>[PULL]</i></span></li>
+                <li><span>From <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)], <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
+                <li><span>From <i>R</i>(<i>x</i>) AND <i>P</i>(<i>x</i>) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>P</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[PULL]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>Q</i>(<i>X</i>)), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>)). <i>[DARII SYLLOGISM]</i></span></li>
                 <li><span>QED!</span></li>
         </ol>
 </div>
@@ -2396,7 +2378,7 @@ Here are some other interactive logic demonstrations:
             <li><span>From THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>) [assuming THERE EXISTS <i>X</i>: (THERE EXISTS <i>Y</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>Y</i>))), setting <i>x</i> s.t. THERE EXISTS <i>Y</i>: (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>Y</i>)), setting <i>y</i> s.t. <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>y</i>)], THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>) [assuming THERE EXISTS <i>X</i>: (THERE EXISTS <i>Y</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>Y</i>))), setting <i>x</i> s.t. THERE EXISTS <i>Y</i>: (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>Y</i>)), setting <i>y</i> s.t. <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>y</i>)]: deduce (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) AND (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>)) [assuming THERE EXISTS <i>X</i>: (THERE EXISTS <i>Y</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>Y</i>))), setting <i>x</i> s.t. THERE EXISTS <i>Y</i>: (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>Y</i>)), setting <i>y</i> s.t. <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>y</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Conjunction_introduction" target="_blank">CONJUNCTION INTRODUCTION</a>]</i></span></li>
             <li><span>From (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) AND (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>)) [assuming THERE EXISTS <i>X</i>: (THERE EXISTS <i>Y</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>Y</i>))), setting <i>x</i> s.t. THERE EXISTS <i>Y</i>: (<i>P</i>(<i>x</i>) AND <i>Q</i>(<i>Y</i>)), setting <i>y</i> s.t. <i>P</i>(<i>x</i>) AND <i>Q</i>(<i>y</i>)]: deduce (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) AND (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>)) [assuming THERE EXISTS <i>X</i>: (THERE EXISTS <i>Y</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>Y</i>)))]. <i>[DOUBLE PULL]</i></span></li>
             <li><span>From (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) AND (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>)) [assuming THERE EXISTS <i>X</i>: (THERE EXISTS <i>Y</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>Y</i>)))], THERE EXISTS <i>X</i>: (THERE EXISTS <i>Y</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>Y</i>))) [assuming (THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) AND (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>))]: deduce ((THERE EXISTS <i>X</i>: <i>P</i>(<i>X</i>)) AND (THERE EXISTS <i>Y</i>: <i>Q</i>(<i>Y</i>))) IFF (THERE EXISTS <i>X</i>: (THERE EXISTS <i>Y</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>Y</i>)))). <i>[BICONDITIONAL INTRODUCTION (ASSUMPTION FORM)]</i></span></li>
-            <li><span>QED! (again)</span></li>
+            <li><span>QED!</span></li>
         </ol>
 </div>
 
@@ -2407,7 +2389,7 @@ Here are some other interactive logic demonstrations:
                     <li>Lewis Carroll is best known for his books "Alice in Wonderland" and "Through the Looking Glass".  But he also wrote a list of logic puzzles, some of which can be found <A HREF="http://www.math.hawaii.edu/~hile/math100/logice.htm" target="_blank">here</A>.</li>
                     <li>The simplest of his logic puzzles is the following.  Given the hypotheses "Babies are illogical.  Illogical persons are despised.  Nobody who is despised can manage a crocodile", conclude "Babies cannot handle crocodiles".</li>
                     <li>The exercise here is a translation of that puzzle to first-order logic - can you see how?</li>
-                    <li>Thanks to Anders Kaseorg for a short proof, Opax for a shorter proof, and Anders Kaseorg for an even shorter proof.</li>
+                    <li>Thanks to Anders Kaseorg for a short proof, Opax for a shorter proof, Anders Kaseorg for an even shorter proof, and Brian Quach for a yet shorter proof.</li>
                     <li>For the purposes of applying this exercise, the formulae <I>P(x)</I>, <I>Q(x)</I>, <I>R(x)</I>, <I>S(x)</I> should be ignored.</li>                        
                 </UL>
         </div>
@@ -2415,13 +2397,15 @@ Here are some other interactive logic demonstrations:
                 <li><span>FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
                 <li><span>FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES <i>R</i>(<i>X</i>)). <i>[given]</i></span></li>
                 <li><span>NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>))). <i>[given]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES <i>R</i>(<i>X</i>)), FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))): deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)). <i>[BARBARA SYLLOGISM (classical form)]</i></span></li><li><span>Deduce (NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>)))). <i>[DE MORGAN'S LAW FOR QUANTIFIERS I]</i></span></li>
-                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>))), (NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>)))): deduce FOR ALL <i>X</i>: (NOT (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>))). <i>[SUBSTITUTION]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>R</i>(<i>X</i>)): deduce <i>P</i>(<i>x</i>) IMPLIES <i>R</i>(<i>x</i>) [letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From FOR ALL <i>X</i>: (NOT (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>))): deduce NOT (<i>R</i>(<i>x</i>) AND <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From NOT (<i>R</i>(<i>x</i>) AND <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce (NOT <i>R</i>(<i>x</i>)) OR (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws" target="_blank">DE MORGAN'S LAW</a> III]</i></span></li><li><span>From (NOT <i>R</i>(<i>x</i>)) OR (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce <i>R</i>(<i>x</i>) IMPLIES (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[EXERCISE 12.4(b)]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) IMPLIES <i>R</i>(<i>x</i>) [letting <i>x</i> be arbitrary], <i>R</i>(<i>x</i>) IMPLIES (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce <i>P</i>(<i>x</i>) IMPLIES (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Transitive_relation" target="_blank">TRANSITIVE</a>]</i></span></li>
-                <li><span>From <i>P</i>(<i>x</i>) IMPLIES (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>S</i>(<i>X</i>))). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li><li><span>QED!</span></li>       
+                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>S</i>(<i>X</i>))), FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES <i>R</i>(<i>X</i>)): deduce NOT (THERE EXISTS <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) AND <i>S</i>(<i>X</i>))). <i>[CELARENT SYLLOGISM]</i></span></li>
+                <li><span>Deduce (NOT (THERE EXISTS <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) AND <i>S</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT ((NOT <i>Q</i>(<i>X</i>)) AND <i>S</i>(<i>X</i>)))). <i>[DE MORGAN'S LAW FOR QUANTIFIERS I]</i></span></li>
+                <li><span>From NOT (THERE EXISTS <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) AND <i>S</i>(<i>X</i>))), (NOT (THERE EXISTS <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) AND <i>S</i>(<i>X</i>)))) IFF (FOR ALL <i>X</i>: (NOT ((NOT <i>Q</i>(<i>X</i>)) AND <i>S</i>(<i>X</i>)))): deduce FOR ALL <i>X</i>: (NOT ((NOT <i>Q</i>(<i>X</i>)) AND <i>S</i>(<i>X</i>))). <i>[SUBSTITUTION]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: (NOT ((NOT <i>Q</i>(<i>X</i>)) AND <i>S</i>(<i>X</i>))): deduce NOT ((NOT <i>Q</i>(<i>x</i>)) AND <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[REVERSE <a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From NOT ((NOT <i>Q</i>(<i>x</i>)) AND <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce (NOT (NOT <i>Q</i>(<i>x</i>))) OR (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[<a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws" target="_blank">DE MORGAN'S LAW</a> III]</i></span></li>
+                <li><span>From (NOT (NOT <i>Q</i>(<i>x</i>))) OR (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce (NOT <i>Q</i>(<i>x</i>)) IMPLIES (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]. <i>[EXERCISE 12.4(b)]</i></span></li>
+                <li><span>From (NOT <i>Q</i>(<i>x</i>)) IMPLIES (NOT <i>S</i>(<i>x</i>)) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES (NOT <i>S</i>(<i>X</i>))). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: ((NOT <i>Q</i>(<i>X</i>)) IMPLIES (NOT <i>S</i>(<i>X</i>))), FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>Q</i>(<i>X</i>))): deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES (NOT <i>S</i>(<i>X</i>))). <i>[BARBARA SYLLOGISM (classical form)]</i></span></li>
+                <li><span>QED!</span></li>       
         </ol>
 </div>
 
@@ -2801,7 +2785,7 @@ Here are some other interactive logic demonstrations:
                         <li><span>From (<i>y</i> <i>*</i> 1) <i>=</i> ((<i>y</i> <i>*</i> 1) <i>*</i> 1) [setting <i>x</i> s.t. (<i>x</i> <i>*</i> α) <i>=</i> 1, setting <i>y</i> s.t. (<i>y</i> <i>*</i> <i>x</i>) <i>=</i> 1], (<i>y</i> <i>*</i> 1) <i>=</i> α [setting <i>x</i> s.t. (<i>x</i> <i>*</i> α) <i>=</i> 1, setting <i>y</i> s.t. (<i>y</i> <i>*</i> <i>x</i>) <i>=</i> 1]: deduce α <i>=</i> (α <i>*</i> 1) [setting <i>x</i> s.t. (<i>x</i> <i>*</i> α) <i>=</i> 1, setting <i>y</i> s.t. (<i>y</i> <i>*</i> <i>x</i>) <i>=</i> 1]. <i>[<a href="https://en.wikipedia.org/wiki/Identity_of_indiscernibles" target="_blank">INDISCERNABILITY OF IDENTICALS</a>]</i></span></li>
                         <li><span>From α <i>=</i> (α <i>*</i> 1) [setting <i>x</i> s.t. (<i>x</i> <i>*</i> α) <i>=</i> 1, setting <i>y</i> s.t. (<i>y</i> <i>*</i> <i>x</i>) <i>=</i> 1]: deduce (α <i>*</i> 1) <i>=</i> α [setting <i>x</i> s.t. (<i>x</i> <i>*</i> α) <i>=</i> 1, setting <i>y</i> s.t. (<i>y</i> <i>*</i> <i>x</i>) <i>=</i> 1]. <i>[EQUALITY IS <a href="https://en.wikipedia.org/wiki/Symmetric_relation" target="_blank">SYMMETRIC</a>]</i></span></li>
                         <li><span>From (α <i>*</i> 1) <i>=</i> α [setting <i>x</i> s.t. (<i>x</i> <i>*</i> α) <i>=</i> 1, setting <i>y</i> s.t. (<i>y</i> <i>*</i> <i>x</i>) <i>=</i> 1]: deduce (α <i>*</i> 1) <i>=</i> α. <i>[DOUBLE PULL]</i></span></li>
-                        <li><span>QED! (again)</span></li>               
+                        <li><span>QED!</span></li>               
                  </ol>
         </div>
         

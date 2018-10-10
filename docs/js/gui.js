@@ -1,3 +1,5 @@
+"use strict";
+
 /// Global variables
 
 var exerciseButtons = [];  // list of all activated exercise buttons
