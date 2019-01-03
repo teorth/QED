@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.10.3** (released Dec 24, 2018). New record for 22.3(b).
+
 * **Version 2.10.2** (released Oct 10, 2018).  "use strict" implemented, some accidentally global variables now local.  New records for 22.8, 22.4(cd), 22.5(abcde).
 * **Version 2.10.1** (released Oct 8, 2018).  Matching fixed for 22.4(bd).  Fixed a technical matching bug involving matching bound variables.  New record for 22.5(d).
 
