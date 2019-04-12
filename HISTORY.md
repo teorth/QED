@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.10.4** (released Apr 12, 2019).  Added to the Exercise 3.1(a) text to explain how to select three or more hypotheses at once.
+
 * **Version 2.10.3** (released Dec 24, 2018). New record for 22.3(b).
 
 * **Version 2.10.2** (released Oct 10, 2018).  "use strict" implemented, some accidentally global variables now local.  New records for 22.8, 22.4(cd), 22.5(abcde).
