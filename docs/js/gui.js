@@ -9,6 +9,7 @@ var lastClickedButton = "";   // this will be updated to the last deduction butt
 var revealTrueFalse = false;  // do we populate the formula window with true and false?
 var sectionTitle = "";  // name of last section to be created
 var maxLawIndex = 0;  // the largest index currently assigned to a law
+var hideCircularLaws = false; // do we suppress laws that are circular?
 
 /////// CREATING AND UPDATING HTML ELEMENTS /////////////
 
@@ -1161,7 +1162,7 @@ function deduce(conclusion, justification, law) {
                 alert('Congratulations, you solved your first exercise!  Now two more exercises will be unlocked, as well as the next section of the text.  (For subsequent exercises, we will notify you of an exercise being solved by changing the color of the exercise and its proof to either green or blue, depending on whether you found the shortest known proof or not.  We also add a QED symbol (standing for "quod erat demonstrandum", or "what was to be demonstrated") to the end of the proof.)');
 
             if (completedAllExercises()) {
-                alert("Congratulations, you completed all the exercises! You are now a master of propositional and first-order slogic!  The next time one clicks on an exercise, one should now see a button next to the shortest length proof message which, when clicked, will reveal the shortest known proof for that exercise.");
+                alert("Congratulations, you completed all the exercises! You are now a master of propositional and first-order logic!  The next time one clicks on an exercise, one should now see a button next to the shortest length proof message which, when clicked, will reveal the shortest known proof for that exercise.");
                 achieve("<B>COMPLETED</B> all the exercises!");
             }
         } else {
@@ -1347,7 +1348,7 @@ function from( assumptions )
     var shortStr = "From ";
     var longStr = "From ";
 
-    getElement("undo-button").canUndo = false;  // there was an exploit where one set up a deduction, undid the hypothesis enambling that deduction, and then executed the deduction anyway, to save a proof line step
+    getElement("undo-button").canUndo = false;  // there was an exploit where one set up a deduction, undid the hypothesis enabling that deduction, and then executed the deduction anyway, to save a proof line step
 
     assumptions.forEach( function( assumption ) {
         shortStr = longStr + toContext(assumption).name;
@@ -1371,6 +1372,7 @@ function appendToDeductions(output, justification, law) {
     if (getElement("exercise").exercise != "")
         if (law.index >= getElement("exercise").exercise.law.index) {
             // we have circularity!
+            if (hideCircularLaws) return;  
             name += "<sup>*</sup>";
             proof.hasCircularity = true;
         }
@@ -1649,7 +1651,7 @@ function makeMatches(justification) {
 
     if (proof.hasCircularity)
     {
-        footnote.innerHTML = "<sup>*</sup> These rules occur in the text at or after the current exercise.  While valid for use in proofs, they will not qualify for shortest proof records.";
+        footnote.innerHTML = "<sup>*</sup> These rules occur in the text at or after the current exercise.  While valid for use in proofs, they will not qualify for shortest proof records. Press 'c' to toggle availability of such rules.";
     }
     if (proof.hasIllFormed) {
         if (footnote.innerHTML != "") footnote.innerHTML += "<BR>";
@@ -1693,7 +1695,7 @@ function drop(ev) {
 }
 
 
-// use keyboard numbers for the first 9 links in deduction meno
+// use keyboard numbers for the first 9 links in deduction menu
 
 function keydown(event) {
 
@@ -1715,6 +1717,11 @@ function keydown(event) {
 
     if (event.key == '>')
         getElement("next-exercise").onclick();
+
+    if (event.key == 'c') {
+        hideCircularLaws = !hideCircularLaws;
+        makeMatches(getElement("deductionDesc").assumptions);
+    }
 
 // click the first unsolved exercise, if such exists
     if (event.key == 'n') {

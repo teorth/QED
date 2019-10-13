@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.10.6** (released Oct 13, 2019).  Added the ability to hide/unhide rules that occurred at or after the current exercise with the 'c' key.
+
 * **Version 2.10.5** (released May 6, 2019).  New record for 14.1.
 
 * **Version 2.10.4** (released Apr 12, 2019).  Added to the Exercise 3.1(a) text to explain how to select three or more hypotheses at once.
