@@ -1372,7 +1372,7 @@ function appendToDeductions(output, justification, law) {
     if (getElement("exercise").exercise != "")
         if (law.index >= getElement("exercise").exercise.law.index) {
             // we have circularity!
-            if (hideCircularLaws) return;  
+            if (hideCircularLaws) return false;  
             name += "<sup>*</sup>";
             proof.hasCircularity = true;
         }
@@ -1386,6 +1386,8 @@ function appendToDeductions(output, justification, law) {
     else {
         appendConclusion(output.conclusion, justification, output.illegal, name, law);
     }
+
+    return true;
 }
 
 
@@ -1625,16 +1627,16 @@ function makeMatches(justification) {
         var output = matchWithGivens( justification, law, primitives);
 
         if (output.matches) {
-            appendToDeductions(output, justification, law);
-            numMatches++;
+            if (appendToDeductions(output, justification, law))
+                numMatches++;
         }
 
         if (justification.length == 2) {
             output = matchWithGivens( revJustification, law, primitives);
 
             if (output.matches) {
-                appendToDeductions(output, revJustification, law);
-                numMatches++;
+                if (appendToDeductions(output, revJustification, law))
+                    numMatches++;
             }
         }
     });
