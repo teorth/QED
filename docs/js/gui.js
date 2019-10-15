@@ -527,6 +527,7 @@ function setExercise(exerciseButton) {
     getElement("proof").hasCircularity = false;
 
     clearElement("deductionDesc");
+    getElement("deductionDesc").assumptions = [];
     clearElement("deductions");
     clearElement("deductionFootnote");
 
