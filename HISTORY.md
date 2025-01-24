@@ -1,5 +1,7 @@
 # QED - Release History
 
+* **Version 2.10.7** (released Jan 24, 2025).  New record for 22.5(b).
+
 * **Version 2.10.7** (released Oct 15, 2019).  Fixed bug in which the running list of assumptions was not reset when restarting or changing an exercise.
 
 * **Version 2.10.6** (released Oct 13, 2019).  Added the ability to hide/unhide rules that occurred at or after the current exercise with the 'c' key.
