@@ -2212,17 +2212,18 @@ Here are some other interactive logic demonstrations:
                 <ul>
                         <li>An example of the <A HREF="https://en.wikipedia.org/wiki/Syllogism#Types" target="_blank">Celaront syllogism</A> is "No reptiles have fur.  All snakes are reptiles.  Snakes exist. Hence, some snakes have no fur."</li>
                         <li>For the purposes of matching, the formulae <I>P(x)</I>, <I>Q(x)</I>, <I>R(x)</I> should be ignored.</LI>
-                        <li>Thanks to Anders Kaseorg for a short proof, Lucas Silve for a shorter proof, and Brian Quach for an even shorter proof.</li> 
+                        <li>Thanks to Anders Kaseorg for a short proof, Lucas Silve for a shorter proof, Brian Quach for an even shorter proof, and Ken Hu for a yet shorter proof.</li> 
                 </ul>
         </div>
         <ol class="proof">
                 <li><span>NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))). <i>[given]</i></span></li>
-                <li><span>FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)). <i>[given]</i></span></li><li><span>THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>). <i>[given]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>): deduce <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_instantiation" target="_blank">EXISTENTIAL INSTANTIATION</a>]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce <i>R</i>(<i>x</i>) AND <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[AND IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</a>]</i></span></li>
-                <li><span>From <i>R</i>(<i>x</i>) AND <i>R</i>(<i>x</i>) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]. <i>[<a href="https://en.wikipedia.org/wiki/Existential_generalization">EXISTENTIAL INTRODUCTION</a>]</i></span></li>
-                <li><span>From THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)) [setting <i>x</i> s.t. <i>R</i>(<i>x</i>)]: deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)). <i>[PULL]</i></span></li><li><span>From FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>R</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[DARII SYLLOGISM]</i></span></li>
-                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). <i>[FERIOQUE SYLLOGISM]</i></span></li>
+                <li><span>FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)). <i>[given]</i></span></li>
+                <li><span>THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>). <i>[given]</i></span></li>
+                <li><span>Form environment [letting <i>x</i> be arbitrary]</span></li>
+                <li><span>Deduce <i>P</i>(<i>x</i>) IMPLIES <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]. <i>[IMPLIES IS <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">IDEMPOTENT</a>]</i></span></li>
+                <li><span>From <i>P</i>(<i>x</i>) IMPLIES <i>P</i>(<i>x</i>) [letting <i>x</i> be arbitrary]: deduce FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)). <i>[<a href="https://en.wikipedia.org/wiki/Universal_generalization" target="_blank"> UNIVERSAL INTRODUCTION</a>]</i></span></li>
+                <li><span>From FOR ALL <i>X</i>: (<i>R</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)), FOR ALL <i>X</i>: (<i>P</i>(<i>X</i>) IMPLIES <i>P</i>(<i>X</i>)), THERE EXISTS <i>X</i>: <i>R</i>(<i>X</i>): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND <i>P</i>(<i>X</i>)). <i>[BARBARI SYLLOGISM]</i></span></li>
+                <li><span>From NOT (THERE EXISTS <i>X</i>: (<i>P</i>(<i>X</i>) AND <i>Q</i>(<i>X</i>))), THERE EXISTS <i>X</i>: (R(<i>X</i>) AND <i>P</i>(<i>X</i>)): deduce THERE EXISTS <i>X</i>: (<i>R</i>(<i>X</i>) AND (NOT <i>Q</i>(<i>X</i>))). [FERIOQUE SYLLOGISM]</span></li>
                 <li><span>QED!</span></li>
         </ol>
 </div>
