@@ -823,7 +823,7 @@ function hasBoundOrUnknownFree(term,env) {
             return true;
         case "bound variable":
             return true;
-        case "operator":
+        case "operator evaluation":
             var i;
             for (i=0; i < term.argList.length; i++)
                 if (hasBoundOrUnknownFree(term.argList[i],env)) return true;
