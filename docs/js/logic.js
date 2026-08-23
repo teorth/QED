@@ -867,62 +867,6 @@ function searchReplace(statement, search, replace) {
 }
 
 
-// match arglist against the law of existential instantiation and report the conclusions in output
-function matchExistentialInstantiation(arglist, output, law) {
-    if (!output.matches) return;
-
-    // arglist[0] needs to be of the form "THERE EXISTS X: P(X)" after the output.env
-    if (arglist[0].type != "sentence in environment") {
-        output.matches = false;
-        return;
-    }
-
-    if (arglist[0].sentence.type != "quantifier" || arglist[0].sentence.subtype != "there exists") {
-        output.matches = false;
-        return;
-    }
-
-    var sentence = arglist[0].sentence.argList[0];
-    var boundVar = toTerm(arglist[0].sentence.argList[1]).argList[0];
-
-    var freeVariable;
-
-    if (law.shortName == "ExistentialInstantiation") {
-        if (arglist[1].type != "term context") {
-            output.matches = false;
-            return;
-        }
-        if (arglist[1].term.subtype != "free variable") {
-            output.matches = false;
-            return;
-        }
-        freeVariable = arglist[1].term.argList[0];
-    } else  if (law.shortName == "ExistentialInstantiation2") {
-        // choose the next available free Variable
-        var freeVars = [];
-
-        pushPrimitivesFromContext(freeVars, sentenceContext(sentence,output.env), makeOptions(false, true, false, false, false, false, false));
-
-        var num=0;
-        var match;
-        var str, longStr;
-
-        do {
-            str = FreeVariableName(num);
-            longStr = "<I>"+str+"</I>";
-            match = freeVars.includes(longStr);
-            num++;
-        } while (match);
-
-        freeVariable = new FreeVariable(str);
-    }
-
-    var newSentence = searchReplace( sentence, boundVar, freeVariable );
-    var env = output.env.slice(0);
-    env.push( settingAssumption(newSentence, freeVariable) );
-    output.conclusion = sentenceContext( newSentence, env );
-}
-
 // match arglist against one of the two laws of existential introduction and report the conclusions in output
 function matchExistentialIntroduction(arglist, output, law) {
     if (!output.matches) return;
