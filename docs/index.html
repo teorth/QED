@@ -2599,7 +2599,7 @@ Here are some other interactive logic demonstrations:
                     <li>The third is inverse: for every group element <I>X</I>, there is a group element <I>Y</I> such that <I>Y*X=1</I>.</li>
                     <li>This is a relatively easy exercise in group theory when written out in informal mathematical language, but turns out to be somewhat lengthy when one tries to formalise it in first-order logic.  More generally, first-order logic tends to be too "low-level" of a proof system to be convenient for advanced mathematics; most proofs in mathematics are instead written in a more "high-level" fashion, using less formal, but more expressive, sentences in English (or in other languages) in place of the very limited sentences available to first-order logic.</li>
                     <li>Thanks to Gesse Roure for a short proof, and Anders Kaseorg for a shorter proof.</li>
-                    <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                    <li>Matching uses a proxy template that omits the inverse axiom (whose existential quantifier the matcher cannot yet unify), so the law can be applied in later group-theory exercises such as 24.8.</li>
                 </UL>
         </div>
         <ol class="proof">
@@ -2752,7 +2752,7 @@ Here are some other interactive logic demonstrations:
                             <li>Thanks to Martin Epstein for suggesting this exercise.</li>
                             <li>Stuck?  <SPAN title="There are several ways to start.  One is to first show that x*&alpha;*1 = x*&alpha;, where x is a left inverse of &alpha;.">Hover over this sentence.</SPAN></li>
                             <li>Thanks to Anders Kaseorg for a short proof, Martin Epstein for a shorter proof, and Anders Kaseorg for an even shorter proof.</li>
-                            <li><B>Technical note</B>: matching for this exercise has not yet been implemented.</LI>                        
+                            <li><B>Technical note</B>: matching for the cancellation law (24.4) is now available via a proxy template, so this exercise can apply it after deriving <I>x*(α*1) = x*α</I>.</LI>
                         </UL>
                 </div>
                 <ol class="proof">
