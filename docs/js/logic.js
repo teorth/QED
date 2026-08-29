@@ -289,7 +289,7 @@ function predicateSentence(predicate, argList) {
         sentence.argList[i] = toTerm(argList[i]);
 
     if (sentence.predicate.relationStyle) {
-        sentence.name = argList[0].longName + " " + sentence.predicate.name + " " + argList[1].longName;
+        sentence.name = sentence.argList[0].longName + " " + sentence.predicate.name + " " + sentence.argList[1].longName;
         sentence.longName = "(" + sentence.name + ")";
     } else if (sentence.predicate.arity == 0) {
         sentence.name = sentence.predicate.name;
@@ -823,7 +823,7 @@ function hasBoundOrUnknownFree(term,env) {
             return true;
         case "bound variable":
             return true;
-        case "operator":
+        case "operator evaluation":
             var i;
             for (i=0; i < term.argList.length; i++)
                 if (hasBoundOrUnknownFree(term.argList[i],env)) return true;
