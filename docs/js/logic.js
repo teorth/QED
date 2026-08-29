@@ -1405,8 +1405,24 @@ function matchWithGivenSentence( sentence, template, output) {
                     makeMatch(sentence, template, output);
                     return;
                 case "operator evaluation":
-                    // need some code for matching with a predicate sentence.  Right now, we simply refuse to match:
-                    output.matches=false;
+                    // Match operator evaluations by comparing the operator and recursively matching args
+                    // (same pattern as equality predicates).
+                    if (sentence.subtype != "operator evaluation") {
+                        output.matches = false;
+                        return;
+                    }
+                    if (sentence.operator != template.operator) {
+                        output.matches = false;
+                        return;
+                    }
+                    if (sentence.argList.length != template.argList.length) {
+                        output.matches = false;
+                        return;
+                    }
+                    var i;
+                    for (i = 0; i < template.argList.length; i++) {
+                        matchWithGivenSentence(sentence.argList[i], template.argList[i], output);
+                    }
                     return;
             }
             return;
@@ -1435,8 +1451,11 @@ function subsSentence(template, output)
                 return toTerm( output[template.argList[0].name]);
             }
             if (template.subtype == "operator evaluation") {
-                output.matches = false;
-                return new Term();
+                var newArgList = [];
+                var i;
+                for (i = 0; i < template.argList.length; i++)
+                    newArgList[i] = subsSentence(template.argList[i], output);
+                return operatorTerm(template.operator, newArgList);
             }
             if (template.subtype == "primitive") {
                 return toTerm( output[template.name] );
