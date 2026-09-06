@@ -1602,6 +1602,21 @@ function clickBox(box,event) {
 }
 
 
+// A law is "generic" when every hypothesis is a formula context: it applies to
+// whatever formula is selected, rather than to a particular connective, quantifier,
+// or operator in that formula. Those are the TRUE / NOT FALSE / excluded-middle
+// identities that crowd the deduction list on a large term.
+
+function isGenericFormulaLaw(law) {
+    var givens = law.givensTemplate || law.givens;
+    if (!givens || givens.length == 0) return false;
+    var i;
+    for (i = 0; i < givens.length; i++) {
+        if (toContext(givens[i]).type != "formula") return false;
+    }
+    return true;
+}
+
 // find and list all the deductions that can be made from an array of hypotheses
 
 function makeMatches(justification) {
@@ -1619,28 +1634,43 @@ function makeMatches(justification) {
     proof.hasIllFormed = false;
 
 
+    // Term-specific laws (Existential Instantiation, cancellation, connective elimination, …)
+    // before generic formula-window identities (TRUE / NOT FALSE / excluded middle / §13),
+    // so the latter do not bury the deductions that actually use the selected term.
+    var specificMatches = [];
+    var genericMatches = [];
+
     unlockedLaws.forEach( function(law) {
 
         // collect: free variables, bound variables, primitive terms, atomic sentences
 
         var primitives = listPrimitives(law, false, true, true, true,false,false,true, true);
+        var bucket = isGenericFormulaLaw(law) ? genericMatches : specificMatches;
 
         var output = matchWithGivens( justification, law, primitives);
 
         if (output.matches) {
-            if (appendToDeductions(output, justification, law))
-                numMatches++;
+            bucket.push({output: output, justification: justification, law: law});
         }
 
         if (justification.length == 2) {
             output = matchWithGivens( revJustification, law, primitives);
 
             if (output.matches) {
-                if (appendToDeductions(output, revJustification, law))
-                    numMatches++;
+                bucket.push({output: output, justification: revJustification, law: law});
             }
         }
     });
+
+    function flushMatches(bucket) {
+        var i;
+        for (i = 0; i < bucket.length; i++) {
+            if (appendToDeductions(bucket[i].output, bucket[i].justification, bucket[i].law))
+                numMatches++;
+        }
+    }
+    flushMatches(specificMatches);
+    flushMatches(genericMatches);
 
     if (numMatches == 0) {
         var node = document.createElement("LI");
