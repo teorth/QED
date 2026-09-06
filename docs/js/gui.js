@@ -1134,7 +1134,7 @@ function deduce(conclusion, justification, law) {
             getElement("proof").hasCircularity = true;
         }
 
-    appendToProof( deductionString("From", justificationSentences, conclusion) + " <I>[" + name + "]</I>");
+    appendToProof( deductionString(qedStr("from"), justificationSentences, conclusion) + " <I>[" + name + "]</I>");
 
 
 
@@ -1645,7 +1645,7 @@ function makeMatches(justification) {
     if (numMatches == 0) {
         var node = document.createElement("LI");
         var span = document.createElement("SPAN");
-        span.innerHTML = "No available deductions can be formed from this selection.";
+        span.innerHTML = qedStr("noDeductions");
         node.appendChild(span);
         proof.appendChild(node);
     }
