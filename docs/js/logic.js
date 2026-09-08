@@ -831,6 +831,19 @@ function hasBoundOrUnknownFree(term,env) {
     }
 }
 
+// true when `boundTerm` (a quantifier's bound-variable term) shadows `search`.
+// Compare both the term name and the wrapped variable so free-variable terms
+// and bound-variable terms with the same printed name count as a capture.
+function termCapturesSearch(boundTerm, search) {
+    if (!boundTerm || !search) return false;
+    if (boundTerm.name == search.name) return true;
+    if (boundTerm.argList && boundTerm.argList[0] && boundTerm.argList[0].name == search.name) return true;
+    if (search.argList && search.argList[0] && boundTerm.name == search.argList[0].name) return true;
+    if (boundTerm.argList && boundTerm.argList[0] && search.argList && search.argList[0]
+        && boundTerm.argList[0].name == search.argList[0].name) return true;
+    return false;
+}
+
 // replace all occurrences of term "search" with term "replace"
 
 function searchReplace(statement, search, replace) {
@@ -839,6 +852,16 @@ function searchReplace(statement, search, replace) {
 
 
     if (statement.type == "free variable" || statement.type == "bound variable") return statement;
+
+    if (statement.type == "quantifier") {
+        // never rewrite the binder; skip the body when search is that bound variable
+        var bound = statement.argList[1];
+        var body = statement.argList[0];
+        var newBody = termCapturesSearch(bound, search) ? body : searchReplace(body, search, replace);
+        if (statement.subtype == "for all") return forAll(newBody, bound);
+        if (statement.subtype == "there exists") return thereExists(newBody, bound);
+        return;
+    }
 
     if (statement.name == search.name) return toTerm(replace);
 
@@ -859,10 +882,6 @@ function searchReplace(statement, search, replace) {
             return;
         case "connective":
             return connectiveSentence(statement.connective, newArgList);
-        case "quantifier":
-            if (statement.subtype == "for all") return forAll( newArgList[0], newArgList[1]);
-            if (statement.subtype == "there exists") return thereExists( newArgList[0], newArgList[1]);
-            return;
     }
 }
 
@@ -1188,6 +1207,20 @@ function allSearchReplace(statement, search, replace)
 {
     if (statement.type == "free variable" || statement.type == "bound variable") return [statement];
 
+    if (statement.type == "quantifier") {
+        var bound = statement.argList[1];
+        var bodies = termCapturesSearch(bound, search)
+            ? [statement.argList[0]]
+            : allSearchReplace(statement.argList[0], search, replace);
+        var listQ = [];
+        var iq;
+        for (iq = 0; iq < bodies.length; iq++) {
+            if (statement.subtype == "for all") listQ.push(forAll(bodies[iq], bound));
+            if (statement.subtype == "there exists") listQ.push(thereExists(bodies[iq], bound));
+        }
+        return listQ;
+    }
+
     var list = [];
     var newArgList = [];
     var i,j;
@@ -1262,20 +1295,6 @@ function allSearchReplace(statement, search, replace)
                     break;
         }
         break;
-        case "quantifier":
-            switch(statement.subtype) {
-                case "for all":
-                    for (i=0; i < newArgList[0].length; i++)
-                        for (j=0; j < newArgList[1].length; j++)
-                            list.push( forAll( newArgList[0][i], newArgList[1][j]));
-                    break;
-                case "there exists":
-                    for (i=0; i < newArgList[0].length; i++)
-                        for (j=0; j < newArgList[1].length; j++)
-                            list.push( thereExists( newArgList[0][i], newArgList[1][j]));
-                    break;
-            }
-            break;
     }
     return list;
 }
@@ -1510,6 +1529,10 @@ function subs(template, output)
     }
     if (template.type == "sentence in environment") {
         return sentenceContext(subsSentence(template.sentence, output), subsEnvironment(template.environment, output));
+    }
+    if (template.type == "term context") {
+        // laws with a term-context conclusion (instantiation, renaming) land here
+        return termContext(subsSentence(template.term, output));
     }
     error("Template type not recognised:" + template.type);
 }
