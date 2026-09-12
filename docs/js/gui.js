@@ -102,8 +102,17 @@ function createEditStateButton() {
 
          myprompt("Enter new state here: ", JSON.stringify(localStorage), input => {
             if (input == null) return;
+            let newState;
+            try {
+                newState = JSON.parse(input);
+                if (newState === null || typeof newState !== "object" || Array.isArray(newState)) {
+                    throw new Error("State must be a JSON object.");
+                }
+            } catch (error) {
+                alert("Invalid state. Enter a JSON object; your progress has not been changed.");
+                return;
+            }
             localStorage.clear();
-            let newState = JSON.parse(input);
             for (let i in newState) {
               window.localStorage.setItem(i, newState[i]);
             }
