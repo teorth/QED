@@ -1208,7 +1208,8 @@ function allSearchReplace(statement, search, replace)
                 case "operator evaluation":
                     switch(statement.operator.arity) {
                         case 0:
-                            list = [operatorTerm(statement.operator, [])];
+                            // Push rather than assign so a prior name-match replacement is kept.
+                            list.push(operatorTerm(statement.operator, []));
                             break;
                         case 1:
                             for (i=0; i < newArgList[0].length; i++)
