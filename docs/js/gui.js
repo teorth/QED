@@ -100,7 +100,13 @@ function createEditStateButton() {
              return;
          }
 
-         myprompt("Enter new state here: ", JSON.stringify(localStorage), input => {
+         // Storage is not a plain object; JSON.stringify(localStorage) is "{}" in browsers.
+         let state = {};
+         for (let i = 0; i < localStorage.length; i++) {
+             let key = localStorage.key(i);
+             state[key] = localStorage.getItem(key);
+         }
+         myprompt("Enter new state here: ", JSON.stringify(state), input => {
             if (input == null) return;
             localStorage.clear();
             let newState = JSON.parse(input);
