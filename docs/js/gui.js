@@ -869,7 +869,7 @@ function checkForUnlocks() {
             reveal("term-window", "<B>Terms</B> window");
 
         if (localStorage.getItem("operators window") == "unlocked" || localStorage.getItem("operators-window") == "unlocked")
-            reveal("operators-window", "<B>Predicates<B> and <B>Operators</B> windows");
+            reveal("operators-window", "<B>Predicates</B> and <B>Operators</B> windows");
         if (localStorage.getItem("bound variable button") == "unlocked" || localStorage.getItem("bound-variable-button") == "unlocked")
             reveal("bound-variable-button", "New bound variable button");
 
