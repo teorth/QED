@@ -1573,7 +1573,7 @@ function correctTarget(ev) {
     if (targ == undefined) return targ;  // nothing can be done in this case
     if (targ == null) return targ;  // nothing can be done in this case
 
-    while (targ.type != "environment" && targ.type != "sentenceBox" && targ.type != "formulaBox" && targ.type != "formula window" && targ.type != "termBox")
+    while (targ && targ.type != "environment" && targ.type != "sentenceBox" && targ.type != "formulaBox" && targ.type != "formula window" && targ.type != "termBox")
       targ = targ.parentElement;
 
     return targ;
@@ -1680,7 +1680,7 @@ function drop(ev) {
     var arg1 = getElement(ev.dataTransfer.getData("text"));
     var arg2 = correctTarget(ev);
 
-    if (arg1 == null) return;           // this can happen for instance if one drags a selection
+    if (arg1 == null || arg2 == null) return;           // this can happen for instance if one drags a selection
     if (arg1.type == undefined) return;  // this can happen for instance if one drags a selection
 
     if (arg2.type == "formula window")
