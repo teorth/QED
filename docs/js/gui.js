@@ -1701,6 +1701,10 @@ function drop(ev) {
 // use keyboard numbers for the first 9 links in deduction menu
 
 function keydown(event) {
+    // Leave editing, composition, and browser shortcuts to their own handlers.
+    if (event.defaultPrevented || event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return;
+    var target = event.target;
+    if (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))) return;
 
     if (event.key == 'u' || event.key == 'U')
         getElement("undo-button").onclick();
