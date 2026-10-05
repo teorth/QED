@@ -1184,6 +1184,18 @@ function matchBarbaraSingular(arglist, output) {
 
 // return a list of all possible ways in which appearances of "search" in sentence can be replaced with "replace"
 
+function argumentCombinations(options) {
+    var combinations = [[]];
+    options.forEach(function(choices) {
+        var next = [];
+        combinations.forEach(function(prefix) {
+            choices.forEach(function(choice) { next.push(prefix.concat([choice])); });
+        });
+        combinations = next;
+    });
+    return combinations;
+}
+
 function allSearchReplace(statement, search, replace)
 {
     if (statement.type == "free variable" || statement.type == "bound variable") return [statement];
@@ -1219,6 +1231,11 @@ function allSearchReplace(statement, search, replace)
                                 for (j=0; j < newArgList[1].length; j++)
                                     list.push( operatorTerm( statement.operator, [newArgList[0][i], newArgList[1][j]]));
                             break;
+                        default:
+                            argumentCombinations(newArgList).forEach(function(args) {
+                                list.push(operatorTerm(statement.operator, args));
+                            });
+                            break;
                     }
                     break;
             }
@@ -1241,6 +1258,11 @@ function allSearchReplace(statement, search, replace)
                             for (i=0; i < newArgList[0].length; i++)
                                 for (j=0; j < newArgList[1].length; j++)
                                     list.push( predicateSentence( statement.predicate, [newArgList[0][i], newArgList[1][j]]));
+                            break;
+                        default:
+                            argumentCombinations(newArgList).forEach(function(args) {
+                                list.push(predicateSentence(statement.predicate, args));
+                            });
                             break;
                     }
                     break;
