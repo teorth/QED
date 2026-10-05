@@ -466,14 +466,21 @@ function addPredicate(name)
     var i;
     for (i=0; i < obj.arity; i++) li.args[i] = "";
 
-    if (obj.arity == 1) {
+    if (obj.arity != 2) {
         var span = document.createElement("SPAN");
         span.innerHTML = obj.name + "(";
         li.appendChild(span);
-        var arg = document.createElement("SPAN");
-        arg.innerHTML = "&mdash;";
-        li.appendChild(arg);
-        makeArgDroppable(arg, li, 0);
+        for (i=0; i < obj.arity; i++) {
+            if (i > 0) {
+                var separator = document.createElement("SPAN");
+                separator.innerHTML = ", ";
+                li.appendChild(separator);
+            }
+            var arg = document.createElement("SPAN");
+            arg.innerHTML = "&mdash;";
+            li.appendChild(arg);
+            makeArgDroppable(arg, li, i);
+        }
         var span2 = document.createElement("SPAN");
         span2.innerHTML = ")";
         li.appendChild(span2);
