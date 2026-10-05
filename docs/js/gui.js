@@ -418,7 +418,7 @@ function argDrop(ev) {
     if (arg.type != "termBox") return;
 
     var term = arg.term;
-    var targ = ev.target;
+    var targ = ev.currentTarget;
     var li = targ.li;
     var op = li.operator;
     var i = targ.i;
