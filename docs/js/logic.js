@@ -670,6 +670,9 @@ function matchWithGivens( arglist, law, primitives ) {
         case "BarbaraSingular":
             matchBarbaraSingular(arglist, output);
             break;
+        case "24.4":
+            matchCancellation(arglist, output, law);
+            break;
         default:
             var i;
 
@@ -688,6 +691,40 @@ function matchWithGivens( arglist, law, primitives ) {
     }
 
     return output;
+}
+
+// Cancellation uses the fixed group axioms from 24.4, including the inverse axiom.
+// Only the three terms in the final equality are allowed to vary.
+function matchCancellation(arglist, output, law) {
+    var i;
+    for (i = 0; i < 3; i++) {
+        if (arglist[i].type != "sentence in environment" ||
+            arglist[i].sentence.name != law.givens[i].sentence.name) {
+            output.matches = false;
+            return;
+        }
+    }
+
+    if (arglist[3].type != "sentence in environment" ||
+        arglist[3].sentence.predicate != equality) {
+        output.matches = false;
+        return;
+    }
+
+    var products = arglist[3].sentence.argList;
+    var operator = law.givens[3].sentence.argList[0].operator;
+    for (i = 0; i < 2; i++) {
+        if (products[i].subtype != "operator evaluation" || products[i].operator != operator) {
+            output.matches = false;
+            return;
+        }
+    }
+    if (products[0].argList[0].name != products[1].argList[0].name) {
+        output.matches = false;
+        return;
+    }
+
+    output.conclusion = sentenceContext(equals(products[0].argList[1], products[1].argList[1]), output.env);
 }
 
 // match arglist against one of the two laws of universal introduction and report the conclusions in output
