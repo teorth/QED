@@ -1665,7 +1665,13 @@ function makeMatches(justification) {
 // remember the ID of the object being dragged.
 
 function drag(ev) {
-   ev.dataTransfer.setData("text", ev.target.id);
+    // The pointer is usually on the formula markup inside the box, so
+    // event.target has no id. The draggable box is currentTarget.
+    var node = ev.currentTarget || ev.target;
+    while (node && !node.id)
+        node = node.parentElement;
+    if (!node || !node.id) return;
+    ev.dataTransfer.setData("text", node.id);
  }
 
 
